@@ -22,6 +22,7 @@
 		256A27332CBD05370031F766 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27322CBD05330031F766 /* Font+Extension.swift */; };
 		256A27352CBD05580031F766 /* LoginStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27342CBD054F0031F766 /* LoginStore.swift */; };
 		256A27372CBD055D0031F766 /* MateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27362CBD055B0031F766 /* MateUser.swift */; };
+		4BA378DC2CBD6046001CA561 /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA378DB2CBD6046001CA561 /* MyProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		256A27322CBD05330031F766 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		256A27342CBD054F0031F766 /* LoginStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStore.swift; sourceTree = "<group>"; };
 		256A27362CBD055B0031F766 /* MateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateUser.swift; sourceTree = "<group>"; };
+		4BA378DB2CBD6046001CA561 /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
 		BDB029922CBCF46200A0EAF6 /* PetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -85,6 +87,7 @@
 		256A27292CBD048E0031F766 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4BA378DA2CBD6030001CA561 /* MyPageView */,
 				256A27202CBD047A0031F766 /* ContentView.swift */,
 				256A272A2CBD04930031F766 /* Common */,
 			);
@@ -139,6 +142,14 @@
 				256A27212CBD047A0031F766 /* PetMateApp.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		4BA378DA2CBD6030001CA561 /* MyPageView */ = {
+			isa = PBXGroup;
+			children = (
+				4BA378DB2CBD6046001CA561 /* MyProfileView.swift */,
+			);
+			path = MyPageView;
 			sourceTree = "<group>";
 		};
 		BDB029892CBCF46100A0EAF6 = {
@@ -241,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BA378DC2CBD6046001CA561 /* MyProfileView.swift in Sources */,
 				256A27312CBD052E0031F766 /* CustomButton.swift in Sources */,
 				256A27232CBD047A0031F766 /* ButtonModifier.swift in Sources */,
 				256A27242CBD047A0031F766 /* ContentView.swift in Sources */,
