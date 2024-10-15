@@ -6,3 +6,14 @@
 //
 
 import Foundation
+import FirebaseFirestore
+import Observation
+
+@Observable
+@MainActor
+class ChatDetailViewModel {
+    
+    let db = Firestore.firestore()
+    var chatList: [Chat] = []
+    
+}
