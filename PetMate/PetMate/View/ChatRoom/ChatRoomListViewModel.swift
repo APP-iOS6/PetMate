@@ -33,9 +33,10 @@ class ChatRoomListViewModel: ObservableObject {
         }
     }
     
+
+    
     private func observeMyChatRoom() {
         self.db.collection("Chat")
-            .order(by: "lastMessageAt", descending: false)
             .whereField("participant", arrayContains: "동경")
             .addSnapshotListener { [weak self] querySnapshot, error in
                 guard let snapshot = querySnapshot else {
@@ -98,6 +99,11 @@ class ChatRoomListViewModel: ObservableObject {
                 completion(nil)
             }
         }
+    }
+    
+    //나 말고 다른 사람의 uid 가져오는 함수
+    func getOtherUserId(participants: [String], currentUserId: String) -> String? {
+        return participants.first { $0 != currentUserId }
     }
     
 }
