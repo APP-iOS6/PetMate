@@ -25,6 +25,14 @@
 		256A27352CBD05580031F766 /* LoginStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27342CBD054F0031F766 /* LoginStore.swift */; };
 		256A27372CBD055D0031F766 /* MateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27362CBD055B0031F766 /* MateUser.swift */; };
 		256A27442CBE81350031F766 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27432CBE81350031F766 /* HomeView.swift */; };
+		256A27462CBEA3280031F766 /* HomeMainBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27452CBEA3280031F766 /* HomeMainBannerView.swift */; };
+		256A27482CBEA3A60031F766 /* HomeFindMateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27472CBEA3A60031F766 /* HomeFindMateView.swift */; };
+		256A274A2CBEA3B50031F766 /* HomeFindMateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27492CBEA3B50031F766 /* HomeFindMateButton.swift */; };
+		256A274C2CBEA5DA0031F766 /* HomeReviewScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A274B2CBEA5D90031F766 /* HomeReviewScrollView.swift */; };
+		256A274E2CBEA5EF0031F766 /* HomeReviewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A274D2CBEA5EF0031F766 /* HomeReviewCardView.swift */; };
+		256A27502CBEA8670031F766 /* HomeFindFriendsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A274F2CBEA8670031F766 /* HomeFindFriendsScrollView.swift */; };
+		256A27522CBEA8970031F766 /* HomeFindFriendCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27512CBEA8970031F766 /* HomeFindFriendCardView.swift */; };
+		256A27542CBEA9280031F766 /* HomeMyLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27532CBEA9280031F766 /* HomeMyLocationView.swift */; };
 		4B5D53072CBE2DB400FDC77A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */; };
 		BD3AF2D32CBE1DF4006BA00F /* KakaoMapsSDK_SPM in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AF2D22CBE1DF4006BA00F /* KakaoMapsSDK_SPM */; };
 		BD3AF2D62CBE1EEC006BA00F /* KakaoMapsSDK_SPM in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AF2D52CBE1EEC006BA00F /* KakaoMapsSDK_SPM */; };
@@ -54,6 +62,14 @@
 		256A27342CBD054F0031F766 /* LoginStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStore.swift; sourceTree = "<group>"; };
 		256A27362CBD055B0031F766 /* MateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateUser.swift; sourceTree = "<group>"; };
 		256A27432CBE81350031F766 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		256A27452CBEA3280031F766 /* HomeMainBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainBannerView.swift; sourceTree = "<group>"; };
+		256A27472CBEA3A60031F766 /* HomeFindMateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFindMateView.swift; sourceTree = "<group>"; };
+		256A27492CBEA3B50031F766 /* HomeFindMateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFindMateButton.swift; sourceTree = "<group>"; };
+		256A274B2CBEA5D90031F766 /* HomeReviewScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeReviewScrollView.swift; sourceTree = "<group>"; };
+		256A274D2CBEA5EF0031F766 /* HomeReviewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeReviewCardView.swift; sourceTree = "<group>"; };
+		256A274F2CBEA8670031F766 /* HomeFindFriendsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFindFriendsScrollView.swift; sourceTree = "<group>"; };
+		256A27512CBEA8970031F766 /* HomeFindFriendCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFindFriendCardView.swift; sourceTree = "<group>"; };
+		256A27532CBEA9280031F766 /* HomeMyLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMyLocationView.swift; sourceTree = "<group>"; };
 		4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		BD63D8F82CBE0B2500CDDC65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -197,6 +213,14 @@
 			isa = PBXGroup;
 			children = (
 				256A27432CBE81350031F766 /* HomeView.swift */,
+				256A27452CBEA3280031F766 /* HomeMainBannerView.swift */,
+				256A27472CBEA3A60031F766 /* HomeFindMateView.swift */,
+				256A27492CBEA3B50031F766 /* HomeFindMateButton.swift */,
+				256A274B2CBEA5D90031F766 /* HomeReviewScrollView.swift */,
+				256A274D2CBEA5EF0031F766 /* HomeReviewCardView.swift */,
+				256A274F2CBEA8670031F766 /* HomeFindFriendsScrollView.swift */,
+				256A27512CBEA8970031F766 /* HomeFindFriendCardView.swift */,
+				256A27532CBEA9280031F766 /* HomeMyLocationView.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -328,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				256A27312CBD052E0031F766 /* CustomButton.swift in Sources */,
+				256A27522CBEA8970031F766 /* HomeFindFriendCardView.swift in Sources */,
 				256A27232CBD047A0031F766 /* ButtonModifier.swift in Sources */,
 				256A27242CBD047A0031F766 /* ContentView.swift in Sources */,
 				FBB7BB552CBDF9E100E20E11 /* PlacePost.swift in Sources */,
@@ -337,12 +362,19 @@
 				256A27332CBD05370031F766 /* Font+Extension.swift in Sources */,
 				FBD6BBB22CBE3A68008BEA30 /* ChatRoomListViewModel.swift in Sources */,
 				FBB7BB532CBDF99D00E20E11 /* Review.swift in Sources */,
+				256A27462CBEA3280031F766 /* HomeMainBannerView.swift in Sources */,
+				256A27502CBEA8670031F766 /* HomeFindFriendsScrollView.swift in Sources */,
+				256A274E2CBEA5EF0031F766 /* HomeReviewCardView.swift in Sources */,
 				FBD6BBB02CBE3A5C008BEA30 /* ChatRoomListView.swift in Sources */,
 				256A27252CBD047A0031F766 /* PetMateApp.swift in Sources */,
+				256A27542CBEA9280031F766 /* HomeMyLocationView.swift in Sources */,
 				BDB029AD2CBD75FC00A0EAF6 /* PetMapView.swift in Sources */,
+				256A27482CBEA3A60031F766 /* HomeFindMateView.swift in Sources */,
 				256A27352CBD05580031F766 /* LoginStore.swift in Sources */,
 				FBD6BBAE2CBE3A28008BEA30 /* ChatRoom.swift in Sources */,
+				256A274A2CBEA3B50031F766 /* HomeFindMateButton.swift in Sources */,
 				040D5CEC2CBE632700549B47 /* PetWriteView.swift in Sources */,
+				256A274C2CBEA5DA0031F766 /* HomeReviewScrollView.swift in Sources */,
 				FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */,
 				256A27372CBD055D0031F766 /* MateUser.swift in Sources */,
 				256A27442CBE81350031F766 /* HomeView.swift in Sources */,
