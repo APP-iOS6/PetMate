@@ -1,0 +1,10 @@
+//
+//  Config.xcconfig
+//  PetMate
+//
+//  Created by 김정원 on 10/15/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+KAKAO_APP_KEY = a61b0c14cc3c0cad7456c8e88bbfe0ee
