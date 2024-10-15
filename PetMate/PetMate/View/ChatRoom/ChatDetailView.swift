@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct ChatDetailView: View {
+    
+    let chatRoomId: String
+    
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    ChatDetailView()
+    ChatDetailView(chatRoomId: "동경_정원")
 }
