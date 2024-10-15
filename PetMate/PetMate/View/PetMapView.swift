@@ -6,10 +6,17 @@
 //
 
 import SwiftUI
+import KakaoMapsSDK
 
 struct PetMapView: View {
+    @State var draw: Bool = true
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        KakaoMapView(draw: $draw).onAppear(perform: {
+            self.draw = true
+        }).onDisappear(perform: {
+            self.draw = false
+        }).frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
