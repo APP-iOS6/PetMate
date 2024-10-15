@@ -11,6 +11,7 @@
 		23499B192CBD120F009FD900 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B182CBD120F009FD900 /* GoogleSignInSwift */; };
 		23499B1C2CBD1239009FD900 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B1B2CBD1239009FD900 /* KakaoSDKAuth */; };
 		234FF4952CBDFE5600CEB88E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234FF4942CBDFE5600CEB88E /* LoginView.swift */; };
+		234FF4BF2CBE036400CEB88E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 234FF4BE2CBE036400CEB88E /* GoogleService-Info.plist */; };
 		238A2EEA2CBD0E200058D7CC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EE92CBD0E200058D7CC /* FirebaseAuth */; };
 		238A2EEC2CBD0E200058D7CC /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EEB2CBD0E200058D7CC /* FirebaseCore */; };
 		238A2EEE2CBD0E200058D7CC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EED2CBD0E200058D7CC /* FirebaseFirestore */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		234FF4942CBDFE5600CEB88E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		234FF4BE2CBE036400CEB88E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		256A271E2CBD047A0031F766 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		256A271F2CBD047A0031F766 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
 		256A27202CBD047A0031F766 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		BDB029892CBCF46100A0EAF6 = {
 			isa = PBXGroup;
 			children = (
+				234FF4BE2CBE036400CEB88E /* GoogleService-Info.plist */,
 				256A27222CBD047A0031F766 /* PetMate */,
 				BDB029932CBCF46200A0EAF6 /* Products */,
 			);
@@ -253,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				256A27262CBD047A0031F766 /* Assets.xcassets in Resources */,
+				234FF4BF2CBE036400CEB88E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
