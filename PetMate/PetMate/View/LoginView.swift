@@ -68,6 +68,7 @@ struct LoginView: View {
                     .frame(maxWidth: .infinity)
                     .padding()
                     .underline(true, color: .gray)
+                    .font(.system(size: 14))
                     .foregroundColor(.gray)
             }
         }
@@ -75,6 +76,7 @@ struct LoginView: View {
         .onChange(of: loginStore.isLoggedIn) { oldValue, newValue in
             isLoggedIn = newValue
         }
+
     }
 }
 

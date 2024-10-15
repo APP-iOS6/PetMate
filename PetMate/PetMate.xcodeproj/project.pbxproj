@@ -151,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				256A271E2CBD047A0031F766 /* Assets.xcassets */,
+				234FF4BE2CBE036400CEB88E /* GoogleService-Info.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -167,7 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				234FF4C32CBE2A8600CEB88E /* Info.plist */,
-				234FF4BE2CBE036400CEB88E /* GoogleService-Info.plist */,
 				256A27222CBD047A0031F766 /* PetMate */,
 				BDB029932CBCF46200A0EAF6 /* Products */,
 			);
