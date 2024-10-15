@@ -7,19 +7,31 @@
 
 import SwiftUI
 import KakaoMapsSDK
+import MapKit
 
 struct PetMapView: View {
-    @State var draw: Bool = true
 
+    @Environment(PetFriendlyPlacesStore.self) private var placeStore
+    
     var body: some View {
-        KakaoMapView(draw: $draw).onAppear(perform: {
-            self.draw = true
-        }).onDisappear(perform: {
-            self.draw = false
-        }).frame(maxWidth: .infinity, maxHeight: .infinity)
+        Map {
+            ForEach(placeStore.places) { place in
+                Annotation("\(place.title)", coordinate: placeStore.convertGeoPointToCoordinate(geoPoint: place.location)) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 5)
+                            .fill(Color.yellow)
+                        Text("☕️")
+                            .padding(5)
+                    }
+                }
+            }
+            
+        }
     }
+    
 }
 
 #Preview {
     PetMapView()
+        .environment(PetFriendlyPlacesStore())
 }
