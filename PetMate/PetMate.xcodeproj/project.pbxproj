@@ -27,15 +27,6 @@
 		256A27332CBD05370031F766 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27322CBD05330031F766 /* Font+Extension.swift */; };
 		256A27352CBD05580031F766 /* LoginStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27342CBD054F0031F766 /* LoginStore.swift */; };
 		256A27372CBD055D0031F766 /* MateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27362CBD055B0031F766 /* MateUser.swift */; };
-		256A27442CBE81350031F766 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27432CBE81350031F766 /* HomeView.swift */; };
-		256A27462CBEA3280031F766 /* HomeMainBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27452CBEA3280031F766 /* HomeMainBannerView.swift */; };
-		256A27482CBEA3A60031F766 /* HomeFindMateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27472CBEA3A60031F766 /* HomeFindMateView.swift */; };
-		256A274A2CBEA3B50031F766 /* HomeFindMateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27492CBEA3B50031F766 /* HomeFindMateButton.swift */; };
-		256A274C2CBEA5DA0031F766 /* HomeReviewScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A274B2CBEA5D90031F766 /* HomeReviewScrollView.swift */; };
-		256A274E2CBEA5EF0031F766 /* HomeReviewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A274D2CBEA5EF0031F766 /* HomeReviewCardView.swift */; };
-		256A27502CBEA8670031F766 /* HomeFindFriendsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A274F2CBEA8670031F766 /* HomeFindFriendsScrollView.swift */; };
-		256A27522CBEA8970031F766 /* HomeFindFriendCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27512CBEA8970031F766 /* HomeFindFriendCardView.swift */; };
-		256A27542CBEA9280031F766 /* HomeMyLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27532CBEA9280031F766 /* HomeMyLocationView.swift */; };
 		4B5D53072CBE2DB400FDC77A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */; };
 		BD3AF2DC2CBE4589006BA00F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD3AF2DB2CBE4589006BA00F /* GoogleService-Info.plist */; };
 		BD3AF2DE2CBE5DEA006BA00F /* PetPlaceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF2DD2CBE5DEA006BA00F /* PetPlaceStore.swift */; };
@@ -72,15 +63,6 @@
 		256A27322CBD05330031F766 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		256A27342CBD054F0031F766 /* LoginStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStore.swift; sourceTree = "<group>"; };
 		256A27362CBD055B0031F766 /* MateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateUser.swift; sourceTree = "<group>"; };
-		256A27432CBE81350031F766 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		256A27452CBEA3280031F766 /* HomeMainBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainBannerView.swift; sourceTree = "<group>"; };
-		256A27472CBEA3A60031F766 /* HomeFindMateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFindMateView.swift; sourceTree = "<group>"; };
-		256A27492CBEA3B50031F766 /* HomeFindMateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFindMateButton.swift; sourceTree = "<group>"; };
-		256A274B2CBEA5D90031F766 /* HomeReviewScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeReviewScrollView.swift; sourceTree = "<group>"; };
-		256A274D2CBEA5EF0031F766 /* HomeReviewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeReviewCardView.swift; sourceTree = "<group>"; };
-		256A274F2CBEA8670031F766 /* HomeFindFriendsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFindFriendsScrollView.swift; sourceTree = "<group>"; };
-		256A27512CBEA8970031F766 /* HomeFindFriendCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFindFriendCardView.swift; sourceTree = "<group>"; };
-		256A27532CBEA9280031F766 /* HomeMyLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMyLocationView.swift; sourceTree = "<group>"; };
 		4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		BD3AF2DB2CBE4589006BA00F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BD3AF2DD2CBE5DEA006BA00F /* PetPlaceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPlaceStore.swift; sourceTree = "<group>"; };
@@ -171,7 +153,6 @@
 		256A27292CBD048E0031F766 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				256A27422CBE80FB0031F766 /* HomeView */,
 				BD59FEF42CBED14400F8CF7B /* PetPlace */,
 				FBD6BBAC2CBE3A1B008BEA30 /* ChatRoom */,
 				252A12962CBED8AC00EDD297 /* Calandar */,
@@ -235,22 +216,6 @@
 				256A27212CBD047A0031F766 /* PetMateApp.swift */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		256A27422CBE80FB0031F766 /* HomeView */ = {
-			isa = PBXGroup;
-			children = (
-				256A27432CBE81350031F766 /* HomeView.swift */,
-				256A27452CBEA3280031F766 /* HomeMainBannerView.swift */,
-				256A27472CBEA3A60031F766 /* HomeFindMateView.swift */,
-				256A27492CBEA3B50031F766 /* HomeFindMateButton.swift */,
-				256A274B2CBEA5D90031F766 /* HomeReviewScrollView.swift */,
-				256A274D2CBEA5EF0031F766 /* HomeReviewCardView.swift */,
-				256A274F2CBEA8670031F766 /* HomeFindFriendsScrollView.swift */,
-				256A27512CBEA8970031F766 /* HomeFindFriendCardView.swift */,
-				256A27532CBEA9280031F766 /* HomeMyLocationView.swift */,
-			);
-			path = HomeView;
 			sourceTree = "<group>";
 		};
 		4B5D53052CBE2D9600FDC77A /* MyPageView */ = {
@@ -398,7 +363,6 @@
 			files = (
 				4B5D53812CBE627500FDC77A /* TagUI.swift in Sources */,
 				256A27312CBD052E0031F766 /* CustomButton.swift in Sources */,
-				256A27522CBEA8970031F766 /* HomeFindFriendCardView.swift in Sources */,
 				256A27232CBD047A0031F766 /* ButtonModifier.swift in Sources */,
 				256A27242CBD047A0031F766 /* ContentView.swift in Sources */,
 				4B5D53092CBE39FB00FDC77A /* ImagePicker.swift in Sources */,
@@ -412,24 +376,16 @@
 				256A27332CBD05370031F766 /* Font+Extension.swift in Sources */,
 				FBD6BBB22CBE3A68008BEA30 /* ChatRoomListViewModel.swift in Sources */,
 				FBB7BB532CBDF99D00E20E11 /* Review.swift in Sources */,
-				256A27462CBEA3280031F766 /* HomeMainBannerView.swift in Sources */,
-				256A27502CBEA8670031F766 /* HomeFindFriendsScrollView.swift in Sources */,
-				256A274E2CBEA5EF0031F766 /* HomeReviewCardView.swift in Sources */,
 				FBD6BBB02CBE3A5C008BEA30 /* ChatRoomListView.swift in Sources */,
 				BD3AF2DE2CBE5DEA006BA00F /* PetPlaceStore.swift in Sources */,
 				256A27252CBD047A0031F766 /* PetMateApp.swift in Sources */,
-				256A27542CBEA9280031F766 /* HomeMyLocationView.swift in Sources */,
 				BDB029AD2CBD75FC00A0EAF6 /* PetMapView.swift in Sources */,
-				256A27482CBEA3A60031F766 /* HomeFindMateView.swift in Sources */,
 				BD59FEF62CBED16600F8CF7B /* AddPlaceView.swift in Sources */,
 				256A27352CBD05580031F766 /* LoginStore.swift in Sources */,
 				FBD6BBAE2CBE3A28008BEA30 /* ChatRoom.swift in Sources */,
-				256A274A2CBEA3B50031F766 /* HomeFindMateButton.swift in Sources */,
 				040D5CEC2CBE632700549B47 /* PetWriteView.swift in Sources */,
-				256A274C2CBEA5DA0031F766 /* HomeReviewScrollView.swift in Sources */,
 				FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */,
 				256A27372CBD055D0031F766 /* MateUser.swift in Sources */,
-				256A27442CBE81350031F766 /* HomeView.swift in Sources */,
 				4B5D530F2CBE3BAC00FDC77A /* PetProfileEditView.swift in Sources */,
 				4B5D530D2CBE3B8E00FDC77A /* PetProfileView.swift in Sources */,
 				4B6FF8812CBE888C009F4206 /* MyPageTabView.swift in Sources */,
