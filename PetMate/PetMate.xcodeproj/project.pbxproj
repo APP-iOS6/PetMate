@@ -22,6 +22,12 @@
 		256A27332CBD05370031F766 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27322CBD05330031F766 /* Font+Extension.swift */; };
 		256A27352CBD05580031F766 /* LoginStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27342CBD054F0031F766 /* LoginStore.swift */; };
 		256A27372CBD055D0031F766 /* MateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27362CBD055B0031F766 /* MateUser.swift */; };
+		FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */; };
+		FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB502CBDF94400E20E11 /* Pet.swift */; };
+		FBB7BB532CBDF99D00E20E11 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB522CBDF99D00E20E11 /* Review.swift */; };
+		FBB7BB552CBDF9E100E20E11 /* PlacePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB542CBDF9E100E20E11 /* PlacePost.swift */; };
+		FBB7BB582CBDFAA200E20E11 /* GeoFire in Frameworks */ = {isa = PBXBuildFile; productRef = FBB7BB572CBDFAA200E20E11 /* GeoFire */; };
+		FBB7BB5A2CBDFAA200E20E11 /* GeoFireUtils in Frameworks */ = {isa = PBXBuildFile; productRef = FBB7BB592CBDFAA200E20E11 /* GeoFireUtils */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +40,10 @@
 		256A27342CBD054F0031F766 /* LoginStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStore.swift; sourceTree = "<group>"; };
 		256A27362CBD055B0031F766 /* MateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateUser.swift; sourceTree = "<group>"; };
 		BDB029922CBCF46200A0EAF6 /* PetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePost.swift; sourceTree = "<group>"; };
+		FBB7BB502CBDF94400E20E11 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		FBB7BB522CBDF99D00E20E11 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		FBB7BB542CBDF9E100E20E11 /* PlacePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePost.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBB7BB582CBDFAA200E20E11 /* GeoFire in Frameworks */,
+				FBB7BB5A2CBDFAA200E20E11 /* GeoFireUtils in Frameworks */,
 				23499B1C2CBD1239009FD900 /* KakaoSDKAuth in Frameworks */,
 				23499B172CBD120F009FD900 /* GoogleSignIn in Frameworks */,
 				238A2EEC2CBD0E200058D7CC /* FirebaseCore in Frameworks */,
@@ -70,6 +82,10 @@
 			isa = PBXGroup;
 			children = (
 				256A27362CBD055B0031F766 /* MateUser.swift */,
+				FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */,
+				FBB7BB502CBDF94400E20E11 /* Pet.swift */,
+				FBB7BB522CBDF99D00E20E11 /* Review.swift */,
+				FBB7BB542CBDF9E100E20E11 /* PlacePost.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -181,6 +197,8 @@
 				23499B162CBD120F009FD900 /* GoogleSignIn */,
 				23499B182CBD120F009FD900 /* GoogleSignInSwift */,
 				23499B1B2CBD1239009FD900 /* KakaoSDKAuth */,
+				FBB7BB572CBDFAA200E20E11 /* GeoFire */,
+				FBB7BB592CBDFAA200E20E11 /* GeoFireUtils */,
 			);
 			productName = PetMate;
 			productReference = BDB029922CBCF46200A0EAF6 /* PetMate.app */;
@@ -214,6 +232,7 @@
 				238A2EE82CBD0E200058D7CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				23499B152CBD120F009FD900 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				23499B1A2CBD1239009FD900 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				FBB7BB562CBDFAA200E20E11 /* XCRemoteSwiftPackageReference "geofire-objc" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = BDB029932CBCF46200A0EAF6 /* Products */;
@@ -244,9 +263,13 @@
 				256A27312CBD052E0031F766 /* CustomButton.swift in Sources */,
 				256A27232CBD047A0031F766 /* ButtonModifier.swift in Sources */,
 				256A27242CBD047A0031F766 /* ContentView.swift in Sources */,
+				FBB7BB552CBDF9E100E20E11 /* PlacePost.swift in Sources */,
+				FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */,
 				256A27332CBD05370031F766 /* Font+Extension.swift in Sources */,
+				FBB7BB532CBDF99D00E20E11 /* Review.swift in Sources */,
 				256A27252CBD047A0031F766 /* PetMateApp.swift in Sources */,
 				256A27352CBD05580031F766 /* LoginStore.swift in Sources */,
+				FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */,
 				256A27372CBD055D0031F766 /* MateUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +504,14 @@
 				minimumVersion = 11.3.0;
 			};
 		};
+		FBB7BB562CBDFAA200E20E11 /* XCRemoteSwiftPackageReference "geofire-objc" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/geofire-objc";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -518,6 +549,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 238A2EE82CBD0E200058D7CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		FBB7BB572CBDFAA200E20E11 /* GeoFire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FBB7BB562CBDFAA200E20E11 /* XCRemoteSwiftPackageReference "geofire-objc" */;
+			productName = GeoFire;
+		};
+		FBB7BB592CBDFAA200E20E11 /* GeoFireUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FBB7BB562CBDFAA200E20E11 /* XCRemoteSwiftPackageReference "geofire-objc" */;
+			productName = GeoFireUtils;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
