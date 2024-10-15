@@ -10,7 +10,7 @@ import FirebaseFirestore
 
 struct PlacePost: Codable, Identifiable {
     @DocumentID var id: String? //문서 id
-    var writeUser: DocumentReference //작성자의 정보를 알기위한 유저 레퍼런스
+    var writeUser: String //작성자의 정보를 알기위한 유저 레퍼런스
     var title: String
     var content: String
     var location: GeoPoint

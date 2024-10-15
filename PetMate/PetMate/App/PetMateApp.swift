@@ -7,16 +7,12 @@
 
 import SwiftUI
 import FirebaseCore
-import KakaoMapsSDK
 
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-      let kakaoKey = Bundle.main.object(forInfoDictionaryKey: "KAKAO_APP_KEY") as! String
 
       FirebaseApp.configure()
-      SDKInitializer.InitSDK(appKey: kakaoKey)
-      print("KakaoMap SDK 초기화 완료")
 
     return true
   }
@@ -30,7 +26,9 @@ struct PetMateApp: App {
   var body: some Scene {
     WindowGroup {
       NavigationView {
-        ContentView()
+        //ContentView()
+          PetMapView()
+              .environment(PetPlacesStore())
       }
     }
   }
