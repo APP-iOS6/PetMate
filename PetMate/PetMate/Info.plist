@@ -2,6 +2,48 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>com.googleusercontent.apps.149104273175-pshffbqea3if3ag67g6s5bpf8calodo6</string>
+            </array>
+        </dict>
+    </array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>google</string>
+    </array>
+    <key>UIApplicationSceneManifest</key>
+    <dict>
+        <key>UIApplicationSupportsMultipleScenes</key>
+        <false/>
+    </dict>
+    <key>UILaunchScreen</key>
+    <dict/>
+    
+
+    <key>GIDClientID</key>
+    <string>149104273175-pshffbqea3if3ag67g6s5bpf8calodo6.apps.googleusercontent.com</string>
+    
+    <key>CFBundleName</key>
+    <string>PetMate</string>
+    
+    <key>CFBundleShortVersionString</key>
+    <string>1.0</string>
+    
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    
+
+    <key>NSCameraUsageDescription</key>
+    <string>이 앱은 프로필 사진 촬영을 위해 카메라에 접근합니다.</string>
+    
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>이 앱은 주변 서비스 검색을 위해 위치 정보에 접근합니다.</string>
 	<key>KAKAO_APP_KEY</key>
 	<string>$(KAKAO_APP_KEY)</string>
 </dict>
