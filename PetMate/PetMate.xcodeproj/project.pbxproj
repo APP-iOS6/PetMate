@@ -28,6 +28,7 @@
 		FBB7BB552CBDF9E100E20E11 /* PlacePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB542CBDF9E100E20E11 /* PlacePost.swift */; };
 		FBB7BB582CBDFAA200E20E11 /* GeoFire in Frameworks */ = {isa = PBXBuildFile; productRef = FBB7BB572CBDFAA200E20E11 /* GeoFire */; };
 		FBB7BB5A2CBDFAA200E20E11 /* GeoFireUtils in Frameworks */ = {isa = PBXBuildFile; productRef = FBB7BB592CBDFAA200E20E11 /* GeoFireUtils */; };
+		BDB029AD2CBD75FC00A0EAF6 /* PetMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		FBB7BB502CBDF94400E20E11 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		FBB7BB522CBDF99D00E20E11 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		FBB7BB542CBDF9E100E20E11 /* PlacePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePost.swift; sourceTree = "<group>"; };
+		BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetMapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				256A27202CBD047A0031F766 /* ContentView.swift */,
+				BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */,
 				256A272A2CBD04930031F766 /* Common */,
 			);
 			path = View;
@@ -268,6 +271,7 @@
 				256A27332CBD05370031F766 /* Font+Extension.swift in Sources */,
 				FBB7BB532CBDF99D00E20E11 /* Review.swift in Sources */,
 				256A27252CBD047A0031F766 /* PetMateApp.swift in Sources */,
+				BDB029AD2CBD75FC00A0EAF6 /* PetMapView.swift in Sources */,
 				256A27352CBD05580031F766 /* LoginStore.swift in Sources */,
 				FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */,
 				256A27372CBD055D0031F766 /* MateUser.swift in Sources */,
@@ -329,7 +333,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -386,7 +390,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
