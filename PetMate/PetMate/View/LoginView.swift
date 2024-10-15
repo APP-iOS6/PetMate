@@ -10,7 +10,7 @@ import GoogleSignInSwift
 
 struct LoginView: View {
     @Environment(AuthManager.self) var authManager
-    @StateObject private var loginViewModel = LoginViewModel()
+    @State var loginViewModel = LoginViewModel()
     @Binding var isShowingUserProfileInput: Bool
     
     var body: some View {
@@ -47,7 +47,6 @@ struct LoginView: View {
                     .frame(width: 300, height: 60)
             }
 
-            // 둘러보기 버튼
             Button(action: {
                 print("둘러보기 버튼 눌림")
                 authManager.authState = .auth

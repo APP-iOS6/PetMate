@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserProfileInputView: View {
-    @StateObject private var userProfileViewModel = UserProfileViewModel()
+    @State var userProfileViewModel = UserProfileViewModel()
     @Binding var isShowingUserProfileInput: Bool
     
     var body: some View {
@@ -28,7 +28,7 @@ struct UserProfileInputView: View {
             Button(action: {
                 userProfileViewModel.updateUserProfile { success in
                     if success {
-                        isShowingUserProfileInput = false  // 프로필 저장 후 홈 화면으로 이동
+                        isShowingUserProfileInput = false
                     }
                 }
             }) {

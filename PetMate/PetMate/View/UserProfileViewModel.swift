@@ -8,9 +8,11 @@
 import SwiftUI
 import FirebaseFirestore
 import FirebaseAuth
+import Observation
 
-final class UserProfileViewModel: ObservableObject {
-    @Published var mateUser: MateUser = MateUser(
+@Observable
+final class UserProfileViewModel {
+    var mateUser: MateUser = MateUser(
         id: nil,
         name: "",
         image: "",

@@ -8,10 +8,12 @@
 import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
+import Observation
 
-final class LoginViewModel: ObservableObject {
-    @Published var isLoggedIn = false
-    @Published var currentUser: User?
+@Observable
+final class LoginViewModel {
+    var isLoggedIn = false
+    var currentUser: User?
     
     let loginStore = LoginStore()
     
