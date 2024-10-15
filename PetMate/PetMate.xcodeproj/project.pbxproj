@@ -26,6 +26,7 @@
 		4B5D53092CBE39FB00FDC77A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53082CBE39FB00FDC77A /* ImagePicker.swift */; };
 		4B5D530D2CBE3B8E00FDC77A /* PetProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */; };
 		4B5D530F2CBE3BAC00FDC77A /* PetProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D530E2CBE3BAC00FDC77A /* PetProfileEditView.swift */; };
+		4B5D53812CBE627500FDC77A /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53802CBE627500FDC77A /* TagView.swift */; };
 		BD3AF2D32CBE1DF4006BA00F /* KakaoMapsSDK_SPM in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AF2D22CBE1DF4006BA00F /* KakaoMapsSDK_SPM */; };
 		BD3AF2D62CBE1EEC006BA00F /* KakaoMapsSDK_SPM in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AF2D52CBE1EEC006BA00F /* KakaoMapsSDK_SPM */; };
 		BDB029AD2CBD75FC00A0EAF6 /* PetMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */; };
@@ -50,6 +51,7 @@
 		4B5D53082CBE39FB00FDC77A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileView.swift; sourceTree = "<group>"; };
 		4B5D530E2CBE3BAC00FDC77A /* PetProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileEditView.swift; sourceTree = "<group>"; };
+		4B5D53802CBE627500FDC77A /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		BD63D8F82CBE0B2500CDDC65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BDB029922CBCF46200A0EAF6 /* PetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +185,7 @@
 				4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */,
 				4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */,
 				4B5D530E2CBE3BAC00FDC77A /* PetProfileEditView.swift */,
+				4B5D53802CBE627500FDC77A /* TagView.swift */,
 			);
 			path = MyPageView;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B5D53812CBE627500FDC77A /* TagView.swift in Sources */,
 				256A27312CBD052E0031F766 /* CustomButton.swift in Sources */,
 				256A27232CBD047A0031F766 /* ButtonModifier.swift in Sources */,
 				256A27242CBD047A0031F766 /* ContentView.swift in Sources */,

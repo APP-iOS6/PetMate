@@ -87,21 +87,6 @@ struct PetProfileView: View {
     }
 }
 
-// 태그
-struct TagView: View {
-    let text: String
-    
-    var body: some View {
-        Text(text)
-            .font(.system(size: 12))
-            .padding(.horizontal, 10)
-            .padding(.vertical, 5)
-            .background(Color(.systemGray6))
-            .foregroundStyle(Color(UIColor.systemBrown))
-            .cornerRadius(12)
-    }
-}
-
 struct PetProfileView_Previews: PreviewProvider {
     static var previews: some View {
         let user = MateUser(name: "김정원", image: "", matchCount: 5, location: "구월3동", createdAt: Date())
