@@ -8,19 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @Environment(AuthManager.self) var authManager // AuthManager를 환경에서 가져옴
-    
+    @Environment(AuthManager.self) var authManager
+    @State private var isShowingUserProfileInput = false
+
     var body: some View {
-        switch authManager.authState {
-        case .splash:
-            Text("로딩 중...") // 스플래시 화면
-        case .unAuth:
-            LoginView(isLoggedIn: .constant(false)) // 로그인 화면
-        case .auth:
-            Text("홈화면 입니다...") // 로그인 성공 시 메인 화면
-        case .signUp:
-            Text("회원가입화면 입니다...") // 회원가입 화면
+        NavigationStack {
+            VStack {
+                switch authManager.authState {
+                case .splash:
+                    Text("로딩 중...")
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                                authManager.checkAuthState()
+                            }
+                        }
+                        
+                case .unAuth:
+                    LoginView(isShowingUserProfileInput: $isShowingUserProfileInput)
+                
+                case .auth, .signUp:
+                    if isShowingUserProfileInput {
+                        UserProfileInputView(isShowingUserProfileInput: $isShowingUserProfileInput)
+                    } else {
+                        Text("홈화면입니다...")
+                    }
+                }
+            }
         }
     }
 }
