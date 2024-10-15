@@ -27,6 +27,7 @@
 		4B5D530D2CBE3B8E00FDC77A /* PetProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */; };
 		4B5D530F2CBE3BAC00FDC77A /* PetProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D530E2CBE3BAC00FDC77A /* PetProfileEditView.swift */; };
 		4B5D53812CBE627500FDC77A /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53802CBE627500FDC77A /* TagView.swift */; };
+		4B5D53832CBE63A500FDC77A /* TagFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53822CBE63A400FDC77A /* TagFlowLayout.swift */; };
 		BD3AF2D32CBE1DF4006BA00F /* KakaoMapsSDK_SPM in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AF2D22CBE1DF4006BA00F /* KakaoMapsSDK_SPM */; };
 		BD3AF2D62CBE1EEC006BA00F /* KakaoMapsSDK_SPM in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AF2D52CBE1EEC006BA00F /* KakaoMapsSDK_SPM */; };
 		BDB029AD2CBD75FC00A0EAF6 /* PetMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */; };
@@ -52,6 +53,7 @@
 		4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileView.swift; sourceTree = "<group>"; };
 		4B5D530E2CBE3BAC00FDC77A /* PetProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileEditView.swift; sourceTree = "<group>"; };
 		4B5D53802CBE627500FDC77A /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		4B5D53822CBE63A400FDC77A /* TagFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagFlowLayout.swift; sourceTree = "<group>"; };
 		BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		BD63D8F82CBE0B2500CDDC65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BDB029922CBCF46200A0EAF6 /* PetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,13 +183,22 @@
 		4B5D53052CBE2D9600FDC77A /* MyPageView */ = {
 			isa = PBXGroup;
 			children = (
-				4B5D53082CBE39FB00FDC77A /* ImagePicker.swift */,
+				4B5D53842CBE63F700FDC77A /* CommonStruct */,
 				4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */,
 				4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */,
 				4B5D530E2CBE3BAC00FDC77A /* PetProfileEditView.swift */,
-				4B5D53802CBE627500FDC77A /* TagView.swift */,
 			);
 			path = MyPageView;
+			sourceTree = "<group>";
+		};
+		4B5D53842CBE63F700FDC77A /* CommonStruct */ = {
+			isa = PBXGroup;
+			children = (
+				4B5D53082CBE39FB00FDC77A /* ImagePicker.swift */,
+				4B5D53802CBE627500FDC77A /* TagView.swift */,
+				4B5D53822CBE63A400FDC77A /* TagFlowLayout.swift */,
+			);
+			path = CommonStruct;
 			sourceTree = "<group>";
 		};
 		BDB029892CBCF46100A0EAF6 = {
@@ -305,6 +316,7 @@
 				FBB7BB552CBDF9E100E20E11 /* PlacePost.swift in Sources */,
 				FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */,
 				4B5D53072CBE2DB400FDC77A /* UserProfileView.swift in Sources */,
+				4B5D53832CBE63A500FDC77A /* TagFlowLayout.swift in Sources */,
 				256A27332CBD05370031F766 /* Font+Extension.swift in Sources */,
 				FBB7BB532CBDF99D00E20E11 /* Review.swift in Sources */,
 				256A27252CBD047A0031F766 /* PetMateApp.swift in Sources */,
