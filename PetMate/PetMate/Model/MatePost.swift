@@ -21,4 +21,28 @@ struct MatePost: Codable {
     var postState: String   //글 예약 상태
     var createdAt: Date   //생성일
     var updatedAt: Date   //업데이트 일
+    
+    // MARK: - 캘린더에 날짜와 시간을 넣기 위해 Date값을 단위별로 나눠서 튜플로 반환하는 연산프로퍼티
+    var startDateElements: (year: Int, month: Int, day: Int, hour: Int, minute: Int)? {
+        let components = startDate.get(.day, .month, .year, .hour, .minute)
+        if let year = components.year,
+           let day = components.day,
+           let month = components.month,
+           let hour = components.hour,
+           let minute = components.minute {
+            return (year, month, day, hour, minute)
+        }
+        return nil
+    }
+    var endDateElements: (year: Int, month: Int, day: Int, hour: Int, minute: Int)? {
+        let components = endDate.get(.day, .month, .year, .hour, .minute)
+        if let year = components.year,
+           let day = components.day,
+           let month = components.month,
+           let hour = components.hour,
+           let minute = components.minute {
+            return (year, month, day, hour, minute)
+        }
+        return nil
+    }
 }

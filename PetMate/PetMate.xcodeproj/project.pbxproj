@@ -16,6 +16,9 @@
 		238A2EEC2CBD0E200058D7CC /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EEB2CBD0E200058D7CC /* FirebaseCore */; };
 		238A2EEE2CBD0E200058D7CC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EED2CBD0E200058D7CC /* FirebaseFirestore */; };
 		238A2EF02CBD0E200058D7CC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EEF2CBD0E200058D7CC /* FirebaseStorage */; };
+		252A12972CBED8AD00EDD297 /* CalandarTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A12942CBED8AC00EDD297 /* CalandarTestView.swift */; };
+		252A12982CBED8AD00EDD297 /* CalandarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A12952CBED8AC00EDD297 /* CalandarView.swift */; };
+		252A129A2CBED90700EDD297 /* Date+GetElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A12992CBED90700EDD297 /* Date+GetElement.swift */; };
 		256A27232CBD047A0031F766 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A271F2CBD047A0031F766 /* ButtonModifier.swift */; };
 		256A27242CBD047A0031F766 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27202CBD047A0031F766 /* ContentView.swift */; };
 		256A27252CBD047A0031F766 /* PetMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27212CBD047A0031F766 /* PetMateApp.swift */; };
@@ -49,6 +52,9 @@
 /* Begin PBXFileReference section */
 		040D5CE92CBE631F00549B47 /* districts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = districts.json; sourceTree = "<group>"; };
 		040D5CEB2CBE632700549B47 /* PetWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetWriteView.swift; sourceTree = "<group>"; };
+		252A12942CBED8AC00EDD297 /* CalandarTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalandarTestView.swift; sourceTree = "<group>"; };
+		252A12952CBED8AC00EDD297 /* CalandarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalandarView.swift; sourceTree = "<group>"; };
+		252A12992CBED90700EDD297 /* Date+GetElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+GetElement.swift"; sourceTree = "<group>"; };
 		256A271E2CBD047A0031F766 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		256A271F2CBD047A0031F766 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
 		256A27202CBD047A0031F766 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +106,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		252A12962CBED8AC00EDD297 /* Calandar */ = {
+			isa = PBXGroup;
+			children = (
+				252A12942CBED8AC00EDD297 /* CalandarTestView.swift */,
+				252A12952CBED8AC00EDD297 /* CalandarView.swift */,
+			);
+			path = Calandar;
+			sourceTree = "<group>";
+		};
 		256A27222CBD047A0031F766 /* PetMate */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				FBD6BBAC2CBE3A1B008BEA30 /* ChatRoom */,
+				252A12962CBED8AC00EDD297 /* Calandar */,
 				4B5D53052CBE2D9600FDC77A /* MyPageView */,
 				256A27202CBD047A0031F766 /* ContentView.swift */,
 				BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */,
@@ -163,6 +179,7 @@
 			children = (
 				256A27322CBD05330031F766 /* Font+Extension.swift */,
 				FBD6BBB62CBE49EA008BEA30 /* Date+Extension.swift */,
+				252A12992CBED90700EDD297 /* Date+GetElement.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -346,7 +363,10 @@
 				4B5D53092CBE39FB00FDC77A /* ImagePicker.swift in Sources */,
 				FBB7BB552CBDF9E100E20E11 /* PlacePost.swift in Sources */,
 				FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */,
+				252A12972CBED8AD00EDD297 /* CalandarTestView.swift in Sources */,
+				252A12982CBED8AD00EDD297 /* CalandarView.swift in Sources */,
 				FBD6BBB72CBE49EA008BEA30 /* Date+Extension.swift in Sources */,
+				252A129A2CBED90700EDD297 /* Date+GetElement.swift in Sources */,
 				4B5D53072CBE2DB400FDC77A /* UserProfileView.swift in Sources */,
 				256A27332CBD05370031F766 /* Font+Extension.swift in Sources */,
 				FBD6BBB22CBE3A68008BEA30 /* ChatRoomListViewModel.swift in Sources */,
