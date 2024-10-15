@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0481293E2CBE2BCC003632CD /* PetWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481293D2CBE2BC3003632CD /* PetWriteView.swift */; };
+		048129492CBE3953003632CD /* CoreXLSX in Frameworks */ = {isa = PBXBuildFile; productRef = 048129482CBE3953003632CD /* CoreXLSX */; };
+		048129502CBE457F003632CD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0481294F2CBE457F003632CD /* GoogleService-Info.plist */; };
+		048129522CBE4C16003632CD /* districts.json in Resources */ = {isa = PBXBuildFile; fileRef = 048129512CBE4BEA003632CD /* districts.json */; };
 		23499B172CBD120F009FD900 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B162CBD120F009FD900 /* GoogleSignIn */; };
 		23499B192CBD120F009FD900 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B182CBD120F009FD900 /* GoogleSignInSwift */; };
 		23499B1C2CBD1239009FD900 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B1B2CBD1239009FD900 /* KakaoSDKAuth */; };
@@ -34,6 +38,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0481293D2CBE2BC3003632CD /* PetWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetWriteView.swift; sourceTree = "<group>"; };
+		0481294F2CBE457F003632CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		048129512CBE4BEA003632CD /* districts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = districts.json; sourceTree = "<group>"; };
 		256A271E2CBD047A0031F766 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		256A271F2CBD047A0031F766 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
 		256A27202CBD047A0031F766 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -43,7 +50,7 @@
 		256A27342CBD054F0031F766 /* LoginStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStore.swift; sourceTree = "<group>"; };
 		256A27362CBD055B0031F766 /* MateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateUser.swift; sourceTree = "<group>"; };
 		BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
-		BD63D8F82CBE0B2500CDDC65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BD63D8F82CBE0B2500CDDC65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDB029922CBCF46200A0EAF6 /* PetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetMapView.swift; sourceTree = "<group>"; };
 		FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePost.swift; sourceTree = "<group>"; };
@@ -57,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				048129492CBE3953003632CD /* CoreXLSX in Frameworks */,
 				FBB7BB582CBDFAA200E20E11 /* GeoFire in Frameworks */,
 				FBB7BB5A2CBDFAA200E20E11 /* GeoFireUtils in Frameworks */,
 				23499B1C2CBD1239009FD900 /* KakaoSDKAuth in Frameworks */,
@@ -112,6 +120,8 @@
 			children = (
 				256A27202CBD047A0031F766 /* ContentView.swift */,
 				BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */,
+				0481293D2CBE2BC3003632CD /* PetWriteView.swift */,
+				048129512CBE4BEA003632CD /* districts.json */,
 				256A272A2CBD04930031F766 /* Common */,
 			);
 			path = View;
@@ -154,6 +164,8 @@
 		256A272E2CBD04E10031F766 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				0481294F2CBE457F003632CD /* GoogleService-Info.plist */,
+				BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */,
 				256A271E2CBD047A0031F766 /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -170,7 +182,6 @@
 		BDB029892CBCF46100A0EAF6 = {
 			isa = PBXGroup;
 			children = (
-				BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */,
 				256A27222CBD047A0031F766 /* PetMate */,
 				BDB029932CBCF46200A0EAF6 /* Products */,
 			);
@@ -212,6 +223,7 @@
 				FBB7BB592CBDFAA200E20E11 /* GeoFireUtils */,
 				BD3AF2D22CBE1DF4006BA00F /* KakaoMapsSDK_SPM */,
 				BD3AF2D52CBE1EEC006BA00F /* KakaoMapsSDK_SPM */,
+				048129482CBE3953003632CD /* CoreXLSX */,
 			);
 			productName = PetMate;
 			productReference = BDB029922CBCF46200A0EAF6 /* PetMate.app */;
@@ -247,6 +259,7 @@
 				23499B1A2CBD1239009FD900 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				FBB7BB562CBDFAA200E20E11 /* XCRemoteSwiftPackageReference "geofire-objc" */,
 				BD3AF2D42CBE1EEC006BA00F /* XCLocalSwiftPackageReference "../KakaoMapsSDK_SPM_master" */,
+				048129472CBE3953003632CD /* XCRemoteSwiftPackageReference "CoreXLSX" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = BDB029932CBCF46200A0EAF6 /* Products */;
@@ -263,7 +276,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				048129522CBE4C16003632CD /* districts.json in Resources */,
 				256A27262CBD047A0031F766 /* Assets.xcassets in Resources */,
+				048129502CBE457F003632CD /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +299,7 @@
 				256A27252CBD047A0031F766 /* PetMateApp.swift in Sources */,
 				BDB029AD2CBD75FC00A0EAF6 /* PetMapView.swift in Sources */,
 				256A27352CBD05580031F766 /* LoginStore.swift in Sources */,
+				0481293E2CBE2BCC003632CD /* PetWriteView.swift in Sources */,
 				FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */,
 				256A27372CBD055D0031F766 /* MateUser.swift in Sources */,
 			);
@@ -506,6 +522,14 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		048129472CBE3953003632CD /* XCRemoteSwiftPackageReference "CoreXLSX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CoreOffice/CoreXLSX";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.14.2;
+			};
+		};
 		23499B152CBD120F009FD900 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
@@ -541,6 +565,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		048129482CBE3953003632CD /* CoreXLSX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 048129472CBE3953003632CD /* XCRemoteSwiftPackageReference "CoreXLSX" */;
+			productName = CoreXLSX;
+		};
 		23499B162CBD120F009FD900 /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 23499B152CBD120F009FD900 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
