@@ -13,7 +13,7 @@ import Observation
 import FirebaseCore
 
 @Observable
-class LoginStore {
+final class LoginStore {
     var isLoggedIn: Bool = false
     var currentUser: User?
     
@@ -62,11 +62,11 @@ class LoginStore {
     }
     
     func signInWithApple() {
-        // Apple 로그인 구현
+
     }
     
     func signInWithKakao() {
-        // Kakao 로그인 구현
+
     }
     
     func signOut() {
