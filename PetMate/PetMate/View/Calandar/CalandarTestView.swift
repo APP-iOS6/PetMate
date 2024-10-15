@@ -17,13 +17,15 @@ struct CalandarTestView: View {
         Button("캘린더 테스트"){
             isPresent.toggle()
         }.sheet(isPresented: $isPresent) {
-            EventEditViewController(post: testStore.testPost, title: testStore.title)
+            CalandarView(post: testStore.testPost, title: testStore.title)
         }.task {
             testStore.title = await testStore.getTitle()
         }
     }
 }
 
+// 테스트용 Store
+// Store에서 미리 post를 만들어놔야 캘린더 편집 시트를 띄웠을 때 post가 nil이 아님
 @Observable
 class TestStore{
     let db = Firestore.firestore()

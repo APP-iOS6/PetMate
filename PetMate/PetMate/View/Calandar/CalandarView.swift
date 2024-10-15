@@ -9,21 +9,22 @@ import SwiftUI
 import EventKitUI
 
 //캘린더 뷰컨트롤러 뷰
-struct EventEditViewController: UIViewControllerRepresentable {
+struct CalandarView: UIViewControllerRepresentable {
     //캘린더 뷰는 외부에서 호출하기 때문에 presentationMode의 dismiss를 통해 시트를 내려야 함
     @Environment(\.presentationMode) var presentationMode
     private let store = EKEventStore()
     let post: MatePost?
     let title: String
+    typealias UIViewControllerType = EKEventEditViewController
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
     //Delegate같은 VC의 대리자의 역할을 하기 위해 필요함
     class Coordinator: NSObject, EKEventEditViewDelegate {
-        var parent: EventEditViewController
+        var parent: CalandarView
         
-        init(_ controller: EventEditViewController) {
+        init(_ controller: CalandarView) {
             self.parent = controller
         }
         
@@ -32,13 +33,10 @@ struct EventEditViewController: UIViewControllerRepresentable {
         }
     }
     
-    typealias UIViewControllerType = EKEventEditViewController
     //EKEventEditViewController를 반환함
     func makeUIViewController(context: Context) -> EKEventEditViewController {
-        print("ssss\(post)")
         let eventEditViewController =  EKEventEditViewController ()
         eventEditViewController.event = event
-        //eventEditViewController.event = EKEvent(eventStore: store)
         eventEditViewController.eventStore = store
         eventEditViewController.editViewDelegate = context.coordinator
         
@@ -46,7 +44,6 @@ struct EventEditViewController: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: EKEventEditViewController, context: Context) {}
-    
     //EKEventEditViewController를 띄웠을 때 폼의 값들을 미리 지정해줌
     private var event: EKEvent {
         let event = EKEvent(eventStore: store)
