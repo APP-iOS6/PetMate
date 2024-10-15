@@ -22,6 +22,8 @@
 		256A27332CBD05370031F766 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27322CBD05330031F766 /* Font+Extension.swift */; };
 		256A27352CBD05580031F766 /* LoginStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27342CBD054F0031F766 /* LoginStore.swift */; };
 		256A27372CBD055D0031F766 /* MateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27362CBD055B0031F766 /* MateUser.swift */; };
+		256A273B2CBE26830031F766 /* CalandarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A273A2CBE26830031F766 /* CalandarView.swift */; };
+		256A273D2CBE28C40031F766 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 256A273C2CBE28C40031F766 /* GoogleService-Info.plist */; };
 		BD3AF2D32CBE1DF4006BA00F /* KakaoMapsSDK_SPM in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AF2D22CBE1DF4006BA00F /* KakaoMapsSDK_SPM */; };
 		BD3AF2D62CBE1EEC006BA00F /* KakaoMapsSDK_SPM in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AF2D52CBE1EEC006BA00F /* KakaoMapsSDK_SPM */; };
 		BDB029AD2CBD75FC00A0EAF6 /* PetMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */; };
@@ -42,6 +44,8 @@
 		256A27322CBD05330031F766 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		256A27342CBD054F0031F766 /* LoginStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStore.swift; sourceTree = "<group>"; };
 		256A27362CBD055B0031F766 /* MateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateUser.swift; sourceTree = "<group>"; };
+		256A273A2CBE26830031F766 /* CalandarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalandarView.swift; sourceTree = "<group>"; };
+		256A273C2CBE28C40031F766 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		BD63D8F82CBE0B2500CDDC65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BDB029922CBCF46200A0EAF6 /* PetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +87,7 @@
 				256A27282CBD04890031F766 /* Store */,
 				256A27292CBD048E0031F766 /* View */,
 				256A272E2CBD04E10031F766 /* Resource */,
+				256A273C2CBE28C40031F766 /* GoogleService-Info.plist */,
 			);
 			path = PetMate;
 			sourceTree = "<group>";
@@ -110,6 +115,7 @@
 		256A27292CBD048E0031F766 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				256A27382CBE26180031F766 /* Calandar */,
 				256A27202CBD047A0031F766 /* ContentView.swift */,
 				BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */,
 				256A272A2CBD04930031F766 /* Common */,
@@ -165,6 +171,14 @@
 				256A27212CBD047A0031F766 /* PetMateApp.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		256A27382CBE26180031F766 /* Calandar */ = {
+			isa = PBXGroup;
+			children = (
+				256A273A2CBE26830031F766 /* CalandarView.swift */,
+			);
+			path = Calandar;
 			sourceTree = "<group>";
 		};
 		BDB029892CBCF46100A0EAF6 = {
@@ -264,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				256A27262CBD047A0031F766 /* Assets.xcassets in Resources */,
+				256A273D2CBE28C40031F766 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +300,7 @@
 				BDB029AD2CBD75FC00A0EAF6 /* PetMapView.swift in Sources */,
 				256A27352CBD05580031F766 /* LoginStore.swift in Sources */,
 				FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */,
+				256A273B2CBE26830031F766 /* CalandarView.swift in Sources */,
 				256A27372CBD055D0031F766 /* MateUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
