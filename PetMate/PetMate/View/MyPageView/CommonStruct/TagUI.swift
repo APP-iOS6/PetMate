@@ -1,5 +1,5 @@
 //
-//  TagFlowLayout.swift
+//  TagView.swift
 //  PetMate
 //
 //  Created by 이다영 on 10/15/24.
@@ -7,7 +7,41 @@
 
 import SwiftUI
 
-// 태그 나열 레이아웃 함수
+// 기본태그뷰
+struct TagView: View {
+    let text: String
+    
+    var body: some View {
+        Text(text)
+            .font(.system(size: 12))
+            .padding(.horizontal, 10)
+            .padding(.vertical, 5)
+            .background(Color(.systemGray6))
+            .foregroundStyle(Color(UIColor.systemBrown))
+            .cornerRadius(12)
+    }
+}
+// 태그 선택
+struct TagToggle: View {
+    let tag: String
+    var isSelected: Bool
+    var toggleAction: () -> Void
+    
+    var body: some View {
+        Text(tag)
+            .font(.system(size: 15))
+            .padding(.horizontal, 15)
+            .padding(.vertical, 5)
+            .background(isSelected ? Color(.systemBrown) : Color(.systemGray6))
+            .foregroundStyle(isSelected ? .white : Color(.darkGray))
+            .cornerRadius(15)
+            .onTapGesture {
+                toggleAction()
+            }
+    }
+}
+
+// 태그 나열 레이아웃
 struct FlowLayout: Layout {
     var spacing: CGFloat
     
@@ -71,3 +105,4 @@ struct FlowLayout: Layout {
         }
     }
 }
+
