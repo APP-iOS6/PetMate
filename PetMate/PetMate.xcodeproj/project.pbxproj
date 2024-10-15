@@ -22,8 +22,6 @@
 		256A27332CBD05370031F766 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27322CBD05330031F766 /* Font+Extension.swift */; };
 		256A27352CBD05580031F766 /* LoginStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27342CBD054F0031F766 /* LoginStore.swift */; };
 		256A27372CBD055D0031F766 /* MateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27362CBD055B0031F766 /* MateUser.swift */; };
-		BD63D8F42CBE05B800CDDC65 /* KakaoMapsSDK-SPM in Frameworks */ = {isa = PBXBuildFile; productRef = BD63D8F32CBE05B800CDDC65 /* KakaoMapsSDK-SPM */; };
-		BD63D8F62CBE05B800CDDC65 /* KakaoMapsSDK-SPM-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = BD63D8F52CBE05B800CDDC65 /* KakaoMapsSDK-SPM-Dynamic */; };
 		BDB029AD2CBD75FC00A0EAF6 /* PetMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */; };
 		FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */; };
 		FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB502CBDF94400E20E11 /* Pet.swift */; };
@@ -42,6 +40,8 @@
 		256A27322CBD05330031F766 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		256A27342CBD054F0031F766 /* LoginStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStore.swift; sourceTree = "<group>"; };
 		256A27362CBD055B0031F766 /* MateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateUser.swift; sourceTree = "<group>"; };
+		BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		BD63D8F82CBE0B2500CDDC65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BDB029922CBCF46200A0EAF6 /* PetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetMapView.swift; sourceTree = "<group>"; };
 		FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePost.swift; sourceTree = "<group>"; };
@@ -55,7 +55,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD63D8F62CBE05B800CDDC65 /* KakaoMapsSDK-SPM-Dynamic in Frameworks */,
 				FBB7BB582CBDFAA200E20E11 /* GeoFire in Frameworks */,
 				FBB7BB5A2CBDFAA200E20E11 /* GeoFireUtils in Frameworks */,
 				23499B1C2CBD1239009FD900 /* KakaoSDKAuth in Frameworks */,
@@ -63,7 +62,6 @@
 				238A2EEC2CBD0E200058D7CC /* FirebaseCore in Frameworks */,
 				238A2EF02CBD0E200058D7CC /* FirebaseStorage in Frameworks */,
 				23499B192CBD120F009FD900 /* GoogleSignInSwift in Frameworks */,
-				BD63D8F42CBE05B800CDDC65 /* KakaoMapsSDK-SPM in Frameworks */,
 				238A2EEA2CBD0E200058D7CC /* FirebaseAuth in Frameworks */,
 				238A2EEE2CBD0E200058D7CC /* FirebaseFirestore in Frameworks */,
 			);
@@ -75,6 +73,7 @@
 		256A27222CBD047A0031F766 /* PetMate */ = {
 			isa = PBXGroup;
 			children = (
+				BD63D8F82CBE0B2500CDDC65 /* Info.plist */,
 				256A272F2CBD04FA0031F766 /* App */,
 				256A27272CBD04830031F766 /* Model */,
 				256A27282CBD04890031F766 /* Store */,
@@ -167,6 +166,7 @@
 		BDB029892CBCF46100A0EAF6 = {
 			isa = PBXGroup;
 			children = (
+				BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */,
 				256A27222CBD047A0031F766 /* PetMate */,
 				BDB029932CBCF46200A0EAF6 /* Products */,
 			);
@@ -206,8 +206,6 @@
 				23499B1B2CBD1239009FD900 /* KakaoSDKAuth */,
 				FBB7BB572CBDFAA200E20E11 /* GeoFire */,
 				FBB7BB592CBDFAA200E20E11 /* GeoFireUtils */,
-				BD63D8F32CBE05B800CDDC65 /* KakaoMapsSDK-SPM */,
-				BD63D8F52CBE05B800CDDC65 /* KakaoMapsSDK-SPM-Dynamic */,
 			);
 			productName = PetMate;
 			productReference = BDB029922CBCF46200A0EAF6 /* PetMate.app */;
@@ -242,7 +240,6 @@
 				23499B152CBD120F009FD900 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				23499B1A2CBD1239009FD900 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				FBB7BB562CBDFAA200E20E11 /* XCRemoteSwiftPackageReference "geofire-objc" */,
-				BD63D8F22CBE05B800CDDC65 /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = BDB029932CBCF46200A0EAF6 /* Products */;
@@ -290,6 +287,7 @@
 /* Begin XCBuildConfiguration section */
 		BDB0299E2CBCF46400A0EAF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -353,6 +351,7 @@
 		};
 		BDB0299F2CBCF46400A0EAF6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -418,6 +417,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PetMate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -448,6 +448,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PetMate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -515,14 +516,6 @@
 				minimumVersion = 11.3.0;
 			};
 		};
-		BD63D8F22CBE05B800CDDC65 /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kakao-mapsSDK/KakaoMapsSDK-SPM.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.12.0;
-			};
-		};
 		FBB7BB562CBDFAA200E20E11 /* XCRemoteSwiftPackageReference "geofire-objc" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/geofire-objc";
@@ -568,16 +561,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 238A2EE82CBD0E200058D7CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
-		};
-		BD63D8F32CBE05B800CDDC65 /* KakaoMapsSDK-SPM */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BD63D8F22CBE05B800CDDC65 /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */;
-			productName = "KakaoMapsSDK-SPM";
-		};
-		BD63D8F52CBE05B800CDDC65 /* KakaoMapsSDK-SPM-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BD63D8F22CBE05B800CDDC65 /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */;
-			productName = "KakaoMapsSDK-SPM-Dynamic";
 		};
 		FBB7BB572CBDFAA200E20E11 /* GeoFire */ = {
 			isa = XCSwiftPackageProductDependency;
