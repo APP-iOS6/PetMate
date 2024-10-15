@@ -10,7 +10,7 @@ import FirebaseFirestore
 
 struct ChatRoomListView: View {
     
-    private var viewModel: ChatRoomListViewModel = .init()
+    @State private var viewModel: ChatRoomListViewModel = .init()
     
     var body: some View {
         NavigationStack {
@@ -25,7 +25,6 @@ struct ChatRoomListView: View {
                     } label: {
                         Text("채팅 추가하기")
                     }
-                    
                 }
                 .padding()
             }
@@ -33,13 +32,18 @@ struct ChatRoomListView: View {
     }
 }
 
+
 struct ChatRoomCellView: View {
     
     let chatRoom: ChatRoomWithUser
     
     var body: some View {
         NavigationLink {
-            Text("test")
+            ChatDetailView(
+                chatRoomId: chatRoom.chatRoom.id ?? "",
+                chatUser: chatRoom.chatUser,
+                postId: chatRoom.chatRoom.postId
+            )
         } label: {
             HStack {
                 AsyncImage(url: URL(string: chatRoom.chatUser.image)) { image in
@@ -70,14 +74,23 @@ struct ChatRoomCellView: View {
                             .font(.caption)
                             .foregroundStyle(Color(uiColor: .systemGray2))
                             .lineLimit(2)
-                        
                         Spacer()
+                        if chatRoom.unreadCount != 0 {
+                            Text("\(chatRoom.unreadCount)")
+                                .bold()
+                                .font(.caption)
+                                .padding(4)
+                                .foregroundStyle(.white)
+                                .background(.red)
+                                .clipShape(Circle())
+                        }
                     }
                 }
             }
         }
     }
 }
+
 #Preview {
     ChatRoomListView()
 }
