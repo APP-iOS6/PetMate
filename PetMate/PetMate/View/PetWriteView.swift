@@ -218,7 +218,7 @@ struct PetWriteView: View {
                                     image
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(width: 100, height: 100)
+                                        .frame(width: 150, height: 150)
                                 } placeholder: {
                                     ProgressView()
                                 }
@@ -288,8 +288,8 @@ struct PetWriteView: View {
 
 // 더미 데이터: 펫 리스트
 let dummyPets: [Pet] = [
-    Pet(id: "1", name: "Buddy", description: "Friendly dog", age: 3, tag: ["Playful"], breed: "Golden Retriever", images: ["https://example.com/buddy1.jpg", "https://example.com/buddy2.jpg"], createdAt: Date(), updatedAt: Date()),
-    Pet(id: "2", name: "Luna", description: "Calm and gentle", age: 2, tag: ["Quiet"], breed: "Husky", images: ["https://example.com/luna1.jpg", "https://example.com/luna2.jpg"], createdAt: Date(), updatedAt: Date())
+    Pet(id: "1", name: "아지", description: "활발한 성격", age: 3, tag: ["산책 좋아함"], breed: "모르겠음", images: [ "https://i.pinimg.com/236x/f8/e9/b5/f8e9b56372c19576ff1936f91973d088.jpg"], createdAt: Date(), updatedAt: Date()),
+    Pet(id: "2", name: "양이", description: "착함", age: 2, tag: ["조용함"], breed: "모르겠음", images: ["https://mblogthumb-phinf.pstatic.net/MjAyMTAyMDRfNjIg/MDAxNjEyNDA4OTk5NDQ4.6UGs399-0EXjIUwwWsYg7o66lDb-MPOVQ-zNDy1Wnnkg.m-WZz0IKKnc5OO2mjY5dOD-0VsfpXg7WVGgds6fKwnIg.JPEG.sunny_side_up12/1612312679152－2.jpg?type=w800"], createdAt: Date(), updatedAt: Date())
 ]
 
 #Preview {
