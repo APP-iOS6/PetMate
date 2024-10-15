@@ -35,8 +35,10 @@ struct CalandarView: UIViewControllerRepresentable {
     
     //EKEventEditViewController를 반환함
     func makeUIViewController(context: Context) -> EKEventEditViewController {
+        print("ssss\(post)")
         let eventEditViewController =  EKEventEditViewController ()
         eventEditViewController.event = event
+        //eventEditViewController.event = EKEvent(eventStore: store)
         eventEditViewController.eventStore = store
         eventEditViewController.editViewDelegate = context.coordinator
         
