@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040D5CEA2CBE631F00549B47 /* districts.json in Resources */ = {isa = PBXBuildFile; fileRef = 040D5CE92CBE631F00549B47 /* districts.json */; };
+		040D5CEC2CBE632700549B47 /* PetWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D5CEB2CBE632700549B47 /* PetWriteView.swift */; };
 		23499B172CBD120F009FD900 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B162CBD120F009FD900 /* GoogleSignIn */; };
 		23499B192CBD120F009FD900 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B182CBD120F009FD900 /* GoogleSignInSwift */; };
 		23499B1C2CBD1239009FD900 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B1B2CBD1239009FD900 /* KakaoSDKAuth */; };
@@ -22,6 +24,7 @@
 		256A27332CBD05370031F766 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27322CBD05330031F766 /* Font+Extension.swift */; };
 		256A27352CBD05580031F766 /* LoginStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27342CBD054F0031F766 /* LoginStore.swift */; };
 		256A27372CBD055D0031F766 /* MateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27362CBD055B0031F766 /* MateUser.swift */; };
+		4B5D53072CBE2DB400FDC77A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */; };
 		BD3AF2D32CBE1DF4006BA00F /* KakaoMapsSDK_SPM in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AF2D22CBE1DF4006BA00F /* KakaoMapsSDK_SPM */; };
 		BD3AF2D62CBE1EEC006BA00F /* KakaoMapsSDK_SPM in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AF2D52CBE1EEC006BA00F /* KakaoMapsSDK_SPM */; };
 		BD3AF2DC2CBE4589006BA00F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD3AF2DB2CBE4589006BA00F /* GoogleService-Info.plist */; };
@@ -33,9 +36,16 @@
 		FBB7BB552CBDF9E100E20E11 /* PlacePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB542CBDF9E100E20E11 /* PlacePost.swift */; };
 		FBB7BB582CBDFAA200E20E11 /* GeoFire in Frameworks */ = {isa = PBXBuildFile; productRef = FBB7BB572CBDFAA200E20E11 /* GeoFire */; };
 		FBB7BB5A2CBDFAA200E20E11 /* GeoFireUtils in Frameworks */ = {isa = PBXBuildFile; productRef = FBB7BB592CBDFAA200E20E11 /* GeoFireUtils */; };
+		FBD6BBAE2CBE3A28008BEA30 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BBAD2CBE3A28008BEA30 /* ChatRoom.swift */; };
+		FBD6BBB02CBE3A5C008BEA30 /* ChatRoomListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BBAF2CBE3A5C008BEA30 /* ChatRoomListView.swift */; };
+		FBD6BBB22CBE3A68008BEA30 /* ChatRoomListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BBB12CBE3A68008BEA30 /* ChatRoomListViewModel.swift */; };
+		FBD6BBB72CBE49EA008BEA30 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BBB62CBE49EA008BEA30 /* Date+Extension.swift */; };
+		FBD6BBB92CBE665D008BEA30 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FBD6BBB82CBE665D008BEA30 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040D5CE92CBE631F00549B47 /* districts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = districts.json; sourceTree = "<group>"; };
+		040D5CEB2CBE632700549B47 /* PetWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetWriteView.swift; sourceTree = "<group>"; };
 		256A271E2CBD047A0031F766 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		256A271F2CBD047A0031F766 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
 		256A27202CBD047A0031F766 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +54,7 @@
 		256A27322CBD05330031F766 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		256A27342CBD054F0031F766 /* LoginStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStore.swift; sourceTree = "<group>"; };
 		256A27362CBD055B0031F766 /* MateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateUser.swift; sourceTree = "<group>"; };
+		4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		BD3AF2DB2CBE4589006BA00F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BD3AF2DD2CBE5DEA006BA00F /* PetPlaceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPlaceStore.swift; sourceTree = "<group>"; };
 		BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -54,6 +65,11 @@
 		FBB7BB502CBDF94400E20E11 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		FBB7BB522CBDF99D00E20E11 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		FBB7BB542CBDF9E100E20E11 /* PlacePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePost.swift; sourceTree = "<group>"; };
+		FBD6BBAD2CBE3A28008BEA30 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
+		FBD6BBAF2CBE3A5C008BEA30 /* ChatRoomListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomListView.swift; sourceTree = "<group>"; };
+		FBD6BBB12CBE3A68008BEA30 /* ChatRoomListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomListViewModel.swift; sourceTree = "<group>"; };
+		FBD6BBB62CBE49EA008BEA30 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		FBD6BBB82CBE665D008BEA30 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +103,7 @@
 				256A27282CBD04890031F766 /* Store */,
 				256A27292CBD048E0031F766 /* View */,
 				256A272E2CBD04E10031F766 /* Resource */,
+				FBD6BBB82CBE665D008BEA30 /* GoogleService-Info.plist */,
 			);
 			path = PetMate;
 			sourceTree = "<group>";
@@ -99,6 +116,7 @@
 				FBB7BB502CBDF94400E20E11 /* Pet.swift */,
 				FBB7BB522CBDF99D00E20E11 /* Review.swift */,
 				FBB7BB542CBDF9E100E20E11 /* PlacePost.swift */,
+				FBD6BBAD2CBE3A28008BEA30 /* ChatRoom.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -115,8 +133,11 @@
 		256A27292CBD048E0031F766 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FBD6BBAC2CBE3A1B008BEA30 /* ChatRoom */,
+				4B5D53052CBE2D9600FDC77A /* MyPageView */,
 				256A27202CBD047A0031F766 /* ContentView.swift */,
 				BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */,
+				040D5CEB2CBE632700549B47 /* PetWriteView.swift */,
 				256A272A2CBD04930031F766 /* Common */,
 			);
 			path = View;
@@ -136,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				256A27322CBD05330031F766 /* Font+Extension.swift */,
+				FBD6BBB62CBE49EA008BEA30 /* Date+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -159,6 +181,7 @@
 		256A272E2CBD04E10031F766 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				040D5CE92CBE631F00549B47 /* districts.json */,
 				256A271E2CBD047A0031F766 /* Assets.xcassets */,
 				BD3AF2DB2CBE4589006BA00F /* GoogleService-Info.plist */,
 			);
@@ -171,6 +194,14 @@
 				256A27212CBD047A0031F766 /* PetMateApp.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		4B5D53052CBE2D9600FDC77A /* MyPageView */ = {
+			isa = PBXGroup;
+			children = (
+				4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */,
+			);
+			path = MyPageView;
 			sourceTree = "<group>";
 		};
 		BDB029892CBCF46100A0EAF6 = {
@@ -188,6 +219,15 @@
 				BDB029922CBCF46200A0EAF6 /* PetMate.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		FBD6BBAC2CBE3A1B008BEA30 /* ChatRoom */ = {
+			isa = PBXGroup;
+			children = (
+				FBD6BBAF2CBE3A5C008BEA30 /* ChatRoomListView.swift */,
+				FBD6BBB12CBE3A68008BEA30 /* ChatRoomListViewModel.swift */,
+			);
+			path = ChatRoom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +311,8 @@
 			files = (
 				BD3AF2DC2CBE4589006BA00F /* GoogleService-Info.plist in Resources */,
 				256A27262CBD047A0031F766 /* Assets.xcassets in Resources */,
+				FBD6BBB92CBE665D008BEA30 /* GoogleService-Info.plist in Resources */,
+				040D5CEA2CBE631F00549B47 /* districts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,12 +328,18 @@
 				256A27242CBD047A0031F766 /* ContentView.swift in Sources */,
 				FBB7BB552CBDF9E100E20E11 /* PlacePost.swift in Sources */,
 				FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */,
+				FBD6BBB72CBE49EA008BEA30 /* Date+Extension.swift in Sources */,
+				4B5D53072CBE2DB400FDC77A /* UserProfileView.swift in Sources */,
 				256A27332CBD05370031F766 /* Font+Extension.swift in Sources */,
+				FBD6BBB22CBE3A68008BEA30 /* ChatRoomListViewModel.swift in Sources */,
 				FBB7BB532CBDF99D00E20E11 /* Review.swift in Sources */,
+				FBD6BBB02CBE3A5C008BEA30 /* ChatRoomListView.swift in Sources */,
 				BD3AF2DE2CBE5DEA006BA00F /* PetPlaceStore.swift in Sources */,
 				256A27252CBD047A0031F766 /* PetMateApp.swift in Sources */,
 				BDB029AD2CBD75FC00A0EAF6 /* PetMapView.swift in Sources */,
 				256A27352CBD05580031F766 /* LoginStore.swift in Sources */,
+				FBD6BBAE2CBE3A28008BEA30 /* ChatRoom.swift in Sources */,
+				040D5CEC2CBE632700549B47 /* PetWriteView.swift in Sources */,
 				FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */,
 				256A27372CBD055D0031F766 /* MateUser.swift in Sources */,
 			);
