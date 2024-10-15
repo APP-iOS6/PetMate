@@ -20,6 +20,7 @@ struct UserProfileView: View {
         VStack(alignment: .leading, spacing: 16) {
             HStack(alignment: .center, spacing: 16) {
                 ZStack(alignment: .bottom) {
+                    // 이미지 프로필
                     (profileImage ?? Image(user.image))
                         .resizable()
                         .scaledToFill()
@@ -31,7 +32,7 @@ struct UserProfileView: View {
                         )
                         .onTapGesture {
                             isImagePickerPresented = true
-                        } // 이미지 탭하면 편집기능 true
+                        } // 이미지 탭하면 편집
                     
                     Text("편집")
                         .font(.caption)
@@ -45,6 +46,7 @@ struct UserProfileView: View {
                     ImagePicker(image: $profileImage)
                 }
                 
+                // TODO: 뼈다구 점수 추가하기
                 // 이름, 지역, 매칭 횟수, 소개글
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
