@@ -5,7 +5,7 @@
 //  Created by Hyeonjeong Sim on 10/14/24.
 //
 
-import Foundation
+import SwiftUI
 import FirebaseAuth
 import GoogleSignIn
 import GoogleSignInSwift
@@ -16,13 +16,15 @@ import FirebaseCore
 final class LoginStore {
     var isLoggedIn: Bool = false
     var currentUser: User?
-    
+
+    // Google 로그인 처리
     func signInWithGoogle() {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-        
+
         let config = GIDConfiguration(clientID: clientID)
         GIDSignIn.sharedInstance.configuration = config
         
+        // 현재 뷰 컨트롤러를 가져오기
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let window = windowScene.windows.first,
               let rootViewController = window.rootViewController else {
@@ -30,11 +32,12 @@ final class LoginStore {
             return
         }
 
+        // Google 로그인 화면으로 이동
         GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController) { [weak self] result, error in
             guard let self = self else { return }
             
             if let error = error {
-                print("Error: \(error.localizedDescription)")
+                print("Google Sign-In Error: \(error.localizedDescription)")
                 return
             }
             
@@ -44,15 +47,15 @@ final class LoginStore {
                 return
             }
             
-            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-                                                           accessToken: user.accessToken.tokenString)
-            
+            // Firebase 인증
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
             Auth.auth().signIn(with: credential) { authResult, error in
                 if let error = error {
-                    print("Error: \(error.localizedDescription)")
+                    print("Firebase Sign-In Error: \(error.localizedDescription)")
                     return
                 }
-                
+
+                // 로그인 성공 시 상태 업데이트
                 DispatchQueue.main.async {
                     self.isLoggedIn = true
                     self.currentUser = authResult?.user
@@ -60,6 +63,7 @@ final class LoginStore {
             }
         }
     }
+
     
     func signInWithApple() {
 

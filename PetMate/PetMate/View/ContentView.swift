@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isLoggedIn = false
     
+    @State private var loginStore = LoginStore()
+
     var body: some View {
-        if isLoggedIn {
-            Text("로그인 성공!")
+        
+        if loginStore.isLoggedIn {
+            Text("로그인 성공! 환영합니다.")
         } else {
-            LoginView(isLoggedIn: $isLoggedIn)
+            LoginView(isLoggedIn: $loginStore.isLoggedIn)
         }
     }
 }
 
 #Preview {
-    LoginView(isLoggedIn: .constant(false))
+    ContentView()
 }

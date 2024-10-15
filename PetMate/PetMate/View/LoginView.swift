@@ -16,17 +16,17 @@ struct LoginView: View {
         VStack(spacing: 16) {
             Spacer()
 
-            // 로고 이미지
-            Image("")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 200, height: 100)
-            
-            // 온보딩 이미지
-            Image("")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 200, height: 100)
+//            // 로고 이미지
+//            Image("")
+//                .resizable()
+//                .scaledToFit()
+//                .frame(width: 200, height: 100)
+//            
+//            // 온보딩 이미지
+//            Image("")
+//                .resizable()
+//                .scaledToFit()
+//                .frame(width: 200, height: 100)
             
             // 카카오 로그인
             Button(action: {
@@ -70,18 +70,14 @@ struct LoginView: View {
                     .underline(true, color: .gray)
                     .foregroundColor(.gray)
             }
-
-            Spacer()
         }
         .padding()
-        .onChange(of: loginStore.isLoggedIn) { newValue in
+        .onChange(of: loginStore.isLoggedIn) { oldValue, newValue in
             isLoggedIn = newValue
         }
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView(isLoggedIn: .constant(false))
-    }
+#Preview {
+    LoginView(isLoggedIn: .constant(false))
 }
