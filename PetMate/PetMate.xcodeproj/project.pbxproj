@@ -10,6 +10,7 @@
 		23499B172CBD120F009FD900 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B162CBD120F009FD900 /* GoogleSignIn */; };
 		23499B192CBD120F009FD900 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B182CBD120F009FD900 /* GoogleSignInSwift */; };
 		23499B1C2CBD1239009FD900 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B1B2CBD1239009FD900 /* KakaoSDKAuth */; };
+		234FF4952CBDFE5600CEB88E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234FF4942CBDFE5600CEB88E /* LoginView.swift */; };
 		238A2EEA2CBD0E200058D7CC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EE92CBD0E200058D7CC /* FirebaseAuth */; };
 		238A2EEC2CBD0E200058D7CC /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EEB2CBD0E200058D7CC /* FirebaseCore */; };
 		238A2EEE2CBD0E200058D7CC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EED2CBD0E200058D7CC /* FirebaseFirestore */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		234FF4942CBDFE5600CEB88E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		256A271E2CBD047A0031F766 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		256A271F2CBD047A0031F766 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
 		256A27202CBD047A0031F766 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				256A27202CBD047A0031F766 /* ContentView.swift */,
+				234FF4942CBDFE5600CEB88E /* LoginView.swift */,
 				256A272A2CBD04930031F766 /* Common */,
 			);
 			path = View;
@@ -266,6 +269,7 @@
 				FBB7BB552CBDF9E100E20E11 /* PlacePost.swift in Sources */,
 				FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */,
 				256A27332CBD05370031F766 /* Font+Extension.swift in Sources */,
+				234FF4952CBDFE5600CEB88E /* LoginView.swift in Sources */,
 				FBB7BB532CBDF99D00E20E11 /* Review.swift in Sources */,
 				256A27252CBD047A0031F766 /* PetMateApp.swift in Sources */,
 				256A27352CBD05580031F766 /* LoginStore.swift in Sources */,
