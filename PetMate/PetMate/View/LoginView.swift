@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import GoogleSignInSwift
 
 struct LoginView: View {
+    @State private var loginStore = LoginStore()
+    @Binding var isLoggedIn: Bool
+    
     var body: some View {
         VStack(spacing: 16) {
             Spacer()
@@ -26,7 +30,8 @@ struct LoginView: View {
             
             // 카카오 로그인
             Button(action: {
-                // 카카오 로그인 동작 추가
+                print("카카오 로그인 버튼 눌림")
+                loginStore.signInWithKakao()
             }) {
                 Image("kakao_login_button")
                     .resizable()
@@ -35,24 +40,28 @@ struct LoginView: View {
 
             // 애플 로그인
             Button(action: {
-                // 애플 로그인 동작 추가
+                print("애플 로그인 버튼 눌림")
+                loginStore.signInWithApple()
             }) {
                 Image("apple_login_button")
                     .resizable()
                     .frame(width: 300, height: 60)
             }
 
-            // 구글 로그인 버튼 이미지
+            // 구글 로그인
             Button(action: {
-                // 구글 로그인 동작 추가
+                print("구글 로그인 버튼 눌림")
+                loginStore.signInWithGoogle()
             }) {
                 Image("google_login_button")
                     .resizable()
+                    .scaledToFit()
                     .frame(width: 300, height: 60)
             }
 
             // 둘러보기 버튼
             Button(action: {
+                print("둘러보기 버튼 눌림")
                 // 둘러보기 동작 추가
             }) {
                 Text("로그인 전 둘러보기")
@@ -65,11 +74,14 @@ struct LoginView: View {
             Spacer()
         }
         .padding()
+        .onChange(of: loginStore.isLoggedIn) { newValue in
+            isLoggedIn = newValue
+        }
     }
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(isLoggedIn: .constant(false))
     }
 }
