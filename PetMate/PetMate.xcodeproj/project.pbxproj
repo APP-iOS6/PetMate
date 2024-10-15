@@ -16,6 +16,9 @@
 		238A2EEC2CBD0E200058D7CC /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EEB2CBD0E200058D7CC /* FirebaseCore */; };
 		238A2EEE2CBD0E200058D7CC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EED2CBD0E200058D7CC /* FirebaseFirestore */; };
 		238A2EF02CBD0E200058D7CC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EEF2CBD0E200058D7CC /* FirebaseStorage */; };
+		252A12972CBED8AD00EDD297 /* CalandarTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A12942CBED8AC00EDD297 /* CalandarTestView.swift */; };
+		252A12982CBED8AD00EDD297 /* CalandarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A12952CBED8AC00EDD297 /* CalandarView.swift */; };
+		252A129A2CBED90700EDD297 /* Date+GetElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A12992CBED90700EDD297 /* Date+GetElement.swift */; };
 		256A27232CBD047A0031F766 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A271F2CBD047A0031F766 /* ButtonModifier.swift */; };
 		256A27242CBD047A0031F766 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27202CBD047A0031F766 /* ContentView.swift */; };
 		256A27252CBD047A0031F766 /* PetMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27212CBD047A0031F766 /* PetMateApp.swift */; };
@@ -34,8 +37,14 @@
 		256A27522CBEA8970031F766 /* HomeFindFriendCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27512CBEA8970031F766 /* HomeFindFriendCardView.swift */; };
 		256A27542CBEA9280031F766 /* HomeMyLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27532CBEA9280031F766 /* HomeMyLocationView.swift */; };
 		4B5D53072CBE2DB400FDC77A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */; };
-		BD3AF2D32CBE1DF4006BA00F /* KakaoMapsSDK_SPM in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AF2D22CBE1DF4006BA00F /* KakaoMapsSDK_SPM */; };
-		BD3AF2D62CBE1EEC006BA00F /* KakaoMapsSDK_SPM in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AF2D52CBE1EEC006BA00F /* KakaoMapsSDK_SPM */; };
+		BD3AF2DC2CBE4589006BA00F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD3AF2DB2CBE4589006BA00F /* GoogleService-Info.plist */; };
+		BD3AF2DE2CBE5DEA006BA00F /* PetPlaceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3AF2DD2CBE5DEA006BA00F /* PetPlaceStore.swift */; };
+		BD59FEF62CBED16600F8CF7B /* AddPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD59FEF52CBED16600F8CF7B /* AddPlaceView.swift */; };
+		4B5D53092CBE39FB00FDC77A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53082CBE39FB00FDC77A /* ImagePicker.swift */; };
+		4B5D530D2CBE3B8E00FDC77A /* PetProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */; };
+		4B5D530F2CBE3BAC00FDC77A /* PetProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D530E2CBE3BAC00FDC77A /* PetProfileEditView.swift */; };
+		4B5D53812CBE627500FDC77A /* TagUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53802CBE627500FDC77A /* TagUI.swift */; };
+		4B6FF8812CBE888C009F4206 /* MyPageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FF8802CBE888C009F4206 /* MyPageTabView.swift */; };
 		BDB029AD2CBD75FC00A0EAF6 /* PetMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */; };
 		FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */; };
 		FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB502CBDF94400E20E11 /* Pet.swift */; };
@@ -47,12 +56,14 @@
 		FBD6BBB02CBE3A5C008BEA30 /* ChatRoomListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BBAF2CBE3A5C008BEA30 /* ChatRoomListView.swift */; };
 		FBD6BBB22CBE3A68008BEA30 /* ChatRoomListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BBB12CBE3A68008BEA30 /* ChatRoomListViewModel.swift */; };
 		FBD6BBB72CBE49EA008BEA30 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BBB62CBE49EA008BEA30 /* Date+Extension.swift */; };
-		FBD6BBB92CBE665D008BEA30 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FBD6BBB82CBE665D008BEA30 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		040D5CE92CBE631F00549B47 /* districts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = districts.json; sourceTree = "<group>"; };
 		040D5CEB2CBE632700549B47 /* PetWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetWriteView.swift; sourceTree = "<group>"; };
+		252A12942CBED8AC00EDD297 /* CalandarTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalandarTestView.swift; sourceTree = "<group>"; };
+		252A12952CBED8AC00EDD297 /* CalandarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalandarView.swift; sourceTree = "<group>"; };
+		252A12992CBED90700EDD297 /* Date+GetElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+GetElement.swift"; sourceTree = "<group>"; };
 		256A271E2CBD047A0031F766 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		256A271F2CBD047A0031F766 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
 		256A27202CBD047A0031F766 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +82,14 @@
 		256A27512CBEA8970031F766 /* HomeFindFriendCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFindFriendCardView.swift; sourceTree = "<group>"; };
 		256A27532CBEA9280031F766 /* HomeMyLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMyLocationView.swift; sourceTree = "<group>"; };
 		4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		BD3AF2DB2CBE4589006BA00F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BD3AF2DD2CBE5DEA006BA00F /* PetPlaceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPlaceStore.swift; sourceTree = "<group>"; };
+		BD59FEF52CBED16600F8CF7B /* AddPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceView.swift; sourceTree = "<group>"; };
+		4B5D53082CBE39FB00FDC77A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileView.swift; sourceTree = "<group>"; };
+		4B5D530E2CBE3BAC00FDC77A /* PetProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileEditView.swift; sourceTree = "<group>"; };
+		4B5D53802CBE627500FDC77A /* TagUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagUI.swift; sourceTree = "<group>"; };
+		4B6FF8802CBE888C009F4206 /* MyPageTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTabView.swift; sourceTree = "<group>"; };
 		BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		BD63D8F82CBE0B2500CDDC65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BDB029922CBCF46200A0EAF6 /* PetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,7 +102,6 @@
 		FBD6BBAF2CBE3A5C008BEA30 /* ChatRoomListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomListView.swift; sourceTree = "<group>"; };
 		FBD6BBB12CBE3A68008BEA30 /* ChatRoomListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomListViewModel.swift; sourceTree = "<group>"; };
 		FBD6BBB62CBE49EA008BEA30 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		FBD6BBB82CBE665D008BEA30 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +115,7 @@
 				23499B172CBD120F009FD900 /* GoogleSignIn in Frameworks */,
 				238A2EEC2CBD0E200058D7CC /* FirebaseCore in Frameworks */,
 				238A2EF02CBD0E200058D7CC /* FirebaseStorage in Frameworks */,
-				BD3AF2D62CBE1EEC006BA00F /* KakaoMapsSDK_SPM in Frameworks */,
 				23499B192CBD120F009FD900 /* GoogleSignInSwift in Frameworks */,
-				BD3AF2D32CBE1DF4006BA00F /* KakaoMapsSDK_SPM in Frameworks */,
 				238A2EEA2CBD0E200058D7CC /* FirebaseAuth in Frameworks */,
 				238A2EEE2CBD0E200058D7CC /* FirebaseFirestore in Frameworks */,
 			);
@@ -108,6 +124,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		252A12962CBED8AC00EDD297 /* Calandar */ = {
+			isa = PBXGroup;
+			children = (
+				252A12942CBED8AC00EDD297 /* CalandarTestView.swift */,
+				252A12952CBED8AC00EDD297 /* CalandarView.swift */,
+			);
+			path = Calandar;
+			sourceTree = "<group>";
+		};
 		256A27222CBD047A0031F766 /* PetMate */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,7 +142,6 @@
 				256A27282CBD04890031F766 /* Store */,
 				256A27292CBD048E0031F766 /* View */,
 				256A272E2CBD04E10031F766 /* Resource */,
-				FBD6BBB82CBE665D008BEA30 /* GoogleService-Info.plist */,
 			);
 			path = PetMate;
 			sourceTree = "<group>";
@@ -139,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				256A27342CBD054F0031F766 /* LoginStore.swift */,
+				BD3AF2DD2CBE5DEA006BA00F /* PetPlaceStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -147,10 +172,11 @@
 			isa = PBXGroup;
 			children = (
 				256A27422CBE80FB0031F766 /* HomeView */,
+				BD59FEF42CBED14400F8CF7B /* PetPlace */,
 				FBD6BBAC2CBE3A1B008BEA30 /* ChatRoom */,
+				252A12962CBED8AC00EDD297 /* Calandar */,
 				4B5D53052CBE2D9600FDC77A /* MyPageView */,
 				256A27202CBD047A0031F766 /* ContentView.swift */,
-				BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */,
 				040D5CEB2CBE632700549B47 /* PetWriteView.swift */,
 				256A272A2CBD04930031F766 /* Common */,
 			);
@@ -172,6 +198,7 @@
 			children = (
 				256A27322CBD05330031F766 /* Font+Extension.swift */,
 				FBD6BBB62CBE49EA008BEA30 /* Date+Extension.swift */,
+				252A12992CBED90700EDD297 /* Date+GetElement.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -197,6 +224,7 @@
 			children = (
 				040D5CE92CBE631F00549B47 /* districts.json */,
 				256A271E2CBD047A0031F766 /* Assets.xcassets */,
+				BD3AF2DB2CBE4589006BA00F /* GoogleService-Info.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -228,9 +256,29 @@
 		4B5D53052CBE2D9600FDC77A /* MyPageView */ = {
 			isa = PBXGroup;
 			children = (
+				4B5D53842CBE63F700FDC77A /* CommonStruct */,
 				4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */,
+				4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */,
+				4B5D530E2CBE3BAC00FDC77A /* PetProfileEditView.swift */,
+				4B6FF8802CBE888C009F4206 /* MyPageTabView.swift */,
 			);
 			path = MyPageView;
+			sourceTree = "<group>";
+		};
+		BD59FEF42CBED14400F8CF7B /* PetPlace */ = {
+			isa = PBXGroup;
+			children = (
+				BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */,
+				BD59FEF52CBED16600F8CF7B /* AddPlaceView.swift */,
+			);
+			path = PetPlace;
+		4B5D53842CBE63F700FDC77A /* CommonStruct */ = {
+			isa = PBXGroup;
+			children = (
+				4B5D53082CBE39FB00FDC77A /* ImagePicker.swift */,
+				4B5D53802CBE627500FDC77A /* TagUI.swift */,
+			);
+			path = CommonStruct;
 			sourceTree = "<group>";
 		};
 		BDB029892CBCF46100A0EAF6 = {
@@ -285,8 +333,6 @@
 				23499B1B2CBD1239009FD900 /* KakaoSDKAuth */,
 				FBB7BB572CBDFAA200E20E11 /* GeoFire */,
 				FBB7BB592CBDFAA200E20E11 /* GeoFireUtils */,
-				BD3AF2D22CBE1DF4006BA00F /* KakaoMapsSDK_SPM */,
-				BD3AF2D52CBE1EEC006BA00F /* KakaoMapsSDK_SPM */,
 			);
 			productName = PetMate;
 			productReference = BDB029922CBCF46200A0EAF6 /* PetMate.app */;
@@ -321,7 +367,6 @@
 				23499B152CBD120F009FD900 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				23499B1A2CBD1239009FD900 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				FBB7BB562CBDFAA200E20E11 /* XCRemoteSwiftPackageReference "geofire-objc" */,
-				BD3AF2D42CBE1EEC006BA00F /* XCLocalSwiftPackageReference "../KakaoMapsSDK_SPM_master" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = BDB029932CBCF46200A0EAF6 /* Products */;
@@ -338,8 +383,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD3AF2DC2CBE4589006BA00F /* GoogleService-Info.plist in Resources */,
 				256A27262CBD047A0031F766 /* Assets.xcassets in Resources */,
-				FBD6BBB92CBE665D008BEA30 /* GoogleService-Info.plist in Resources */,
 				040D5CEA2CBE631F00549B47 /* districts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,13 +396,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B5D53812CBE627500FDC77A /* TagUI.swift in Sources */,
 				256A27312CBD052E0031F766 /* CustomButton.swift in Sources */,
 				256A27522CBEA8970031F766 /* HomeFindFriendCardView.swift in Sources */,
 				256A27232CBD047A0031F766 /* ButtonModifier.swift in Sources */,
 				256A27242CBD047A0031F766 /* ContentView.swift in Sources */,
+				4B5D53092CBE39FB00FDC77A /* ImagePicker.swift in Sources */,
 				FBB7BB552CBDF9E100E20E11 /* PlacePost.swift in Sources */,
 				FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */,
+				252A12972CBED8AD00EDD297 /* CalandarTestView.swift in Sources */,
+				252A12982CBED8AD00EDD297 /* CalandarView.swift in Sources */,
 				FBD6BBB72CBE49EA008BEA30 /* Date+Extension.swift in Sources */,
+				252A129A2CBED90700EDD297 /* Date+GetElement.swift in Sources */,
 				4B5D53072CBE2DB400FDC77A /* UserProfileView.swift in Sources */,
 				256A27332CBD05370031F766 /* Font+Extension.swift in Sources */,
 				FBD6BBB22CBE3A68008BEA30 /* ChatRoomListViewModel.swift in Sources */,
@@ -366,10 +416,12 @@
 				256A27502CBEA8670031F766 /* HomeFindFriendsScrollView.swift in Sources */,
 				256A274E2CBEA5EF0031F766 /* HomeReviewCardView.swift in Sources */,
 				FBD6BBB02CBE3A5C008BEA30 /* ChatRoomListView.swift in Sources */,
+				BD3AF2DE2CBE5DEA006BA00F /* PetPlaceStore.swift in Sources */,
 				256A27252CBD047A0031F766 /* PetMateApp.swift in Sources */,
 				256A27542CBEA9280031F766 /* HomeMyLocationView.swift in Sources */,
 				BDB029AD2CBD75FC00A0EAF6 /* PetMapView.swift in Sources */,
 				256A27482CBEA3A60031F766 /* HomeFindMateView.swift in Sources */,
+				BD59FEF62CBED16600F8CF7B /* AddPlaceView.swift in Sources */,
 				256A27352CBD05580031F766 /* LoginStore.swift in Sources */,
 				FBD6BBAE2CBE3A28008BEA30 /* ChatRoom.swift in Sources */,
 				256A274A2CBEA3B50031F766 /* HomeFindMateButton.swift in Sources */,
@@ -378,6 +430,9 @@
 				FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */,
 				256A27372CBD055D0031F766 /* MateUser.swift in Sources */,
 				256A27442CBE81350031F766 /* HomeView.swift in Sources */,
+				4B5D530F2CBE3BAC00FDC77A /* PetProfileEditView.swift in Sources */,
+				4B5D530D2CBE3B8E00FDC77A /* PetProfileView.swift in Sources */,
+				4B6FF8812CBE888C009F4206 /* MyPageTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +562,7 @@
 		};
 		BDB029A12CBCF46400A0EAF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -538,6 +594,7 @@
 		};
 		BDB029A22CBCF46400A0EAF6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -589,13 +646,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCLocalSwiftPackageReference section */
-		BD3AF2D42CBE1EEC006BA00F /* XCLocalSwiftPackageReference "../KakaoMapsSDK_SPM_master" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../KakaoMapsSDK_SPM_master;
-		};
-/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
 		23499B152CBD120F009FD900 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
@@ -667,14 +717,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 238A2EE82CBD0E200058D7CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
-		};
-		BD3AF2D22CBE1DF4006BA00F /* KakaoMapsSDK_SPM */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = KakaoMapsSDK_SPM;
-		};
-		BD3AF2D52CBE1EEC006BA00F /* KakaoMapsSDK_SPM */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = KakaoMapsSDK_SPM;
 		};
 		FBB7BB572CBDFAA200E20E11 /* GeoFire */ = {
 			isa = XCSwiftPackageProductDependency;
