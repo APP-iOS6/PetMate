@@ -24,6 +24,8 @@
 		256A27372CBD055D0031F766 /* MateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27362CBD055B0031F766 /* MateUser.swift */; };
 		256A273B2CBE26830031F766 /* CalandarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A273A2CBE26830031F766 /* CalandarView.swift */; };
 		256A273D2CBE28C40031F766 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 256A273C2CBE28C40031F766 /* GoogleService-Info.plist */; };
+		256A273F2CBE4C800031F766 /* CalandarTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A273E2CBE4C700031F766 /* CalandarTestView.swift */; };
+		256A27412CBE4D3B0031F766 /* Date+GetElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27402CBE4D0C0031F766 /* Date+GetElement.swift */; };
 		BD3AF2D32CBE1DF4006BA00F /* KakaoMapsSDK_SPM in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AF2D22CBE1DF4006BA00F /* KakaoMapsSDK_SPM */; };
 		BD3AF2D62CBE1EEC006BA00F /* KakaoMapsSDK_SPM in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AF2D52CBE1EEC006BA00F /* KakaoMapsSDK_SPM */; };
 		BDB029AD2CBD75FC00A0EAF6 /* PetMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */; };
@@ -46,6 +48,8 @@
 		256A27362CBD055B0031F766 /* MateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateUser.swift; sourceTree = "<group>"; };
 		256A273A2CBE26830031F766 /* CalandarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalandarView.swift; sourceTree = "<group>"; };
 		256A273C2CBE28C40031F766 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		256A273E2CBE4C700031F766 /* CalandarTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalandarTestView.swift; sourceTree = "<group>"; };
+		256A27402CBE4D0C0031F766 /* Date+GetElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+GetElement.swift"; sourceTree = "<group>"; };
 		BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		BD63D8F82CBE0B2500CDDC65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDB029922CBCF46200A0EAF6 /* PetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +140,7 @@
 		256A272B2CBD049B0031F766 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				256A27402CBE4D0C0031F766 /* Date+GetElement.swift */,
 				256A27322CBD05330031F766 /* Font+Extension.swift */,
 			);
 			path = Extension;
@@ -176,6 +181,7 @@
 		256A27382CBE26180031F766 /* Calandar */ = {
 			isa = PBXGroup;
 			children = (
+				256A273E2CBE4C700031F766 /* CalandarTestView.swift */,
 				256A273A2CBE26830031F766 /* CalandarView.swift */,
 			);
 			path = Calandar;
@@ -293,12 +299,14 @@
 				256A27232CBD047A0031F766 /* ButtonModifier.swift in Sources */,
 				256A27242CBD047A0031F766 /* ContentView.swift in Sources */,
 				FBB7BB552CBDF9E100E20E11 /* PlacePost.swift in Sources */,
+				256A273F2CBE4C800031F766 /* CalandarTestView.swift in Sources */,
 				FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */,
 				256A27332CBD05370031F766 /* Font+Extension.swift in Sources */,
 				FBB7BB532CBDF99D00E20E11 /* Review.swift in Sources */,
 				256A27252CBD047A0031F766 /* PetMateApp.swift in Sources */,
 				BDB029AD2CBD75FC00A0EAF6 /* PetMapView.swift in Sources */,
 				256A27352CBD05580031F766 /* LoginStore.swift in Sources */,
+				256A27412CBE4D3B0031F766 /* Date+GetElement.swift in Sources */,
 				FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */,
 				256A273B2CBE26830031F766 /* CalandarView.swift in Sources */,
 				256A27372CBD055D0031F766 /* MateUser.swift in Sources */,
