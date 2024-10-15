@@ -9,6 +9,7 @@ import SwiftUI
 import GoogleSignInSwift
 
 struct LoginView: View {
+    @Environment(AuthManager.self) var authManager
     @State private var loginStore = LoginStore()
     @Binding var isLoggedIn: Bool
     
@@ -82,4 +83,5 @@ struct LoginView: View {
 
 #Preview {
     LoginView(isLoggedIn: .constant(false))
+        .environment(AuthManager())
 }
