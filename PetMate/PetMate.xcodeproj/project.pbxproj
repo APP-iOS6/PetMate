@@ -47,7 +47,7 @@
 		256A273A2CBE26830031F766 /* CalandarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalandarView.swift; sourceTree = "<group>"; };
 		256A273C2CBE28C40031F766 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
-		BD63D8F82CBE0B2500CDDC65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BD63D8F82CBE0B2500CDDC65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDB029922CBCF46200A0EAF6 /* PetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetMapView.swift; sourceTree = "<group>"; };
 		FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePost.swift; sourceTree = "<group>"; };
@@ -81,13 +81,13 @@
 		256A27222CBD047A0031F766 /* PetMate */ = {
 			isa = PBXGroup;
 			children = (
+				256A273C2CBE28C40031F766 /* GoogleService-Info.plist */,
 				BD63D8F82CBE0B2500CDDC65 /* Info.plist */,
 				256A272F2CBD04FA0031F766 /* App */,
 				256A27272CBD04830031F766 /* Model */,
 				256A27282CBD04890031F766 /* Store */,
 				256A27292CBD048E0031F766 /* View */,
 				256A272E2CBD04E10031F766 /* Resource */,
-				256A273C2CBE28C40031F766 /* GoogleService-Info.plist */,
 			);
 			path = PetMate;
 			sourceTree = "<group>";
