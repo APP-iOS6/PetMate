@@ -7,10 +7,9 @@
 
 import SwiftUI
 import FirebaseFirestore
-//import FirebaseFirestoreSwift
 
 struct ProfileView: View {
-    @State private var profileImage: Image? = Image("placeholder")
+    @State private var profileImage: Image?
     @State private var isImagePickerPresented = false // 이미지 선택기
     @State private var introduction = "소개를 기다리고 있어요"
     @State private var isEditingIntroduction = false // 편집모드인지 여부
@@ -21,7 +20,7 @@ struct ProfileView: View {
         VStack(alignment: .leading, spacing: 16) {
             HStack(alignment: .center, spacing: 16) {
                 ZStack(alignment: .bottom) {
-                    profileImage?
+                    (profileImage ?? Image("placeholder"))
                         .resizable()
                         .scaledToFill()
                         .frame(width: 100, height: 100)
@@ -56,7 +55,7 @@ struct ProfileView: View {
                             .font(.system(size: 14))
                             .foregroundColor(.gray)
                     }
-                    Text("메이트 횟수: \(user.matchCount)")
+                    Text("메이트 횟수: \(user.matchCount)번")
                         .font(.subheadline)
                         .foregroundColor(.black)
                     
@@ -76,10 +75,9 @@ struct ProfileView: View {
                     }
                 }
             }
-            
-            
         }
         .padding()
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
