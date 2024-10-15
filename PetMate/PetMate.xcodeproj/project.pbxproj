@@ -35,6 +35,11 @@
 		FBB7BB552CBDF9E100E20E11 /* PlacePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB542CBDF9E100E20E11 /* PlacePost.swift */; };
 		FBB7BB582CBDFAA200E20E11 /* GeoFire in Frameworks */ = {isa = PBXBuildFile; productRef = FBB7BB572CBDFAA200E20E11 /* GeoFire */; };
 		FBB7BB5A2CBDFAA200E20E11 /* GeoFireUtils in Frameworks */ = {isa = PBXBuildFile; productRef = FBB7BB592CBDFAA200E20E11 /* GeoFireUtils */; };
+		FBD6BBAE2CBE3A28008BEA30 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BBAD2CBE3A28008BEA30 /* ChatRoom.swift */; };
+		FBD6BBB02CBE3A5C008BEA30 /* ChatRoomListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BBAF2CBE3A5C008BEA30 /* ChatRoomListView.swift */; };
+		FBD6BBB22CBE3A68008BEA30 /* ChatRoomListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BBB12CBE3A68008BEA30 /* ChatRoomListViewModel.swift */; };
+		FBD6BBB72CBE49EA008BEA30 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BBB62CBE49EA008BEA30 /* Date+Extension.swift */; };
+		FBD6BBB92CBE665D008BEA30 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FBD6BBB82CBE665D008BEA30 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +63,11 @@
 		FBB7BB502CBDF94400E20E11 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		FBB7BB522CBDF99D00E20E11 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		FBB7BB542CBDF9E100E20E11 /* PlacePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePost.swift; sourceTree = "<group>"; };
+		FBD6BBAD2CBE3A28008BEA30 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
+		FBD6BBAF2CBE3A5C008BEA30 /* ChatRoomListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomListView.swift; sourceTree = "<group>"; };
+		FBD6BBB12CBE3A68008BEA30 /* ChatRoomListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomListViewModel.swift; sourceTree = "<group>"; };
+		FBD6BBB62CBE49EA008BEA30 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		FBD6BBB82CBE665D008BEA30 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +101,7 @@
 				256A27282CBD04890031F766 /* Store */,
 				256A27292CBD048E0031F766 /* View */,
 				256A272E2CBD04E10031F766 /* Resource */,
+				FBD6BBB82CBE665D008BEA30 /* GoogleService-Info.plist */,
 			);
 			path = PetMate;
 			sourceTree = "<group>";
@@ -103,6 +114,7 @@
 				FBB7BB502CBDF94400E20E11 /* Pet.swift */,
 				FBB7BB522CBDF99D00E20E11 /* Review.swift */,
 				FBB7BB542CBDF9E100E20E11 /* PlacePost.swift */,
+				FBD6BBAD2CBE3A28008BEA30 /* ChatRoom.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -118,6 +130,7 @@
 		256A27292CBD048E0031F766 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FBD6BBAC2CBE3A1B008BEA30 /* ChatRoom */,
 				4B5D53052CBE2D9600FDC77A /* MyPageView */,
 				256A27202CBD047A0031F766 /* ContentView.swift */,
 				BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */,
@@ -141,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				256A27322CBD05330031F766 /* Font+Extension.swift */,
+				FBD6BBB62CBE49EA008BEA30 /* Date+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -202,6 +216,15 @@
 				BDB029922CBCF46200A0EAF6 /* PetMate.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		FBD6BBAC2CBE3A1B008BEA30 /* ChatRoom */ = {
+			isa = PBXGroup;
+			children = (
+				FBD6BBAF2CBE3A5C008BEA30 /* ChatRoomListView.swift */,
+				FBD6BBB12CBE3A68008BEA30 /* ChatRoomListViewModel.swift */,
+			);
+			path = ChatRoom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,8 +307,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				256A27262CBD047A0031F766 /* Assets.xcassets in Resources */,
+				FBD6BBB92CBE665D008BEA30 /* GoogleService-Info.plist in Resources */,
 				040D5CEA2CBE631F00549B47 /* districts.json in Resources */,
-				040D5CEE2CBE634D00549B47 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,12 +324,16 @@
 				256A27242CBD047A0031F766 /* ContentView.swift in Sources */,
 				FBB7BB552CBDF9E100E20E11 /* PlacePost.swift in Sources */,
 				FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */,
+				FBD6BBB72CBE49EA008BEA30 /* Date+Extension.swift in Sources */,
 				4B5D53072CBE2DB400FDC77A /* UserProfileView.swift in Sources */,
 				256A27332CBD05370031F766 /* Font+Extension.swift in Sources */,
+				FBD6BBB22CBE3A68008BEA30 /* ChatRoomListViewModel.swift in Sources */,
 				FBB7BB532CBDF99D00E20E11 /* Review.swift in Sources */,
+				FBD6BBB02CBE3A5C008BEA30 /* ChatRoomListView.swift in Sources */,
 				256A27252CBD047A0031F766 /* PetMateApp.swift in Sources */,
 				BDB029AD2CBD75FC00A0EAF6 /* PetMapView.swift in Sources */,
 				256A27352CBD05580031F766 /* LoginStore.swift in Sources */,
+				FBD6BBAE2CBE3A28008BEA30 /* ChatRoom.swift in Sources */,
 				040D5CEC2CBE632700549B47 /* PetWriteView.swift in Sources */,
 				FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */,
 				256A27372CBD055D0031F766 /* MateUser.swift in Sources */,
