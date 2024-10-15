@@ -33,7 +33,7 @@ class AuthManager {
     
     init() {
         print("AuthManager initialized")
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { 
             self.checkAuthState() // 앱이 시작될 때 호출 로그인을 확인하는 로직이 자동으로 돌아감 > 이 친구를 활용
         }
     }

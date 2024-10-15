@@ -16,7 +16,7 @@ struct ContentView: View {
             VStack {
                 switch authManager.authState {
                 case .splash:
-                    Text("로딩 중...")
+                    SplashView()
                         .onAppear {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                                 authManager.checkAuthState()
