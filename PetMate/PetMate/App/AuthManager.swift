@@ -50,7 +50,7 @@ class AuthManager {
             if try await self.checkExistUserData(userUid) {
                 authState = .auth // 구글로 로그인 한 기록이 있고 데이터베이스에 데이터가 있기 때문에 홈으로 넘겨줌
             } else {
-                authState = .signUp // 사용자 데이터가 없을 경우 회원가입으로 이동
+                authState = .unAuth // 사용자 데이터가 없을 경우 회원가입으로 이동
             }
         }
     }
