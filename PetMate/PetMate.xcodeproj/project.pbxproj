@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040D5CEA2CBE631F00549B47 /* districts.json in Resources */ = {isa = PBXBuildFile; fileRef = 040D5CE92CBE631F00549B47 /* districts.json */; };
+		040D5CEC2CBE632700549B47 /* PetWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D5CEB2CBE632700549B47 /* PetWriteView.swift */; };
+		040D5CEE2CBE634D00549B47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 040D5CED2CBE634D00549B47 /* GoogleService-Info.plist */; };
+		23499B172CBD120F009FD900 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B162CBD120F009FD900 /* GoogleSignIn */; };
+		23499B192CBD120F009FD900 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B182CBD120F009FD900 /* GoogleSignInSwift */; };
+		23499B1C2CBD1239009FD900 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B1B2CBD1239009FD900 /* KakaoSDKAuth */; };
+		238A2EEA2CBD0E200058D7CC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EE92CBD0E200058D7CC /* FirebaseAuth */; };
+		238A2EEC2CBD0E200058D7CC /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EEB2CBD0E200058D7CC /* FirebaseCore */; };
+		238A2EEE2CBD0E200058D7CC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EED2CBD0E200058D7CC /* FirebaseFirestore */; };
+		238A2EF02CBD0E200058D7CC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EEF2CBD0E200058D7CC /* FirebaseStorage */; };
 		256A27232CBD047A0031F766 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A271F2CBD047A0031F766 /* ButtonModifier.swift */; };
 		256A27242CBD047A0031F766 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27202CBD047A0031F766 /* ContentView.swift */; };
 		256A27252CBD047A0031F766 /* PetMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27212CBD047A0031F766 /* PetMateApp.swift */; };
@@ -15,9 +25,21 @@
 		256A27332CBD05370031F766 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27322CBD05330031F766 /* Font+Extension.swift */; };
 		256A27352CBD05580031F766 /* LoginStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27342CBD054F0031F766 /* LoginStore.swift */; };
 		256A27372CBD055D0031F766 /* MateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27362CBD055B0031F766 /* MateUser.swift */; };
+		BD3AF2D32CBE1DF4006BA00F /* KakaoMapsSDK_SPM in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AF2D22CBE1DF4006BA00F /* KakaoMapsSDK_SPM */; };
+		BD3AF2D62CBE1EEC006BA00F /* KakaoMapsSDK_SPM in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AF2D52CBE1EEC006BA00F /* KakaoMapsSDK_SPM */; };
+		BDB029AD2CBD75FC00A0EAF6 /* PetMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */; };
+		FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */; };
+		FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB502CBDF94400E20E11 /* Pet.swift */; };
+		FBB7BB532CBDF99D00E20E11 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB522CBDF99D00E20E11 /* Review.swift */; };
+		FBB7BB552CBDF9E100E20E11 /* PlacePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB542CBDF9E100E20E11 /* PlacePost.swift */; };
+		FBB7BB582CBDFAA200E20E11 /* GeoFire in Frameworks */ = {isa = PBXBuildFile; productRef = FBB7BB572CBDFAA200E20E11 /* GeoFire */; };
+		FBB7BB5A2CBDFAA200E20E11 /* GeoFireUtils in Frameworks */ = {isa = PBXBuildFile; productRef = FBB7BB592CBDFAA200E20E11 /* GeoFireUtils */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040D5CE92CBE631F00549B47 /* districts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = districts.json; sourceTree = "<group>"; };
+		040D5CEB2CBE632700549B47 /* PetWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetWriteView.swift; sourceTree = "<group>"; };
+		040D5CED2CBE634D00549B47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		256A271E2CBD047A0031F766 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		256A271F2CBD047A0031F766 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
 		256A27202CBD047A0031F766 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,7 +48,14 @@
 		256A27322CBD05330031F766 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		256A27342CBD054F0031F766 /* LoginStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStore.swift; sourceTree = "<group>"; };
 		256A27362CBD055B0031F766 /* MateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateUser.swift; sourceTree = "<group>"; };
+		BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		BD63D8F82CBE0B2500CDDC65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BDB029922CBCF46200A0EAF6 /* PetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetMapView.swift; sourceTree = "<group>"; };
+		FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePost.swift; sourceTree = "<group>"; };
+		FBB7BB502CBDF94400E20E11 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		FBB7BB522CBDF99D00E20E11 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		FBB7BB542CBDF9E100E20E11 /* PlacePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePost.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +63,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBB7BB582CBDFAA200E20E11 /* GeoFire in Frameworks */,
+				FBB7BB5A2CBDFAA200E20E11 /* GeoFireUtils in Frameworks */,
+				23499B1C2CBD1239009FD900 /* KakaoSDKAuth in Frameworks */,
+				23499B172CBD120F009FD900 /* GoogleSignIn in Frameworks */,
+				238A2EEC2CBD0E200058D7CC /* FirebaseCore in Frameworks */,
+				238A2EF02CBD0E200058D7CC /* FirebaseStorage in Frameworks */,
+				BD3AF2D62CBE1EEC006BA00F /* KakaoMapsSDK_SPM in Frameworks */,
+				23499B192CBD120F009FD900 /* GoogleSignInSwift in Frameworks */,
+				BD3AF2D32CBE1DF4006BA00F /* KakaoMapsSDK_SPM in Frameworks */,
+				238A2EEA2CBD0E200058D7CC /* FirebaseAuth in Frameworks */,
+				238A2EEE2CBD0E200058D7CC /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +83,7 @@
 		256A27222CBD047A0031F766 /* PetMate */ = {
 			isa = PBXGroup;
 			children = (
+				BD63D8F82CBE0B2500CDDC65 /* Info.plist */,
 				256A272F2CBD04FA0031F766 /* App */,
 				256A27272CBD04830031F766 /* Model */,
 				256A27282CBD04890031F766 /* Store */,
@@ -56,6 +97,10 @@
 			isa = PBXGroup;
 			children = (
 				256A27362CBD055B0031F766 /* MateUser.swift */,
+				FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */,
+				FBB7BB502CBDF94400E20E11 /* Pet.swift */,
+				FBB7BB522CBDF99D00E20E11 /* Review.swift */,
+				FBB7BB542CBDF9E100E20E11 /* PlacePost.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -72,6 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				256A27202CBD047A0031F766 /* ContentView.swift */,
+				BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */,
+				040D5CEB2CBE632700549B47 /* PetWriteView.swift */,
 				256A272A2CBD04930031F766 /* Common */,
 			);
 			path = View;
@@ -114,6 +161,8 @@
 		256A272E2CBD04E10031F766 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				040D5CE92CBE631F00549B47 /* districts.json */,
+				040D5CED2CBE634D00549B47 /* GoogleService-Info.plist */,
 				256A271E2CBD047A0031F766 /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -130,6 +179,7 @@
 		BDB029892CBCF46100A0EAF6 = {
 			isa = PBXGroup;
 			children = (
+				BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */,
 				256A27222CBD047A0031F766 /* PetMate */,
 				BDB029932CBCF46200A0EAF6 /* Products */,
 			);
@@ -160,6 +210,17 @@
 			);
 			name = PetMate;
 			packageProductDependencies = (
+				238A2EE92CBD0E200058D7CC /* FirebaseAuth */,
+				238A2EEB2CBD0E200058D7CC /* FirebaseCore */,
+				238A2EED2CBD0E200058D7CC /* FirebaseFirestore */,
+				238A2EEF2CBD0E200058D7CC /* FirebaseStorage */,
+				23499B162CBD120F009FD900 /* GoogleSignIn */,
+				23499B182CBD120F009FD900 /* GoogleSignInSwift */,
+				23499B1B2CBD1239009FD900 /* KakaoSDKAuth */,
+				FBB7BB572CBDFAA200E20E11 /* GeoFire */,
+				FBB7BB592CBDFAA200E20E11 /* GeoFireUtils */,
+				BD3AF2D22CBE1DF4006BA00F /* KakaoMapsSDK_SPM */,
+				BD3AF2D52CBE1EEC006BA00F /* KakaoMapsSDK_SPM */,
 			);
 			productName = PetMate;
 			productReference = BDB029922CBCF46200A0EAF6 /* PetMate.app */;
@@ -189,6 +250,13 @@
 			);
 			mainGroup = BDB029892CBCF46100A0EAF6;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				238A2EE82CBD0E200058D7CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				23499B152CBD120F009FD900 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				23499B1A2CBD1239009FD900 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				FBB7BB562CBDFAA200E20E11 /* XCRemoteSwiftPackageReference "geofire-objc" */,
+				BD3AF2D42CBE1EEC006BA00F /* XCLocalSwiftPackageReference "../KakaoMapsSDK_SPM_master" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = BDB029932CBCF46200A0EAF6 /* Products */;
 			projectDirPath = "";
@@ -205,6 +273,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				256A27262CBD047A0031F766 /* Assets.xcassets in Resources */,
+				040D5CEA2CBE631F00549B47 /* districts.json in Resources */,
+				040D5CEE2CBE634D00549B47 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,9 +288,15 @@
 				256A27312CBD052E0031F766 /* CustomButton.swift in Sources */,
 				256A27232CBD047A0031F766 /* ButtonModifier.swift in Sources */,
 				256A27242CBD047A0031F766 /* ContentView.swift in Sources */,
+				FBB7BB552CBDF9E100E20E11 /* PlacePost.swift in Sources */,
+				FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */,
 				256A27332CBD05370031F766 /* Font+Extension.swift in Sources */,
+				FBB7BB532CBDF99D00E20E11 /* Review.swift in Sources */,
 				256A27252CBD047A0031F766 /* PetMateApp.swift in Sources */,
+				BDB029AD2CBD75FC00A0EAF6 /* PetMapView.swift in Sources */,
 				256A27352CBD05580031F766 /* LoginStore.swift in Sources */,
+				040D5CEC2CBE632700549B47 /* PetWriteView.swift in Sources */,
+				FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */,
 				256A27372CBD055D0031F766 /* MateUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,6 +306,7 @@
 /* Begin XCBuildConfiguration section */
 		BDB0299E2CBCF46400A0EAF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -280,7 +357,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -293,6 +370,7 @@
 		};
 		BDB0299F2CBCF46400A0EAF6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -337,7 +415,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -356,7 +434,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6R3M7VGRP2;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PetMate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -385,7 +465,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6R3M7VGRP2;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PetMate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -427,6 +509,104 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		BD3AF2D42CBE1EEC006BA00F /* XCLocalSwiftPackageReference "../KakaoMapsSDK_SPM_master" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../KakaoMapsSDK_SPM_master;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		23499B152CBD120F009FD900 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+		23499B1A2CBD1239009FD900 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.22.7;
+			};
+		};
+		238A2EE82CBD0E200058D7CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.3.0;
+			};
+		};
+		FBB7BB562CBDFAA200E20E11 /* XCRemoteSwiftPackageReference "geofire-objc" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/geofire-objc";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		23499B162CBD120F009FD900 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23499B152CBD120F009FD900 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		23499B182CBD120F009FD900 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23499B152CBD120F009FD900 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		23499B1B2CBD1239009FD900 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23499B1A2CBD1239009FD900 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		238A2EE92CBD0E200058D7CC /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 238A2EE82CBD0E200058D7CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		238A2EEB2CBD0E200058D7CC /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 238A2EE82CBD0E200058D7CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		238A2EED2CBD0E200058D7CC /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 238A2EE82CBD0E200058D7CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		238A2EEF2CBD0E200058D7CC /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 238A2EE82CBD0E200058D7CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		BD3AF2D22CBE1DF4006BA00F /* KakaoMapsSDK_SPM */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = KakaoMapsSDK_SPM;
+		};
+		BD3AF2D52CBE1EEC006BA00F /* KakaoMapsSDK_SPM */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = KakaoMapsSDK_SPM;
+		};
+		FBB7BB572CBDFAA200E20E11 /* GeoFire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FBB7BB562CBDFAA200E20E11 /* XCRemoteSwiftPackageReference "geofire-objc" */;
+			productName = GeoFire;
+		};
+		FBB7BB592CBDFAA200E20E11 /* GeoFireUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FBB7BB562CBDFAA200E20E11 /* XCRemoteSwiftPackageReference "geofire-objc" */;
+			productName = GeoFireUtils;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BDB0298A2CBCF46100A0EAF6 /* Project object */;
 }
