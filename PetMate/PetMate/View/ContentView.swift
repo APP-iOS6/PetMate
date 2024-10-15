@@ -15,8 +15,23 @@ struct ContentView: View {
                     Text("Home")
                     Image(systemName: "house")
                 }
+            PetMapView()
+                .environment(PetPlacesStore())
+                .tabItem {
+                    Text("Place")
+                    Image(systemName: "map")
+                }
+            ChatRoomListView()
+                .tabItem {
+                    Text("Chat")
+                    Image(systemName: "message.badge.rtl")
+                }
+            MyPageTabView()
+                .tabItem {
+                    Text("My")
+                    Image(systemName: "person")
+                }
         }
-        
     }
 }
 
