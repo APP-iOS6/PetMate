@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct PetMapView: View {
-
+    
     @Environment(PetPlacesStore.self) private var placeStore
     @State private var showAddPlaceView = false
     

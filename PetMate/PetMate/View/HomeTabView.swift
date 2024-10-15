@@ -15,8 +15,10 @@ struct HomeTabView: View {
                     Text("Home")
                     Image(systemName: "house")
                 }
-            PetMapView()
-                .environment(PetPlacesStore())
+            NavigationStack {
+                PetMapView()
+                    .environment(PetPlacesStore())
+            }
                 .tabItem {
                     Text("Place")
                     Image(systemName: "map")
@@ -33,6 +35,7 @@ struct HomeTabView: View {
                 }
         }
     }
+    
 }
 
 #Preview {
