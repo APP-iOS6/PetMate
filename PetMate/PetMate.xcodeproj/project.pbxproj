@@ -20,6 +20,7 @@
 		238A2EF02CBD0E200058D7CC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EEF2CBD0E200058D7CC /* FirebaseStorage */; };
 		23A5D8992CBE883200D5447A /* KakaoMapsSDK_SPM in Frameworks */ = {isa = PBXBuildFile; productRef = BD3AF2D22CBE1DF4006BA00F /* KakaoMapsSDK_SPM */; };
 		23A5D89B2CBE8A0A00D5447A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23A5D89A2CBE8A0A00D5447A /* GoogleService-Info.plist */; };
+		23A5D89D2CBEADFE00D5447A /* UserProfileInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A5D89C2CBEADFE00D5447A /* UserProfileInputView.swift */; };
 		256A27232CBD047A0031F766 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A271F2CBD047A0031F766 /* ButtonModifier.swift */; };
 		256A27242CBD047A0031F766 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27202CBD047A0031F766 /* ContentView.swift */; };
 		256A27252CBD047A0031F766 /* PetMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27212CBD047A0031F766 /* PetMateApp.swift */; };
@@ -51,6 +52,7 @@
 		234FF4C32CBE2A8600CEB88E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = PetMate/Info.plist; sourceTree = "<group>"; };
 		2367AD302CBE5CA300A239F6 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		23A5D89A2CBE8A0A00D5447A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		23A5D89C2CBEADFE00D5447A /* UserProfileInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileInputView.swift; sourceTree = "<group>"; };
 		256A271E2CBD047A0031F766 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		256A271F2CBD047A0031F766 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
 		256A27202CBD047A0031F766 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				234FF4942CBDFE5600CEB88E /* LoginView.swift */,
 				BDB029AC2CBD75FC00A0EAF6 /* PetMapView.swift */,
 				040D5CEB2CBE632700549B47 /* PetWriteView.swift */,
+				23A5D89C2CBEADFE00D5447A /* UserProfileInputView.swift */,
 				256A272A2CBD04930031F766 /* Common */,
 			);
 			path = View;
@@ -341,6 +344,7 @@
 				FBD6BBB02CBE3A5C008BEA30 /* ChatRoomListView.swift in Sources */,
 				256A27252CBD047A0031F766 /* PetMateApp.swift in Sources */,
 				BDB029AD2CBD75FC00A0EAF6 /* PetMapView.swift in Sources */,
+				23A5D89D2CBEADFE00D5447A /* UserProfileInputView.swift in Sources */,
 				256A27352CBD05580031F766 /* LoginStore.swift in Sources */,
 				FBD6BBAE2CBE3A28008BEA30 /* ChatRoom.swift in Sources */,
 				040D5CEC2CBE632700549B47 /* PetWriteView.swift in Sources */,
