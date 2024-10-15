@@ -24,7 +24,7 @@ struct PetMateApp: App {
   var body: some Scene {
     WindowGroup {
       NavigationView {
-          PetWriteView()
+          ContentView()
       }
     }
   }

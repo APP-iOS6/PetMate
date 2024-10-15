@@ -168,7 +168,7 @@ struct PetWriteView: View {
                     .overlay(
                         Group {
                             if districtViewModel.filteredDistricts.isEmpty {
-                                Text("No results found")
+                                Text("결과가 없습니다.")
                             }
                         }
                     )
@@ -205,7 +205,7 @@ struct PetWriteView: View {
     var formPage2: some View {
         VStack(alignment: .leading, spacing: 16) {
             // 펫 선택
-            Text("Select a Pet")
+            Text("반려동물을 선택해주세요.")
                 .font(.headline)
                 .padding(.horizontal)
             
@@ -259,7 +259,7 @@ struct PetWriteView: View {
     func submitPost() {
         let db = Firestore.firestore()
         guard let selectedPetId = selectedPet else {
-            print("No pet selected")
+            print("선택된 반려동물이 없습니다.")
             return
         }
         
