@@ -8,33 +8,37 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(AuthManager.self) var authManager
+    @State private var isShowingUserProfileInput = false
+
     var body: some View {
-        TabView {
-            HomeView()
-                .tabItem {
-                    Text("Home")
-                    Image(systemName: "house")
+        NavigationStack {
+            VStack {
+                switch authManager.authState {
+                case .splash:
+                    Text("로딩 중...")
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                                authManager.checkAuthState()
+                            }
+                        }
+                        
+                case .unAuth:
+                    LoginView(isShowingUserProfileInput: $isShowingUserProfileInput)
+                
+                case .auth, .signUp:
+                    if isShowingUserProfileInput {
+                        UserProfileInputView(isShowingUserProfileInput: $isShowingUserProfileInput)
+                    } else {
+                        HomeTabView()
+                    }
                 }
-            PetMapView()
-                .environment(PetPlacesStore())
-                .tabItem {
-                    Text("Place")
-                    Image(systemName: "map")
-                }
-            ChatRoomListView()
-                .tabItem {
-                    Text("Chat")
-                    Image(systemName: "message.badge.rtl")
-                }
-            MyPageTabView()
-                .tabItem {
-                    Text("My")
-                    Image(systemName: "person")
-                }
+            }
         }
     }
 }
 
 #Preview {
     ContentView()
+        .environment(AuthManager())
 }
