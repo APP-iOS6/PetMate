@@ -11,8 +11,8 @@ struct HomeTabView: View {
     var body: some View {
         TabView {
             NavigationStack {
-//                HomeView()
-                Text("df")
+                //Text("test")
+                HomeView()
             }
                 .tabItem {
                     Text("Home")

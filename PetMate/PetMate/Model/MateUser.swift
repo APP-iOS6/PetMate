@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestore
 
-struct MateUser: Codable {
+struct MateUser: Codable, Identifiable {
     @DocumentID var id: String?
     var name: String
     var image: String

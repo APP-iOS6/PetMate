@@ -20,6 +20,39 @@ class ChatDetailViewModel: ObservableObject {
     @Published var chatList: [Chat] = []
     @Published var post: MatePost?
     
+    var groupedChats: [ChatSection] {
+        
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR") // 한국어 로케일 설정
+        formatter.dateFormat = "M월 d일" // 원하는 날짜 형식
+        let calendar = Calendar.current
+        
+        let sortedChats = chatList.sorted { $0.createAt < $1.createAt }
+        var sections: [ChatSection] = []
+        var currentDate: Date?
+        var currentChats: [Chat] = []
+        
+        for chat in sortedChats {
+            let chatDate = calendar.startOfDay(for: chat.createAt)
+            if currentDate == nil || chatDate != currentDate {
+                if let currentDate = currentDate {
+                    let dateString = formatter.string(from: currentDate)
+                    sections.append(ChatSection(dateString: dateString, chats: currentChats))
+                }
+                currentDate = chatDate
+                currentChats = [chat]
+            } else {
+                currentChats.append(chat)
+            }
+        }
+        // 마지막 섹션 추가
+        if let currentDate = currentDate {
+            let dateString = formatter.string(from: currentDate)
+            sections.append(ChatSection(dateString: dateString, chats: currentChats))
+        }
+        return sections
+    }
+    
     init() {
         print("어 디테일뷰모델 출근했어 ㅋ")
     }
