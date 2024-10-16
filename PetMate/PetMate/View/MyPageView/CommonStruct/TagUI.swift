@@ -16,8 +16,8 @@ struct TagView: View {
             .font(.system(size: 12))
             .padding(.horizontal, 10)
             .padding(.vertical, 5)
-            .background(Color(.systemGray6))
-            .foregroundStyle(Color(UIColor.systemBrown))
+            .background(Color("Tag_Color"))
+            .foregroundStyle(Color.white)
             .cornerRadius(12)
     }
 }
@@ -32,7 +32,7 @@ struct TagToggle: View {
             .font(.system(size: 15))
             .padding(.horizontal, 15)
             .padding(.vertical, 5)
-            .background(isSelected ? Color(.systemBrown) : Color(.systemGray6))
+            .background(isSelected ? Color("Tag_Color") : Color(.systemGray6))
             .foregroundStyle(isSelected ? .white : Color(.darkGray))
             .cornerRadius(15)
             .onTapGesture {
