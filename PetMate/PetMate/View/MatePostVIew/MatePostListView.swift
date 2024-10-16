@@ -31,33 +31,8 @@ struct MatePostListView: View {
             ScrollView {
                 // 2x2 레이아웃
                 LazyVGrid(columns: [GridItem(.fixed(150)), GridItem(.fixed(150))], spacing: 20) {
-                    ForEach(Array(pets.enumerated()), id: \.offset) { index, pet in
-                        VStack {
-                            // 펫 이미지
-                            AsyncImage(url: URL(string: pet.images.first ?? "")) { image in
-                                image
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 200, height: 250)
-                                    .padding() // 이미지 사이의 패딩
-                            } placeholder: {
-                                ProgressView()
-                            }
-                            
-                            // 펫 데이터 표시
-                            VStack(alignment: .leading) {
-                                Text(pet.name)
-                                    .font(.headline)
-                                Text("\(pet.age)살")
-                                    .font(.subheadline)
-                                    .foregroundColor(.gray)
-                                Text(pet.tag.joined(separator: ", "))
-                                    .font(.caption)
-                                    .foregroundColor(.blue)
-                            }
-                            .padding(.bottom, 10) // 각 이미지 아래 여백 추가
-                        }
-                        .padding() // 이미지와 정보 섹션 전체에 패딩 추가
+                    ForEach(pets) {pet in
+                        MatePostListCardView(pet: pet)
                     }
                 }
                 .padding() // 전체 그리드에 패딩 추가

@@ -40,6 +40,7 @@
 		256A27542CBEA9280031F766 /* HomeMyLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27532CBEA9280031F766 /* HomeMyLocationView.swift */; };
 		259DC0FA2CBF833500AB41C1 /* TestStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC0F92CBF832000AB41C1 /* TestStore.swift */; };
 		259DC0FD2CBF8A3600AB41C1 /* MatePostStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC0FC2CBF8A2F00AB41C1 /* MatePostStore.swift */; };
+		259DC0FF2CBF91AC00AB41C1 /* MatePostListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC0FE2CBF91AC00AB41C1 /* MatePostListCardView.swift */; };
 		4B5D53072CBE2DB400FDC77A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */; };
 		4B5D53092CBE39FB00FDC77A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53082CBE39FB00FDC77A /* ImagePicker.swift */; };
 		4B5D530D2CBE3B8E00FDC77A /* PetProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */; };
@@ -98,6 +99,7 @@
 		256A27532CBEA9280031F766 /* HomeMyLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMyLocationView.swift; sourceTree = "<group>"; };
 		259DC0F92CBF832000AB41C1 /* TestStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStore.swift; sourceTree = "<group>"; };
 		259DC0FC2CBF8A2F00AB41C1 /* MatePostStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostStore.swift; sourceTree = "<group>"; };
+		259DC0FE2CBF91AC00AB41C1 /* MatePostListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostListCardView.swift; sourceTree = "<group>"; };
 		4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		4B5D53082CBE39FB00FDC77A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileView.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				040D5CEB2CBE632700549B47 /* MatePostAddView.swift */,
 				040D5CEF2CBE66CF00549B47 /* MatePostDetailView.swift */,
 				040D5CF72CBE99DD00549B47 /* MatePostListView.swift */,
+				259DC0FE2CBF91AC00AB41C1 /* MatePostListCardView.swift */,
 			);
 			path = MatePostVIew;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				256A27522CBEA8970031F766 /* HomeFindFriendCardView.swift in Sources */,
 				256A27232CBD047A0031F766 /* ButtonModifier.swift in Sources */,
 				FBD6BBBB2CBE764A008BEA30 /* Chat.swift in Sources */,
+				259DC0FF2CBF91AC00AB41C1 /* MatePostListCardView.swift in Sources */,
 				FBD6BC812CBEB581008BEA30 /* ChatDetailViewModel.swift in Sources */,
 				259DC0FA2CBF833500AB41C1 /* TestStore.swift in Sources */,
 				256A27242CBD047A0031F766 /* ContentView.swift in Sources */,

@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestore
 
-struct MatePost: Codable {
+struct MatePost: Codable, Identifiable {
     @DocumentID var id: String?         //문서Id
     var writeUser: DocumentReference    //작성자 레퍼런스
     var pet: DocumentReference         //펫 레퍼런스
