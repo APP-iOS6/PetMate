@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestore
 import Observation
-
+import FirebaseAuth
 
 @MainActor
 class ChatDetailViewModel: ObservableObject {
@@ -29,6 +29,11 @@ class ChatDetailViewModel: ObservableObject {
     
     //해당 유저와의 채팅 메시지 정보를 계속 받기 위해 스냅샷 리스너를 호출
     func observeChatList(_ chatWithUser: ChatRoomWithUser) {
+        
+        guard let userUid = Auth.auth().currentUser?.uid else {
+            print("로그인 상태 아님")
+            return
+        }
         
         guard let chatRoomId = chatWithUser.chatRoom.id else {
             return
@@ -60,6 +65,13 @@ class ChatDetailViewModel: ObservableObject {
     }
     
     func updateAllMessagesAsRead(_ chatWithUser: ChatRoomWithUser) {
+        
+        guard let userUid = Auth.auth().currentUser?.uid else {
+            print("로그인 상태 아님")
+            return
+        }
+        
+        
         guard let chatRoomId = chatWithUser.chatRoom.id, let lastReadDate = chatWithUser.chatRoom.readStatus["동경"] else {
             return
         }
@@ -71,20 +83,39 @@ class ChatDetailViewModel: ObservableObject {
                     return
                 }
                 
-                guard let query = querySnapshot?.documents else {
-                    return
-                }
                 
                 let unreadMessages = querySnapshot?.documents.filter { document in
                     guard let chat = try? document.data(as: Chat.self) else { return false }
-                    return chat.sender != "동경" && !chat.readBy.contains("동경")
+                    return chat.sender != userUid && !chat.readBy.contains(userUid)
+                }
+                
+                guard let unreadMessages = unreadMessages, !unreadMessages.isEmpty else {
+                    print("읽지 않은 메시지가 없습니다.")
+                    return
                 }
                 
                 let batch = self.db.batch()
-                unreadMessages?.forEach { document in
-                  
+                unreadMessages.forEach { document in
+                    let messageRef = self.db.collection("Chat").document(chatRoomId).collection("Message").document(document.documentID)
+                    batch.updateData(["readBy": FieldValue.arrayUnion([userUid])], forDocument: messageRef)
                 }
                 
+                batch.commit { error in
+                    if let error = error {
+                        print("배치 업데이트 실패: \(error.localizedDescription)")
+                        return
+                    }
+                    print("모든 메시지를 읽음 상태로 업데이트했습니다.")
+                    
+                    let chatRoomRef = self.db.collection("Chat").document(chatRoomId)
+                    chatRoomRef.updateData(["readStatus.\(userUid)": Date()]) { error in
+                        if let error = error {
+                            print("ChatRoom readStatus 업데이트 실패: \(error.localizedDescription)")
+                        } else {
+                            print("ChatRoom readStatus를 업데이트했습니다.")
+                        }
+                    }
+                }
                 
                 
             }
