@@ -12,7 +12,8 @@ struct PetMapView: View {
     
     @Environment(PetPlacesStore.self) private var placeStore
     @State private var showAddPlaceView = false
-    
+    @State private var showSearchPlaceView = false
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -37,10 +38,20 @@ struct PetMapView: View {
                         Image(systemName: "pencil")
                     }
                 }
+                ToolbarItem {
+                    Button(action: {
+                        showSearchPlaceView.toggle()
+                    }) {
+                        Image(systemName: "magnifyingglass")
+                    }
+                }
             }
             .navigationTitle("반려동물 동반 카페")
             .sheet(isPresented: $showAddPlaceView) {
                 AddPlaceView()
+            }
+            .sheet(isPresented: $showSearchPlaceView) {
+                StoreSearchView()
             }
         }
     }

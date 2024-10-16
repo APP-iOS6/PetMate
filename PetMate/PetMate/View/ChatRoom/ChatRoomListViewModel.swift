@@ -31,7 +31,7 @@ class ChatRoomListViewModel: ObservableObject {
     func createChatRoom() {
         Task {
             do {
-                let room = ChatRoom(id: "op32ORHPEnPRs39iZGN6WwNYRlH2_POzraPP1j3OXqveglMc51GrIN332", participant: ["op32ORHPEnPRs39iZGN6WwNYRlH2", "POzraPP1j3OXqveglMc51GrIN332"], lastMessage: "주노 이즈 갓", lastMessageAt: Date(), readStatus: ["op32ORHPEnPRs39iZGN6WwNYRlH2": Date(), "POzraPP1j3OXqveglMc51GrIN332": Date()])
+                let room = ChatRoom(id: "POzraPP1j3OXqveglMc51GrIN332_op32ORHPEnPRs39iZGN6WwNYRlH2", participant: ["op32ORHPEnPRs39iZGN6WwNYRlH2", "POzraPP1j3OXqveglMc51GrIN332"], lastMessage: "주노 이즈 갓", lastMessageAt: Date(), readStatus: ["op32ORHPEnPRs39iZGN6WwNYRlH2": Date(), "POzraPP1j3OXqveglMc51GrIN332": Date()])
                 let encode = try Firestore.Encoder().encode(room)
                 self.db.collection("Chat").document(room.id ?? UUID().uuidString).setData(encode)
             } catch {
@@ -40,7 +40,7 @@ class ChatRoomListViewModel: ObservableObject {
         }
     }
     
-
+    
     private func observeMyChatRoom() {
         
         guard let userUid = Auth.auth().currentUser?.uid else {
@@ -55,7 +55,7 @@ class ChatRoomListViewModel: ObservableObject {
                     print("리스너 실패")
                     return
                 }
-
+                
                 snapshot.documentChanges.forEach { diff in
                     do {
                         let chatRoom = try diff.document.data(as: ChatRoom.self)
@@ -63,7 +63,7 @@ class ChatRoomListViewModel: ObservableObject {
                         case .added:
                             self?.handleAdded(chatRoom, userUid: userUid)
                         case .modified:
-                            self?.handleUpdate(chatRoom)
+                            self?.handleUpdate(chatRoom, userUid: userUid)
                         case .removed:
                             self?.handleRemove(chatRoom)
                         }
@@ -82,16 +82,18 @@ class ChatRoomListViewModel: ObservableObject {
                 return
             }
             calculateUnreadCount(chatRoom, userUid: userUid) { count in
-                let chatRoomWithUser = ChatRoomWithUser(chatRoom: chatRoom, chatUser: user, unreadCount: count)
+                let chatRoomWithUser = ChatRoomWithUser(chatRoom: chatRoom, chatUser: user, myUid: userUid, unreadCount: count)
                 self.chatListRoom.append(chatRoomWithUser)
             }
         }
     }
     
-    private func handleUpdate(_ chatRoom: ChatRoom) {
+    private func handleUpdate(_ chatRoom: ChatRoom, userUid: String) {
         if let index = self.chatListRoom.firstIndex(where: { $0.chatRoom.id == chatRoom.id }) {
-            let newChat = ChatRoomWithUser(chatRoom: chatRoom, chatUser: self.chatListRoom[index].chatUser)
-            self.chatListRoom[index] = newChat
+            calculateUnreadCount(chatRoom, userUid: userUid) { count in
+                let newChat = ChatRoomWithUser(chatRoom: chatRoom, chatUser: self.chatListRoom[index].chatUser, myUid: userUid, unreadCount: count)
+                self.chatListRoom[index] = newChat
+            }
         }
     }
     
@@ -135,6 +137,7 @@ class ChatRoomListViewModel: ObservableObject {
                 }
                 
                 guard let query = querySnapshot?.documents else {
+                    print("ㄱ계산 문서 없음")
                     completion(0)
                     return
                 }
