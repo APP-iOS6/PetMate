@@ -8,17 +8,35 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(AuthManager.self) var authManager
+    @State private var isShowingUserProfileInput = false
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            switch authManager.authState {
+            case .splash:
+                Text("로딩 중...")
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                            authManager.checkAuthState()
+                        }
+                    }
+                
+            case .unAuth:
+                LoginView(isShowingUserProfileInput: $isShowingUserProfileInput)
+                
+            case .auth, .signUp:
+                if isShowingUserProfileInput {
+                    UserProfileInputView(isShowingUserProfileInput: $isShowingUserProfileInput)
+                } else {
+                    HomeTabView()
+                }
+            }
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
+        .environment(AuthManager())
 }
