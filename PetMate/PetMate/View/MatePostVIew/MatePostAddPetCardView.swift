@@ -61,6 +61,13 @@ struct MatePostAddPetCardView: View {
         }
         .frame(width: proxy.size.width * 0.7)
         .border(.black)
+        .onTapGesture {
+            if !selectedPets.contains(pet){
+                selectedPets.insert(pet)
+            }else{
+                selectedPets.remove(pet)
+            }
+        }
     }
 }
 

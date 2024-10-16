@@ -12,6 +12,7 @@ struct MatePostAddSecondView: View {
     @Binding var postStore: MatePostStore
     
     @State var isPresent: Bool = false
+    @State var selectedPets: Set<Pet> = []
     
     let contentFieldText =
         """
@@ -20,19 +21,36 @@ struct MatePostAddSecondView: View {
         """
     var body: some View {
         VStack(spacing: 50){
-            ZStack{
-                RoundedRectangle(cornerRadius: 12)
-                    .foregroundStyle(.gray)
-                    .frame(width: 300, height: 150)
-                    .opacity(0.3)
-                HStack{
-                    Text("내 펫 불러오기")
-                    Image(systemName: "plus.circle")
-                }.font(.largeTitle)
+            if selectedPets.isEmpty{
+                ZStack{
+                    RoundedRectangle(cornerRadius: 12)
+                        .foregroundStyle(.gray)
+                        .frame(width: 300, height: 150)
+                        .opacity(0.3)
+                    HStack{
+                        Text("내 펫 불러오기")
+                        Image(systemName: "plus.circle")
+                    }.font(.largeTitle)
+                }.onTapGesture {
+                    isPresent.toggle()
+                }
+            }else{
+                GeometryReader{ proxy in
+                    VStack{
+                        ScrollView(.horizontal){
+                            HStack{
+                                ForEach(Array(selectedPets)){ pet in
+                                    MatePostAddPetCardView(pet: pet, proxy: proxy, selectedPets: $selectedPets)
+                                }
+                            }
+                        }.scrollIndicators(.hidden)
+                        Button{isPresent.toggle()}label: {
+                            Text("추가")
+                        }
+                    }
+                }
             }
-            .onTapGesture {
-                isPresent.toggle()
-            }
+            
             VStack(alignment: .leading){
                 Text("제목")
                     .font(.title2)
@@ -53,7 +71,7 @@ struct MatePostAddSecondView: View {
         }
         .padding()
         .sheet(isPresented: $isPresent, onDismiss: {postStore.reset()}) {
-            MatePostAddPetsView()
+            MatePostAddPetsView(selectedPets: $selectedPets)
                 .presentationDetents([.medium])
         }
     }

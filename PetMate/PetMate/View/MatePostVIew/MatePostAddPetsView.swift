@@ -12,7 +12,7 @@ import FirebaseFirestore
 struct MatePostAddPetsView: View {
     @Environment(\.dismiss) var dismiss
     @State var pets: [Pet] = []
-    @State var selectedPets: Set<Pet> = []
+    @Binding var selectedPets: Set<Pet>
     var body: some View {
         GeometryReader{ proxy in
             VStack{
@@ -29,13 +29,7 @@ struct MatePostAddPetsView: View {
                     LazyHStack(spacing: 20){
                         ForEach(pets) { pet in
                             MatePostAddPetCardView(pet: pet, proxy: proxy, selectedPets: $selectedPets)
-                                .onTapGesture {
-                                    if !selectedPets.contains(pet){
-                                        selectedPets.insert(pet)
-                                    }else{
-                                        selectedPets.remove(pet)
-                                    }
-                                }
+                                
                         }
                     }
                 }
@@ -65,5 +59,6 @@ struct MatePostAddPetsView: View {
 }
 
 #Preview {
-    MatePostAddPetsView()
+    @Previewable @State var selectedPets: Set<Pet> = []
+    MatePostAddPetsView(selectedPets: $selectedPets)
 }
