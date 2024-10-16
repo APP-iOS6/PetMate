@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		040D5CEA2CBE631F00549B47 /* districts.json in Resources */ = {isa = PBXBuildFile; fileRef = 040D5CE92CBE631F00549B47 /* districts.json */; };
-		040D5CEC2CBE632700549B47 /* PetWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D5CEB2CBE632700549B47 /* PetWriteView.swift */; };
-		040D5CF02CBE66D600549B47 /* PetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D5CEF2CBE66CF00549B47 /* PetDetailView.swift */; };
-		040D5CF82CBE99E200549B47 /* PetPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D5CF72CBE99DD00549B47 /* PetPostView.swift */; };
+		040D5CEC2CBE632700549B47 /* MatePostAddOldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D5CEB2CBE632700549B47 /* MatePostAddOldView.swift */; };
+		040D5CF02CBE66D600549B47 /* MatePostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D5CEF2CBE66CF00549B47 /* MatePostDetailView.swift */; };
+		040D5CF82CBE99E200549B47 /* MatePostListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D5CF72CBE99DD00549B47 /* MatePostListView.swift */; };
 		23499B172CBD120F009FD900 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B162CBD120F009FD900 /* GoogleSignIn */; };
 		23499B192CBD120F009FD900 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B182CBD120F009FD900 /* GoogleSignInSwift */; };
 		23499B1C2CBD1239009FD900 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B1B2CBD1239009FD900 /* KakaoSDKAuth */; };
@@ -38,6 +38,14 @@
 		256A27502CBEA8670031F766 /* HomeFindFriendsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A274F2CBEA8670031F766 /* HomeFindFriendsScrollView.swift */; };
 		256A27522CBEA8970031F766 /* HomeFindFriendCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27512CBEA8970031F766 /* HomeFindFriendCardView.swift */; };
 		256A27542CBEA9280031F766 /* HomeMyLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27532CBEA9280031F766 /* HomeMyLocationView.swift */; };
+		259DC0FA2CBF833500AB41C1 /* TestStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC0F92CBF832000AB41C1 /* TestStore.swift */; };
+		259DC0FD2CBF8A3600AB41C1 /* MatePostStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC0FC2CBF8A2F00AB41C1 /* MatePostStore.swift */; };
+		259DC0FF2CBF91AC00AB41C1 /* MatePostListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC0FE2CBF91AC00AB41C1 /* MatePostListCardView.swift */; };
+		259DC1012CBFAC7E00AB41C1 /* MatePostAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1002CBFAC7E00AB41C1 /* MatePostAddView.swift */; };
+		259DC1052CBFE6FA00AB41C1 /* MatePostAddFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1042CBFE6FA00AB41C1 /* MatePostAddFirstView.swift */; };
+		259DC1072CBFE70800AB41C1 /* MatePostAddSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1062CBFE70800AB41C1 /* MatePostAddSecondView.swift */; };
+		259DC1092CBFF4A600AB41C1 /* MatePostAddPetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1082CBFF4A600AB41C1 /* MatePostAddPetsView.swift */; };
+		259DC10C2CC0119200AB41C1 /* MatePostAddPetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC10B2CC0119200AB41C1 /* MatePostAddPetCardView.swift */; };
 		4B5D53072CBE2DB400FDC77A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */; };
 		4B5D53092CBE39FB00FDC77A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53082CBE39FB00FDC77A /* ImagePicker.swift */; };
 		4B5D530D2CBE3B8E00FDC77A /* PetProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */; };
@@ -53,6 +61,7 @@
 		BD306E792CBF0154008BDBEB /* UserProfileInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E782CBF0154008BDBEB /* UserProfileInputView.swift */; };
 		BD306E7B2CBF0158008BDBEB /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E7A2CBF0158008BDBEB /* UserProfileViewModel.swift */; };
 		BD306E7D2CBF0180008BDBEB /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E7C2CBF0180008BDBEB /* HomeTabView.swift */; };
+		FB954E032CBFDC96007B7BCE /* ResizableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB954E022CBFDC96007B7BCE /* ResizableTextField.swift */; };
 		BD691BD42CBF8A82003A300B /* StoreSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BD32CBF8A81003A300B /* StoreSearchView.swift */; };
 		BD691BD62CBF8B4B003A300B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BD52CBF8B4B003A300B /* Store.swift */; };
 		BD691BD82CBF96EB003A300B /* StoreDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BD72CBF96EB003A300B /* StoreDetailView.swift */; };
@@ -78,13 +87,15 @@
 		FBD6BBBB2CBE764A008BEA30 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BBBA2CBE764A008BEA30 /* Chat.swift */; };
 		FBD6BC7F2CBEB516008BEA30 /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BC7E2CBEB516008BEA30 /* ChatDetailView.swift */; };
 		FBD6BC812CBEB581008BEA30 /* ChatDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BC802CBEB581008BEA30 /* ChatDetailViewModel.swift */; };
+		FBD6BC8F2CBF8603008BEA30 /* GenerateChatRoomId.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BC8E2CBF8603008BEA30 /* GenerateChatRoomId.swift */; };
+		FBD6BCF22CBFD457008BEA30 /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BCF12CBFD457008BEA30 /* TextFieldModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		040D5CE92CBE631F00549B47 /* districts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = districts.json; sourceTree = "<group>"; };
-		040D5CEB2CBE632700549B47 /* PetWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetWriteView.swift; sourceTree = "<group>"; };
-		040D5CEF2CBE66CF00549B47 /* PetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailView.swift; sourceTree = "<group>"; };
-		040D5CF72CBE99DD00549B47 /* PetPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPostView.swift; sourceTree = "<group>"; };
+		040D5CEB2CBE632700549B47 /* MatePostAddOldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostAddOldView.swift; sourceTree = "<group>"; };
+		040D5CEF2CBE66CF00549B47 /* MatePostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostDetailView.swift; sourceTree = "<group>"; };
+		040D5CF72CBE99DD00549B47 /* MatePostListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostListView.swift; sourceTree = "<group>"; };
 		252A12942CBED8AC00EDD297 /* CalandarTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalandarTestView.swift; sourceTree = "<group>"; };
 		252A12952CBED8AC00EDD297 /* CalandarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalandarView.swift; sourceTree = "<group>"; };
 		252A12992CBED90700EDD297 /* Date+GetElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+GetElement.swift"; sourceTree = "<group>"; };
@@ -105,6 +116,14 @@
 		256A274F2CBEA8670031F766 /* HomeFindFriendsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFindFriendsScrollView.swift; sourceTree = "<group>"; };
 		256A27512CBEA8970031F766 /* HomeFindFriendCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFindFriendCardView.swift; sourceTree = "<group>"; };
 		256A27532CBEA9280031F766 /* HomeMyLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMyLocationView.swift; sourceTree = "<group>"; };
+		259DC0F92CBF832000AB41C1 /* TestStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStore.swift; sourceTree = "<group>"; };
+		259DC0FC2CBF8A2F00AB41C1 /* MatePostStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostStore.swift; sourceTree = "<group>"; };
+		259DC0FE2CBF91AC00AB41C1 /* MatePostListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostListCardView.swift; sourceTree = "<group>"; };
+		259DC1002CBFAC7E00AB41C1 /* MatePostAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostAddView.swift; sourceTree = "<group>"; };
+		259DC1042CBFE6FA00AB41C1 /* MatePostAddFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostAddFirstView.swift; sourceTree = "<group>"; };
+		259DC1062CBFE70800AB41C1 /* MatePostAddSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostAddSecondView.swift; sourceTree = "<group>"; };
+		259DC1082CBFF4A600AB41C1 /* MatePostAddPetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostAddPetsView.swift; sourceTree = "<group>"; };
+		259DC10B2CC0119200AB41C1 /* MatePostAddPetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostAddPetCardView.swift; sourceTree = "<group>"; };
 		4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		4B5D53082CBE39FB00FDC77A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileView.swift; sourceTree = "<group>"; };
@@ -134,6 +153,7 @@
 		BD691BE72CC02F7D003A300B /* PlaceConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceConfirmationView.swift; sourceTree = "<group>"; };
 		BD691BE92CC0324D003A300B /* AddPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostView.swift; sourceTree = "<group>"; };
 		BDB029922CBCF46200A0EAF6 /* PetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB954E022CBFDC96007B7BCE /* ResizableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableTextField.swift; sourceTree = "<group>"; };
 		FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePost.swift; sourceTree = "<group>"; };
 		FBB7BB502CBDF94400E20E11 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		FBB7BB522CBDF99D00E20E11 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
@@ -146,6 +166,8 @@
 		FBD6BBBA2CBE764A008BEA30 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		FBD6BC7E2CBEB516008BEA30 /* ChatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailView.swift; sourceTree = "<group>"; };
 		FBD6BC802CBEB581008BEA30 /* ChatDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailViewModel.swift; sourceTree = "<group>"; };
+		FBD6BC8E2CBF8603008BEA30 /* GenerateChatRoomId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateChatRoomId.swift; sourceTree = "<group>"; };
+		FBD6BCF12CBFD457008BEA30 /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +231,8 @@
 		256A27282CBD04890031F766 /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				259DC0FC2CBF8A2F00AB41C1 /* MatePostStore.swift */,
+				259DC0F92CBF832000AB41C1 /* TestStore.swift */,
 				BD306E762CBF012D008BDBEB /* LoginViewModel.swift */,
 				BD306E7A2CBF0158008BDBEB /* UserProfileViewModel.swift */,
 				256A27342CBD054F0031F766 /* LoginStore.swift */,
@@ -220,6 +244,7 @@
 		256A27292CBD048E0031F766 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				259DC0FB2CBF891800AB41C1 /* MatePostVIew */,
 				BD306E732CBF0117008BDBEB /* Login */,
 				BD306E5C2CBEF7CC008BDBEB /* Place */,
 				256A27422CBE80FB0031F766 /* HomeView */,
@@ -228,9 +253,6 @@
 				4B5D53052CBE2D9600FDC77A /* MyPageView */,
 				256A27202CBD047A0031F766 /* ContentView.swift */,
 				BD306E7C2CBF0180008BDBEB /* HomeTabView.swift */,
-				040D5CEB2CBE632700549B47 /* PetWriteView.swift */,
-				040D5CEF2CBE66CF00549B47 /* PetDetailView.swift */,
-				040D5CF72CBE99DD00549B47 /* PetPostView.swift */,
 				256A272A2CBD04930031F766 /* Common */,
 			);
 			path = View;
@@ -244,6 +266,7 @@
 				256A272D2CBD04DA0031F766 /* CommonView */,
 				256A272C2CBD04A60031F766 /* Modifier */,
 				256A272B2CBD049B0031F766 /* Extension */,
+				FBD6BC8E2CBF8603008BEA30 /* GenerateChatRoomId.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -263,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				256A271F2CBD047A0031F766 /* ButtonModifier.swift */,
+				FBD6BCF12CBFD457008BEA30 /* TextFieldModifier.swift */,
 			);
 			path = Modifier;
 			sourceTree = "<group>";
@@ -271,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				256A27302CBD05220031F766 /* CustomButton.swift */,
+				FB954E022CBFDC96007B7BCE /* ResizableTextField.swift */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -307,6 +332,22 @@
 				256A27532CBEA9280031F766 /* HomeMyLocationView.swift */,
 			);
 			path = HomeView;
+			sourceTree = "<group>";
+		};
+		259DC0FB2CBF891800AB41C1 /* MatePostVIew */ = {
+			isa = PBXGroup;
+			children = (
+				040D5CF72CBE99DD00549B47 /* MatePostListView.swift */,
+				259DC0FE2CBF91AC00AB41C1 /* MatePostListCardView.swift */,
+				040D5CEF2CBE66CF00549B47 /* MatePostDetailView.swift */,
+				040D5CEB2CBE632700549B47 /* MatePostAddOldView.swift */,
+				259DC1002CBFAC7E00AB41C1 /* MatePostAddView.swift */,
+				259DC1042CBFE6FA00AB41C1 /* MatePostAddFirstView.swift */,
+				259DC1062CBFE70800AB41C1 /* MatePostAddSecondView.swift */,
+				259DC1082CBFF4A600AB41C1 /* MatePostAddPetsView.swift */,
+				259DC10B2CC0119200AB41C1 /* MatePostAddPetCardView.swift */,
+			);
+			path = MatePostVIew;
 			sourceTree = "<group>";
 		};
 		4B5D53052CBE2D9600FDC77A /* MyPageView */ = {
@@ -490,19 +531,23 @@
 			files = (
 				4B5D53812CBE627500FDC77A /* TagUI.swift in Sources */,
 				BD306E5B2CBEF7C0008BDBEB /* PetPlaceStore.swift in Sources */,
-				040D5CF82CBE99E200549B47 /* PetPostView.swift in Sources */,
+				040D5CF82CBE99E200549B47 /* MatePostListView.swift in Sources */,
 				256A27312CBD052E0031F766 /* CustomButton.swift in Sources */,
 				256A27522CBEA8970031F766 /* HomeFindFriendCardView.swift in Sources */,
 				256A27232CBD047A0031F766 /* ButtonModifier.swift in Sources */,
 				FBD6BBBB2CBE764A008BEA30 /* Chat.swift in Sources */,
+				259DC0FF2CBF91AC00AB41C1 /* MatePostListCardView.swift in Sources */,
 				FBD6BC812CBEB581008BEA30 /* ChatDetailViewModel.swift in Sources */,
+				259DC0FA2CBF833500AB41C1 /* TestStore.swift in Sources */,
 				BD691BE22CC00CC4003A300B /* PlaceListView.swift in Sources */,
 				256A27242CBD047A0031F766 /* ContentView.swift in Sources */,
 				4B5D53092CBE39FB00FDC77A /* ImagePicker.swift in Sources */,
-				040D5CF02CBE66D600549B47 /* PetDetailView.swift in Sources */,
+				040D5CF02CBE66D600549B47 /* MatePostDetailView.swift in Sources */,
+				259DC1092CBFF4A600AB41C1 /* MatePostAddPetsView.swift in Sources */,
 				FBB7BB552CBDF9E100E20E11 /* PlacePost.swift in Sources */,
 				BD691BE82CC02F7D003A300B /* PlaceConfirmationView.swift in Sources */,
 				FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */,
+				259DC1072CBFE70800AB41C1 /* MatePostAddSecondView.swift in Sources */,
 				252A12972CBED8AD00EDD297 /* CalandarTestView.swift in Sources */,
 				BD306E642CBEF852008BDBEB /* PetMapView.swift in Sources */,
 				BD306E622CBEF841008BDBEB /* AddPlaceView.swift in Sources */,
@@ -516,6 +561,7 @@
 				4B5D53072CBE2DB400FDC77A /* UserProfileView.swift in Sources */,
 				BD691BE62CC02A1E003A300B /* PlaceDetailView.swift in Sources */,
 				256A27332CBD05370031F766 /* Font+Extension.swift in Sources */,
+				259DC1052CBFE6FA00AB41C1 /* MatePostAddFirstView.swift in Sources */,
 				FBD6BC7F2CBEB516008BEA30 /* ChatDetailView.swift in Sources */,
 				BD691BE02CBFACD4003A300B /* LocationManager.swift in Sources */,
 				BD306E7B2CBF0158008BDBEB /* UserProfileViewModel.swift in Sources */,
@@ -528,6 +574,7 @@
 				256A27252CBD047A0031F766 /* PetMateApp.swift in Sources */,
 				256A27542CBEA9280031F766 /* HomeMyLocationView.swift in Sources */,
 				256A27482CBEA3A60031F766 /* HomeFindMateView.swift in Sources */,
+				FB954E032CBFDC96007B7BCE /* ResizableTextField.swift in Sources */,
 				256A27352CBD05580031F766 /* LoginStore.swift in Sources */,
 				BD691BEA2CC0324D003A300B /* AddPostView.swift in Sources */,
 				FBD6BBAE2CBE3A28008BEA30 /* ChatRoom.swift in Sources */,
@@ -535,17 +582,22 @@
 				BD691BD42CBF8A82003A300B /* StoreSearchView.swift in Sources */,
 				BD306E772CBF012D008BDBEB /* LoginViewModel.swift in Sources */,
 				256A274A2CBEA3B50031F766 /* HomeFindMateButton.swift in Sources */,
-				040D5CEC2CBE632700549B47 /* PetWriteView.swift in Sources */,
+				259DC10C2CC0119200AB41C1 /* MatePostAddPetCardView.swift in Sources */,
+				040D5CEC2CBE632700549B47 /* MatePostAddOldView.swift in Sources */,
 				256A274C2CBEA5DA0031F766 /* HomeReviewScrollView.swift in Sources */,
 				FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */,
 				256A27372CBD055D0031F766 /* MateUser.swift in Sources */,
 				BD691BE42CC00CE4003A300B /* PlaceCardView.swift in Sources */,
 				BD306E722CBF010B008BDBEB /* AuthManager.swift in Sources */,
+				259DC1012CBFAC7E00AB41C1 /* MatePostAddView.swift in Sources */,
+				259DC0FD2CBF8A3600AB41C1 /* MatePostStore.swift in Sources */,
 				4B5D530F2CBE3BAC00FDC77A /* PetProfileEditView.swift in Sources */,
 				4B5D530D2CBE3B8E00FDC77A /* PetProfileView.swift in Sources */,
 				BD306E752CBF0122008BDBEB /* LoginView.swift in Sources */,
+				FBD6BCF22CBFD457008BEA30 /* TextFieldModifier.swift in Sources */,
 				4B6FF8812CBE888C009F4206 /* MyPageTabView.swift in Sources */,
 				256A27442CBE81350031F766 /* HomeView.swift in Sources */,
+				FBD6BC8F2CBF8603008BEA30 /* GenerateChatRoomId.swift in Sources */,
 				BD691BDB2CBFAAE2003A300B /* KakaoAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
