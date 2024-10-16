@@ -9,17 +9,12 @@ import SwiftUI
 
 struct ChatDetailView: View {
     
-    let chatRoomId: String
-    let chatUser: MateUser
-    let postId: String?
+    let chatWithUser: ChatRoomWithUser
     
-    init(chatRoomId: String,
-         chatUser: MateUser,
-         postId: String?
+    init(
+        chatWithUser: ChatRoomWithUser
     ) {
-        self.chatRoomId = chatRoomId
-        self.chatUser = chatUser
-        self.postId = postId
+        self.chatWithUser = chatWithUser
     }
     
     @StateObject private var viewModel: ChatDetailViewModel = ChatDetailViewModel()
@@ -31,7 +26,7 @@ struct ChatDetailView: View {
             }
         }
         .onAppear {
-            viewModel.observeChatList(chatRoomId)
+            viewModel.observeChatList(chatWithUser)
         }
         .onDisappear {
             viewModel.listener?.remove()
@@ -39,15 +34,3 @@ struct ChatDetailView: View {
     }
 }
 
-#Preview {
-    ChatDetailView(
-        chatRoomId: "동경_정원",
-        chatUser: MateUser(
-            name: "정원",
-            image: "https://image-cdn.hypb.st/https%3A%2F%2Fkr.hypebeast.com%2Ffiles%2F2022%2F08%2Fone-piece-luffys-anime-voice-actress-says-she-doesnt-read-the-manga-ft.jpg?w=960&cbr=1&q=90&fit=max",
-            matchCount: 6,
-            location: "구얼동",
-            createdAt: Date()),
-        postId: nil
-    )
-}

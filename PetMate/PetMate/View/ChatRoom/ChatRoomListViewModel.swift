@@ -118,12 +118,12 @@ class ChatRoomListViewModel: ObservableObject {
         
         self.db.collection("Chat").document(chatRoomId).collection("Message")
             .whereField("createAt", isGreaterThan: lastReadDate).getDocuments { querySnapshot, error in
+                
                 if let error = error {
                     print("createAt 쿼리 데이터 못가져옴 \(error.localizedDescription)")
                     completion(0)
                     return
                 }
-                
                 
                 guard let query = querySnapshot?.documents else {
                     completion(0)
@@ -137,7 +137,7 @@ class ChatRoomListViewModel: ObservableObject {
                 }
                 
                 completion(unReadData.count)
-     
+                
             }
     }
     

@@ -28,7 +28,12 @@ class ChatDetailViewModel: ObservableObject {
     
     
     //해당 유저와의 채팅 메시지 정보를 계속 받기 위해 스냅샷 리스너를 호출
-    func observeChatList(_ chatRoomId: String) {
+    func observeChatList(_ chatWithUser: ChatRoomWithUser) {
+        
+        guard let chatRoomId = chatWithUser.chatRoom.id else {
+            return
+        }
+        
         self.listener = self.db.collection("Chat").document(chatRoomId).collection("Message").addSnapshotListener { querySnapshot, error in
             guard let snapshot = querySnapshot else {
                 print("리스너 실패")
@@ -54,6 +59,38 @@ class ChatDetailViewModel: ObservableObject {
         }
     }
     
+    func updateAllMessagesAsRead(_ chatWithUser: ChatRoomWithUser) {
+        guard let chatRoomId = chatWithUser.chatRoom.id, let lastReadDate = chatWithUser.chatRoom.readStatus["동경"] else {
+            return
+        }
+        
+        self.db.collection("Chat").document(chatRoomId).collection("Message")
+            .whereField("createAt", isGreaterThan: lastReadDate).getDocuments { querySnapshot, error in
+                if let error = error {
+                    print("createAt 쿼리 데이터 못가져옴 \(error.localizedDescription)")
+                    return
+                }
+                
+                guard let query = querySnapshot?.documents else {
+                    return
+                }
+                
+                let unreadMessages = querySnapshot?.documents.filter { document in
+                    guard let chat = try? document.data(as: Chat.self) else { return false }
+                    return chat.sender != "동경" && !chat.readBy.contains("동경")
+                }
+                
+                let batch = self.db.batch()
+                unreadMessages?.forEach { document in
+                  
+                }
+                
+                
+                
+            }
+        
+    }
+    
     //채딩 데이터가 새로 추가되었을 때
     private func handleAdded(_ chat: Chat) {
         self.chatList.append(chat)
@@ -74,7 +111,7 @@ class ChatDetailViewModel: ObservableObject {
     }
     
     private func markAllMessagesAsRead(_ chatRoomId: String) {
-       
+        
     }
     
 }

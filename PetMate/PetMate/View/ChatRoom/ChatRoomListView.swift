@@ -40,9 +40,7 @@ struct ChatRoomCellView: View {
     var body: some View {
         NavigationLink {
             ChatDetailView(
-                chatRoomId: chatRoom.chatRoom.id ?? "",
-                chatUser: chatRoom.chatUser,
-                postId: chatRoom.chatRoom.postId
+                chatWithUser: chatRoom
             )
         } label: {
             HStack {
