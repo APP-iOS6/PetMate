@@ -73,7 +73,10 @@ struct ChatDetailView: View {
                     }
                 
                 Button {
-                    self.text = ""
+                    Task {
+                        await viewModel.sendMessage(postId, otherUser: otherUser, message: self.text)
+                        self.text = ""
+                    }
                 } label: {
                     Image(systemName: "paperplane.circle")
                         .resizable()
@@ -108,3 +111,4 @@ extension UIApplication {
         sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
+

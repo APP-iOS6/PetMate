@@ -48,6 +48,7 @@ class ChatDetailViewModel: ObservableObject {
             } else {
                 //TODO: 채팅방이 존재하지 않는다면 채팅방을 생성한 후 그 후 서브컬렉션인 Message 컬렉션의 리스너 달아주기
                 print("채팅방이 존재하지 않아요")
+                self.isCreateChatRoom = true
             }
         }
     }
@@ -98,7 +99,7 @@ class ChatDetailViewModel: ObservableObject {
             return nil
         }
     }
-
+    
     
     //내가 마지막에 읽은 시점 이후에 온 메시지들을 읽음 처리하는 함수
     func updateAllMessagesAsRead(_ chatRoomId: String) {
@@ -110,6 +111,7 @@ class ChatDetailViewModel: ObservableObject {
         
         
         guard let lastReadDate = self.chatRoomInfo?.readStatus[userUid] else {
+            print("챗룸 정보 없음")
             return
         }
         
@@ -153,10 +155,7 @@ class ChatDetailViewModel: ObservableObject {
                         }
                     }
                 }
-                
-                
             }
-        
     }
     
     //채딩 데이터가 새로 추가되었을 때
@@ -178,4 +177,93 @@ class ChatDetailViewModel: ObservableObject {
         }
     }
     
+    //TODO: 포스트 가져오는 함수 희철님이랑 같이 작업 되어야 할 수 있을 듯
+    //    func getPostData(_ postId: String?) {
+    //        guard let postId = postId else {
+    //            print("포스트 없음")
+    //            return
+    //        }
+    //    }
+    
+    //메시지 전송 버튼을 눌렀을 때
+    func sendMessage(_ postId: String?, otherUser: MateUser, message: String) async {
+        //채팅방 데이터도 없어서 우선 채팅방부터 만들어야 하는가?
+        if isCreateChatRoom {
+            do {
+                try await createChatRoom(postId, otherUser: otherUser)
+                self.isCreateChatRoom = false
+            } catch {
+                
+            }
+        } else {
+            //그게 아니라면 바로 데이터 업로드 하기
+            uploadMessage(otherUser: otherUser, message: message)
+        }
+    }
+    
+    func uploadMessage(otherUser: MateUser, message: String) {
+        
+        guard let userUid = Auth.auth().currentUser?.uid else {
+            print("로그인 상태 아닌데 메시지 못보냄")
+            return
+        }
+        
+        guard let otherUid = otherUser.id else {
+            print("상대 정보가 없음")
+            return
+        }
+        let date = Date()
+        let chatRoomId = generateChatRoomId(userId1: userUid, userId2: otherUid)
+        let chat = Chat(message: message, sender: userUid, readBy: [userUid], createAt: date)
+        
+        guard let chatEncode = try? Firestore.Encoder().encode(chat) else {
+            print("챗 메시지 인코딩 실패")
+            return
+        }
+        
+        self.db.collection("Chat").document(chatRoomId).collection("Message").addDocument(data: chatEncode) { error in
+            let batch = self.db.batch()
+            
+            let chatRoomRef = self.db.collection("Chat").document(chatRoomId)
+            batch.updateData(["readStatus.\(userUid)": date], forDocument: chatRoomRef)
+            batch.updateData(["lastMessage": message], forDocument: chatRoomRef)
+            batch.updateData(["lastMessageAt": date], forDocument: chatRoomRef)
+            
+            batch.commit { error in
+                if let error = error {
+                    print("메시지 업로드 후 채팅 룸 배치 업데이트 실패: \(error.localizedDescription)")
+                    return
+                }
+            }
+        }
+        
+    }
+    
+    
+    
+    //채팅방을 만드는 함수
+    func createChatRoom(_ postId: String?, otherUser: MateUser) async throws {
+        
+        guard let userUid = Auth.auth().currentUser?.uid else {
+            print("로그인 상태 아닌데 메시지 못보냄")
+            return
+        }
+        
+        guard let otherUid = otherUser.id else {
+            print("상대 정보가 없음")
+            return
+        }
+        
+        let chatRoom = ChatRoom(id: generateChatRoomId(userId1: userUid, userId2: otherUid), postId: postId, participant: [userUid, otherUid], lastMessage: "", lastMessageAt: Date(), readStatus: [userUid: Date(), otherUid: Date()])
+        
+        do {
+            let chatRoomEncode = try Firestore.Encoder().encode(chatRoom)
+            try await self.db.collection("Chat").document(chatRoom.id ?? "").setData(chatRoomEncode, merge: true)
+        } catch {
+            throw error
+        }
+    }
+    
 }
+
+
