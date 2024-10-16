@@ -32,15 +32,40 @@ struct ChatDetailView: View {
             }
             ScrollView {
                 LazyVStack {
-                    ForEach(viewModel.chatList, id: \.id) { chat in
-                        if chat.sender == otherUser.id {
-                            Text(chat.message)
-                                .bold()
-                                .foregroundStyle(.black)
-                        } else {
-                            Text(chat.message)
-                                .bold()
-                                .foregroundStyle(.yellow)
+                    ForEach(viewModel.groupedChats) { section in
+                        Text(section.dateString)
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                            .padding(.vertical, 8)
+                            .frame(maxWidth: .infinity)
+                            .background(Color(UIColor.systemBackground))
+                        
+                        ForEach(section.chats, id: \.id) { chat in
+                            if chat.sender == otherUser.id {
+                                // 다른 사용자의 메시지 (왼쪽 정렬)
+                                HStack {
+                                    Text(chat.message)
+                                        .bold()
+                                        .foregroundColor(.black)
+                                        .padding()
+                                        .background(Color.gray.opacity(0.2))
+                                        .cornerRadius(8)
+                                    Spacer()
+                                }
+                                .padding(.horizontal)
+                            } else {
+                                // 내 메시지 (오른쪽 정렬)
+                                HStack {
+                                    Spacer()
+                                    Text(chat.message)
+                                        .bold()
+                                        .foregroundColor(.white)
+                                        .padding()
+                                        .background(Color.blue.opacity(0.7))
+                                        .cornerRadius(8)
+                                }
+                                .padding(.horizontal)
+                            }
                         }
                     }
                 }
