@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct PlaceCardView: View {
-    var placeName: String = "함께해 cafe"
-    var location: String = "매탄동"
-    var description: String = "오늘 다녀왔는데 맛집이에요! 정말 분위기 좋고 반려동물과 함께 시간을 보내기 딱 좋은 곳이에요. 커피도 맛있고, 디저트도 다양해요."
     var place: PlacePost
     var body: some View {
         HStack(spacing: 16) {

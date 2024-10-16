@@ -27,7 +27,7 @@ struct StoreSearchView: View {
                         .cornerRadius(8)
                 }
                 .padding()
-                
+                Spacer()
                 if placeStore.isLoading {
                     ProgressView("검색 중...")
                         .padding()
@@ -48,11 +48,6 @@ struct StoreSearchView: View {
                                 Text(store.road_address_name.isEmpty ? store.address_name : store.road_address_name)
                                     .font(.subheadline)
                                     .foregroundColor(.secondary)
-                                if let phone = store.phone {
-                                    Text(phone)
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
-                                }
                             }
                         }
                         .padding(.vertical, 4)
@@ -67,7 +62,6 @@ struct StoreSearchView: View {
             }
             .navigationTitle("주소 검색")
             .onAppear {
-                // 위치 권한이 허용된 경우 위치 업데이트
                 if locationManager.authorizationStatus == .authorizedWhenInUse || locationManager.authorizationStatus == .authorizedAlways {
                     if let location = locationManager.location {
                         placeStore.updateLocation(longitude: location.coordinate.longitude, latitude: location.coordinate.latitude)

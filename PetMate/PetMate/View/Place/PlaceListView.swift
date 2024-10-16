@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PlaceListView: View {
     private var placeStore: PetPlacesStore = .init()
+    @Environment(\.dismiss) private var dismiss
+    @State private var showSearchPlaceView = false 
     var body: some View {
         NavigationStack {
             VStack {
@@ -22,19 +24,28 @@ struct PlaceListView: View {
                     }
                 }
             }
+            .navigationBarBackButtonHidden(true)
             .toolbar {
-                NavigationLink(destination: Text("dd")) {
+                Button(action: {
+                    dismiss() // 'map' 버튼을 누르면 현재 뷰를 닫음
+                }) {
                     Image(systemName: "map")
                         .font(.headline)
                         .foregroundStyle(.black)
                 }
                 
-                NavigationLink(destination: Text("dd")){
+                Button(action: {
+                    showSearchPlaceView.toggle()
+                }) {
                     Image(systemName: "plus")
                         .font(.headline)
                         .foregroundStyle(.black)
                 }
             }
+        }
+        .sheet(isPresented: $showSearchPlaceView) {
+            StoreSearchView()
+                .presentationDragIndicator(.visible)
         }
     }
 }
