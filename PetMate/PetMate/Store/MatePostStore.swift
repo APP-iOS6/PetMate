@@ -28,6 +28,8 @@ class MatePostStore{
     var location: String = ""
     var postState: String = ""
     
+    var selectedPets: Set<Pet> = []
+    
     init() {
         getPosts()
         print(posts)
@@ -65,6 +67,21 @@ class MatePostStore{
             print("getPet error: \(error)")
             return nil
         }
+    }
+    //로그인한 계정이 가지고 있는 펫 정보들 모아서 반환
+    func getMyPets() async -> [Pet] {
+        //let currentUser: String = Auth.auth().currentUser?.uid ?? ""
+        let currentUser: String = "POzraPP1j3OXqveglMc51GrIN332"
+        let db = Firestore.firestore()
+        var pets: [Pet] = []
+        let snapshots = try? await db.collection("Pet").whereField("ownerUid", isEqualTo: currentUser).getDocuments()
+        snapshots?.documents.forEach{ snapshot in
+            if let pet = try? snapshot.data(as: Pet.self){
+                pets.append(pet)
+            }
+        }
+        
+        return pets
     }
     
     func reset(){

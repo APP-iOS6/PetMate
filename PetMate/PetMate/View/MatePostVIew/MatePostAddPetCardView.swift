@@ -10,10 +10,10 @@ import SwiftUI
 struct MatePostAddPetCardView: View {
     let pet: Pet
     var proxy: GeometryProxy
-    @Binding var selectedPets: Set<Pet>
+    @Binding var postStore: MatePostStore
     
     var checkMark: String {
-        selectedPets.contains(pet) ? "checkmark.square.fill" : "checkmark.square"
+        postStore.selectedPets.contains(pet) ? "checkmark.square.fill" : "checkmark.square"
     }
     var body: some View {
         ZStack{
@@ -62,10 +62,10 @@ struct MatePostAddPetCardView: View {
         .frame(width: proxy.size.width * 0.7)
         .border(.black)
         .onTapGesture {
-            if !selectedPets.contains(pet){
-                selectedPets.insert(pet)
+            if !postStore.selectedPets.contains(pet){
+                postStore.selectedPets.insert(pet)
             }else{
-                selectedPets.remove(pet)
+                postStore.selectedPets.remove(pet)
             }
         }
     }

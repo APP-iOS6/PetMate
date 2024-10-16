@@ -12,7 +12,7 @@ struct MatePostAddSecondView: View {
     @Binding var postStore: MatePostStore
     
     @State var isPresent: Bool = false
-    @State var selectedPets: Set<Pet> = []
+    
     
     let contentFieldText =
         """
@@ -21,7 +21,7 @@ struct MatePostAddSecondView: View {
         """
     var body: some View {
         VStack(spacing: 50){
-            if selectedPets.isEmpty{
+            if postStore.selectedPets.isEmpty{
                 ZStack{
                     RoundedRectangle(cornerRadius: 12)
                         .foregroundStyle(.gray)
@@ -39,8 +39,8 @@ struct MatePostAddSecondView: View {
                     VStack{
                         ScrollView(.horizontal){
                             HStack{
-                                ForEach(Array(selectedPets)){ pet in
-                                    MatePostAddPetCardView(pet: pet, proxy: proxy, selectedPets: $selectedPets)
+                                ForEach(Array(postStore.selectedPets)){ pet in
+                                    MatePostAddPetCardView(pet: pet, proxy: proxy, postStore: $postStore)
                                 }
                             }
                         }.scrollIndicators(.hidden)
@@ -71,7 +71,7 @@ struct MatePostAddSecondView: View {
         }
         .padding()
         .sheet(isPresented: $isPresent, onDismiss: {postStore.reset()}) {
-            MatePostAddPetsView(selectedPets: $selectedPets)
+            MatePostAddPetsView(postStore: $postStore)
                 .presentationDetents([.medium])
         }
     }
