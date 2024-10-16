@@ -32,16 +32,25 @@ struct MatePostListView: View {
                             MatePostListCardView(pet: post.firstPet)
                                 .onTapGesture {
                                     postStore.selectedPost = post
+                                    isPresent.toggle()
                                 }
                         }
                     }
             }
         }
-        .navigationTitle("Pet Details")
+        .navigationTitle("돌봄")
+        .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(isPresented: $isPresent) {
-            MatePostDetailView(postStore: postStore)
+            MatePostDetailView(postStore: $postStore)
         }
-        
+        .toolbar {
+            NavigationLink {
+                MatePostAddView()
+            } label: {
+                Image(systemName: "pencil")
+            }
+
+        }
     }
 }
 

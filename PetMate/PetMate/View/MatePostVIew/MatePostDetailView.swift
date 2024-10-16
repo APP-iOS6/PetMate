@@ -10,62 +10,54 @@ import FirebaseFirestore
 
 // PetDetailView: 특정 펫의 상세 정보를 보여주는 뷰
 struct MatePostDetailView: View {
-//    var pet: Pet
-//    var post: MatePost
-//    var writeUser: MateUser
-    var postStore: MatePostStore
-    @State private var reviews: [Review] = dummyReviews  // 리뷰 목록
-    @State private var newReviewContent: String = ""  // 새로운 리뷰 내용
+    
+    @Binding var postStore: MatePostStore
     @State private var showChatView = false  // 채팅 뷰 표시 여부
-
+    
     var body: some View {
         VStack(alignment: .leading) {
-            ScrollView {
-                VStack(alignment: .leading) {
-                    // 펫 이미지 섹션
-                    petImageSection
-                    
-                    // 유저 정보 및 게시글 정보 섹션
-                    userInfoSection
-                    
-                    Divider() // 구분선
-                    
-                    // 게시글 내용 및 날짜, 비용 섹션
-                    postContentSection
-                    
-                    Divider() // 구분선
-                    
-                    // 펫 정보 섹션
-                    petInfoSection
-                    
-                    Divider() // 구분선
-                    
-                    // 리뷰 목록 섹션
-                    reviewsSection
-                    
-                    // 새로운 리뷰 작성 섹션
-                    newReviewSection
+            if postStore.writer != nil{
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        // 펫 이미지 섹션
+                        petImageSection
+                        // 펫 정보 섹션
+                        petInfoSection
+                        
+                        // 게시글 내용 및 날짜, 비용 섹션
+                        postContentSection
+                        
+                        // 유저 정보 및 게시글 정보 섹션
+                        userInfoSection
+
+                    }
                 }
+                Spacer()
+                
+                // 채팅하기 버튼
+                chatButton
             }
-
-            Spacer()
-
-            // 채팅하기 버튼
-            chatButton
         }
-        .navigationTitle("Pet Details") // 네비게이션 타이틀 설정
+        .task{
+            if let post = postStore.selectedPost {
+                postStore.writer = await postStore.getUser(post.writeUser)
+                postStore.pet = post.firstPet
+            }
+        }
+        .navigationTitle(postStore.selectedPost?.title ?? "산책 해줘") // 네비게이션 타이틀 설정
     }
-
+    
     // 펫 이미지 섹션
     private var petImageSection: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                ForEach(postStore.pet!.images, id: \.self) { imageUrl in
+                ForEach(postStore.selectedPost?.firstPet.images ?? [], id: \.self) { imageUrl in
                     AsyncImage(url: URL(string: imageUrl)) { image in
                         image
                             .resizable()
                             .scaledToFit()
                             .frame(width: 400, height: 400) // 이미지 크기 설정
+                            .clipShape(.rect(cornerSize: CGSize(width: 12, height: 12)))
                     } placeholder: {
                         ProgressView() // 로딩 중 표시
                     }
@@ -74,128 +66,109 @@ struct MatePostDetailView: View {
             .padding()
         }
     }
-
+    
     // 유저 정보 및 게시글 정보 섹션
     private var userInfoSection: some View {
         HStack(alignment: .top) {
             AsyncImage(url: URL(string: postStore.writer!.image)) { image in
                 image
                     .resizable()
-                    .frame(width: 50, height: 50)
+                    .frame(width: 100, height: 100)
                     .clipShape(Circle()) // 원형 이미지
             } placeholder: {
                 Circle()
                     .fill(Color.gray)
-                    .frame(width: 50, height: 50) // 로딩 중 회색 원
+                    .frame(width: 100, height: 100) // 로딩 중 회색 원
             }
-
-            VStack(alignment: .leading) {
-                Text(postStore.writer!.name)
-                    .font(.headline)
-                Text("위치: \(postStore.writer!.location)")
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-
-                // 게시글 작성일 및 상대 시간
-                Text("작성일: \(postStore.selectedPost!.createdAt, formatter: dateFormatter) (\(relativeTime(from: postStore.selectedPost!.createdAt)))")
-                    .font(.footnote)
-                    .foregroundColor(.gray)
+            Spacer()
+            VStack(alignment: .leading){
+                HStack{
+                    Text(postStore.writer!.name)
+                        .font(.title)
+                    Text("위치: \(postStore.writer!.location)")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+                .padding(.leading, 10)
+                Text("메이트 횟수: \(postStore.writer!.matchCount)번")
+                Text("소개를 기다리고 있어요")
+                    .foregroundStyle(.secondary)
             }
-            .padding(.leading, 10)
+            Spacer()
         }
+        .frame(maxWidth: .infinity)
+        .padding()
+        .overlay {
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(lineWidth: 1)
+        }
+        
         .padding(.horizontal)
-        .padding(.bottom, 20)
+        .padding(.bottom, 10)
     }
-
+    
     // 게시글 내용 및 날짜, 비용 섹션
     private var postContentSection: some View {
         VStack(alignment: .leading, spacing: 10) {
+            Text(postStore.selectedPost!.title)
+                .font(.title2)
+                .padding(.horizontal)
+                
             Text(postStore.selectedPost!.content)
-                .font(.body)
                 .padding(.horizontal)
-                .padding(.top, 10)
             
-            Text("시작 날짜: \(postStore.selectedPost!.startDate, formatter: dateFormatter)")
-                .font(.body)
+            Text("기간 \(postStore.selectedPost!.startDate, formatter: dateFormatter) ~ \(postStore.selectedPost!.endDate, formatter: dateFormatter)")
+                .font(.title3)
                 .padding(.horizontal)
                 .padding(.top, 5)
             
-            Text("종료 날짜: \(postStore.selectedPost!.endDate, formatter: dateFormatter)")
-                .font(.body)
-                .padding(.horizontal)
-                .padding(.top, 5)
-            
-            Text("비용: \(postStore.selectedPost!.cost)원")
-                .font(.body)
+            Text("메이트 비용 \(postStore.selectedPost!.cost)원")
+                .font(.title3)
                 .padding(.horizontal)
                 .padding(.top, 5)
         }
-    }
-
-    // 펫 정보 섹션
-    private var petInfoSection: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text("이름: \(postStore.pet!.name)")
-                .font(.title)
-                .fontWeight(.bold)
-
-            Text("품종: \(postStore.pet!.breed)")
-                .font(.subheadline)
-                .foregroundColor(.gray)
-
-            Text("나이: \(postStore.pet!.age)살")
-                .font(.subheadline)
-                .foregroundColor(.gray)
-
-            Text("특징: \(postStore.pet!.tag.joined(separator: ", "))")
-                .font(.subheadline)
-                .foregroundColor(.blue)
-
-            Text("성격: \(postStore.pet!.description)")
-                .padding(.vertical)
+        .frame(maxWidth: .infinity)
+        .padding()
+        .overlay {
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(lineWidth: 1)
         }
         .padding(.horizontal)
     }
-
-    // 리뷰 목록 섹션
-    private var reviewsSection: some View {
-        ForEach(reviews, id: \.id) { review in
-            VStack(alignment: .leading) {
-                Text("뼈점: \(String(repeating: "🦴", count: review.bome))") // 뼈점 표시
-                Text(review.content)
-                    .padding(.vertical, 5)
-                    .padding(.horizontal)
-                    .background(Color.gray.opacity(0.1)) // 배경색
-                    .cornerRadius(8)
+    
+    // 펫 정보 섹션
+    private var petInfoSection: some View {
+        HStack(alignment: .top) {
+            VStack(alignment: .leading){
+                HStack{
+                    Text(postStore.pet!.name)
+                        .font(.title)
+                        .fontWeight(.bold)
+                    Text("\(postStore.pet!.age)살")
+                        .font(.caption)
+                    Spacer()
+                }
+                
+                Text(postStore.pet!.breed)
+                    .font(.caption)
+                FlowLayout {
+                    ForEach(postStore.pet?.tag ?? [], id: \.self) { tag in
+                        TagToggle(tag: tag, isSelected: true){}
+                    }
+                }
             }
-            .padding(.horizontal)
-            .padding(.bottom, 10)
-        }
-    }
-
-    // 새로운 리뷰 작성 섹션
-    private var newReviewSection: some View {
-        VStack(alignment: .leading) {
-            Text("댓글 남기기")
-                .font(.headline)
-                .padding(.bottom, 5)
-            TextEditor(text: $newReviewContent)
-                .frame(height: 100)
-                .border(Color.brown, width: 1)
-                .padding(.bottom, 10)
-            Button(action: {
-                addReview() // 리뷰 추가 버튼 클릭 시
-            })  {
-                Text("댓글 등록")
-                    .frame(width: 100, height: 50)
-                    .background(Color.brown)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
+            .padding()
+            ZStack{
+                Circle()
+                    .frame(width: 100, height: 100)
+                    .foregroundStyle(.gray)
+                Text("산책")
             }
         }
-        .padding()
+        .background(.gray, in: .rect(cornerSize: CGSize(width: 12, height: 12)))
+        .padding(.horizontal)
     }
-
+    
     // 채팅하기 버튼
     private var chatButton: some View {
         Button(action: {
@@ -213,20 +186,7 @@ struct MatePostDetailView: View {
             EmptyView() // 채팅 뷰 추가
         }
     }
-
-    // 리뷰 추가 함수
-    func addReview() {
-        let newReview = Review(
-            id: UUID().uuidString,
-            post: Firestore.firestore().document("matePosts/\(postStore.selectedPost!.id!)"),
-            bome: 5,
-            content: newReviewContent,
-            createdAt: Date()
-        )
-        reviews.append(newReview) // 리뷰 목록에 추가
-        newReviewContent = "" // 입력 필드 초기화
-    }
-
+    
     // 상대 시간 계산 함수
     func relativeTime(from date: Date) -> String {
         let interval = Date().timeIntervalSince(date)
@@ -235,12 +195,6 @@ struct MatePostDetailView: View {
     }
 }
 
-// 더미 데이터: 리뷰 목록
-let dummyReviews: [Review] = [
-    Review(id: "김둘", post: Firestore.firestore().document("matePosts/post1"), bome: 4, content: "저희 개랑 친구하고 싶네요!", createdAt: Date()),
-    Review(id: "김셋", post: Firestore.firestore().document("matePosts/post1"), bome: 5, content: "너무 귀엽네요", createdAt: Date())
-]
-
 // 날짜 포맷터
 let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
@@ -248,34 +202,3 @@ let dateFormatter: DateFormatter = {
     formatter.timeStyle = .short
     return formatter
 }()
-//
-//// 프리뷰
-//struct PetDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MatePostDetailView(
-//            pet: dummyPets[0],
-//            post: MatePost(
-//                writeUser: Firestore.firestore().document("users/user1"),
-//                pet: Firestore.firestore().document("pets/1"),
-//                startDate: Calendar.current.date(from: DateComponents(year: 2024, month: 10, day: 16, hour: 10, minute: 0))!,
-//                endDate: Calendar.current.date(from: DateComponents(year: 2024, month: 10, day: 16, hour: 22, minute: 0))!,
-//                cost: 1000,  // 비용
-//                content: "1시간 산책 같이 하실분.",
-//                location: "강남구",
-//                reservationUser: nil,
-//                postState: "Available",
-//                firstPet: Pet(name: "애옹", description: "애옹 설명", age: 2, tag: ["귀여움"], breed: "봄베이고양이", images: ["https://d3544la1u8djza.cloudfront.net/APHI/Blog/2020/10-22/What+Is+a+Bombay+Cat+_+Get+to+Know+This+Stunning+Breed+_+ASPCA+Pet+Health+Insurance+_+close-up+of+a+Bombay+cat+with+gold+eyes-min.jpg"], createdAt: .now, updatedAt: .now),
-//                createdAt: Date().addingTimeInterval(-3600), // 1시간 전
-//                updatedAt: Date()
-//            ),
-//            writeUser: MateUser(
-//                id: "1",
-//                name: "김하나",
-//                image: "https://mblogthumb-phinf.pstatic.net/MjAyMzA3MTlfMzIg/MDAxNjg5NzcyMTQ0MzM0.m6BURqGnMKNRiuPNwuhYBqeg-9tLItHl81OVWUdmx5og.gFqEhucCUhnbdHANuZ-4W11Hl4-GM1_LtdSN7RhtQBUg.JPEG.ssw9014/KakaoTalk_20230703_062302394_01.jpg?type=w800",
-//                matchCount: 10,
-//                location: "강남구",
-//                createdAt: Date()
-//            )
-//        )
-//    }
-//}
