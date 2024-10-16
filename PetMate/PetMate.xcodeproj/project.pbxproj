@@ -61,7 +61,6 @@
 		BD306E792CBF0154008BDBEB /* UserProfileInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E782CBF0154008BDBEB /* UserProfileInputView.swift */; };
 		BD306E7B2CBF0158008BDBEB /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E7A2CBF0158008BDBEB /* UserProfileViewModel.swift */; };
 		BD306E7D2CBF0180008BDBEB /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E7C2CBF0180008BDBEB /* HomeTabView.swift */; };
-		FB954E032CBFDC96007B7BCE /* ResizableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB954E022CBFDC96007B7BCE /* ResizableTextField.swift */; };
 		BD691BD42CBF8A82003A300B /* StoreSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BD32CBF8A81003A300B /* StoreSearchView.swift */; };
 		BD691BD62CBF8B4B003A300B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BD52CBF8B4B003A300B /* Store.swift */; };
 		BD691BD82CBF96EB003A300B /* StoreDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BD72CBF96EB003A300B /* StoreDetailView.swift */; };
@@ -73,6 +72,7 @@
 		BD691BE62CC02A1E003A300B /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BE52CC02A1E003A300B /* PlaceDetailView.swift */; };
 		BD691BE82CC02F7D003A300B /* PlaceConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BE72CC02F7D003A300B /* PlaceConfirmationView.swift */; };
 		BD691BEA2CC0324D003A300B /* AddPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BE92CC0324D003A300B /* AddPostView.swift */; };
+		FB954E032CBFDC96007B7BCE /* ResizableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB954E022CBFDC96007B7BCE /* ResizableTextField.swift */; };
 		FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */; };
 		FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB502CBDF94400E20E11 /* Pet.swift */; };
 		FBB7BB532CBDF99D00E20E11 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB522CBDF99D00E20E11 /* Review.swift */; };
@@ -354,10 +354,10 @@
 			isa = PBXGroup;
 			children = (
 				4B5D53842CBE63F700FDC77A /* CommonStruct */,
+				4B6FF8802CBE888C009F4206 /* MyPageTabView.swift */,
 				4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */,
 				4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */,
 				4B5D530E2CBE3BAC00FDC77A /* PetProfileEditView.swift */,
-				4B6FF8802CBE888C009F4206 /* MyPageTabView.swift */,
 			);
 			path = MyPageView;
 			sourceTree = "<group>";

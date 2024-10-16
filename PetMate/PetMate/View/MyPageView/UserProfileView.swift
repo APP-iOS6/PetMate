@@ -77,6 +77,19 @@ struct UserProfileView: View {
                     }
                 }
             }
+            
+            HStack {
+                Text("뼈다구 점수 ")
+                    .font(.system(size: 14))
+                    .foregroundStyle(.gray)
+                Text("🦴🦴🦴🦴🦴")
+            }
+            
+            HStack {
+                Text("친구목록 ")
+                    .font(.system(size: 14))
+                    .foregroundStyle(.gray)
+            }
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)

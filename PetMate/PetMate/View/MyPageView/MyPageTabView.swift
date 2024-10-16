@@ -13,7 +13,10 @@ struct MyPageTabView: View {
     var body: some View {
         VStack(alignment: .center) {
             UserProfileView(user: user)
+                .padding(.bottom, 30)
             
+            // TODO: 옆으로 스와이프 해서 반려동물 추가 하는 기능
+            // TODO: 반려동물 추가하기 view 만들어야 함
             VStack(alignment: .leading, spacing: 0) {
                 Text("함께하는 반려동물")
                     .padding(.horizontal, 16)
