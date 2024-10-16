@@ -53,6 +53,7 @@
 		BD306E792CBF0154008BDBEB /* UserProfileInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E782CBF0154008BDBEB /* UserProfileInputView.swift */; };
 		BD306E7B2CBF0158008BDBEB /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E7A2CBF0158008BDBEB /* UserProfileViewModel.swift */; };
 		BD306E7D2CBF0180008BDBEB /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E7C2CBF0180008BDBEB /* HomeTabView.swift */; };
+		FB954E032CBFDC96007B7BCE /* ResizableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB954E022CBFDC96007B7BCE /* ResizableTextField.swift */; };
 		BD691BD42CBF8A82003A300B /* StoreSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BD32CBF8A81003A300B /* StoreSearchView.swift */; };
 		BD691BD62CBF8B4B003A300B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BD52CBF8B4B003A300B /* Store.swift */; };
 		BD691BD82CBF96EB003A300B /* StoreDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BD72CBF96EB003A300B /* StoreDetailView.swift */; };
@@ -73,6 +74,8 @@
 		FBD6BBBB2CBE764A008BEA30 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BBBA2CBE764A008BEA30 /* Chat.swift */; };
 		FBD6BC7F2CBEB516008BEA30 /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BC7E2CBEB516008BEA30 /* ChatDetailView.swift */; };
 		FBD6BC812CBEB581008BEA30 /* ChatDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BC802CBEB581008BEA30 /* ChatDetailViewModel.swift */; };
+		FBD6BC8F2CBF8603008BEA30 /* GenerateChatRoomId.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BC8E2CBF8603008BEA30 /* GenerateChatRoomId.swift */; };
+		FBD6BCF22CBFD457008BEA30 /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BCF12CBFD457008BEA30 /* TextFieldModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +127,7 @@
 		BD691BDC2CBFABA3003A300B /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		BD691BDF2CBFACD4003A300B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		BDB029922CBCF46200A0EAF6 /* PetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB954E022CBFDC96007B7BCE /* ResizableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableTextField.swift; sourceTree = "<group>"; };
 		FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePost.swift; sourceTree = "<group>"; };
 		FBB7BB502CBDF94400E20E11 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		FBB7BB522CBDF99D00E20E11 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 		FBD6BBBA2CBE764A008BEA30 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		FBD6BC7E2CBEB516008BEA30 /* ChatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailView.swift; sourceTree = "<group>"; };
 		FBD6BC802CBEB581008BEA30 /* ChatDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailViewModel.swift; sourceTree = "<group>"; };
+		FBD6BC8E2CBF8603008BEA30 /* GenerateChatRoomId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateChatRoomId.swift; sourceTree = "<group>"; };
+		FBD6BCF12CBFD457008BEA30 /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +240,7 @@
 				256A272D2CBD04DA0031F766 /* CommonView */,
 				256A272C2CBD04A60031F766 /* Modifier */,
 				256A272B2CBD049B0031F766 /* Extension */,
+				FBD6BC8E2CBF8603008BEA30 /* GenerateChatRoomId.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -253,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				256A271F2CBD047A0031F766 /* ButtonModifier.swift */,
+				FBD6BCF12CBFD457008BEA30 /* TextFieldModifier.swift */,
 			);
 			path = Modifier;
 			sourceTree = "<group>";
@@ -261,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				256A27302CBD05220031F766 /* CustomButton.swift */,
+				FB954E022CBFDC96007B7BCE /* ResizableTextField.swift */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -510,6 +519,7 @@
 				256A27252CBD047A0031F766 /* PetMateApp.swift in Sources */,
 				256A27542CBEA9280031F766 /* HomeMyLocationView.swift in Sources */,
 				256A27482CBEA3A60031F766 /* HomeFindMateView.swift in Sources */,
+				FB954E032CBFDC96007B7BCE /* ResizableTextField.swift in Sources */,
 				256A27352CBD05580031F766 /* LoginStore.swift in Sources */,
 				FBD6BBAE2CBE3A28008BEA30 /* ChatRoom.swift in Sources */,
 				BD306E792CBF0154008BDBEB /* UserProfileInputView.swift in Sources */,
@@ -524,8 +534,10 @@
 				4B5D530F2CBE3BAC00FDC77A /* PetProfileEditView.swift in Sources */,
 				4B5D530D2CBE3B8E00FDC77A /* PetProfileView.swift in Sources */,
 				BD306E752CBF0122008BDBEB /* LoginView.swift in Sources */,
+				FBD6BCF22CBFD457008BEA30 /* TextFieldModifier.swift in Sources */,
 				4B6FF8812CBE888C009F4206 /* MyPageTabView.swift in Sources */,
 				256A27442CBE81350031F766 /* HomeView.swift in Sources */,
+				FBD6BC8F2CBF8603008BEA30 /* GenerateChatRoomId.swift in Sources */,
 				BD691BDB2CBFAAE2003A300B /* KakaoAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

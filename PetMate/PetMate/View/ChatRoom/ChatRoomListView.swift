@@ -14,19 +14,40 @@ struct ChatRoomListView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                LazyVStack(spacing: 22) {
-                    ForEach(viewModel.chatListRoom, id: \.chatRoom.id) { room in
-                        ChatRoomCellView(chatRoom: room)
-                    }
+            VStack {
+                HStack {
+                    Text("채팅")
+                        .font(.title2)
+                        .bold()
+                    
+                    Spacer()
                     
                     Button {
-                        viewModel.createChatRoom()
+                        
                     } label: {
-                        Text("채팅 추가하기")
+                        Image(systemName: "calendar.circle")
+
                     }
                 }
                 .padding()
+                
+                Divider()
+                
+                ScrollView {
+                    LazyVStack(spacing: 22) {
+                        ForEach(viewModel.chatListRoom, id: \.chatRoom.id) { room in
+                            ChatRoomCellView(chatRoom: room)
+                            Divider()
+                        }
+                        
+                        Button {
+                            viewModel.createChatRoom()
+                        } label: {
+                            Text("채팅 추가하기")
+                        }
+                    }
+                    .padding()
+                }
             }
         }
     }
@@ -39,17 +60,15 @@ struct ChatRoomCellView: View {
     
     var body: some View {
         NavigationLink {
-            ChatDetailView(
-                chatWithUser: chatRoom
-            )
+            ChatDetailView(otherUser: chatRoom.chatUser)
         } label: {
             HStack {
                 AsyncImage(url: URL(string: chatRoom.chatUser.image)) { image in
                     image
                         .resizable()
                         .aspectRatio(1, contentMode: .fill)
-                        .frame(width: 60, height: 60)
-                        .clipShape(RoundedRectangle(cornerRadius: 24))
+                        .frame(width: 67, height: 67)
+                        .clipShape(Circle())
                 } placeholder: {
                     ProgressView()
                 }
@@ -59,13 +78,20 @@ struct ChatRoomCellView: View {
                         Text(chatRoom.chatUser.name)
                             .foregroundStyle(.basic)
                             .font(.headline)
+                        Text(chatRoom.chatUser.location)
+                            .padding(.horizontal, 2)
+                            .font(.caption)
+                            .foregroundStyle(Color(uiColor: .systemGray2))
+                        
                         Spacer()
+                        
                         Text(chatRoom.chatRoom.lastMessageAt.formattedTimeAgo)
                             .frame(alignment: .topTrailing)
                             .foregroundStyle(Color(uiColor: .systemGray2))
                             .font(.caption)
                     }
                     .padding(.bottom, 4)
+                    .padding(.horizontal, 6)
                     
                     HStack {
                         Text(chatRoom.chatRoom.lastMessage)
@@ -83,6 +109,7 @@ struct ChatRoomCellView: View {
                                 .clipShape(Circle())
                         }
                     }
+                    .padding(.horizontal, 6)
                 }
             }
         }
