@@ -59,6 +59,8 @@
 		BD691BDB2CBFAAE2003A300B /* KakaoAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BDA2CBFAAE2003A300B /* KakaoAPIClient.swift */; };
 		BD691BDD2CBFABA3003A300B /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BDC2CBFABA3003A300B /* Bundle+Extension.swift */; };
 		BD691BE02CBFACD4003A300B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BDF2CBFACD4003A300B /* LocationManager.swift */; };
+		BD691BE22CC00CC4003A300B /* PlaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BE12CC00CC4003A300B /* PlaceListView.swift */; };
+		BD691BE42CC00CE4003A300B /* PlaceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BE32CC00CE4003A300B /* PlaceCardView.swift */; };
 		FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */; };
 		FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB502CBDF94400E20E11 /* Pet.swift */; };
 		FBB7BB532CBDF99D00E20E11 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB522CBDF99D00E20E11 /* Review.swift */; };
@@ -123,6 +125,8 @@
 		BD691BDA2CBFAAE2003A300B /* KakaoAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAPIClient.swift; sourceTree = "<group>"; };
 		BD691BDC2CBFABA3003A300B /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		BD691BDF2CBFACD4003A300B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		BD691BE12CC00CC4003A300B /* PlaceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListView.swift; sourceTree = "<group>"; };
+		BD691BE32CC00CE4003A300B /* PlaceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCardView.swift; sourceTree = "<group>"; };
 		BDB029922CBCF46200A0EAF6 /* PetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePost.swift; sourceTree = "<group>"; };
 		FBB7BB502CBDF94400E20E11 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
@@ -324,6 +328,8 @@
 			isa = PBXGroup;
 			children = (
 				BD306E612CBEF841008BDBEB /* AddPlaceView.swift */,
+				BD691BE12CC00CC4003A300B /* PlaceListView.swift */,
+				BD691BE32CC00CE4003A300B /* PlaceCardView.swift */,
 				BD306E632CBEF852008BDBEB /* PetMapView.swift */,
 				BD691BD32CBF8A81003A300B /* StoreSearchView.swift */,
 				BD691BD72CBF96EB003A300B /* StoreDetailView.swift */,
@@ -481,6 +487,7 @@
 				256A27232CBD047A0031F766 /* ButtonModifier.swift in Sources */,
 				FBD6BBBB2CBE764A008BEA30 /* Chat.swift in Sources */,
 				FBD6BC812CBEB581008BEA30 /* ChatDetailViewModel.swift in Sources */,
+				BD691BE22CC00CC4003A300B /* PlaceListView.swift in Sources */,
 				256A27242CBD047A0031F766 /* ContentView.swift in Sources */,
 				4B5D53092CBE39FB00FDC77A /* ImagePicker.swift in Sources */,
 				040D5CF02CBE66D600549B47 /* PetDetailView.swift in Sources */,
@@ -520,6 +527,7 @@
 				256A274C2CBEA5DA0031F766 /* HomeReviewScrollView.swift in Sources */,
 				FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */,
 				256A27372CBD055D0031F766 /* MateUser.swift in Sources */,
+				BD691BE42CC00CE4003A300B /* PlaceCardView.swift in Sources */,
 				BD306E722CBF010B008BDBEB /* AuthManager.swift in Sources */,
 				4B5D530F2CBE3BAC00FDC77A /* PetProfileEditView.swift in Sources */,
 				4B5D530D2CBE3B8E00FDC77A /* PetProfileView.swift in Sources */,
