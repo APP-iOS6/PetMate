@@ -8,7 +8,7 @@
 import SwiftUI
 import FirebaseFirestore
 
-struct PetPostView: View {
+struct MatePostListView: View {
     var pets: [Pet] = dummyPets + dummyPets + dummyPets + dummyPets
     
     @State private var selectedCategory: String = "산책" // 기본 선택 카테고리
@@ -68,9 +68,9 @@ struct PetPostView: View {
 }
 
 // Preview
-struct PetPostView_Previews: PreviewProvider {
+struct MatePostListView_Previews: PreviewProvider {
     static var previews: some View {
-        PetPostView(
+        MatePostListView(
             post: MatePost(
                 writeUser: Firestore.firestore().document("users/user1"),
                 pet: Firestore.firestore().document("pets/1"),

@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseFirestore
 
 // PetDetailView: 특정 펫의 상세 정보를 보여주는 뷰
-struct PetDetailView: View {
+struct MatePostDetailView: View {
     var pet: Pet
     var post: MatePost
     var writeUser: MateUser
@@ -251,7 +251,7 @@ let dateFormatter: DateFormatter = {
 // 프리뷰
 struct PetDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PetDetailView(
+        MatePostDetailView(
             pet: dummyPets[0],
             post: MatePost(
                 writeUser: Firestore.firestore().document("users/user1"),

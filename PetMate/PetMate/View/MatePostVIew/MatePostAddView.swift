@@ -59,7 +59,7 @@ struct District: Codable, Identifiable {
 }
 
 // PetWriteView: 메인 뷰, 사용자가 펫 관련 게시글을 작성하는 UI
-struct PetWriteView: View {
+struct MatePostAddView: View {
     @StateObject private var districtViewModel = DistrictViewModel()
     @State private var location: String = ""
     @State private var showLocationSheet: Bool = false
@@ -293,5 +293,5 @@ let dummyPets: [Pet] = [
 ]
 
 #Preview {
-    PetWriteView()
+    MatePostAddView()
 }
