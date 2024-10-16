@@ -13,22 +13,28 @@ import Combine
 @Observable
 final class PetPlacesStore {
     var places: [PlacePost] = []
+    var stores: [Document] = []
+    var isLoading: Bool = false
+    var errorMessage: String? = nil
+    var userLongitude: String?
+    var userLatitude: String?
+    var searchRadius: Int? = 20000 //20Km
     var query: String = "" {
         didSet {
             querySubject.send(query)
         }
     }
-    var stores: [Store] = []
     
     private var db = Firestore.firestore()
     private var cancellables = Set<AnyCancellable>()
     private let querySubject = PassthroughSubject<String, Never>()
+    private let apiClient: KakaoAPIClient = KakaoAPIClient()
     
     init() {
         fetchPlaces()
         setupQueryListener()
-        
     }
+    // MARK: 주위 검색 기반 메서드
     private func setupQueryListener() {
         querySubject
             .debounce(for: .seconds(1), scheduler: RunLoop.main) // 1초 디바운스
@@ -39,26 +45,45 @@ final class PetPlacesStore {
             }
             .store(in: &cancellables)
     }
+    
     private func searchStores(query: String) {
-        print("Searching for: \(query)")
         guard !query.isEmpty else {
-            DispatchQueue.main.async {
-                self.stores = []
-            }
+            self.stores = []
+            self.errorMessage = nil
             return
         }
         
-        // 필터링 로직 (대소문자 무시)
-        let filteredStores = allStores.filter {
-            $0.name.localizedCaseInsensitiveContains(query) ||
-            $0.address.localizedCaseInsensitiveContains(query)
-        }
+        self.isLoading = true
+        self.errorMessage = nil
         
-        // 메인 스레드에서 업데이트
-        DispatchQueue.main.async {
-            self.stores = filteredStores
-        }
+        apiClient.searchPlaces(query: query, x: userLongitude, y: userLatitude, radius: searchRadius)
+            .sink(receiveCompletion: { [weak self] completion in
+                guard let self = self else { return }
+                self.isLoading = false
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print("Error searching places: \(error)")
+                    self.errorMessage = "장소 검색 중 오류."
+                    self.stores = []
+                }
+            }, receiveValue: { [weak self] response in
+                guard let self = self else { return }
+                self.stores = response.documents
+                if self.stores.isEmpty {
+                    self.errorMessage = "검색 결과가 없습니다."
+                }
+            })
+            .store(in: &cancellables)
     }
+    
+    func updateLocation(longitude: Double, latitude: Double) {
+        self.userLongitude = String(longitude)
+        self.userLatitude = String(latitude)
+    }
+    
+    // MARK: 사용자가 등록한 장소 관련 메서드
     func fetchPlaces() {
         Task {
             do {
@@ -109,10 +134,3 @@ final class PetPlacesStore {
         return CLLocationCoordinate2D(latitude: geoPoint.latitude, longitude: geoPoint.longitude)
     }
 }
-let allStores = [
-    Store(id: UUID(), name: "스타벅스", address: "서울특별시 강남구"),
-    Store(id: UUID(), name: "이디야", address: "서울특별시 종로구"),
-    Store(id: UUID(), name: "할리스", address: "부산광역시 해운대구"),
-    Store(id: UUID(), name: "투썸플레이스", address: "서울특별시 마포구"),
-    Store(id: UUID(), name: "커피빈", address: "대구광역시 중구")
-]

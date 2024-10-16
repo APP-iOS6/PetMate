@@ -54,8 +54,11 @@
 		BD306E7B2CBF0158008BDBEB /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E7A2CBF0158008BDBEB /* UserProfileViewModel.swift */; };
 		BD306E7D2CBF0180008BDBEB /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E7C2CBF0180008BDBEB /* HomeTabView.swift */; };
 		BD691BD42CBF8A82003A300B /* StoreSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BD32CBF8A81003A300B /* StoreSearchView.swift */; };
-		BD691BD62CBF8B4B003A300B /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BD52CBF8B4B003A300B /* Place.swift */; };
+		BD691BD62CBF8B4B003A300B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BD52CBF8B4B003A300B /* Store.swift */; };
 		BD691BD82CBF96EB003A300B /* StoreDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BD72CBF96EB003A300B /* StoreDetailView.swift */; };
+		BD691BDB2CBFAAE2003A300B /* KakaoAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BDA2CBFAAE2003A300B /* KakaoAPIClient.swift */; };
+		BD691BDD2CBFABA3003A300B /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BDC2CBFABA3003A300B /* Bundle+Extension.swift */; };
+		BD691BE02CBFACD4003A300B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BDF2CBFACD4003A300B /* LocationManager.swift */; };
 		FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */; };
 		FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB502CBDF94400E20E11 /* Pet.swift */; };
 		FBB7BB532CBDF99D00E20E11 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB522CBDF99D00E20E11 /* Review.swift */; };
@@ -115,8 +118,11 @@
 		BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		BD63D8F82CBE0B2500CDDC65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BD691BD32CBF8A81003A300B /* StoreSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSearchView.swift; sourceTree = "<group>"; };
-		BD691BD52CBF8B4B003A300B /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		BD691BD52CBF8B4B003A300B /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		BD691BD72CBF96EB003A300B /* StoreDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailView.swift; sourceTree = "<group>"; };
+		BD691BDA2CBFAAE2003A300B /* KakaoAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAPIClient.swift; sourceTree = "<group>"; };
+		BD691BDC2CBFABA3003A300B /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		BD691BDF2CBFACD4003A300B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		BDB029922CBCF46200A0EAF6 /* PetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePost.swift; sourceTree = "<group>"; };
 		FBB7BB502CBDF94400E20E11 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
@@ -185,7 +191,7 @@
 				FBB7BB542CBDF9E100E20E11 /* PlacePost.swift */,
 				FBD6BBAD2CBE3A28008BEA30 /* ChatRoom.swift */,
 				FBD6BBBA2CBE764A008BEA30 /* Chat.swift */,
-				BD691BD52CBF8B4B003A300B /* Place.swift */,
+				BD691BD52CBF8B4B003A300B /* Store.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,6 +229,8 @@
 		256A272A2CBD04930031F766 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BD691BDE2CBFACC3003A300B /* Manager */,
+				BD691BD92CBFAACB003A300B /* Network */,
 				256A272D2CBD04DA0031F766 /* CommonView */,
 				256A272C2CBD04A60031F766 /* Modifier */,
 				256A272B2CBD049B0031F766 /* Extension */,
@@ -236,6 +244,7 @@
 				256A27322CBD05330031F766 /* Font+Extension.swift */,
 				FBD6BBB62CBE49EA008BEA30 /* Date+Extension.swift */,
 				252A12992CBED90700EDD297 /* Date+GetElement.swift */,
+				BD691BDC2CBFABA3003A300B /* Bundle+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -329,6 +338,22 @@
 				BD306E782CBF0154008BDBEB /* UserProfileInputView.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		BD691BD92CBFAACB003A300B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BD691BDA2CBFAAE2003A300B /* KakaoAPIClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		BD691BDE2CBFACC3003A300B /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				BD691BDF2CBFACD4003A300B /* LocationManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		BDB029892CBCF46100A0EAF6 = {
@@ -464,15 +489,17 @@
 				252A12972CBED8AD00EDD297 /* CalandarTestView.swift in Sources */,
 				BD306E642CBEF852008BDBEB /* PetMapView.swift in Sources */,
 				BD306E622CBEF841008BDBEB /* AddPlaceView.swift in Sources */,
+				BD691BDD2CBFABA3003A300B /* Bundle+Extension.swift in Sources */,
 				BD691BD82CBF96EB003A300B /* StoreDetailView.swift in Sources */,
 				252A12982CBED8AD00EDD297 /* CalandarView.swift in Sources */,
 				BD306E7D2CBF0180008BDBEB /* HomeTabView.swift in Sources */,
 				FBD6BBB72CBE49EA008BEA30 /* Date+Extension.swift in Sources */,
-				BD691BD62CBF8B4B003A300B /* Place.swift in Sources */,
+				BD691BD62CBF8B4B003A300B /* Store.swift in Sources */,
 				252A129A2CBED90700EDD297 /* Date+GetElement.swift in Sources */,
 				4B5D53072CBE2DB400FDC77A /* UserProfileView.swift in Sources */,
 				256A27332CBD05370031F766 /* Font+Extension.swift in Sources */,
 				FBD6BC7F2CBEB516008BEA30 /* ChatDetailView.swift in Sources */,
+				BD691BE02CBFACD4003A300B /* LocationManager.swift in Sources */,
 				BD306E7B2CBF0158008BDBEB /* UserProfileViewModel.swift in Sources */,
 				FBD6BBB22CBE3A68008BEA30 /* ChatRoomListViewModel.swift in Sources */,
 				FBB7BB532CBDF99D00E20E11 /* Review.swift in Sources */,
@@ -499,6 +526,7 @@
 				BD306E752CBF0122008BDBEB /* LoginView.swift in Sources */,
 				4B6FF8812CBE888C009F4206 /* MyPageTabView.swift in Sources */,
 				256A27442CBE81350031F766 /* HomeView.swift in Sources */,
+				BD691BDB2CBFAAE2003A300B /* KakaoAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,9 +666,9 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PetMate/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "이 앱은 프로필 사진 촬영을 위해 카메라에 접근합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "이 앱은 주변 서비스 검색을 위해 위치 정보에 접근합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -669,9 +697,9 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PetMate/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "이 앱은 프로필 사진 촬영을 위해 카메라에 접근합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "이 앱은 주변 서비스 검색을 위해 위치 정보에 접근합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
