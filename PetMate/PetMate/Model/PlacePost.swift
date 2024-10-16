@@ -21,3 +21,5 @@ struct PlacePost: Codable, Identifiable {
     var createdAt: Date
     var updatedAt: Date
 }
+
+
