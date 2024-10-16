@@ -15,7 +15,6 @@ struct StoreSearchView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                // 검색 바
                 HStack {
                     Image(systemName: "magnifyingglass")
                         .foregroundColor(.gray)
@@ -42,7 +41,7 @@ struct StoreSearchView: View {
                 if !placeStore.stores.isEmpty && !placeStore.isLoading {
                     List(placeStore.stores) { store in
                         VStack(alignment: .leading) {
-                            NavigationLink(destination: StoreDetailView()) {
+                            NavigationLink(destination: PlaceConfirmationView(document: store)) {
                                 Text(store.place_name)
                                     .font(.headline)
                                 Text(store.road_address_name.isEmpty ? store.address_name : store.road_address_name)

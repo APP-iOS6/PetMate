@@ -74,6 +74,20 @@ final class PetPlacesStore {
                 if self.stores.isEmpty {
                     self.errorMessage = "검색 결과가 없습니다."
                 }
+                for document in self.stores {
+                    print("Place Name: \(document.place_name)")
+                    print("Distance: \(document.distance ?? "없음")")
+                    print("place_url: \(document.place_url)")
+                    print("category_name: \(document.category_name)")
+                    print("Address: \(document.address_name)")
+                    print("Road Address: \(document.road_address_name)")
+                    print("Category: \(document.category_name)")
+                    print("X: \(document.x)")
+                    print("Y: \(document.y)")
+                    print("Phone: \(document.phone ?? "없음")")
+                    print("Distance: \(document.distance ?? "없음")")
+                    print("----------------------------------------------------")
+                }
             })
             .store(in: &cancellables)
     }
