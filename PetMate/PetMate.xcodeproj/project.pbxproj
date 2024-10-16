@@ -200,6 +200,7 @@
 		256A27292CBD048E0031F766 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				259DC0FB2CBF891800AB41C1 /* MatePostVIew */,
 				BD306E732CBF0117008BDBEB /* Login */,
 				BD306E5C2CBEF7CC008BDBEB /* Place */,
 				256A27422CBE80FB0031F766 /* HomeView */,
@@ -208,9 +209,6 @@
 				4B5D53052CBE2D9600FDC77A /* MyPageView */,
 				256A27202CBD047A0031F766 /* ContentView.swift */,
 				BD306E7C2CBF0180008BDBEB /* HomeTabView.swift */,
-				040D5CEB2CBE632700549B47 /* PetWriteView.swift */,
-				040D5CEF2CBE66CF00549B47 /* PetDetailView.swift */,
-				040D5CF72CBE99DD00549B47 /* PetPostView.swift */,
 				256A272A2CBD04930031F766 /* Common */,
 			);
 			path = View;
@@ -284,6 +282,16 @@
 				256A27532CBEA9280031F766 /* HomeMyLocationView.swift */,
 			);
 			path = HomeView;
+			sourceTree = "<group>";
+		};
+		259DC0FB2CBF891800AB41C1 /* MatePostVIew */ = {
+			isa = PBXGroup;
+			children = (
+				040D5CEB2CBE632700549B47 /* PetWriteView.swift */,
+				040D5CEF2CBE66CF00549B47 /* PetDetailView.swift */,
+				040D5CF72CBE99DD00549B47 /* PetPostView.swift */,
+			);
+			path = MatePostVIew;
 			sourceTree = "<group>";
 		};
 		4B5D53052CBE2D9600FDC77A /* MyPageView */ = {
