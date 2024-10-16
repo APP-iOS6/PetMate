@@ -10,7 +10,7 @@ import FirebaseFirestore
 
 struct MatePostListView: View {
     @State var postStore = MatePostStore()
-    @State var pets: [Pet] = dummyPets
+    @State var isPresent: Bool = false
     
     @State private var selectedCategory: String = "산책" // 기본 선택 카테고리
     let categories = ["산책", "돌봄", "놀이", "훈련"] // 더미 카테고리
@@ -30,20 +30,25 @@ struct MatePostListView: View {
                     columns: [GridItem(), GridItem()]) {
                         ForEach(postStore.posts) {post in
                             MatePostListCardView(pet: post.firstPet)
+                                .onTapGesture {
+                                    postStore.selectedPost = post
+                                }
                         }
                     }
             }
         }
         .navigationTitle("Pet Details")
-        .onAppear{
-            self.pets += dummyPets
+        .navigationDestination(isPresented: $isPresent) {
+            MatePostDetailView(postStore: postStore)
         }
         
     }
 }
 
 #Preview{
-    MatePostListView()
+    NavigationStack{
+        MatePostListView()
+    }
 }
 
 // Preview

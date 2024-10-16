@@ -10,9 +10,10 @@ import FirebaseFirestore
 
 // PetDetailView: 특정 펫의 상세 정보를 보여주는 뷰
 struct MatePostDetailView: View {
-    var pet: Pet
-    var post: MatePost
-    var writeUser: MateUser
+//    var pet: Pet
+//    var post: MatePost
+//    var writeUser: MateUser
+    var postStore: MatePostStore
     @State private var reviews: [Review] = dummyReviews  // 리뷰 목록
     @State private var newReviewContent: String = ""  // 새로운 리뷰 내용
     @State private var showChatView = false  // 채팅 뷰 표시 여부
@@ -59,7 +60,7 @@ struct MatePostDetailView: View {
     private var petImageSection: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                ForEach(pet.images, id: \.self) { imageUrl in
+                ForEach(postStore.pet!.images, id: \.self) { imageUrl in
                     AsyncImage(url: URL(string: imageUrl)) { image in
                         image
                             .resizable()
@@ -77,7 +78,7 @@ struct MatePostDetailView: View {
     // 유저 정보 및 게시글 정보 섹션
     private var userInfoSection: some View {
         HStack(alignment: .top) {
-            AsyncImage(url: URL(string: writeUser.image)) { image in
+            AsyncImage(url: URL(string: postStore.writer!.image)) { image in
                 image
                     .resizable()
                     .frame(width: 50, height: 50)
@@ -89,14 +90,14 @@ struct MatePostDetailView: View {
             }
 
             VStack(alignment: .leading) {
-                Text(writeUser.name)
+                Text(postStore.writer!.name)
                     .font(.headline)
-                Text("위치: \(writeUser.location)")
+                Text("위치: \(postStore.writer!.location)")
                     .font(.subheadline)
                     .foregroundColor(.gray)
 
                 // 게시글 작성일 및 상대 시간
-                Text("작성일: \(post.createdAt, formatter: dateFormatter) (\(relativeTime(from: post.createdAt)))")
+                Text("작성일: \(postStore.selectedPost!.createdAt, formatter: dateFormatter) (\(relativeTime(from: postStore.selectedPost!.createdAt)))")
                     .font(.footnote)
                     .foregroundColor(.gray)
             }
@@ -109,22 +110,22 @@ struct MatePostDetailView: View {
     // 게시글 내용 및 날짜, 비용 섹션
     private var postContentSection: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text(post.content)
+            Text(postStore.selectedPost!.content)
                 .font(.body)
                 .padding(.horizontal)
                 .padding(.top, 10)
             
-            Text("시작 날짜: \(post.startDate, formatter: dateFormatter)")
+            Text("시작 날짜: \(postStore.selectedPost!.startDate, formatter: dateFormatter)")
                 .font(.body)
                 .padding(.horizontal)
                 .padding(.top, 5)
             
-            Text("종료 날짜: \(post.endDate, formatter: dateFormatter)")
+            Text("종료 날짜: \(postStore.selectedPost!.endDate, formatter: dateFormatter)")
                 .font(.body)
                 .padding(.horizontal)
                 .padding(.top, 5)
             
-            Text("비용: \(post.cost)원")
+            Text("비용: \(postStore.selectedPost!.cost)원")
                 .font(.body)
                 .padding(.horizontal)
                 .padding(.top, 5)
@@ -134,23 +135,23 @@ struct MatePostDetailView: View {
     // 펫 정보 섹션
     private var petInfoSection: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("이름: \(pet.name)")
+            Text("이름: \(postStore.pet!.name)")
                 .font(.title)
                 .fontWeight(.bold)
 
-            Text("품종: \(pet.breed)")
+            Text("품종: \(postStore.pet!.breed)")
                 .font(.subheadline)
                 .foregroundColor(.gray)
 
-            Text("나이: \(pet.age)살")
+            Text("나이: \(postStore.pet!.age)살")
                 .font(.subheadline)
                 .foregroundColor(.gray)
 
-            Text("특징: \(pet.tag.joined(separator: ", "))")
+            Text("특징: \(postStore.pet!.tag.joined(separator: ", "))")
                 .font(.subheadline)
                 .foregroundColor(.blue)
 
-            Text("성격: \(pet.description)")
+            Text("성격: \(postStore.pet!.description)")
                 .padding(.vertical)
         }
         .padding(.horizontal)
@@ -217,7 +218,7 @@ struct MatePostDetailView: View {
     func addReview() {
         let newReview = Review(
             id: UUID().uuidString,
-            post: Firestore.firestore().document("matePosts/\(post.id!)"),
+            post: Firestore.firestore().document("matePosts/\(postStore.selectedPost!.id!)"),
             bome: 5,
             content: newReviewContent,
             createdAt: Date()
@@ -247,34 +248,34 @@ let dateFormatter: DateFormatter = {
     formatter.timeStyle = .short
     return formatter
 }()
-
-// 프리뷰
-struct PetDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        MatePostDetailView(
-            pet: dummyPets[0],
-            post: MatePost(
-                writeUser: Firestore.firestore().document("users/user1"),
-                pet: Firestore.firestore().document("pets/1"),
-                startDate: Calendar.current.date(from: DateComponents(year: 2024, month: 10, day: 16, hour: 10, minute: 0))!,
-                endDate: Calendar.current.date(from: DateComponents(year: 2024, month: 10, day: 16, hour: 22, minute: 0))!,
-                cost: 1000,  // 비용
-                content: "1시간 산책 같이 하실분.",
-                location: "강남구",
-                reservationUser: nil,
-                postState: "Available",
-                firstPet: Pet(name: "애옹", description: "애옹 설명", age: 2, tag: ["귀여움"], breed: "봄베이고양이", images: ["https://d3544la1u8djza.cloudfront.net/APHI/Blog/2020/10-22/What+Is+a+Bombay+Cat+_+Get+to+Know+This+Stunning+Breed+_+ASPCA+Pet+Health+Insurance+_+close-up+of+a+Bombay+cat+with+gold+eyes-min.jpg"], createdAt: .now, updatedAt: .now),
-                createdAt: Date().addingTimeInterval(-3600), // 1시간 전
-                updatedAt: Date()
-            ),
-            writeUser: MateUser(
-                id: "1",
-                name: "김하나",
-                image: "https://mblogthumb-phinf.pstatic.net/MjAyMzA3MTlfMzIg/MDAxNjg5NzcyMTQ0MzM0.m6BURqGnMKNRiuPNwuhYBqeg-9tLItHl81OVWUdmx5og.gFqEhucCUhnbdHANuZ-4W11Hl4-GM1_LtdSN7RhtQBUg.JPEG.ssw9014/KakaoTalk_20230703_062302394_01.jpg?type=w800",
-                matchCount: 10,
-                location: "강남구",
-                createdAt: Date()
-            )
-        )
-    }
-}
+//
+//// 프리뷰
+//struct PetDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MatePostDetailView(
+//            pet: dummyPets[0],
+//            post: MatePost(
+//                writeUser: Firestore.firestore().document("users/user1"),
+//                pet: Firestore.firestore().document("pets/1"),
+//                startDate: Calendar.current.date(from: DateComponents(year: 2024, month: 10, day: 16, hour: 10, minute: 0))!,
+//                endDate: Calendar.current.date(from: DateComponents(year: 2024, month: 10, day: 16, hour: 22, minute: 0))!,
+//                cost: 1000,  // 비용
+//                content: "1시간 산책 같이 하실분.",
+//                location: "강남구",
+//                reservationUser: nil,
+//                postState: "Available",
+//                firstPet: Pet(name: "애옹", description: "애옹 설명", age: 2, tag: ["귀여움"], breed: "봄베이고양이", images: ["https://d3544la1u8djza.cloudfront.net/APHI/Blog/2020/10-22/What+Is+a+Bombay+Cat+_+Get+to+Know+This+Stunning+Breed+_+ASPCA+Pet+Health+Insurance+_+close-up+of+a+Bombay+cat+with+gold+eyes-min.jpg"], createdAt: .now, updatedAt: .now),
+//                createdAt: Date().addingTimeInterval(-3600), // 1시간 전
+//                updatedAt: Date()
+//            ),
+//            writeUser: MateUser(
+//                id: "1",
+//                name: "김하나",
+//                image: "https://mblogthumb-phinf.pstatic.net/MjAyMzA3MTlfMzIg/MDAxNjg5NzcyMTQ0MzM0.m6BURqGnMKNRiuPNwuhYBqeg-9tLItHl81OVWUdmx5og.gFqEhucCUhnbdHANuZ-4W11Hl4-GM1_LtdSN7RhtQBUg.JPEG.ssw9014/KakaoTalk_20230703_062302394_01.jpg?type=w800",
+//                matchCount: 10,
+//                location: "강남구",
+//                createdAt: Date()
+//            )
+//        )
+//    }
+//}

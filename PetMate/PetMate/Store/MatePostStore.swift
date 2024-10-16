@@ -19,14 +19,24 @@ class MatePostStore{
     var pet: Pet?
     
     init() {
-         getPosts()
+        getPosts()
+        print(posts)
     }
+    //게시물 추가 용
+    var startDate: Date = Date()
+    var endDate: Date = Date()
+    var cost: String = ""
+    var content: String = ""
+    var location: String = ""
+    var postState: String = ""
     
+    // MARK: - 파이어베이스에서 값을 가져오는 함수들
     //포스트 정보를 전부 불러오는 함수
     private func getPosts() {
         Task{
             let snapshots = try? await db.collection("matePosts").getDocuments()
             snapshots?.documents.forEach{ snapshot in
+                //print(try? snapshot.data(as: MatePost.self))
                 if let post = try? snapshot.data(as: MatePost.self){
                     posts.append(post)
                 }
