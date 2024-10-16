@@ -292,10 +292,10 @@
 		259DC0FB2CBF891800AB41C1 /* MatePostVIew */ = {
 			isa = PBXGroup;
 			children = (
-				040D5CEB2CBE632700549B47 /* MatePostAddView.swift */,
-				040D5CEF2CBE66CF00549B47 /* MatePostDetailView.swift */,
 				040D5CF72CBE99DD00549B47 /* MatePostListView.swift */,
 				259DC0FE2CBF91AC00AB41C1 /* MatePostListCardView.swift */,
+				040D5CEF2CBE66CF00549B47 /* MatePostDetailView.swift */,
+				040D5CEB2CBE632700549B47 /* MatePostAddView.swift */,
 			);
 			path = MatePostVIew;
 			sourceTree = "<group>";

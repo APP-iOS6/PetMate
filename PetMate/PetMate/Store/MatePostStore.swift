@@ -18,16 +18,18 @@ class MatePostStore{
     var writer: MateUser?
     var pet: Pet?
     
-    init() async{
-        await getPosts()
+    init() {
+         getPosts()
     }
     
     //포스트 정보를 전부 불러오는 함수
-    private func getPosts() async{
-        let snapshots = try? await db.collection("matePosts").getDocuments()
-        snapshots?.documents.forEach{ snapshot in
-            if let post = try? snapshot.data(as: MatePost.self){
-                posts.append(post)
+    private func getPosts() {
+        Task{
+            let snapshots = try? await db.collection("matePosts").getDocuments()
+            snapshots?.documents.forEach{ snapshot in
+                if let post = try? snapshot.data(as: MatePost.self){
+                    posts.append(post)
+                }
             }
         }
     }

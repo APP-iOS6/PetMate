@@ -263,6 +263,7 @@ struct PetDetailView_Previews: PreviewProvider {
                 location: "강남구",
                 reservationUser: nil,
                 postState: "Available",
+                firstPet: Pet(name: "애옹", description: "애옹 설명", age: 2, tag: ["귀여움"], breed: "봄베이고양이", images: ["https://d3544la1u8djza.cloudfront.net/APHI/Blog/2020/10-22/What+Is+a+Bombay+Cat+_+Get+to+Know+This+Stunning+Breed+_+ASPCA+Pet+Health+Insurance+_+close-up+of+a+Bombay+cat+with+gold+eyes-min.jpg"], createdAt: .now, updatedAt: .now),
                 createdAt: Date().addingTimeInterval(-3600), // 1시간 전
                 updatedAt: Date()
             ),

@@ -9,6 +9,7 @@ import SwiftUI
 import FirebaseFirestore
 
 struct MatePostListView: View {
+    @State var postStore = MatePostStore()
     @State var pets: [Pet] = dummyPets
     
     @State private var selectedCategory: String = "산책" // 기본 선택 카테고리
@@ -27,8 +28,8 @@ struct MatePostListView: View {
             ScrollView {
                 LazyVGrid(
                     columns: [GridItem(), GridItem()]) {
-                        ForEach(pets) {pet in
-                            MatePostListCardView(pet: pet)
+                        ForEach(postStore.posts) {post in
+                            MatePostListCardView(pet: post.firstPet)
                         }
                     }
             }
