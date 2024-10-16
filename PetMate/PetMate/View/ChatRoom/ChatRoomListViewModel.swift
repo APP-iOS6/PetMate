@@ -49,7 +49,7 @@ class ChatRoomListViewModel: ObservableObject {
                     print("리스너 실패")
                     return
                 }
-                
+    
                 snapshot.documentChanges.forEach { diff in
                     do {
                         let chatRoom = try diff.document.data(as: ChatRoom.self)
@@ -71,7 +71,10 @@ class ChatRoomListViewModel: ObservableObject {
     
     private func handleAdded(_ chatRoom: ChatRoom) {
         fetchChatUserInfo(chatRoom) { [weak self] mateUser in
-            guard let self = self, let user = mateUser else { return }
+            guard let self = self, let user = mateUser else {
+                print("유저 정보를 못가져옴")
+                return
+            }
             calculateUnreadCount(chatRoom) { count in
                 let chatRoomWithUser = ChatRoomWithUser(chatRoom: chatRoom, chatUser: user, unreadCount: count)
                 self.chatListRoom.append(chatRoomWithUser)
