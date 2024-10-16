@@ -30,10 +30,6 @@ class ChatDetailViewModel: ObservableObject {
     //해당 유저와의 채팅 메시지 정보를 계속 받기 위해 스냅샷 리스너를 호출
     func observeChatList(_ chatWithUser: ChatRoomWithUser) {
         
-        guard let userUid = Auth.auth().currentUser?.uid else {
-            print("로그인 상태 아님")
-            return
-        }
         
         guard let chatRoomId = chatWithUser.chatRoom.id else {
             return
