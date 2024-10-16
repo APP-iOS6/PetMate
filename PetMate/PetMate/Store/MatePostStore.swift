@@ -32,23 +32,25 @@ class MatePostStore{
     var selectedPets: Set<Pet> = []
     
     init() {
-        getPosts()
-        print(posts)
+//        getPosts()
+//        print(posts)
     }
     
     // MARK: - 파이어베이스에서 값을 가져오는 함수들
     //포스트 정보를 전부 불러오는 함수
-    private func getPosts() {
-        Task{
-            let snapshots = try? await db.collection("MatePost").getDocuments()
-            snapshots?.documents.forEach{ snapshot in
-                //print(try? snapshot.data(as: MatePost.self))
-                if let post = try? snapshot.data(as: MatePost.self){
-                    posts.append(post)
-                }
-            }
-        }
-    }
+    //무한으로 호출되는 버그가 있어 주석 처리 합니다. MateStore을 Binding 하는 곳이 있어 일어나는 문제일가 짐작해 봅니다.
+//    private func getPosts() {
+//        print("getPosts")
+//        Task{
+//            let snapshots = try? await db.collection("MatePost").getDocuments()
+//            snapshots?.documents.forEach{ snapshot in
+//                //print(try? snapshot.data(as: MatePost.self))
+//                if let post = try? snapshot.data(as: MatePost.self){
+//                    posts.append(post)
+//                }
+//            }
+//        }
+//    }
     
     //인자로 받은 유저 문서레퍼런스를 통해 User 옵셔널 데이터를 반환하는 함수
     func getUser(_ user: DocumentReference) async -> MateUser?{

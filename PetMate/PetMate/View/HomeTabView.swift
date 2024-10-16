@@ -11,6 +11,7 @@ struct HomeTabView: View {
     var body: some View {
         TabView {
             NavigationStack {
+                //Text("test")
                 HomeView()
             }
                 .tabItem {
