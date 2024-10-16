@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MatePostAddView: View {
-    @Bindable var postStore = MatePostStore()
+    @State var postStore = MatePostStore()
     
     @Environment(\.dismiss) var dismiss
     @State private var currentPage: Int = 1
@@ -16,6 +16,8 @@ struct MatePostAddView: View {
     
     
     var body: some View {
+        @Bindable var postStore = postStore
+        
         NavigationStack{
             MatePostAddFirstView(
                 location: $postStore.location,
@@ -25,7 +27,7 @@ struct MatePostAddView: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     NavigationLink {
-                        MatePostAddSecondView(content: $postStore.content)
+                        MatePostAddSecondView(postStore: self.$postStore)
                             .toolbar {
                                 ToolbarItem(placement: .confirmationAction) {
                                     Button("저장"){

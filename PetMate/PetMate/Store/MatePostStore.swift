@@ -13,15 +13,12 @@ import Observation
 @Observable
 class MatePostStore{
     let db = Firestore.firestore()
-    var posts: [MatePost] = []
-    var selectedPost: MatePost?
-    var writer: MateUser?
-    var pet: Pet?
+    var posts: [MatePost] = [] //포스트 리스트에서 불러오는 포스트들
+    var selectedPost: MatePost? //선택한 포스트
+    var writer: MateUser? //포스트디테일뷰에서 작성자 값을 불러와서 넣을 변수
+    var pet: Pet? //포스트 디테일 뷰에서 펫을 불러와서 넣을 변수
+    var pets: [Pet] = []
     
-    init() {
-        getPosts()
-        print(posts)
-    }
     //게시물 추가 용
     var startDate: Date = Date()
     var endDate: Date = Date()
@@ -29,6 +26,11 @@ class MatePostStore{
     var content: String = ""
     var location: String = ""
     var postState: String = ""
+    
+    init() {
+        getPosts()
+        print(posts)
+    }
     
     // MARK: - 파이어베이스에서 값을 가져오는 함수들
     //포스트 정보를 전부 불러오는 함수
@@ -63,5 +65,13 @@ class MatePostStore{
             return nil
         }
     }
+    
+    func reset(){
+        self.pets = []
+    }
+    
+    // MARK: - 파이어베이스에 값을 넣는 함수
+    
+    
 }
 

@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct MatePostAddSecondView: View {
-    @Binding var content: String
+    @Binding var postStore: MatePostStore
+    
+    @State var isPresent: Bool = false
     
     let contentFieldText =
         """
@@ -27,17 +29,24 @@ struct MatePostAddSecondView: View {
                     Image(systemName: "plus.circle")
                 }.font(.largeTitle)
             }
+            .onTapGesture {
+                isPresent.toggle()
+            }
             VStack(alignment: .leading){
                 Text("내용")
                     .font(.title2)
                 ScrollView(.vertical) {
-                    TextField(contentFieldText, text: $content)
+                    TextField(contentFieldText, text: $postStore.content)
                         .padding()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }.border(.black)
             }
             Spacer()
-        }.padding()
+        }
+        .padding()
+        .sheet(isPresented: $isPresent, onDismiss: {postStore.reset()}) {
+            
+        }
     }
 }
 

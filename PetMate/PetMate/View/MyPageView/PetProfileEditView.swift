@@ -28,6 +28,7 @@ struct PetProfileEditView: View {
         tag: ["활발함", "얌전함", "사람 싫어요", "사람 친화적", "예방 접종 완료"],
         breed: "포메",
         images: ["gadiProfile"],
+        ownerUid: "희철",
         createdAt: Date(),
         updatedAt: Date()
     )

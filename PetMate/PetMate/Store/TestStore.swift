@@ -21,13 +21,16 @@ class TestStore{
     init() {
         self.testPost = MatePost(
             writeUser: db.collection("User").document("희철"),
-            pet: db.collection("User/희철/pets").document("1"),
+            pet: [db.collection("User/희철/pets").document("1")],
             startDate: .now, endDate: Date(timeIntervalSinceNow: 60000),
             cost: 15000,
             content: "testDescription",
             location: "강동구",
             postState: "reservated",
-            firstPet: Pet(name: "애옹", description: "애옹 설명", age: 2, tag: ["귀여움"], breed: "봄베이고양이", images: ["https://d3544la1u8djza.cloudfront.net/APHI/Blog/2020/10-22/What+Is+a+Bombay+Cat+_+Get+to+Know+This+Stunning+Breed+_+ASPCA+Pet+Health+Insurance+_+close-up+of+a+Bombay+cat+with+gold+eyes-min.jpg"], createdAt: .now, updatedAt: .now),
+            firstPet: Pet(name: "애옹", description: "애옹 설명", age: 2, tag: ["귀여움"], breed: "봄베이고양이", images: ["https://d3544la1u8djza.cloudfront.net/APHI/Blog/2020/10-22/What+Is+a+Bombay+Cat+_+Get+to+Know+This+Stunning+Breed+_+ASPCA+Pet+Health+Insurance+_+close-up+of+a+Bombay+cat+with+gold+eyes-min.jpg"],
+                          ownerUid: "희철",
+                          createdAt: .now,
+                          updatedAt: .now),
             createdAt: .now,
             updatedAt: .now)
         self.title = "애옹"
@@ -42,11 +45,11 @@ class TestStore{
     }
     
     func getPet()async {
-        self.pet = try? await testPost.pet.getDocument(as: Pet.self)
+        self.pet = try? await testPost.pet.first?.getDocument(as: Pet.self)
     }
     func getTitle() async -> String{
         let writer = try? await testPost.writeUser.getDocument().data()?["name"] as? String ?? ""
-        let petName = try? await testPost.pet.getDocument().data()?["name"] as? String ?? ""
+        let petName = try? await testPost.pet.first?.getDocument().data()?["name"] as? String ?? ""
         return (writer ?? "작성자") + (petName ?? "애옹")
     }
 
