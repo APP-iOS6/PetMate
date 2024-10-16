@@ -42,6 +42,9 @@ struct PetMapView: View {
                     }
                     .padding(.horizontal)
                 }
+                .onAppear {
+                    placeStore.fetchPlaces()
+                }
                 .overlay(
                     Group {
                         if showPlaceCardView, let place = selectedPlace {

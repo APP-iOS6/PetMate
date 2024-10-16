@@ -9,16 +9,15 @@ import SwiftUI
 
 struct PlaceConfirmationView: View {
     let document: Document
+    @State private var placeStore: PetPlacesStore = .init()
     @Environment(\.dismiss) private var dismiss
     var body: some View {
         VStack(spacing: 16) {
-            // 제목 섹션
             Text("찾으시는 장소가 맞나요?")
                 .font(.headline)
                 .padding(.top, 16)
             
-            // 장소 카드 섹션
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .center, spacing: 8) {
                 HStack {
                     Text("📍 \(document.place_name)")
                         .font(.headline)
@@ -47,8 +46,25 @@ struct PlaceConfirmationView: View {
             
             // 맞아요 버튼
             Button(action: {
-                
-            }) {
+                placeStore.addPlace(
+                    writeUser: UUID().uuidString,
+                    title: document.place_name,
+                    content: "",
+                    address: document.road_address_name,
+                    placeName: document.place_name,
+                    isParking: true,
+                    latitude: Double(document.y)!,
+                    longitude: Double(document.x)!,
+                    geoHash: ""
+                ) { success in
+                    if success {
+                        dismiss()
+                        print("장소가 성공적으로 추가되었습니다.")
+                    } else {
+                        print("장소 추가에 실패했습니다.")
+                    }
+                }
+            }){
                 Text("맞아요")
                     .font(.headline)
                     .frame(maxWidth: .infinity)
