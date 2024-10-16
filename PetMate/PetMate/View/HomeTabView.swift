@@ -12,7 +12,7 @@ struct HomeTabView: View {
         TabView {
             NavigationStack {
                 //Text("test")
-                HomeView()
+                HomeView2()
             }
                 .tabItem {
                     Text("Home")

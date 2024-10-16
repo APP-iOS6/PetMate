@@ -11,6 +11,7 @@
 		040D5CEC2CBE632700549B47 /* MatePostAddOldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D5CEB2CBE632700549B47 /* MatePostAddOldView.swift */; };
 		040D5CF02CBE66D600549B47 /* MatePostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D5CEF2CBE66CF00549B47 /* MatePostDetailView.swift */; };
 		040D5CF82CBE99E200549B47 /* MatePostListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D5CF72CBE99DD00549B47 /* MatePostListView.swift */; };
+		233E2C062CC04FAA004712E7 /* HomeView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233E2C052CC04FAA004712E7 /* HomeView2.swift */; };
 		23499B172CBD120F009FD900 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B162CBD120F009FD900 /* GoogleSignIn */; };
 		23499B192CBD120F009FD900 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B182CBD120F009FD900 /* GoogleSignInSwift */; };
 		23499B1C2CBD1239009FD900 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B1B2CBD1239009FD900 /* KakaoSDKAuth */; };
@@ -96,6 +97,7 @@
 		040D5CEB2CBE632700549B47 /* MatePostAddOldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostAddOldView.swift; sourceTree = "<group>"; };
 		040D5CEF2CBE66CF00549B47 /* MatePostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostDetailView.swift; sourceTree = "<group>"; };
 		040D5CF72CBE99DD00549B47 /* MatePostListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostListView.swift; sourceTree = "<group>"; };
+		233E2C052CC04FAA004712E7 /* HomeView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView2.swift; sourceTree = "<group>"; };
 		252A12942CBED8AC00EDD297 /* CalandarTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalandarTestView.swift; sourceTree = "<group>"; };
 		252A12952CBED8AC00EDD297 /* CalandarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalandarView.swift; sourceTree = "<group>"; };
 		252A12992CBED90700EDD297 /* Date+GetElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+GetElement.swift"; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				256A274F2CBEA8670031F766 /* HomeFindFriendsScrollView.swift */,
 				256A27512CBEA8970031F766 /* HomeFindFriendCardView.swift */,
 				256A27532CBEA9280031F766 /* HomeMyLocationView.swift */,
+				233E2C052CC04FAA004712E7 /* HomeView2.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				BD691BD42CBF8A82003A300B /* StoreSearchView.swift in Sources */,
 				BD306E772CBF012D008BDBEB /* LoginViewModel.swift in Sources */,
 				256A274A2CBEA3B50031F766 /* HomeFindMateButton.swift in Sources */,
+				233E2C062CC04FAA004712E7 /* HomeView2.swift in Sources */,
 				259DC10C2CC0119200AB41C1 /* MatePostAddPetCardView.swift in Sources */,
 				040D5CEC2CBE632700549B47 /* MatePostAddOldView.swift in Sources */,
 				256A274C2CBEA5DA0031F766 /* HomeReviewScrollView.swift in Sources */,
