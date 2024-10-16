@@ -11,7 +11,7 @@ import FirebaseFirestore
 struct MatePost: Codable, Identifiable {
     @DocumentID var id: String?         //문서Id
     var writeUser: DocumentReference    //작성자 레퍼런스
-    var pet: DocumentReference         //펫 레퍼런스
+    var pet: [DocumentReference]         //펫 레퍼런스
     var startDate: Date //시작날짜
     var endDate: Date   //종료날짜
     var cost: Int   //비용
