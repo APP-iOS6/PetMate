@@ -67,6 +67,11 @@
 		BD691BDB2CBFAAE2003A300B /* KakaoAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BDA2CBFAAE2003A300B /* KakaoAPIClient.swift */; };
 		BD691BDD2CBFABA3003A300B /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BDC2CBFABA3003A300B /* Bundle+Extension.swift */; };
 		BD691BE02CBFACD4003A300B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BDF2CBFACD4003A300B /* LocationManager.swift */; };
+		BD691BE22CC00CC4003A300B /* PlaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BE12CC00CC4003A300B /* PlaceListView.swift */; };
+		BD691BE42CC00CE4003A300B /* PlaceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BE32CC00CE4003A300B /* PlaceCardView.swift */; };
+		BD691BE62CC02A1E003A300B /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BE52CC02A1E003A300B /* PlaceDetailView.swift */; };
+		BD691BE82CC02F7D003A300B /* PlaceConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BE72CC02F7D003A300B /* PlaceConfirmationView.swift */; };
+		BD691BEA2CC0324D003A300B /* AddPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BE92CC0324D003A300B /* AddPostView.swift */; };
 		FB954E032CBFDC96007B7BCE /* ResizableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB954E022CBFDC96007B7BCE /* ResizableTextField.swift */; };
 		FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */; };
 		FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB502CBDF94400E20E11 /* Pet.swift */; };
@@ -142,6 +147,11 @@
 		BD691BDA2CBFAAE2003A300B /* KakaoAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAPIClient.swift; sourceTree = "<group>"; };
 		BD691BDC2CBFABA3003A300B /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		BD691BDF2CBFACD4003A300B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		BD691BE12CC00CC4003A300B /* PlaceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListView.swift; sourceTree = "<group>"; };
+		BD691BE32CC00CE4003A300B /* PlaceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCardView.swift; sourceTree = "<group>"; };
+		BD691BE52CC02A1E003A300B /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
+		BD691BE72CC02F7D003A300B /* PlaceConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceConfirmationView.swift; sourceTree = "<group>"; };
+		BD691BE92CC0324D003A300B /* AddPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostView.swift; sourceTree = "<group>"; };
 		BDB029922CBCF46200A0EAF6 /* PetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB954E022CBFDC96007B7BCE /* ResizableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableTextField.swift; sourceTree = "<group>"; };
 		FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePost.swift; sourceTree = "<group>"; };
@@ -365,9 +375,14 @@
 			isa = PBXGroup;
 			children = (
 				BD306E612CBEF841008BDBEB /* AddPlaceView.swift */,
+				BD691BE12CC00CC4003A300B /* PlaceListView.swift */,
+				BD691BE32CC00CE4003A300B /* PlaceCardView.swift */,
 				BD306E632CBEF852008BDBEB /* PetMapView.swift */,
 				BD691BD32CBF8A81003A300B /* StoreSearchView.swift */,
+				BD691BE52CC02A1E003A300B /* PlaceDetailView.swift */,
+				BD691BE72CC02F7D003A300B /* PlaceConfirmationView.swift */,
 				BD691BD72CBF96EB003A300B /* StoreDetailView.swift */,
+				BD691BE92CC0324D003A300B /* AddPostView.swift */,
 			);
 			path = Place;
 			sourceTree = "<group>";
@@ -524,11 +539,13 @@
 				259DC0FF2CBF91AC00AB41C1 /* MatePostListCardView.swift in Sources */,
 				FBD6BC812CBEB581008BEA30 /* ChatDetailViewModel.swift in Sources */,
 				259DC0FA2CBF833500AB41C1 /* TestStore.swift in Sources */,
+				BD691BE22CC00CC4003A300B /* PlaceListView.swift in Sources */,
 				256A27242CBD047A0031F766 /* ContentView.swift in Sources */,
 				4B5D53092CBE39FB00FDC77A /* ImagePicker.swift in Sources */,
 				040D5CF02CBE66D600549B47 /* MatePostDetailView.swift in Sources */,
 				259DC1092CBFF4A600AB41C1 /* MatePostAddPetsView.swift in Sources */,
 				FBB7BB552CBDF9E100E20E11 /* PlacePost.swift in Sources */,
+				BD691BE82CC02F7D003A300B /* PlaceConfirmationView.swift in Sources */,
 				FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */,
 				259DC1072CBFE70800AB41C1 /* MatePostAddSecondView.swift in Sources */,
 				252A12972CBED8AD00EDD297 /* CalandarTestView.swift in Sources */,
@@ -542,6 +559,7 @@
 				BD691BD62CBF8B4B003A300B /* Store.swift in Sources */,
 				252A129A2CBED90700EDD297 /* Date+GetElement.swift in Sources */,
 				4B5D53072CBE2DB400FDC77A /* UserProfileView.swift in Sources */,
+				BD691BE62CC02A1E003A300B /* PlaceDetailView.swift in Sources */,
 				256A27332CBD05370031F766 /* Font+Extension.swift in Sources */,
 				259DC1052CBFE6FA00AB41C1 /* MatePostAddFirstView.swift in Sources */,
 				FBD6BC7F2CBEB516008BEA30 /* ChatDetailView.swift in Sources */,
@@ -558,6 +576,7 @@
 				256A27482CBEA3A60031F766 /* HomeFindMateView.swift in Sources */,
 				FB954E032CBFDC96007B7BCE /* ResizableTextField.swift in Sources */,
 				256A27352CBD05580031F766 /* LoginStore.swift in Sources */,
+				BD691BEA2CC0324D003A300B /* AddPostView.swift in Sources */,
 				FBD6BBAE2CBE3A28008BEA30 /* ChatRoom.swift in Sources */,
 				BD306E792CBF0154008BDBEB /* UserProfileInputView.swift in Sources */,
 				BD691BD42CBF8A82003A300B /* StoreSearchView.swift in Sources */,
@@ -568,6 +587,7 @@
 				256A274C2CBEA5DA0031F766 /* HomeReviewScrollView.swift in Sources */,
 				FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */,
 				256A27372CBD055D0031F766 /* MateUser.swift in Sources */,
+				BD691BE42CC00CE4003A300B /* PlaceCardView.swift in Sources */,
 				BD306E722CBF010B008BDBEB /* AuthManager.swift in Sources */,
 				259DC1012CBFAC7E00AB41C1 /* MatePostAddView.swift in Sources */,
 				259DC0FD2CBF8A3600AB41C1 /* MatePostStore.swift in Sources */,
