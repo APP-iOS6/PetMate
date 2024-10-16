@@ -7,8 +7,9 @@
 //메이트 모집 게시물 관련 Store
 
 import Foundation
-import FirebaseFirestore
 import Observation
+import FirebaseFirestore
+import FirebaseAuth
 
 @Observable
 class MatePostStore{
@@ -39,7 +40,7 @@ class MatePostStore{
     //포스트 정보를 전부 불러오는 함수
     private func getPosts() {
         Task{
-            let snapshots = try? await db.collection("matePosts").getDocuments()
+            let snapshots = try? await db.collection("MatePost").getDocuments()
             snapshots?.documents.forEach{ snapshot in
                 //print(try? snapshot.data(as: MatePost.self))
                 if let post = try? snapshot.data(as: MatePost.self){
@@ -70,9 +71,8 @@ class MatePostStore{
     }
     //로그인한 계정이 가지고 있는 펫 정보들 모아서 반환
     func getMyPets() async -> [Pet] {
-        //let currentUser: String = Auth.auth().currentUser?.uid ?? ""
-        let currentUser: String = "POzraPP1j3OXqveglMc51GrIN332"
-        let db = Firestore.firestore()
+        let currentUser: String = Auth.auth().currentUser?.uid ?? ""
+        //let currentUser: String = "POzraPP1j3OXqveglMc51GrIN332"
         var pets: [Pet] = []
         let snapshots = try? await db.collection("Pet").whereField("ownerUid", isEqualTo: currentUser).getDocuments()
         snapshots?.documents.forEach{ snapshot in
@@ -89,7 +89,35 @@ class MatePostStore{
     }
     
     // MARK: - 파이어베이스에 값을 넣는 함수
-    
+    func postMatePost() -> (){
+        let currentUser = Auth.auth().currentUser?.uid ?? ""
+        //let currentUser: String = "POzraPP1j3OXqveglMc51GrIN332"
+        var petRefs: [DocumentReference] = []
+        Array(selectedPets).forEach{
+            guard let id = $0.id else { return }
+            let petRef = db.collection("Pet").document(id)
+            petRefs.append(petRef)
+        }
+        guard let firstPet = selectedPets.first else { return }
+        let post = MatePost(
+            writeUser: db.collection("User").document(currentUser),
+            pet: petRefs,
+            title: title,
+            startDate: startDate,
+            endDate: endDate,
+            cost: Int(cost) ?? -1,
+            content: content,
+            location: location,
+            postState: "finding",
+            firstPet: firstPet,
+            createdAt: .now,
+            updatedAt: .now)
+        do{
+            try db.collection("MatePost").addDocument(from: post)
+        }catch let error{
+            print("Error posting mate post: \(error.localizedDescription)")
+        }
+    }
     
 }
 

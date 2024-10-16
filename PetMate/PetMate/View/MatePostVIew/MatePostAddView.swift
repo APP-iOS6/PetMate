@@ -31,7 +31,8 @@ struct MatePostAddView: View {
                             .toolbar {
                                 ToolbarItem(placement: .confirmationAction) {
                                     Button("저장"){
-                                        
+                                        postStore.postMatePost()
+                                        dismiss()
                                     }
                                     .disabled(postStore.selectedPets.isEmpty ||
                                              postStore.title.isEmpty ||
