@@ -33,11 +33,16 @@ struct MatePostAddView: View {
                                     Button("저장"){
                                         
                                     }
+                                    .disabled(postStore.selectedPets.isEmpty ||
+                                             postStore.title.isEmpty ||
+                                             postStore.content.isEmpty)
                                 }
                             }
                     } label: {
                         Text("다음")
-                    }
+                    }.disabled(
+                        postStore.location.isEmpty || postStore.cost.isEmpty
+                    )
                 }
                 ToolbarItem(placement: .cancellationAction) {
                     Button{
