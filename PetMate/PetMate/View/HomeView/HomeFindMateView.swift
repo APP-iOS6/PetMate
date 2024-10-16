@@ -23,7 +23,7 @@ struct HomeFindMateView: View {
                 Spacer()
                 
             }.navigationDestination(isPresented: $isPresented) {
-                MatePostListView(post: testStore.testPost, writeUser: testStore.user)
+                MatePostListView()
             }
             .task {
                 await testStore.getUser()

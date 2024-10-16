@@ -16,7 +16,7 @@ struct MatePostListCardView: View {
                 image
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 200, height: 250)
+                    .frame(maxWidth: 200, maxHeight: 250)
                     .padding() // 이미지 사이의 패딩
             } placeholder: {
                 ProgressView()
@@ -35,7 +35,9 @@ struct MatePostListCardView: View {
             }
             .padding(.bottom, 10) // 각 이미지 아래 여백 추가
         }
+        .border(.black)
         .padding() // 이미지와 정보 섹션 전체에 패딩 추가
+        
     }
 }
 

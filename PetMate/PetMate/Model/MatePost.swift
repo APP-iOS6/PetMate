@@ -19,6 +19,7 @@ struct MatePost: Codable, Identifiable {
     var location: String    //지역("도봉구, 내손동 이런식으로 받을거임)
     var reservationUser: DocumentReference? //예약 확정자 레퍼런스
     var postState: String   //글 예약 상태
+    var firstPet: Pet //해당 글의 대표 펫d
     var createdAt: Date   //생성일
     var updatedAt: Date   //업데이트 일
     
