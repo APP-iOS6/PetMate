@@ -15,6 +15,8 @@ class ChatDetailViewModel: ObservableObject {
     
     var listener: ListenerRegistration?
     let db = Firestore.firestore()
+    var chatRoomInfo: ChatRoom?
+    var isCreateChatRoom: Bool = false
     @Published var chatList: [Chat] = []
     @Published var post: MatePost?
     
@@ -26,14 +28,42 @@ class ChatDetailViewModel: ObservableObject {
         print("어 형 퇴근이야 ㅋ")
     }
     
-    
-    //해당 유저와의 채팅 메시지 정보를 계속 받기 위해 스냅샷 리스너를 호출
-    func observeChatList(_ chatWithUser: ChatRoomWithUser) {
+    //채팅 디테일 뷰에 입장할 때 채팅방 데이터가 있는지 확인하고 그에 따라 리스너와 업데이트를 실행시키는 함수
+    func checkChatRoom(_ otherUserUid: String) {
         
-        
-        guard let chatRoomId = chatWithUser.chatRoom.id else {
+        guard let userUid = Auth.auth().currentUser?.uid else {
+            print("로그인 하고 와")
             return
         }
+        
+        let chatRoomId = generateChatRoomId(userId1: userUid, userId2: otherUserUid)
+        
+        Task {
+            if await checkExistChatRoom(chatRoomId) {
+                //TODO: 채팅방이 존재 하면 해당 채팅방의 서브 컬렉션 Message 리스너 그냥 달아주기
+                print("채팅방이 존재해요 ㅋ")
+                self.chatRoomInfo = await getChatRoomData(chatRoomId) //현재 채팅룸에 대한 정보를 가져옴
+                self.observeChatList(chatRoomId) //채팅 오는거 옵저하기 위한 함수
+                self.updateAllMessagesAsRead(chatRoomId) //채팅 방에 입장했으면 안읽은 메시지 읽음 처리 해야 함
+            } else {
+                //TODO: 채팅방이 존재하지 않는다면 채팅방을 생성한 후 그 후 서브컬렉션인 Message 컬렉션의 리스너 달아주기
+                print("채팅방이 존재하지 않아요")
+            }
+        }
+    }
+    
+    //상대방과 나의 채팅방 데이터가 존재 하는지 안하는지 확인하는 함수
+    func checkExistChatRoom(_ chatRoomId: String) async -> Bool {
+        do {
+            return try await self.db.collection("Chat").document(chatRoomId).getDocument().exists
+        } catch {
+            return false
+        }
+    }
+    
+    
+    //해당 유저와의 채팅 메시지 정보를 계속 받기 위해 스냅샷 리스너를 호출
+    func observeChatList(_ chatRoomId: String) {
         
         self.listener = self.db.collection("Chat").document(chatRoomId).collection("Message").addSnapshotListener { querySnapshot, error in
             guard let snapshot = querySnapshot else {
@@ -60,7 +90,18 @@ class ChatDetailViewModel: ObservableObject {
         }
     }
     
-    func updateAllMessagesAsRead(_ chatWithUser: ChatRoomWithUser) {
+    //채팅방의 데이터를 가져오는 함수
+    func getChatRoomData(_ chatRoomId: String) async -> ChatRoom? {
+        do {
+            return try await self.db.collection("Chat").document(chatRoomId).getDocument(as: ChatRoom.self)
+        } catch {
+            return nil
+        }
+    }
+
+    
+    //내가 마지막에 읽은 시점 이후에 온 메시지들을 읽음 처리하는 함수
+    func updateAllMessagesAsRead(_ chatRoomId: String) {
         
         guard let userUid = Auth.auth().currentUser?.uid else {
             print("로그인 상태 아님")
@@ -68,7 +109,7 @@ class ChatDetailViewModel: ObservableObject {
         }
         
         
-        guard let chatRoomId = chatWithUser.chatRoom.id, let lastReadDate = chatWithUser.chatRoom.readStatus["동경"] else {
+        guard let lastReadDate = self.chatRoomInfo?.readStatus[userUid] else {
             return
         }
         
@@ -135,10 +176,6 @@ class ChatDetailViewModel: ObservableObject {
         if let index = self.chatList.firstIndex(where: { $0.id == chat.id }) {
             self.chatList.remove(at: index)
         }
-    }
-    
-    private func markAllMessagesAsRead(_ chatRoomId: String) {
-        
     }
     
 }
