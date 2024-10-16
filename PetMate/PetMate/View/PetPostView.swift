@@ -15,7 +15,7 @@ struct PetPostView: View {
     let categories = ["산책", "돌봄", "놀이", "훈련"] // 더미 카테고리
     
     var post: MatePost
-    var writeUser: MateUser
+    var writeUser: MateUser?
     
     var body: some View {
         VStack(alignment: .leading) {
