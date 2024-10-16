@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseFirestore
 import Observation
+import FirebaseAuth
 
 @Observable
 @MainActor
@@ -30,7 +31,7 @@ class ChatRoomListViewModel: ObservableObject {
     func createChatRoom() {
         Task {
             do {
-                let room = ChatRoom(id: "동경_주노", participant: ["동경", "주노"], lastMessage: "주노 이즈 갓", lastMessageAt: Date(), readStatus: ["동경": Date(), "주노": Date()])
+                let room = ChatRoom(id: "op32ORHPEnPRs39iZGN6WwNYRlH2_POzraPP1j3OXqveglMc51GrIN332", participant: ["op32ORHPEnPRs39iZGN6WwNYRlH2", "POzraPP1j3OXqveglMc51GrIN332"], lastMessage: "주노 이즈 갓", lastMessageAt: Date(), readStatus: ["op32ORHPEnPRs39iZGN6WwNYRlH2": Date(), "POzraPP1j3OXqveglMc51GrIN332": Date()])
                 let encode = try Firestore.Encoder().encode(room)
                 self.db.collection("Chat").document(room.id ?? UUID().uuidString).setData(encode)
             } catch {
@@ -39,23 +40,28 @@ class ChatRoomListViewModel: ObservableObject {
         }
     }
     
-    
-    
+
     private func observeMyChatRoom() {
+        
+        guard let userUid = Auth.auth().currentUser?.uid else {
+            print("로그인 상태 아님")
+            return
+        }
+        
         self.db.collection("Chat")
-            .whereField("participant", arrayContains: "동경")
+            .whereField("participant", arrayContains: userUid)
             .addSnapshotListener { [weak self] querySnapshot, error in
                 guard let snapshot = querySnapshot else {
                     print("리스너 실패")
                     return
                 }
-    
+
                 snapshot.documentChanges.forEach { diff in
                     do {
                         let chatRoom = try diff.document.data(as: ChatRoom.self)
                         switch diff.type {
                         case .added:
-                            self?.handleAdded(chatRoom)
+                            self?.handleAdded(chatRoom, userUid: userUid)
                         case .modified:
                             self?.handleUpdate(chatRoom)
                         case .removed:
@@ -69,13 +75,13 @@ class ChatRoomListViewModel: ObservableObject {
     }
     
     
-    private func handleAdded(_ chatRoom: ChatRoom) {
-        fetchChatUserInfo(chatRoom) { [weak self] mateUser in
+    private func handleAdded(_ chatRoom: ChatRoom, userUid: String) {
+        fetchChatUserInfo(chatRoom, userUid: userUid) { [weak self] mateUser in
             guard let self = self, let user = mateUser else {
                 print("유저 정보를 못가져옴")
                 return
             }
-            calculateUnreadCount(chatRoom) { count in
+            calculateUnreadCount(chatRoom, userUid: userUid) { count in
                 let chatRoomWithUser = ChatRoomWithUser(chatRoom: chatRoom, chatUser: user, unreadCount: count)
                 self.chatListRoom.append(chatRoomWithUser)
             }
@@ -95,8 +101,8 @@ class ChatRoomListViewModel: ObservableObject {
         }
     }
     
-    private func fetchChatUserInfo(_ chatRoom: ChatRoom, completion: @escaping (MateUser?) -> Void) {
-        guard let otherUserId = chatRoom.participant.first(where: { $0 != "동경" }) else {
+    private func fetchChatUserInfo(_ chatRoom: ChatRoom, userUid: String, completion: @escaping (MateUser?) -> Void) {
+        guard let otherUserId = chatRoom.participant.first(where: { $0 != userUid }) else {
             completion(nil)
             return
         }
@@ -112,8 +118,8 @@ class ChatRoomListViewModel: ObservableObject {
         }
     }
     
-    private func calculateUnreadCount(_ chatRoom: ChatRoom, completion: @escaping (Int) -> Void) {
-        guard let lastReadDate = chatRoom.readStatus["동경"],
+    private func calculateUnreadCount(_ chatRoom: ChatRoom, userUid: String, completion: @escaping (Int) -> Void) {
+        guard let lastReadDate = chatRoom.readStatus[userUid],
               let chatRoomId = chatRoom.id else {
             completion(0)
             return
@@ -136,7 +142,7 @@ class ChatRoomListViewModel: ObservableObject {
                 let unReadData = query.compactMap { quereyDocumentSnapshot in
                     try? quereyDocumentSnapshot.data(as: Chat.self)
                 }.filter {
-                    $0.sender != "동경" && !$0.readBy.contains("동경")
+                    $0.sender != "동경" && !$0.readBy.contains(userUid)
                 }
                 
                 completion(unReadData.count)
