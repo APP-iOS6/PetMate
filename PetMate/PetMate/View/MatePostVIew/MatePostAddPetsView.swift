@@ -10,18 +10,43 @@ import FirebaseAuth
 import FirebaseFirestore
 
 struct MatePostAddPetsView: View {
+    @Environment(\.dismiss) var dismiss
     @State var pets: [Pet] = []
+    @State var selectedPets: Set<Pet> = []
     var body: some View {
-        ScrollView(.horizontal) {
-            LazyHStack{
-                ForEach(pets) { pet in
-                    Text(pet.name)
+        GeometryReader{ proxy in
+            VStack{
+                HStack{
+                    Spacer()
+                    Button{
+                        dismiss()
+                    }label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .font(.largeTitle)
+                    }
                 }
+                ScrollView(.horizontal) {
+                    LazyHStack(spacing: 20){
+                        ForEach(pets) { pet in
+                            MatePostAddPetCardView(pet: pet, proxy: proxy, selectedPets: $selectedPets)
+                                .onTapGesture {
+                                    if !selectedPets.contains(pet){
+                                        selectedPets.insert(pet)
+                                    }else{
+                                        selectedPets.remove(pet)
+                                    }
+                                }
+                        }
+                    }
+                }
+                .scrollIndicators(.hidden)
             }
-        }.task {
+        }
+        .task {
             pets = await getMyPets()
             print(pets)
         }
+        .padding()
     }
     func getMyPets() async -> [Pet] {
         //let currentUser: String = Auth.auth().currentUser?.uid ?? ""

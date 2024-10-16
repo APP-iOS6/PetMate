@@ -45,6 +45,7 @@
 		259DC1052CBFE6FA00AB41C1 /* MatePostAddFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1042CBFE6FA00AB41C1 /* MatePostAddFirstView.swift */; };
 		259DC1072CBFE70800AB41C1 /* MatePostAddSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1062CBFE70800AB41C1 /* MatePostAddSecondView.swift */; };
 		259DC1092CBFF4A600AB41C1 /* MatePostAddPetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1082CBFF4A600AB41C1 /* MatePostAddPetsView.swift */; };
+		259DC10C2CC0119200AB41C1 /* MatePostAddPetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC10B2CC0119200AB41C1 /* MatePostAddPetCardView.swift */; };
 		4B5D53072CBE2DB400FDC77A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */; };
 		4B5D53092CBE39FB00FDC77A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53082CBE39FB00FDC77A /* ImagePicker.swift */; };
 		4B5D530D2CBE3B8E00FDC77A /* PetProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */; };
@@ -108,6 +109,7 @@
 		259DC1042CBFE6FA00AB41C1 /* MatePostAddFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostAddFirstView.swift; sourceTree = "<group>"; };
 		259DC1062CBFE70800AB41C1 /* MatePostAddSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostAddSecondView.swift; sourceTree = "<group>"; };
 		259DC1082CBFF4A600AB41C1 /* MatePostAddPetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostAddPetsView.swift; sourceTree = "<group>"; };
+		259DC10B2CC0119200AB41C1 /* MatePostAddPetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostAddPetCardView.swift; sourceTree = "<group>"; };
 		4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		4B5D53082CBE39FB00FDC77A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileView.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 				259DC1042CBFE6FA00AB41C1 /* MatePostAddFirstView.swift */,
 				259DC1062CBFE70800AB41C1 /* MatePostAddSecondView.swift */,
 				259DC1082CBFF4A600AB41C1 /* MatePostAddPetsView.swift */,
+				259DC10B2CC0119200AB41C1 /* MatePostAddPetCardView.swift */,
 			);
 			path = MatePostVIew;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				BD306E792CBF0154008BDBEB /* UserProfileInputView.swift in Sources */,
 				BD306E772CBF012D008BDBEB /* LoginViewModel.swift in Sources */,
 				256A274A2CBEA3B50031F766 /* HomeFindMateButton.swift in Sources */,
+				259DC10C2CC0119200AB41C1 /* MatePostAddPetCardView.swift in Sources */,
 				040D5CEC2CBE632700549B47 /* MatePostAddOldView.swift in Sources */,
 				256A274C2CBEA5DA0031F766 /* HomeReviewScrollView.swift in Sources */,
 				FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */,

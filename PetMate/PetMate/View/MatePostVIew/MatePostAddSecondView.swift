@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MatePostAddSecondView: View {
+    @Environment(\.dismiss) var dismiss
     @Binding var postStore: MatePostStore
     
     @State var isPresent: Bool = false
@@ -33,6 +34,13 @@ struct MatePostAddSecondView: View {
                 isPresent.toggle()
             }
             VStack(alignment: .leading){
+                Text("제목")
+                    .font(.title2)
+                TextField("30자 이내로 작성해주세요", text: $postStore.title)
+                Rectangle()
+                    .frame(height: 1)
+            }
+            VStack(alignment: .leading){
                 Text("내용")
                     .font(.title2)
                 ScrollView(.vertical) {
@@ -45,11 +53,13 @@ struct MatePostAddSecondView: View {
         }
         .padding()
         .sheet(isPresented: $isPresent, onDismiss: {postStore.reset()}) {
-            
+            MatePostAddPetsView()
+                .presentationDetents([.medium])
         }
     }
 }
 
-//#Preview {
-//    MatePostAddSecondView()
-//}
+#Preview {
+    @Previewable @State var postStore = MatePostStore()
+    MatePostAddSecondView(postStore: $postStore)
+}

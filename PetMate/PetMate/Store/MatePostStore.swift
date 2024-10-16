@@ -23,6 +23,7 @@ class MatePostStore{
     var startDate: Date = Date()
     var endDate: Date = Date()
     var cost: String = ""
+    var title: String = ""
     var content: String = ""
     var location: String = ""
     var postState: String = ""

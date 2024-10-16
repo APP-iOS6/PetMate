@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestore
 
-struct Pet: Codable, Identifiable {
+struct Pet: Codable, Identifiable, Hashable {
     @DocumentID var id: String? //문서 id
     var name: String    //이름
     var description: String //설명 및 주의사항
