@@ -13,12 +13,18 @@ import Observation
 @MainActor
 class ChatRoomListViewModel: ObservableObject {
     
+    
     let db = Firestore.firestore()
     var chatListRoom: [ChatRoomWithUser] = []
     
     
     init() {
+        print("채팅 방 뷰모델 출근")
         observeMyChatRoom()
+    }
+    
+    deinit {
+        print("채팅 방 뷰모델 퇴근")
     }
     
     func createChatRoom() {
@@ -33,16 +39,17 @@ class ChatRoomListViewModel: ObservableObject {
         }
     }
     
+    
+    
     private func observeMyChatRoom() {
         self.db.collection("Chat")
-            .order(by: "lastMessageAt", descending: false)
             .whereField("participant", arrayContains: "동경")
             .addSnapshotListener { [weak self] querySnapshot, error in
                 guard let snapshot = querySnapshot else {
                     print("리스너 실패")
                     return
                 }
-                
+    
                 snapshot.documentChanges.forEach { diff in
                     do {
                         let chatRoom = try diff.document.data(as: ChatRoom.self)
@@ -64,9 +71,14 @@ class ChatRoomListViewModel: ObservableObject {
     
     private func handleAdded(_ chatRoom: ChatRoom) {
         fetchChatUserInfo(chatRoom) { [weak self] mateUser in
-            guard let self = self, let user = mateUser else { return }
-            let chatRoomWithUser = ChatRoomWithUser(chatRoom: chatRoom, chatUser: user)
-            self.chatListRoom.append(chatRoomWithUser)
+            guard let self = self, let user = mateUser else {
+                print("유저 정보를 못가져옴")
+                return
+            }
+            calculateUnreadCount(chatRoom) { count in
+                let chatRoomWithUser = ChatRoomWithUser(chatRoom: chatRoom, chatUser: user, unreadCount: count)
+                self.chatListRoom.append(chatRoomWithUser)
+            }
         }
     }
     
@@ -98,6 +110,43 @@ class ChatRoomListViewModel: ObservableObject {
                 completion(nil)
             }
         }
+    }
+    
+    private func calculateUnreadCount(_ chatRoom: ChatRoom, completion: @escaping (Int) -> Void) {
+        guard let lastReadDate = chatRoom.readStatus["동경"],
+              let chatRoomId = chatRoom.id else {
+            completion(0)
+            return
+        }
+        
+        self.db.collection("Chat").document(chatRoomId).collection("Message")
+            .whereField("createAt", isGreaterThan: lastReadDate).getDocuments { querySnapshot, error in
+                
+                if let error = error {
+                    print("createAt 쿼리 데이터 못가져옴 \(error.localizedDescription)")
+                    completion(0)
+                    return
+                }
+                
+                guard let query = querySnapshot?.documents else {
+                    completion(0)
+                    return
+                }
+                
+                let unReadData = query.compactMap { quereyDocumentSnapshot in
+                    try? quereyDocumentSnapshot.data(as: Chat.self)
+                }.filter {
+                    $0.sender != "동경" && !$0.readBy.contains("동경")
+                }
+                
+                completion(unReadData.count)
+                
+            }
+    }
+    
+    //나 말고 다른 사람의 uid 가져오는 함수
+    func getOtherUserId(participants: [String], currentUserId: String) -> String? {
+        return participants.first { $0 != currentUserId }
     }
     
 }
