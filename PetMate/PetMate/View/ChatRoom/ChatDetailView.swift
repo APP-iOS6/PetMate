@@ -45,24 +45,37 @@ struct ChatDetailView: View {
                                 // 다른 사용자의 메시지 (왼쪽 정렬)
                                 HStack {
                                     Text(chat.message)
-                                        .bold()
                                         .foregroundColor(.black)
-                                        .padding()
-                                        .background(Color.gray.opacity(0.2))
-                                        .cornerRadius(8)
+                                        .padding(.horizontal)
+                                        .padding(.vertical, 8)
+                                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 12)
+                                                .stroke(Color.accentColor, lineWidth: 1)
+                                        }
                                     Spacer()
+                                    
                                 }
                                 .padding(.horizontal)
                             } else {
                                 // 내 메시지 (오른쪽 정렬)
                                 HStack {
                                     Spacer()
+                                    
+                                    if !chat.readBy.contains(where: { $0 == otherUser.id }) {
+                                        Text("1")
+                                            .font(.caption)
+                                            .foregroundStyle(Color.accentColor)
+                                            .padding(.top, 12)
+                                    }
+                                    
                                     Text(chat.message)
                                         .bold()
                                         .foregroundColor(.white)
-                                        .padding()
-                                        .background(Color.blue.opacity(0.7))
-                                        .cornerRadius(8)
+                                        .padding(.horizontal)
+                                        .padding(.vertical, 8)
+                                        .background(Color.accentColor)
+                                        .clipShape(RoundedRectangle(cornerRadius: 12))
                                 }
                                 .padding(.horizontal)
                             }
