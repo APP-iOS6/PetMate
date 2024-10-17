@@ -31,7 +31,7 @@ class ChatRoomListViewModel: ObservableObject {
     func createChatRoom() {
         Task {
             do {
-                let room = ChatRoom(id: "POzraPP1j3OXqveglMc51GrIN332_op32ORHPEnPRs39iZGN6WwNYRlH2", participant: ["op32ORHPEnPRs39iZGN6WwNYRlH2", "POzraPP1j3OXqveglMc51GrIN332"], lastMessage: "주노 이즈 갓", lastMessageAt: Date(), readStatus: ["op32ORHPEnPRs39iZGN6WwNYRlH2": Date(), "POzraPP1j3OXqveglMc51GrIN332": Date()])
+                let room = ChatRoom(id: "9tONJiqJzPdKpoaXsgu7D7xkHnc2_op32ORHPEnPRs39iZGN6WwNYRlH2", participant: ["op32ORHPEnPRs39iZGN6WwNYRlH2", "9tONJiqJzPdKpoaXsgu7D7xkHnc2"], lastMessage: "덱정원 형이야 ㅋ", lastMessageAt: Date(), readStatus: ["op32ORHPEnPRs39iZGN6WwNYRlH2": Date(), "9tONJiqJzPdKpoaXsgu7D7xkHnc2": Date()])
                 let encode = try Firestore.Encoder().encode(room)
                 self.db.collection("Chat").document(room.id ?? UUID().uuidString).setData(encode)
             } catch {
