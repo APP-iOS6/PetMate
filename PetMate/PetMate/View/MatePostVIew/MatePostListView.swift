@@ -9,6 +9,7 @@ import SwiftUI
 import FirebaseFirestore
 
 struct MatePostListView: View {
+    //@State 지워도 됨
     @State var postStore = MatePostStore()
     @State var isPresent: Bool = false
     
@@ -41,6 +42,7 @@ struct MatePostListView: View {
         .navigationTitle("돌봄")
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(isPresented: $isPresent) {
+            //클래스이기 떄문에 $ 바인딩이 아니라 그냥 주입시키면 됨
             MatePostDetailView(postStore: $postStore)
         }
         .toolbar {

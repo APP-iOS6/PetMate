@@ -69,13 +69,16 @@ struct ChatDetailView: View {
                                                 .font(.caption)
                                                 .foregroundStyle(Color.accentColor)
                                                 .padding(.top, 12)
-                                                .frame(alignment: .trailing)
+                                                .frame(maxWidth: .infinity,alignment: .trailing)
                                         }
                                         
                                         Text(chat.createAt.formattedTime)
                                             .font(.caption)
                                             .foregroundStyle(.basic)
+                                            .frame(maxWidth: .infinity,alignment: .bottomTrailing)
+
                                     }
+                                    .frame(maxHeight: .infinity, alignment: .bottom)
                                     .animation(.smooth, value: chat.readBy)
                                     
                                     
