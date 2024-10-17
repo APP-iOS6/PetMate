@@ -62,12 +62,22 @@ struct ChatDetailView: View {
                                 HStack {
                                     Spacer()
                                     
-                                    if !chat.readBy.contains(where: { $0 == otherUser.id }) {
-                                        Text("1")
+                                    VStack {
+                                        if !chat.readBy.contains(where: { $0 == otherUser.id }) {
+                                            Text("1")
+                                                .transition(.opacity)
+                                                .font(.caption)
+                                                .foregroundStyle(Color.accentColor)
+                                                .padding(.top, 12)
+                                                .frame(alignment: .trailing)
+                                        }
+                                        
+                                        Text(chat.createAt.formattedTime)
                                             .font(.caption)
-                                            .foregroundStyle(Color.accentColor)
-                                            .padding(.top, 12)
+                                            .foregroundStyle(.basic)
                                     }
+                                    .animation(.smooth, value: chat.readBy)
+                                    
                                     
                                     Text(chat.message)
                                         .bold()
