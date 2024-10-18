@@ -19,12 +19,12 @@ struct HomeTabView: View {
                     Image(systemName: "house")
                 }
             NavigationStack {
-                PetMapView()
+                PetPlaceView()
                     .environment(PetPlacesStore())
             }
                 .tabItem {
                     Text("Place")
-                    Image(systemName: "map")
+                    Image(systemName: "pawprint")
                 }
             ChatRoomListView()
                 .tabItem {
