@@ -87,6 +87,7 @@
 		FBD6BC812CBEB581008BEA30 /* ChatDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BC802CBEB581008BEA30 /* ChatDetailViewModel.swift */; };
 		FBD6BC8F2CBF8603008BEA30 /* GenerateChatRoomId.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BC8E2CBF8603008BEA30 /* GenerateChatRoomId.swift */; };
 		FBD6BCF22CBFD457008BEA30 /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BCF12CBFD457008BEA30 /* TextFieldModifier.swift */; };
+		FBF28B732CC23E7E00040122 /* SignUpAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF28B722CC23E7E00040122 /* SignUpAddressView.swift */; };
 		FBF4E47E2CC2269900CFA137 /* SignUpContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF4E47D2CC2269900CFA137 /* SignUpContainerView.swift */; };
 		FBF4E4802CC226A700CFA137 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF4E47F2CC226A700CFA137 /* SignUpViewModel.swift */; };
 		FBF4E4822CC2282200CFA137 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF4E4812CC2282200CFA137 /* LoginViewModel.swift */; };
@@ -168,6 +169,7 @@
 		FBD6BC802CBEB581008BEA30 /* ChatDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailViewModel.swift; sourceTree = "<group>"; };
 		FBD6BC8E2CBF8603008BEA30 /* GenerateChatRoomId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateChatRoomId.swift; sourceTree = "<group>"; };
 		FBD6BCF12CBFD457008BEA30 /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
+		FBF28B722CC23E7E00040122 /* SignUpAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAddressView.swift; sourceTree = "<group>"; };
 		FBF4E47D2CC2269900CFA137 /* SignUpContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContainerView.swift; sourceTree = "<group>"; };
 		FBF4E47F2CC226A700CFA137 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		FBF4E4812CC2282200CFA137 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -450,6 +452,7 @@
 			children = (
 				FBF4E47F2CC226A700CFA137 /* SignUpViewModel.swift */,
 				FBF4E47D2CC2269900CFA137 /* SignUpContainerView.swift */,
+				FBF28B722CC23E7E00040122 /* SignUpAddressView.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				BD306E752CBF0122008BDBEB /* LoginView.swift in Sources */,
 				FBD6BCF22CBFD457008BEA30 /* TextFieldModifier.swift in Sources */,
 				4B6FF8812CBE888C009F4206 /* MyPageTabView.swift in Sources */,
+				FBF28B732CC23E7E00040122 /* SignUpAddressView.swift in Sources */,
 				256A27442CBE81350031F766 /* HomeView.swift in Sources */,
 				FBD6BC8F2CBF8603008BEA30 /* GenerateChatRoomId.swift in Sources */,
 				BD691BDB2CBFAAE2003A300B /* KakaoAPIClient.swift in Sources */,
