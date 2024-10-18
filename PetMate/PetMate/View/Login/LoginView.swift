@@ -10,8 +10,7 @@ import GoogleSignInSwift
 
 struct LoginView: View {
     @Environment(AuthManager.self) var authManager
-    @State var loginViewModel = LoginViewModel()
-    @Binding var isShowingUserProfileInput: Bool
+    var loginViewModel: LoginViewModel = LoginViewModel()
     
     @State private var currentPage = 0
     private let images = ["login_image1", "login_image2", "login_image3", "login_image4"]
@@ -99,11 +98,6 @@ struct LoginView: View {
             
             Button(action: {
                 print("구글 로그인 버튼 눌림")
-                loginViewModel.signInWithGoogle(authManager: authManager) { success in
-                    if success {
-                        isShowingUserProfileInput = true
-                    }
-                }
             }) {
                 Image("google_login_button")
                     .resizable()
@@ -128,6 +122,6 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView(isShowingUserProfileInput: .constant(false))
+    LoginView()
         .environment(AuthManager())
 }
