@@ -12,8 +12,6 @@ import Observation
 @Observable
 class LoginViewModel {
     
-    var state:
-    
-    
+
     
 }
