@@ -58,8 +58,6 @@
 		BD306E642CBEF852008BDBEB /* PetMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E632CBEF852008BDBEB /* PetMapView.swift */; };
 		BD306E722CBF010B008BDBEB /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E712CBF010B008BDBEB /* AuthManager.swift */; };
 		BD306E752CBF0122008BDBEB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E742CBF0122008BDBEB /* LoginView.swift */; };
-		BD306E772CBF012D008BDBEB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E762CBF012D008BDBEB /* LoginViewModel.swift */; };
-		BD306E792CBF0154008BDBEB /* UserProfileInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E782CBF0154008BDBEB /* UserProfileInputView.swift */; };
 		BD306E7B2CBF0158008BDBEB /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E7A2CBF0158008BDBEB /* UserProfileViewModel.swift */; };
 		BD306E7D2CBF0180008BDBEB /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E7C2CBF0180008BDBEB /* HomeTabView.swift */; };
 		BD691BD42CBF8A82003A300B /* StoreSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BD32CBF8A81003A300B /* StoreSearchView.swift */; };
@@ -90,6 +88,10 @@
 		FBD6BC812CBEB581008BEA30 /* ChatDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BC802CBEB581008BEA30 /* ChatDetailViewModel.swift */; };
 		FBD6BC8F2CBF8603008BEA30 /* GenerateChatRoomId.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BC8E2CBF8603008BEA30 /* GenerateChatRoomId.swift */; };
 		FBD6BCF22CBFD457008BEA30 /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BCF12CBFD457008BEA30 /* TextFieldModifier.swift */; };
+		FBF4E47E2CC2269900CFA137 /* SignUpContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF4E47D2CC2269900CFA137 /* SignUpContainerView.swift */; };
+		FBF4E4802CC226A700CFA137 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF4E47F2CC226A700CFA137 /* SignUpViewModel.swift */; };
+		FBF4E4822CC2282200CFA137 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF4E4812CC2282200CFA137 /* LoginViewModel.swift */; };
+		FBF4E4842CC2294E00CFA137 /* LoadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF4E4832CC2294E00CFA137 /* LoadState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,8 +139,6 @@
 		BD306E632CBEF852008BDBEB /* PetMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetMapView.swift; sourceTree = "<group>"; };
 		BD306E712CBF010B008BDBEB /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		BD306E742CBF0122008BDBEB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		BD306E762CBF012D008BDBEB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		BD306E782CBF0154008BDBEB /* UserProfileInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileInputView.swift; sourceTree = "<group>"; };
 		BD306E7A2CBF0158008BDBEB /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		BD306E7C2CBF0180008BDBEB /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -170,6 +170,10 @@
 		FBD6BC802CBEB581008BEA30 /* ChatDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailViewModel.swift; sourceTree = "<group>"; };
 		FBD6BC8E2CBF8603008BEA30 /* GenerateChatRoomId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateChatRoomId.swift; sourceTree = "<group>"; };
 		FBD6BCF12CBFD457008BEA30 /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
+		FBF4E47D2CC2269900CFA137 /* SignUpContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContainerView.swift; sourceTree = "<group>"; };
+		FBF4E47F2CC226A700CFA137 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		FBF4E4812CC2282200CFA137 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		FBF4E4832CC2294E00CFA137 /* LoadState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,7 +239,6 @@
 			children = (
 				259DC0FC2CBF8A2F00AB41C1 /* MatePostStore.swift */,
 				259DC0F92CBF832000AB41C1 /* TestStore.swift */,
-				BD306E762CBF012D008BDBEB /* LoginViewModel.swift */,
 				BD306E7A2CBF0158008BDBEB /* UserProfileViewModel.swift */,
 				256A27342CBD054F0031F766 /* LoginStore.swift */,
 				BD306E5A2CBEF7C0008BDBEB /* PetPlaceStore.swift */,
@@ -247,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				259DC0FB2CBF891800AB41C1 /* MatePostVIew */,
+				FBF4E47C2CC2257900CFA137 /* SignUp */,
 				BD306E732CBF0117008BDBEB /* Login */,
 				BD306E5C2CBEF7CC008BDBEB /* Place */,
 				256A27422CBE80FB0031F766 /* HomeView */,
@@ -269,6 +273,7 @@
 				256A272C2CBD04A60031F766 /* Modifier */,
 				256A272B2CBD049B0031F766 /* Extension */,
 				FBD6BC8E2CBF8603008BEA30 /* GenerateChatRoomId.swift */,
+				FBF4E4832CC2294E00CFA137 /* LoadState.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -394,7 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				BD306E742CBF0122008BDBEB /* LoginView.swift */,
-				BD306E782CBF0154008BDBEB /* UserProfileInputView.swift */,
+				FBF4E4812CC2282200CFA137 /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -441,6 +446,15 @@
 				FBD6BC7E2CBEB516008BEA30 /* ChatDetailView.swift */,
 			);
 			path = ChatRoom;
+			sourceTree = "<group>";
+		};
+		FBF4E47C2CC2257900CFA137 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				FBF4E47F2CC226A700CFA137 /* SignUpViewModel.swift */,
+				FBF4E47D2CC2269900CFA137 /* SignUpContainerView.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -555,6 +569,8 @@
 				BD306E642CBEF852008BDBEB /* PetMapView.swift in Sources */,
 				BD306E622CBEF841008BDBEB /* AddPlaceView.swift in Sources */,
 				BD691BDD2CBFABA3003A300B /* Bundle+Extension.swift in Sources */,
+				FBF4E4822CC2282200CFA137 /* LoginViewModel.swift in Sources */,
+				FBF4E4802CC226A700CFA137 /* SignUpViewModel.swift in Sources */,
 				BD691BD82CBF96EB003A300B /* StoreDetailView.swift in Sources */,
 				252A12982CBED8AD00EDD297 /* CalandarView.swift in Sources */,
 				BD306E7D2CBF0180008BDBEB /* HomeTabView.swift in Sources */,
@@ -581,14 +597,14 @@
 				256A27352CBD05580031F766 /* LoginStore.swift in Sources */,
 				BD691BEA2CC0324D003A300B /* AddPostView.swift in Sources */,
 				FBD6BBAE2CBE3A28008BEA30 /* ChatRoom.swift in Sources */,
-				BD306E792CBF0154008BDBEB /* UserProfileInputView.swift in Sources */,
 				BD691BD42CBF8A82003A300B /* StoreSearchView.swift in Sources */,
-				BD306E772CBF012D008BDBEB /* LoginViewModel.swift in Sources */,
 				256A274A2CBEA3B50031F766 /* HomeFindMateButton.swift in Sources */,
 				233E2C062CC04FAA004712E7 /* HomeView2.swift in Sources */,
 				259DC10C2CC0119200AB41C1 /* MatePostAddPetCardView.swift in Sources */,
 				040D5CEC2CBE632700549B47 /* MatePostAddOldView.swift in Sources */,
+				FBF4E47E2CC2269900CFA137 /* SignUpContainerView.swift in Sources */,
 				256A274C2CBEA5DA0031F766 /* HomeReviewScrollView.swift in Sources */,
+				FBF4E4842CC2294E00CFA137 /* LoadState.swift in Sources */,
 				FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */,
 				256A27372CBD055D0031F766 /* MateUser.swift in Sources */,
 				BD691BE42CC00CE4003A300B /* PlaceCardView.swift in Sources */,

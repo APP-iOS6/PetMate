@@ -11,10 +11,12 @@ struct ContentView: View {
     @Environment(AuthManager.self) var authManager
     @State private var isShowingSplash = true // 스플래시 화면을 제어하는 상태 변수
     @State private var isShowingUserProfileInput = false
-
+    
     var body: some View {
         VStack {
-            if isShowingSplash {
+            
+            switch authManager.authState {
+            case .splash:
                 Image("splash_image")
                     .onAppear {
                         print("스플래시 화면 나옴")
@@ -25,21 +27,12 @@ struct ContentView: View {
                         }
                     }
                     .transition(.opacity)
-            } else {
-                switch authManager.authState {
-                case .unAuth:
-                    LoginView(isShowingUserProfileInput: $isShowingUserProfileInput)
-
-                case .auth, .signUp:
-                    if isShowingUserProfileInput {
-                        UserProfileInputView(isShowingUserProfileInput: $isShowingUserProfileInput)
-                    } else {
-                        HomeTabView()
-                    }
-
-                default:
-                    EmptyView()
-                }
+            case .unAuth:
+                LoginView()
+            case .auth:
+                HomeTabView()
+            case .signUp:
+                SignUpContainerView()
             }
         }
         .onAppear {
