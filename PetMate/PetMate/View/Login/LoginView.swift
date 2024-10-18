@@ -10,7 +10,7 @@ import GoogleSignInSwift
 
 struct LoginView: View {
     @Environment(AuthManager.self) var authManager
-    @State var loginViewModel = LoginViewModel()
+    @StateObject var loginViewModel: LoginViewModel
     @Binding var isShowingUserProfileInput: Bool
     
     @State private var currentPage = 0
@@ -24,6 +24,11 @@ struct LoginView: View {
     ]
     
     let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
+    
+    init(isShowingUserProfileInput: Binding<Bool>, authManager: AuthManager) {
+        self._isShowingUserProfileInput = isShowingUserProfileInput
+        _loginViewModel = StateObject(wrappedValue: LoginViewModel(authManager: authManager))
+    }
     
     var body: some View {
         VStack(spacing: 16) {
@@ -48,7 +53,6 @@ struct LoginView: View {
             .frame(width: 300, height: 300)
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .onReceive(timer) { _ in
-                // 타이머가 작동할 때마다 currentPage 증가
                 withAnimation {
                     currentPage = (currentPage + 1) % images.count
                 }
@@ -91,6 +95,11 @@ struct LoginView: View {
             
             Button(action: {
                 print("애플 로그인 버튼 눌림")
+                loginViewModel.signInWithApple { success in
+                    if success {
+                        isShowingUserProfileInput = true
+                    }
+                }
             }) {
                 Image("apple_login_button")
                     .resizable()
@@ -99,7 +108,7 @@ struct LoginView: View {
             
             Button(action: {
                 print("구글 로그인 버튼 눌림")
-                loginViewModel.signInWithGoogle(authManager: authManager) { success in
+                loginViewModel.signInWithGoogle { success in
                     if success {
                         isShowingUserProfileInput = true
                     }
@@ -128,6 +137,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView(isShowingUserProfileInput: .constant(false))
-        .environment(AuthManager())
+    LoginView(isShowingUserProfileInput: .constant(false), authManager: AuthManager())
 }

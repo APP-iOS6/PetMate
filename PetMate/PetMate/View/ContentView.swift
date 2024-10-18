@@ -22,8 +22,8 @@ struct ContentView: View {
                         }
                     }
                 
-            case .unAuth:
-                LoginView(isShowingUserProfileInput: $isShowingUserProfileInput)
+            case .unAuth: LoginView(isShowingUserProfileInput: $isShowingUserProfileInput, authManager: authManager)
+                        
                 
             case .auth, .signUp:
                 if isShowingUserProfileInput {
