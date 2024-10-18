@@ -28,7 +28,7 @@ struct ContentView: View {
                     }
                     .transition(.opacity)
             case .unAuth:
-                LoginView(isShowingUserProfileInput: $isShowingUserProfileInput)
+                LoginView()
             case .auth:
                 HomeTabView()
             case .signUp:
