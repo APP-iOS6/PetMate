@@ -20,6 +20,7 @@ struct PetProfileView: View {
         tag: ["활발함", "사람 좋아요", "예방 접종 완료"],
         breed: "포메",
         images: ["gadiProfile"],
+        ownerUid: "정원",
         createdAt: Date(),
         updatedAt: Date()
     )

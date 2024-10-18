@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct ContentView: View {
-    @Environment(AuthManager.self) var authManager
+    @EnvironmentObject var authManager: AuthManager
     @State private var isShowingUserProfileInput = false
     
     var body: some View {
@@ -22,8 +23,9 @@ struct ContentView: View {
                         }
                     }
                 
-            case .unAuth: LoginView(isShowingUserProfileInput: $isShowingUserProfileInput, authManager: authManager)
-                        
+            case .unAuth:
+                LoginView(isShowingUserProfileInput: $isShowingUserProfileInput)
+                    .environmentObject(authManager) // 환경 객체로 추가
                 
             case .auth, .signUp:
                 if isShowingUserProfileInput {
@@ -31,6 +33,12 @@ struct ContentView: View {
                 } else {
                     HomeTabView()
                 }
+                
+            case .guest:
+                Text("게스트 모드")
+                
+            default:
+                Text("잘못된 상태")
             }
         }
     }
@@ -38,5 +46,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .environment(AuthManager())
+        .environmentObject(AuthManager())
 }

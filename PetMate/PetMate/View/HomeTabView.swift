@@ -11,19 +11,20 @@ struct HomeTabView: View {
     var body: some View {
         TabView {
             NavigationStack {
-                HomeView()
+                //Text("test")
+                HomeView2()
             }
                 .tabItem {
                     Text("Home")
                     Image(systemName: "house")
                 }
             NavigationStack {
-                PetMapView()
+                PetPlaceView()
                     .environment(PetPlacesStore())
             }
                 .tabItem {
                     Text("Place")
-                    Image(systemName: "map")
+                    Image(systemName: "pawprint")
                 }
             ChatRoomListView()
                 .tabItem {

@@ -15,3 +15,9 @@ struct Chat: Codable {
     var readBy: [String] //1:1 대화이지만 읽은 사람들의 uid를 모아둠
     var createAt: Date
 }
+
+struct ChatSection: Identifiable {
+    var id: String { dateString }
+    let dateString: String
+    let chats: [Chat]
+}

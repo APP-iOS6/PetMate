@@ -11,10 +11,11 @@ import MapKit
 struct PetMapView: View {
     
     @Environment(PetPlacesStore.self) private var placeStore
-    @State private var showAddPlaceView = false
+    @State private var showPlaceCardView = false
+    @State private var selectedPlace: PlacePost? = nil // 선택된 장소를 저장하는 상태
     
     var body: some View {
-        NavigationStack {
+        GeometryReader { proxy in
             VStack {
                 Map {
                     ForEach(placeStore.places) { place in
@@ -25,25 +26,31 @@ struct PetMapView: View {
                                 Text("☕️")
                                     .padding(5)
                             }
+                            .onTapGesture(perform: {
+                                selectedPlace = place
+                                showPlaceCardView.toggle()
+                            })
                         }
                     }
                 }
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .padding()
             }
-            .toolbar {
-                ToolbarItem {
-                    Button(action: {
-                        showAddPlaceView.toggle()
-                    }) {
-                        Image(systemName: "pencil")
+            .overlay(
+                Group {
+                    if showPlaceCardView, let place = selectedPlace {
+                        PlaceCardView(place: place)
+                            .onTapGesture {
+                                showPlaceCardView = false
+                            }
                     }
-                }
-            }
-            .navigationTitle("반려동물 동반 카페")
-            .sheet(isPresented: $showAddPlaceView) {
-                AddPlaceView()
-            }
+                },
+                alignment: .bottom
+            )
+            
         }
     }
+    
 }
 
 #Preview {

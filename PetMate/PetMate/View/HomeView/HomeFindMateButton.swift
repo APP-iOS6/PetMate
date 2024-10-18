@@ -12,24 +12,29 @@ struct HomeFindMateButton: View {
     var image: ImageResource? = nil
     var color: Color? = .primary
     var proxy: GeometryProxy
+    var action: ()->Void
     
     var body: some View {
-        ZStack{
-            RoundedRectangle(cornerRadius: 12)
-                .frame(width: proxy.size.width * 0.45, height: proxy.size.width * 0.35)
-                .foregroundStyle(color ?? .primary)
-            if let image{
-                Image(image)
-                    .frame(width: proxy.size.width * 0.2, height: proxy.size.width * 0.2)
+        Button{
+            action()
+        }label: {
+            ZStack{
+                RoundedRectangle(cornerRadius: 12)
+                    .frame(width: proxy.size.width * 0.45, height: proxy.size.width * 0.35)
+                    .foregroundStyle(color ?? .primary)
+                if let image{
+                    Image(image)
+                        .frame(width: proxy.size.width * 0.2, height: proxy.size.width * 0.2)
+                }
+                Text(text)
+                    .foregroundStyle(.white)
             }
-            Text(text)
-                .foregroundStyle(.white)
         }
     }
 }
 
 #Preview {
     GeometryReader { proxy in
-        HomeFindMateButton(proxy: proxy)
+        HomeFindMateButton(proxy: proxy){}
     }
 }

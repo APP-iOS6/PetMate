@@ -10,29 +10,25 @@ import FirebaseCore
 import GoogleSignIn
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    FirebaseApp.configure()
-    return true
-  }
-    
-    
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+        return true
+    }
 }
 
 @main
 struct PetMateApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject private var authManager = AuthManager() // Create an instance here
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(AuthManager())
+                .environmentObject(authManager) // Provide as an EnvironmentObject
                 .onOpenURL { url in
                     GIDSignIn.sharedInstance.handle(url)
                 }
         }
     }
 }
-
-
-

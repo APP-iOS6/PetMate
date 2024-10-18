@@ -4,15 +4,14 @@
 //
 //  Created by Hyeonjeong Sim on 10/15/24.
 //
-
 import SwiftUI
 import GoogleSignInSwift
 
 struct LoginView: View {
-    @Environment(AuthManager.self) var authManager
-    @StateObject var loginViewModel: LoginViewModel
+    @EnvironmentObject var authManager: AuthManager
+    @StateObject var loginViewModel = LoginViewModel()
     @Binding var isShowingUserProfileInput: Bool
-    
+
     @State private var currentPage = 0
     private let images = ["login_image1", "login_image2", "login_image3", "login_image4"]
     
@@ -24,11 +23,6 @@ struct LoginView: View {
     ]
     
     let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
-    
-    init(isShowingUserProfileInput: Binding<Bool>, authManager: AuthManager) {
-        self._isShowingUserProfileInput = isShowingUserProfileInput
-        _loginViewModel = StateObject(wrappedValue: LoginViewModel(authManager: authManager))
-    }
     
     var body: some View {
         VStack(spacing: 16) {
@@ -85,34 +79,30 @@ struct LoginView: View {
             
             Spacer()
             
+            // Kakao 로그인 버튼
             Button(action: {
                 print("카카오 로그인 버튼 눌림")
+                // Kakao 로그인 로직 추가 필요
             }) {
                 Image("kakao_login_button")
                     .resizable()
                     .frame(width: 300, height: 60)
             }
             
+            // Apple 로그인 버튼
             Button(action: {
                 print("애플 로그인 버튼 눌림")
-                loginViewModel.signInWithApple { success in
-                    if success {
-                        isShowingUserProfileInput = true
-                    }
-                }
+                loginViewModel.action(.apple)
             }) {
                 Image("apple_login_button")
                     .resizable()
                     .frame(width: 300, height: 60)
             }
             
+            // Google 로그인 버튼
             Button(action: {
                 print("구글 로그인 버튼 눌림")
-                loginViewModel.signInWithGoogle { success in
-                    if success {
-                        isShowingUserProfileInput = true
-                    }
-                }
+                loginViewModel.action(.google)
             }) {
                 Image("google_login_button")
                     .resizable()
@@ -120,9 +110,10 @@ struct LoginView: View {
                     .frame(width: 300, height: 60)
             }
             
+            // 둘러보기 버튼
             Button(action: {
                 print("둘러보기 버튼 눌림")
-                authManager.authState = .auth
+                authManager.authState = .guest
             }) {
                 Text("로그인 전 둘러보기")
                     .frame(maxWidth: .infinity)
@@ -132,10 +123,23 @@ struct LoginView: View {
                     .foregroundColor(.gray)
             }
         }
+        .onChange(of: loginViewModel.loadState) { newValue in
+            if newValue == .complete {
+                authManager.login()
+                isShowingUserProfileInput = true
+            }
+        }
+        .overlay {
+            if loginViewModel.loadState == .loading {
+                ProgressView()
+                    .scaleEffect(1.5)
+            }
+        }
         .padding(.top, 25)
     }
 }
 
 #Preview {
-    LoginView(isShowingUserProfileInput: .constant(false), authManager: AuthManager())
+    LoginView(isShowingUserProfileInput: .constant(false))
+        .environmentObject(AuthManager())
 }

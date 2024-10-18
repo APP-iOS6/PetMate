@@ -34,7 +34,6 @@ struct AddPlaceView: View {
             Section(header: Text("설명")) {
                 TextField("설명", text: $content)
             }
-            
             Button("장소 추가") {
                 guard let lat = Double(latitude), let lon = Double(longitude) else {
                     print("Invalid coordinates")
