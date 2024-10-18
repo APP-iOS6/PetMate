@@ -15,19 +15,15 @@ enum AuthState {
     case splash
     case unAuth
     case auth
+    case guest //게스트임
     case signUp // 가입화면
 }
 
 @MainActor
 @Observable
 class AuthManager {
-    private var _db: Firestore?
-    var db: Firestore {
-        if _db == nil {
-            _db = Firestore.firestore()
-        }
-        return _db!
-    }
+    
+    private var db = Firestore.firestore()
     
     var authState: AuthState = .splash
     
@@ -51,6 +47,29 @@ class AuthManager {
             } else {
                 authState = .unAuth // 사용자 데이터가 없을 경우 회원가입으로 이동
             }
+        }
+    }
+    
+    func login() {
+        guard let userUid = Auth.auth().currentUser?.uid else {
+            authState = .unAuth
+            return
+        }
+        Task {
+            if try await checkExistUserData(userUid) {
+                authState = .auth
+            } else {
+                authState = .signUp
+            }
+        }
+    }
+    
+    func logout() {
+        do {
+            try Auth.auth().signOut()
+            authState = .unAuth
+        } catch {
+            print(error.localizedDescription)
         }
     }
     
