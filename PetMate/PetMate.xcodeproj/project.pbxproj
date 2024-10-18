@@ -52,6 +52,7 @@
 		4B5D530F2CBE3BAC00FDC77A /* PetProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D530E2CBE3BAC00FDC77A /* PetProfileEditView.swift */; };
 		4B5D53812CBE627500FDC77A /* TagUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53802CBE627500FDC77A /* TagUI.swift */; };
 		4B6FF8812CBE888C009F4206 /* MyPageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FF8802CBE888C009F4206 /* MyPageTabView.swift */; };
+		BD2C0EF62CC234E0005D34CB /* PetPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C0EF52CC234E0005D34CB /* PetPlaceView.swift */; };
 		BD306E5B2CBEF7C0008BDBEB /* PetPlaceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E5A2CBEF7C0008BDBEB /* PetPlaceStore.swift */; };
 		BD306E622CBEF841008BDBEB /* AddPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E612CBEF841008BDBEB /* AddPlaceView.swift */; };
 		BD306E642CBEF852008BDBEB /* PetMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E632CBEF852008BDBEB /* PetMapView.swift */; };
@@ -133,6 +134,7 @@
 		4B5D530E2CBE3BAC00FDC77A /* PetProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileEditView.swift; sourceTree = "<group>"; };
 		4B5D53802CBE627500FDC77A /* TagUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagUI.swift; sourceTree = "<group>"; };
 		4B6FF8802CBE888C009F4206 /* MyPageTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTabView.swift; sourceTree = "<group>"; };
+		BD2C0EF52CC234E0005D34CB /* PetPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPlaceView.swift; sourceTree = "<group>"; };
 		BD306E5A2CBEF7C0008BDBEB /* PetPlaceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPlaceStore.swift; sourceTree = "<group>"; };
 		BD306E612CBEF841008BDBEB /* AddPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceView.swift; sourceTree = "<group>"; };
 		BD306E632CBEF852008BDBEB /* PetMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetMapView.swift; sourceTree = "<group>"; };
@@ -381,10 +383,11 @@
 		BD306E5C2CBEF7CC008BDBEB /* Place */ = {
 			isa = PBXGroup;
 			children = (
-				BD306E612CBEF841008BDBEB /* AddPlaceView.swift */,
-				BD691BE12CC00CC4003A300B /* PlaceListView.swift */,
-				BD691BE32CC00CE4003A300B /* PlaceCardView.swift */,
+				BD2C0EF52CC234E0005D34CB /* PetPlaceView.swift */,
 				BD306E632CBEF852008BDBEB /* PetMapView.swift */,
+				BD691BE12CC00CC4003A300B /* PlaceListView.swift */,
+				BD306E612CBEF841008BDBEB /* AddPlaceView.swift */,
+				BD691BE32CC00CE4003A300B /* PlaceCardView.swift */,
 				BD691BD32CBF8A81003A300B /* StoreSearchView.swift */,
 				BD691BE52CC02A1E003A300B /* PlaceDetailView.swift */,
 				BD691BE72CC02F7D003A300B /* PlaceConfirmationView.swift */,
@@ -613,6 +616,7 @@
 				4B5D530F2CBE3BAC00FDC77A /* PetProfileEditView.swift in Sources */,
 				4B5D530D2CBE3B8E00FDC77A /* PetProfileView.swift in Sources */,
 				BD306E752CBF0122008BDBEB /* LoginView.swift in Sources */,
+				BD2C0EF62CC234E0005D34CB /* PetPlaceView.swift in Sources */,
 				FBD6BCF22CBFD457008BEA30 /* TextFieldModifier.swift in Sources */,
 				4B6FF8812CBE888C009F4206 /* MyPageTabView.swift in Sources */,
 				FBF28B732CC23E7E00040122 /* SignUpAddressView.swift in Sources */,
