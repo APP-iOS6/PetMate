@@ -105,6 +105,7 @@ class MatePostStore{
             writeUser: db.collection("User").document(currentUser),
             pet: petRefs,
             title: title,
+            category: "care",
             startDate: startDate,
             endDate: endDate,
             cost: Int(cost) ?? -1,

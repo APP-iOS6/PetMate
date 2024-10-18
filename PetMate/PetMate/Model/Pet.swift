@@ -16,7 +16,9 @@ struct Pet: Codable, Identifiable, Hashable {
     var tag: [String]   //태그들
     var breed: String   //품종 및 종류
     var images: [String]    //사진 주소들
-    var ownerUid: String //주인uid
-    var createdAt: Date //생성일
-    var updatedAt: Date //업데이트 일
+    var ownerUid: String    //주인uid
+    var category1: String   //카테고리1 - 개, 고양이, 기타
+    var category2: String   //카테고리2 - 소형, 중형, 대형, 아기
+    var createdAt: Date     //생성일
+    var updatedAt: Date     //변경일
 }

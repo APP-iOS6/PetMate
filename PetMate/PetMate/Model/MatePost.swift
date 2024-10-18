@@ -13,6 +13,7 @@ struct MatePost: Codable, Identifiable {
     var writeUser: DocumentReference    //작성자 레퍼런스
     var pet: [DocumentReference]         //펫 레퍼런스
     var title: String   //제목
+    var category: String //카테고리 - 돌봄, 산책
     var startDate: Date //시작날짜
     var endDate: Date   //종료날짜
     var cost: Int   //비용

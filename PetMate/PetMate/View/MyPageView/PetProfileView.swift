@@ -21,6 +21,8 @@ struct PetProfileView: View {
         breed: "포메",
         images: ["gadiProfile"],
         ownerUid: "정원",
+        category1: "cat",
+        category2: "small",
         createdAt: Date(),
         updatedAt: Date()
     )
