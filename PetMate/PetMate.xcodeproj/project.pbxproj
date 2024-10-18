@@ -28,7 +28,6 @@
 		256A27262CBD047A0031F766 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 256A271E2CBD047A0031F766 /* Assets.xcassets */; };
 		256A27312CBD052E0031F766 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27302CBD05220031F766 /* CustomButton.swift */; };
 		256A27332CBD05370031F766 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27322CBD05330031F766 /* Font+Extension.swift */; };
-		256A27352CBD05580031F766 /* LoginStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27342CBD054F0031F766 /* LoginStore.swift */; };
 		256A27372CBD055D0031F766 /* MateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27362CBD055B0031F766 /* MateUser.swift */; };
 		256A27442CBE81350031F766 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27432CBE81350031F766 /* HomeView.swift */; };
 		256A27462CBEA3280031F766 /* HomeMainBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A27452CBEA3280031F766 /* HomeMainBannerView.swift */; };
@@ -109,7 +108,6 @@
 		256A27212CBD047A0031F766 /* PetMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetMateApp.swift; sourceTree = "<group>"; };
 		256A27302CBD05220031F766 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		256A27322CBD05330031F766 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
-		256A27342CBD054F0031F766 /* LoginStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStore.swift; sourceTree = "<group>"; };
 		256A27362CBD055B0031F766 /* MateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateUser.swift; sourceTree = "<group>"; };
 		256A27432CBE81350031F766 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		256A27452CBEA3280031F766 /* HomeMainBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainBannerView.swift; sourceTree = "<group>"; };
@@ -240,7 +238,6 @@
 				259DC0FC2CBF8A2F00AB41C1 /* MatePostStore.swift */,
 				259DC0F92CBF832000AB41C1 /* TestStore.swift */,
 				BD306E7A2CBF0158008BDBEB /* UserProfileViewModel.swift */,
-				256A27342CBD054F0031F766 /* LoginStore.swift */,
 				BD306E5A2CBEF7C0008BDBEB /* PetPlaceStore.swift */,
 			);
 			path = Store;
@@ -594,7 +591,6 @@
 				256A27542CBEA9280031F766 /* HomeMyLocationView.swift in Sources */,
 				256A27482CBEA3A60031F766 /* HomeFindMateView.swift in Sources */,
 				FB954E032CBFDC96007B7BCE /* ResizableTextField.swift in Sources */,
-				256A27352CBD05580031F766 /* LoginStore.swift in Sources */,
 				BD691BEA2CC0324D003A300B /* AddPostView.swift in Sources */,
 				FBD6BBAE2CBE3A28008BEA30 /* ChatRoom.swift in Sources */,
 				BD691BD42CBF8A82003A300B /* StoreSearchView.swift in Sources */,
