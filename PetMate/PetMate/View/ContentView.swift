@@ -14,7 +14,6 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            
             switch authManager.authState {
             case .splash:
                 Image("splash_image")
@@ -29,17 +28,18 @@ struct ContentView: View {
                     .transition(.opacity)
             case .unAuth:
                 LoginView()
-            case .auth:
+                    .transition(.opacity)
+            case .auth, .guest:
                 HomeTabView()
+                    .transition(.opacity)
             case .signUp:
                 SignUpContainerView()
+                    .transition(.opacity)
             }
         }
+        .animation(.smooth, value: authManager.authState)
         .onAppear {
-            print("AuthManager initialized")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                authManager.checkAuthState()
-            }
+            authManager.checkAuthState()
         }
     }
 }
