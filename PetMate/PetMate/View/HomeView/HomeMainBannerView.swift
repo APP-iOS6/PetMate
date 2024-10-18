@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct HomeMainBannerView: View {
+    
     var imageUrl: URL = URL(string:"https://www.dutch.com/cdn/shop/articles/shutterstock_1898629669.jpg?v=1697090094")!
+    
     var body: some View {
         VStack{
             AsyncImage(url: imageUrl){ image in

@@ -76,7 +76,7 @@ class ChatDetailViewModel: ObservableObject {
                 //TODO: 채팅방이 존재 하면 해당 채팅방의 서브 컬렉션 Message 리스너 그냥 달아주기
                 print("채팅방이 존재해요 ㅋ")
                 self.chatRoomInfo = await getChatRoomData(chatRoomId) //현재 채팅룸에 대한 정보를 가져옴
-                self.observeChatList(chatRoomId) //채팅 오는거 옵저하기 위한 함수
+                self.observeChatList(chatRoomId, myUid: userUid) //채팅 오는거 옵저하기 위한 함수
                 self.updateAllMessagesAsRead(chatRoomId) //채팅 방에 입장했으면 안읽은 메시지 읽음 처리 해야 함
             } else {
                 //TODO: 채팅방이 존재하지 않는다면 채팅방을 생성한 후 그 후 서브컬렉션인 Message 컬렉션의 리스너 달아주기
@@ -97,7 +97,7 @@ class ChatDetailViewModel: ObservableObject {
     
     
     //해당 유저와의 채팅 메시지 정보를 계속 받기 위해 스냅샷 리스너를 호출
-    func observeChatList(_ chatRoomId: String) {
+    func observeChatList(_ chatRoomId: String, myUid: String) {
         
         self.listener = self.db.collection("Chat").document(chatRoomId).collection("Message").addSnapshotListener { querySnapshot, error in
             guard let snapshot = querySnapshot else {
@@ -111,7 +111,7 @@ class ChatDetailViewModel: ObservableObject {
                     let chat = try diff.document.data(as: Chat.self)
                     switch diff.type {
                     case .added: //새로운 채팅 데이터가 추가 되었을 때
-                        self?.handleAdded(chat)
+                        self?.handleAdded(chat,chatRoomId: chatRoomId ,myUid: myUid)
                     case .modified: //기존의 채팅 데이터가 업데이트 되었을 때
                         self?.handleUpdate(chat)
                     case .removed:  //기존의 채팅 데이터가 아예 삭제되었을 때
@@ -192,8 +192,21 @@ class ChatDetailViewModel: ObservableObject {
     }
     
     //채딩 데이터가 새로 추가되었을 때
-    private func handleAdded(_ chat: Chat) {
+    private func handleAdded(_ chat: Chat, chatRoomId: String, myUid: String) {
         self.chatList.append(chat)
+        
+        //데이터가 새로 오고 그 데이터가 상대방 채팅 데이터고 내가 읽지 않은 데이터라면 읽음 처리 해줘야 함
+        if chat.sender != myUid && !chat.readBy.contains(where: { $0 == myUid} ){
+            //상대방이 보낸 메시지에 내가 읽었다고 확인을 보냄
+            self.db.collection("Chat").document(chatRoomId).collection("Message").document(chat.id ?? "").updateData(["readBy": FieldValue.arrayUnion([myUid])]) { error in
+                if let error {
+                    print("Error updating chat: \(error)")
+                    return
+                }
+                self.db.collection("Chat").document(chatRoomId).updateData(["readStatus.\(myUid)": Date()])
+            }
+            
+        }
     }
     
     //채팅 데이터가 업데이트 되었을 때
@@ -202,6 +215,8 @@ class ChatDetailViewModel: ObservableObject {
             self.chatList[index] = chat
         }
     }
+    
+    
     
     //채팅 데이터가 지워졌을 때
     private func handleRemove(_ chat: Chat) {
