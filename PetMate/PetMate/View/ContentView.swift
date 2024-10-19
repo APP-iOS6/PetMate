@@ -35,6 +35,9 @@ struct ContentView: View {
             case .signUp:
                 SignUpContainerView()
                     .transition(.opacity)
+            case .welcome:
+                WelcomeView()
+                    .transition(.opacity)
             }
         }
         .animation(.smooth, value: authManager.authState)
