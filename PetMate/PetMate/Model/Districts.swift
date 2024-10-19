@@ -8,7 +8,12 @@
 import Foundation
 
 struct Districts: Codable, Identifiable {
-    var id: String = UUID().uuidString
+    var id = UUID()
     var gu: String
     var dong: [String]
+    
+    private enum CodingKeys: String, CodingKey {
+        case gu
+        case dong
+    }
 }
