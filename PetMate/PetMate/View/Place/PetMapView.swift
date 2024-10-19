@@ -16,26 +16,25 @@ struct PetMapView: View {
     
     var body: some View {
         GeometryReader { proxy in
-            VStack {
-                Map {
-                    ForEach(placeStore.places) { place in
-                        Annotation("\(place.placeName)", coordinate: placeStore.convertGeoPointToCoordinate(geoPoint: place.location)) {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 5)
-                                    .fill(Color.yellow)
-                                Text("☕️")
-                                    .padding(5)
-                            }
-                            .onTapGesture(perform: {
-                                selectedPlace = place
-                                showPlaceCardView.toggle()
-                            })
+            Map {
+                ForEach(placeStore.places) { place in
+                    Annotation("\(place.placeName)", coordinate: placeStore.convertGeoPointToCoordinate(geoPoint: place.location)) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 5)
+                                .fill(Color.yellow)
+                            Text("☕️")
+                                .padding(5)
                         }
+                        .onTapGesture(perform: {
+                            selectedPlace = place
+                            showPlaceCardView.toggle()
+                        })
                     }
                 }
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-                .padding()
             }
+            .toolbar(.hidden)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .padding()
             .overlay(
                 Group {
                     if showPlaceCardView, let place = selectedPlace {
