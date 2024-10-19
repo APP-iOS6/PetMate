@@ -12,11 +12,12 @@ import Observation
 
 enum AuthState {
     // 케이스마다 화면을 다르게 보여줌
-    case splash
-    case unAuth
-    case auth
+    case splash //스플래쉬
+    case unAuth //비로그인 상태
+    case auth   //로그인 상태
     case guest //게스트임
     case signUp // 가입화면
+    case welcome //환영 메시지
 }
 
 @MainActor
