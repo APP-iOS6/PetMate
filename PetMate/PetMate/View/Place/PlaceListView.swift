@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlaceListView: View {
-    private var placeStore: PetPlacesStore = .init()
+    @Environment(PetPlacesStore.self) private var placeStore
     @Environment(\.dismiss) private var dismiss
     @State private var showSearchPlaceView = false
     var body: some View {
@@ -18,7 +18,9 @@ struct PlaceListView: View {
                     .padding(.vertical, -5)
             }
         }
-        
+        .onAppear {
+            placeStore.fetchPlaces()
+        }
     }
 }
 

@@ -32,6 +32,9 @@ struct PetMapView: View {
                     }
                 }
             }
+            .onAppear {
+                placeStore.fetchPlaces()
+            }
             .toolbar(.hidden)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .padding()

@@ -31,7 +31,6 @@ final class PetPlacesStore {
     private let apiClient: KakaoAPIClient = KakaoAPIClient()
     
     init() {
-        fetchPlaces()
         setupQueryListener()
     }
     // MARK: 주위 검색 기반 메서드
