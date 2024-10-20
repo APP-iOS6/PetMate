@@ -76,6 +76,8 @@
 		FB95322A2CC3812A00AEBD9C /* Districts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9532292CC3812A00AEBD9C /* Districts.swift */; };
 		FB9532302CC390FB00AEBD9C /* SignUpProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95322F2CC390FB00AEBD9C /* SignUpProfileView.swift */; };
 		FB9532332CC3A09100AEBD9C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9532322CC3A09100AEBD9C /* WelcomeView.swift */; };
+		FB95323A2CC4430800AEBD9C /* RegisterPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9532392CC4430800AEBD9C /* RegisterPetView.swift */; };
+		FB95323D2CC4CAFE00AEBD9C /* RegisterPetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95323C2CC4CAFE00AEBD9C /* RegisterPetViewModel.swift */; };
 		FB954E032CBFDC96007B7BCE /* ResizableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB954E022CBFDC96007B7BCE /* ResizableTextField.swift */; };
 		FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */; };
 		FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB502CBDF94400E20E11 /* Pet.swift */; };
@@ -166,6 +168,8 @@
 		FB9532292CC3812A00AEBD9C /* Districts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Districts.swift; sourceTree = "<group>"; };
 		FB95322F2CC390FB00AEBD9C /* SignUpProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProfileView.swift; sourceTree = "<group>"; };
 		FB9532322CC3A09100AEBD9C /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		FB9532392CC4430800AEBD9C /* RegisterPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPetView.swift; sourceTree = "<group>"; };
+		FB95323C2CC4CAFE00AEBD9C /* RegisterPetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPetViewModel.swift; sourceTree = "<group>"; };
 		FB954E022CBFDC96007B7BCE /* ResizableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableTextField.swift; sourceTree = "<group>"; };
 		FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePost.swift; sourceTree = "<group>"; };
 		FBB7BB502CBDF94400E20E11 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
@@ -375,6 +379,7 @@
 		4B5D53052CBE2D9600FDC77A /* MyPageView */ = {
 			isa = PBXGroup;
 			children = (
+				FB95323B2CC4C6BE00AEBD9C /* RegisterPet */,
 				4B5D53842CBE63F700FDC77A /* CommonStruct */,
 				4B6FF8802CBE888C009F4206 /* MyPageTabView.swift */,
 				4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */,
@@ -458,6 +463,15 @@
 				FB9532322CC3A09100AEBD9C /* WelcomeView.swift */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		FB95323B2CC4C6BE00AEBD9C /* RegisterPet */ = {
+			isa = PBXGroup;
+			children = (
+				FB9532392CC4430800AEBD9C /* RegisterPetView.swift */,
+				FB95323C2CC4CAFE00AEBD9C /* RegisterPetViewModel.swift */,
+			);
+			path = RegisterPet;
 			sourceTree = "<group>";
 		};
 		FBD6BBAC2CBE3A1B008BEA30 /* ChatRoom */ = {
@@ -581,6 +595,7 @@
 				256A27522CBEA8970031F766 /* HomeFindFriendCardView.swift in Sources */,
 				256A27232CBD047A0031F766 /* ButtonModifier.swift in Sources */,
 				FBD6BBBB2CBE764A008BEA30 /* Chat.swift in Sources */,
+				FB95323A2CC4430800AEBD9C /* RegisterPetView.swift in Sources */,
 				259DC0FF2CBF91AC00AB41C1 /* MatePostListCardView.swift in Sources */,
 				FBD6BC812CBEB581008BEA30 /* ChatDetailViewModel.swift in Sources */,
 				259DC0FA2CBF833500AB41C1 /* TestStore.swift in Sources */,
@@ -619,6 +634,7 @@
 				FBB7BB532CBDF99D00E20E11 /* Review.swift in Sources */,
 				256A27462CBEA3280031F766 /* HomeMainBannerView.swift in Sources */,
 				256A27502CBEA8670031F766 /* HomeFindFriendsScrollView.swift in Sources */,
+				FB95323D2CC4CAFE00AEBD9C /* RegisterPetViewModel.swift in Sources */,
 				256A274E2CBEA5EF0031F766 /* HomeReviewCardView.swift in Sources */,
 				FBD6BBB02CBE3A5C008BEA30 /* ChatRoomListView.swift in Sources */,
 				256A27252CBD047A0031F766 /* PetMateApp.swift in Sources */,
