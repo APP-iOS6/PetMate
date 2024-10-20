@@ -18,6 +18,7 @@ enum AuthState {
     case guest //게스트임
     case signUp // 가입화면
     case welcome //환영 메시지
+    case registerPet //펫 등록
 }
 
 @MainActor

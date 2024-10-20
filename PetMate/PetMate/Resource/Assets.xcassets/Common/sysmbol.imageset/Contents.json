@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "gadi1.png",
+      "filename" : "sysmbol1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "gadi2.png",
+      "filename" : "sysmbol2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "gadi3.png",
+      "filename" : "sysmbol3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

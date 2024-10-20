@@ -70,7 +70,7 @@ class SignUpViewModel {
                 self.mateUser.image = uploadedImage
             }
             let userEncode = try Firestore.Encoder().encode(self.mateUser)
-            _ = try await db.collection("User").addDocument(data: userEncode)
+            _ = try await db.collection("User").document(userUid).setData(userEncode)
             self.loadState = .complete
         } catch {
             self.loadState = .none

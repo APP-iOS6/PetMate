@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "gadi1.png",
+      "filename" : "dog1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "gadi2.png",
+      "filename" : "dog2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "gadi3.png",
+      "filename" : "dog3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

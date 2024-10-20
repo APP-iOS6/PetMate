@@ -13,6 +13,7 @@ struct Pet: Codable, Identifiable, Hashable {
     var name: String    //이름
     var description: String //설명 및 주의사항
     var age: Int    //나이
+    var type: String //강아지? 고양이? 그 외?
     var tag: [String]   //태그들
     var breed: String   //품종 및 종류
     var images: [String]    //사진 주소들
@@ -20,3 +21,23 @@ struct Pet: Codable, Identifiable, Hashable {
     var createdAt: Date //생성일
     var updatedAt: Date //업데이트 일
 }
+
+
+enum PetType: String, CaseIterable {
+    case dog = "dog"
+    case cat = "cat"
+    case others = "others"
+    
+    var petType: String {
+        switch self {
+        case .dog:
+            "강아지"
+        case .cat:
+            "고양이"
+        case .others:
+            "그 외"
+        }
+    }
+}
+
+let petTags: [String] = ["활발해요", "얌전해요", "말이 많아요", "예민해요", "사람 싫어요", "사람 좋아요", "애교 많아요", "산책 좋아", "겁이 많아요", "예방접종 완료", "중성화 완료"]

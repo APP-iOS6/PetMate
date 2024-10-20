@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import GoogleSignInSwift
+import AuthenticationServices
 
 struct LoginView: View {
     @Environment(AuthManager.self) var authManager
@@ -88,13 +88,13 @@ struct LoginView: View {
                     .frame(width: 300, height: 60)
             }
             
-            Button(action: {
-                print("애플 로그인 버튼 눌림")
-            }) {
-                Image("apple_login_button")
-                    .resizable()
-                    .frame(width: 300, height: 60)
+            SignInWithAppleButton(.continue) { request in
+                viewModel.action(.appleLogin(request))
+            } onCompletion: { result in
+                viewModel.action(.appleLoginCompletion(result))
             }
+            .frame(width: 300, height: 55)
+
             
             Button(action: {
                 viewModel.action(.google)
