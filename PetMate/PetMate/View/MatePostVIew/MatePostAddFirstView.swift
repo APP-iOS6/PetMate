@@ -8,16 +8,25 @@
 import SwiftUI
 
 struct MatePostAddFirstView: View {
-    @Binding var location: String
-    @Binding var startDate: Date
-    @Binding var endDate: Date
-    @Binding var cost: String
+    @Environment(MatePostStore.self) var postStore
+    var category = ["산책, 돌봄"]
     var body: some View {
+        @Bindable var postStore = postStore
+        
         VStack(spacing: 50){
+            VStack(alignment: .leading){
+                Text("메이트에게 무엇을 부탁하실 건가요?")
+                    .font(.title2)
+                Picker("메이트에게 무엇을 부탁하실 건가요?", selection: $postStore.category) {
+                    Text("산책").tag("walk")
+                    Text("돌봄").tag("care")
+                }.pickerStyle(.segmented)
+                
+            }
             VStack(alignment: .leading){
                 Text("동네 선택")
                     .font(.title2)
-                TextField("동", text: $location)
+                TextField("동", text: $postStore.location)
                     .padding()
                     .overlay(Capsule(style: .circular)
                         .stroke(lineWidth: 1)
@@ -27,14 +36,14 @@ struct MatePostAddFirstView: View {
             VStack(alignment: .leading){
                 Text("기간")
                     .font(.title2)
-                DatePicker("시작일:", selection: $startDate)
-                DatePicker("종료일:", selection: $endDate)
+                DatePicker("시작일:", selection: $postStore.startDate)
+                DatePicker("종료일:", selection: $postStore.endDate)
             }
             
             VStack(alignment: .leading){
                 Text("의뢰비")
                     .font(.title2)
-                TextField("₩", text: $cost)
+                TextField("₩", text: $postStore.cost)
                     .padding()
                     .overlay(Capsule(style: .circular)
                         .stroke(lineWidth: 1)
@@ -47,6 +56,7 @@ struct MatePostAddFirstView: View {
     }
 }
 
-//#Preview {
-//    MatePostAddFirstView()
-//}
+#Preview {
+    MatePostAddFirstView()
+        .environment(MatePostStore())
+}

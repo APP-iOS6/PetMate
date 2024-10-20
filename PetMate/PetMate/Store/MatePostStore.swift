@@ -21,6 +21,7 @@ class MatePostStore{
     var pets: [Pet] = []
     
     //게시물 추가 용
+    var category: String = "walk"
     var startDate: Date = Date()
     var endDate: Date = Date()
     var cost: String = ""
@@ -33,24 +34,36 @@ class MatePostStore{
     
     init() {
 //        getPosts()
-//        print(posts)
+        print("posts = \(posts)")
     }
     
     // MARK: - 파이어베이스에서 값을 가져오는 함수들
     //포스트 정보를 전부 불러오는 함수
     //무한으로 호출되는 버그가 있어 주석 처리 합니다. MateStore을 Binding 하는 곳이 있어 일어나는 문제일가 짐작해 봅니다.
-//    private func getPosts() {
-//        print("getPosts")
-//        Task{
-//            let snapshots = try? await db.collection("MatePost").getDocuments()
-//            snapshots?.documents.forEach{ snapshot in
-//                //print(try? snapshot.data(as: MatePost.self))
-//                if let post = try? snapshot.data(as: MatePost.self){
-//                    posts.append(post)
-//                }
-//            }
-//        }
-//    }
+    func getPosts(category: String) {
+        var newPosts: [MatePost] = []
+        print("getPosts")
+        Task{
+            let snapshots: QuerySnapshot?
+            if category == "all"{
+                snapshots = try? await db.collection("MatePost").getDocuments()
+            }else{
+                snapshots = try? await db.collection("MatePost").whereField("category", isEqualTo: category).getDocuments()
+            }
+            snapshots?.documents.forEach{ snapshot in
+                print(try? snapshot.data(as: MatePost.self))
+                if let post = try? snapshot.data(as: MatePost.self){
+                    newPosts.append(post)
+                }
+            }
+            if newPosts.isEmpty{
+                self.posts = newPosts
+            }else{
+                self.posts.removeAll()
+                self.posts = newPosts
+            }
+        }
+    }
     
     //인자로 받은 유저 문서레퍼런스를 통해 User 옵셔널 데이터를 반환하는 함수
     func getUser(_ user: DocumentReference) async -> MateUser?{
@@ -73,8 +86,8 @@ class MatePostStore{
     }
     //로그인한 계정이 가지고 있는 펫 정보들 모아서 반환
     func getMyPets() async -> [Pet] {
-        let currentUser: String = Auth.auth().currentUser?.uid ?? ""
-        //let currentUser: String = "POzraPP1j3OXqveglMc51GrIN332"
+        //let currentUser: String = Auth.auth().currentUser?.uid ?? ""
+        let currentUser: String = "POzraPP1j3OXqveglMc51GrIN332"
         var pets: [Pet] = []
         let snapshots = try? await db.collection("Pet").whereField("ownerUid", isEqualTo: currentUser).getDocuments()
         snapshots?.documents.forEach{ snapshot in
@@ -92,8 +105,8 @@ class MatePostStore{
     
     // MARK: - 파이어베이스에 값을 넣는 함수
     func postMatePost() -> (){
-        let currentUser = Auth.auth().currentUser?.uid ?? ""
-        //let currentUser: String = "POzraPP1j3OXqveglMc51GrIN332"
+        //let currentUser = Auth.auth().currentUser?.uid ?? ""
+        let currentUser: String = "POzraPP1j3OXqveglMc51GrIN332"
         var petRefs: [DocumentReference] = []
         Array(selectedPets).forEach{
             guard let id = $0.id else { return }
@@ -105,7 +118,7 @@ class MatePostStore{
             writeUser: db.collection("User").document(currentUser),
             pet: petRefs,
             title: title,
-            category: "care",
+            category: category,
             startDate: startDate,
             endDate: endDate,
             cost: Int(cost) ?? -1,

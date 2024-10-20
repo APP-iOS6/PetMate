@@ -9,13 +9,15 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        VStack(alignment: .leading){
-            HomeMyLocationView()
-            HomeMainBannerView()
-            HomeFindMateView()
-            HomeReviewScrollView()
-            HomeFindFriendsScrollView()
-        }.padding()
+        NavigationStack{
+            VStack(alignment: .leading){
+                HomeMyLocationView()
+                HomeMainBannerView()
+                HomeFindMateView()
+                HomeReviewScrollView()
+                HomeFindFriendsScrollView()
+            }.padding()
+        }
     }
 }
 

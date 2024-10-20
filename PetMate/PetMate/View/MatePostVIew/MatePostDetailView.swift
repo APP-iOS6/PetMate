@@ -11,7 +11,7 @@ import FirebaseFirestore
 // PetDetailView: 특정 펫의 상세 정보를 보여주는 뷰
 struct MatePostDetailView: View {
     
-    @Binding var postStore: MatePostStore
+    @Environment(MatePostStore.self) var postStore
     @State private var showChatView = false  // 채팅 뷰 표시 여부
     
     var body: some View {
@@ -19,15 +19,15 @@ struct MatePostDetailView: View {
             if postStore.writer != nil{
                 ScrollView {
                     VStack(alignment: .leading) {
-                        // 펫 이미지 섹션
+//                         펫 이미지 섹션
                         petImageSection
-                        // 펫 정보 섹션
+//                         펫 정보 섹션
                         petInfoSection
                         
-                        // 게시글 내용 및 날짜, 비용 섹션
+//                         게시글 내용 및 날짜, 비용 섹션
                         postContentSection
                         
-                        // 유저 정보 및 게시글 정보 섹션
+//                         유저 정보 및 게시글 정보 섹션
                         userInfoSection
 
                     }
@@ -36,6 +36,8 @@ struct MatePostDetailView: View {
                 
                 // 채팅하기 버튼
                 chatButton
+            }else{
+                ProgressView()
             }
         }
         .task{
@@ -202,3 +204,8 @@ let dateFormatter: DateFormatter = {
     formatter.timeStyle = .short
     return formatter
 }()
+
+#Preview{
+    MatePostDetailView()
+        .environment(MatePostStore())
+}

@@ -10,7 +10,7 @@ import SwiftUI
 struct MatePostAddPetCardView: View {
     let pet: Pet
     var proxy: GeometryProxy
-    @Binding var postStore: MatePostStore
+    @Environment(MatePostStore.self) var postStore: MatePostStore
     
     var checkMark: String {
         postStore.selectedPets.contains(pet) ? "checkmark.square.fill" : "checkmark.square"

@@ -11,8 +11,10 @@ import FirebaseFirestore
 
 struct MatePostAddPetsView: View {
     @Environment(\.dismiss) var dismiss
-    @Binding var postStore: MatePostStore
+    @Environment(MatePostStore.self) var postStore
     var body: some View {
+        @Bindable var postStore = postStore
+        
         GeometryReader{ proxy in
             VStack{
                 HStack{
@@ -27,7 +29,7 @@ struct MatePostAddPetsView: View {
                 ScrollView(.horizontal) {
                     LazyHStack(spacing: 20){
                         ForEach(postStore.pets) { pet in
-                            MatePostAddPetCardView(pet: pet, proxy: proxy, postStore: $postStore)
+                            MatePostAddPetCardView(pet: pet, proxy: proxy)
                                 
                         }
                     }
@@ -45,6 +47,7 @@ struct MatePostAddPetsView: View {
 }
 
 #Preview {
-    @Previewable @State var store = MatePostStore()
-    MatePostAddPetsView(postStore: $store)
+    //@Previewable @State var store = MatePostStore()
+    MatePostAddPetsView()
+        .environment(MatePostStore())
 }
