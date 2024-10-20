@@ -38,6 +38,10 @@ struct ContentView: View {
             case .welcome:
                 WelcomeView()
                     .transition(.opacity)
+            case .registerPet:
+                RegisterPetView(register: true) {
+                    authManager.authState = .auth
+                }
             }
         }
         .animation(.smooth, value: authManager.authState)
