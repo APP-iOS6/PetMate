@@ -78,6 +78,8 @@
 		FB9532332CC3A09100AEBD9C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9532322CC3A09100AEBD9C /* WelcomeView.swift */; };
 		FB95323A2CC4430800AEBD9C /* RegisterPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9532392CC4430800AEBD9C /* RegisterPetView.swift */; };
 		FB95323D2CC4CAFE00AEBD9C /* RegisterPetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95323C2CC4CAFE00AEBD9C /* RegisterPetViewModel.swift */; };
+		FB9532362CC4268400AEBD9C /* randomNonceString.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9532352CC4268400AEBD9C /* randomNonceString.swift */; };
+		FB9532382CC4271700AEBD9C /* sha256.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9532372CC4271700AEBD9C /* sha256.swift */; };
 		FB954E032CBFDC96007B7BCE /* ResizableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB954E022CBFDC96007B7BCE /* ResizableTextField.swift */; };
 		FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */; };
 		FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB502CBDF94400E20E11 /* Pet.swift */; };
@@ -170,6 +172,9 @@
 		FB9532322CC3A09100AEBD9C /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		FB9532392CC4430800AEBD9C /* RegisterPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPetView.swift; sourceTree = "<group>"; };
 		FB95323C2CC4CAFE00AEBD9C /* RegisterPetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPetViewModel.swift; sourceTree = "<group>"; };
+		FB9532342CC420CF00AEBD9C /* PetMate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PetMate.entitlements; sourceTree = "<group>"; };
+		FB9532352CC4268400AEBD9C /* randomNonceString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = randomNonceString.swift; sourceTree = "<group>"; };
+		FB9532372CC4271700AEBD9C /* sha256.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sha256.swift; sourceTree = "<group>"; };
 		FB954E022CBFDC96007B7BCE /* ResizableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableTextField.swift; sourceTree = "<group>"; };
 		FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePost.swift; sourceTree = "<group>"; };
 		FBB7BB502CBDF94400E20E11 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
@@ -224,6 +229,7 @@
 		256A27222CBD047A0031F766 /* PetMate */ = {
 			isa = PBXGroup;
 			children = (
+				FB9532342CC420CF00AEBD9C /* PetMate.entitlements */,
 				BD63D8F82CBE0B2500CDDC65 /* Info.plist */,
 				256A272F2CBD04FA0031F766 /* App */,
 				256A27272CBD04830031F766 /* Model */,
@@ -291,6 +297,8 @@
 				256A272B2CBD049B0031F766 /* Extension */,
 				FBD6BC8E2CBF8603008BEA30 /* GenerateChatRoomId.swift */,
 				FBF4E4832CC2294E00CFA137 /* LoadState.swift */,
+				FB9532352CC4268400AEBD9C /* randomNonceString.swift */,
+				FB9532372CC4271700AEBD9C /* sha256.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -596,6 +604,7 @@
 				256A27232CBD047A0031F766 /* ButtonModifier.swift in Sources */,
 				FBD6BBBB2CBE764A008BEA30 /* Chat.swift in Sources */,
 				FB95323A2CC4430800AEBD9C /* RegisterPetView.swift in Sources */,
+				FB9532382CC4271700AEBD9C /* sha256.swift in Sources */,
 				259DC0FF2CBF91AC00AB41C1 /* MatePostListCardView.swift in Sources */,
 				FBD6BC812CBEB581008BEA30 /* ChatDetailViewModel.swift in Sources */,
 				259DC0FA2CBF833500AB41C1 /* TestStore.swift in Sources */,
@@ -632,6 +641,7 @@
 				BD306E7B2CBF0158008BDBEB /* UserProfileViewModel.swift in Sources */,
 				FBD6BBB22CBE3A68008BEA30 /* ChatRoomListViewModel.swift in Sources */,
 				FBB7BB532CBDF99D00E20E11 /* Review.swift in Sources */,
+				FB9532362CC4268400AEBD9C /* randomNonceString.swift in Sources */,
 				256A27462CBEA3280031F766 /* HomeMainBannerView.swift in Sources */,
 				256A27502CBEA8670031F766 /* HomeFindFriendsScrollView.swift in Sources */,
 				FB95323D2CC4CAFE00AEBD9C /* RegisterPetViewModel.swift in Sources */,
@@ -799,6 +809,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PetMate/PetMate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6R3M7VGRP2;
@@ -830,6 +841,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PetMate/PetMate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6R3M7VGRP2;
