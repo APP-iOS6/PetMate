@@ -25,7 +25,7 @@ struct WelcomeView: View {
                 .padding(.vertical)
             
             Button {
-                
+                authManager.authState = .registerPet
             } label: {
                 Text("+ 펫 정보 입력하기")
                     .padding()
