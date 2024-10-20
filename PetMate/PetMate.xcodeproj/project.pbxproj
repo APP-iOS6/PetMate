@@ -70,7 +70,6 @@
 		BD691BE42CC00CE4003A300B /* PlaceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BE32CC00CE4003A300B /* PlaceCardView.swift */; };
 		BD691BE62CC02A1E003A300B /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BE52CC02A1E003A300B /* PlaceDetailView.swift */; };
 		BD691BE82CC02F7D003A300B /* PlaceConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BE72CC02F7D003A300B /* PlaceConfirmationView.swift */; };
-		BD691BEA2CC0324D003A300B /* AddPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BE92CC0324D003A300B /* AddPostView.swift */; };
 		FB9532262CC2D2CC00AEBD9C /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9532252CC2D2CC00AEBD9C /* CGFloat+Extension.swift */; };
 		FB9532282CC2D8DA00AEBD9C /* SearchAddressModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9532272CC2D8DA00AEBD9C /* SearchAddressModal.swift */; };
 		FB95322A2CC3812A00AEBD9C /* Districts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9532292CC3812A00AEBD9C /* Districts.swift */; };
@@ -159,7 +158,6 @@
 		BD691BE32CC00CE4003A300B /* PlaceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCardView.swift; sourceTree = "<group>"; };
 		BD691BE52CC02A1E003A300B /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
 		BD691BE72CC02F7D003A300B /* PlaceConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceConfirmationView.swift; sourceTree = "<group>"; };
-		BD691BE92CC0324D003A300B /* AddPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostView.swift; sourceTree = "<group>"; };
 		BDB029922CBCF46200A0EAF6 /* PetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB9532252CC2D2CC00AEBD9C /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		FB9532272CC2D8DA00AEBD9C /* SearchAddressModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAddressModal.swift; sourceTree = "<group>"; };
@@ -405,7 +403,6 @@
 				BD691BE52CC02A1E003A300B /* PlaceDetailView.swift */,
 				BD691BE72CC02F7D003A300B /* PlaceConfirmationView.swift */,
 				BD691BD72CBF96EB003A300B /* StoreDetailView.swift */,
-				BD691BE92CC0324D003A300B /* AddPostView.swift */,
 			);
 			path = Place;
 			sourceTree = "<group>";
@@ -625,7 +622,6 @@
 				256A27542CBEA9280031F766 /* HomeMyLocationView.swift in Sources */,
 				256A27482CBEA3A60031F766 /* HomeFindMateView.swift in Sources */,
 				FB954E032CBFDC96007B7BCE /* ResizableTextField.swift in Sources */,
-				BD691BEA2CC0324D003A300B /* AddPostView.swift in Sources */,
 				FBD6BBAE2CBE3A28008BEA30 /* ChatRoom.swift in Sources */,
 				BD691BD42CBF8A82003A300B /* StoreSearchView.swift in Sources */,
 				256A274A2CBEA3B50031F766 /* HomeFindMateButton.swift in Sources */,

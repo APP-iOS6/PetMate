@@ -22,7 +22,7 @@ struct PetPlaceView: View {
                     Button(action: {
                         isShowingMap.toggle()
                     }) {
-                        Image(systemName: isShowingMap ? "list.star" : "map")
+                        Image(systemName: "map.fill")
                             .font(.title2)
                     }
                     Button(action: {
@@ -33,11 +33,9 @@ struct PetPlaceView: View {
                     }
                 }
                 .padding()
-                
-                if isShowingMap {
+                PlaceListView()
+                .fullScreenCover(isPresented: $isShowingMap) {
                     PetMapView()
-                } else {
-                    PlaceListView()
                 }
             }
             .sheet(isPresented: $showSearchPlaceView) {

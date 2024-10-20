@@ -52,6 +52,7 @@ struct AddPlaceView: View {
                 ) { success in
                     if success {
                         print("장소가 성공적으로 추가되었습니다.")
+                        placeStore.fetchPlaces()
                     } else {
                         print("장소 추가에 실패했습니다.")
                     }

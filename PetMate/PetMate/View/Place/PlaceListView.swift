@@ -9,8 +9,6 @@ import SwiftUI
 
 struct PlaceListView: View {
     @Environment(PetPlacesStore.self) private var placeStore
-    @Environment(\.dismiss) private var dismiss
-    @State private var showSearchPlaceView = false
     var body: some View {
         ScrollView {
             ForEach(placeStore.places) { place in
