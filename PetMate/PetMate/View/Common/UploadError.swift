@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+enum UploadError: Error {
+    case upLoadImageFailed
+    case upLoadFailed
+}
