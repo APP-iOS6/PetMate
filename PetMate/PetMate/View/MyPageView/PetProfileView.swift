@@ -10,7 +10,8 @@ import SwiftUI
 struct PetProfileView: View {
     var mateUser: MateUser
     @State private var profileImage: Image?
-    @State private var isShowingEditPetProfile = false //편집 시트
+    @State private var isShowingEditPetProfile = false // 편집 시트
+    @State private var isShowingDeleteConfirmation = false // 삭제 확인
     // 더미 데이터 생성
     public let dummyPet = Pet(
         id: "1",
@@ -47,15 +48,18 @@ struct PetProfileView: View {
                             .font(.system(size: 12))
                         Spacer()
                         
-                        // 편집 버튼
-                        Button(action: {
-                            isShowingEditPetProfile = true
-                        }) {
-                            Image(systemName: "pencil")
+                        // ... 버튼
+                        Menu {
+                            Button("수정하기") {
+                                isShowingEditPetProfile = true
+                            }
+                            Button("삭제하기", role: .destructive) {
+                                isShowingDeleteConfirmation = true
+                            }
+                        } label: {
+                            Image(systemName: "ellipsis")
+                                .foregroundColor(.gray)
                                 .padding(8)
-                                .background(Color.white)
-                                .clipShape(Circle())
-                                .shadow(radius: 2)
                         }
                     }
                     Text("📍\(mateUser.location)에 사는 \(dummyPet.breed)")
@@ -65,7 +69,17 @@ struct PetProfileView: View {
                 }
             }
             .sheet(isPresented: $isShowingEditPetProfile) {
-                PetProfileEditView() 
+                PetProfileEditView()
+            }
+            .alert(isPresented: $isShowingDeleteConfirmation) {
+                Alert(
+                    title: Text("삭제 확인"),
+                    message: Text("이 반려동물 프로필을 정말 삭제하시겠습니까?"),
+                    primaryButton: .destructive(Text("삭제하기")) {
+                        // 삭제 처리 로직
+                    },
+                    secondaryButton: .cancel(Text("취소"))
+                )
             }
             
             VStack(alignment: .leading, spacing: 6) {
@@ -74,36 +88,37 @@ struct PetProfileView: View {
                     .foregroundColor(.gray)
                 
                 // 설명글
-                Text(dummyPet.description.isEmpty ? "저를 표현해주세요!" : dummyPet.description)
-                    .foregroundColor(.black)
-                    .font(.system(size: 14))
+                ZStack(alignment: .topLeading) {
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.gray.opacity(0.4), lineWidth: 1)
+                        .background(Color.white)
+                        .frame(minHeight: 40)
+                        .padding(.top, 2)
+                    
+                    Text(dummyPet.description.isEmpty ? "저를 설명해주세요!" : dummyPet.description)
+                        .foregroundColor(.black)
+                        .font(.system(size: 14))
+                        .padding(8)
+                }
                 
-                //TODO: 태그(파베: tag: [String]) 띄우기
+                // 태그(파베: tag: [String]) 띄우기
                 HStack {
                     ForEach(dummyPet.tag, id: \.self) { tag in
                         TagView(text: tag)
                     }
                 }
                 .padding(.top, 8)
-                
-                // 태그 갯수에 따른 안내 문구 출력
-                if dummyPet.tag.count <= 5 {
-                    Text("나를 더 설명해주세요!")
-                        .foregroundColor(.gray)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                }
             }
             .padding(.top, 4)
             Spacer()
         }
         .padding()
         .frame(width: 365, height: 300, alignment: .top)
-        .background( // 바깥 네모 테두리
+        .background(
             RoundedRectangle(cornerRadius: 12)
                 .stroke(Color.gray, lineWidth: 1)
-                .frame(width: 365, height: 300, alignment: .top)
+                .background(Color.white)
         )
-        .background(Color.white)
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
     }
