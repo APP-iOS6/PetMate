@@ -2,7 +2,7 @@
 //  HomeMyLocationView.swift
 //  PetMate
 //
-//  Created by Hyeonjeong Sim on 10/15/24.
+//  Created by 권희철 on 10/15/24.
 //
 
 import SwiftUI
@@ -36,15 +36,5 @@ struct HomeMyLocationView: View {
 }
 
 #Preview {
-    HomeMyLocationView(
-        myInfo: MateUser(
-            id: "preview",
-            name: "프리뷰 사용자",
-            image: "default_image_url",
-            matchCount: 0,
-            location: "강남구 개포1동",
-            createdAt: Date()
-        ),
-        nearbyFriendsCount: 3
-    )
+    HomeMyLocationView(myInfo: MateUser(id: "preview", name: "프리뷰 사용자", image: "default_image_url", matchCount: 0, location: "강남구 개포1동", createdAt: Date()), nearbyFriendsCount: 3)
 }

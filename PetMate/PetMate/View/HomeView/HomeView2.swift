@@ -9,11 +9,10 @@
 import SwiftUI
 
 struct HomeView2: View {
-    
-    @State private var viewModel: HomeViewViewModel
+    @Bindable var viewModel: HomeViewViewModel
     
     init(viewModel: HomeViewViewModel = HomeViewViewModel()) {
-        _viewModel = State(initialValue: viewModel)
+        self.viewModel = viewModel
     }
     
     @State private var currentPage = 0
@@ -30,10 +29,7 @@ struct HomeView2: View {
             ProgressView()
         case .success:
             VStack {
-                HomeMyLocationView(
-                    myInfo: viewModel.myInfo,
-                    nearbyFriendsCount: viewModel.nearPets.count
-                )
+                HomeMyLocationView(myInfo: viewModel.myInfo, nearbyFriendsCount: viewModel.nearPets.count)
                 
                 ScrollView {
                     VStack(spacing: 20) {
@@ -87,17 +83,6 @@ struct HomeView2: View {
                         }
                         .padding(.horizontal, 30)
                         .padding(.bottom, 5)
-
-                    }
-                    
-                    HStack(spacing: 15) {
-                        NavigationLink {
-                            MatePostListView()
-                        } label: {
-                            Image("care_button")
-                                .resizable()
-                                .frame(width: 175, height: 127)
-                        }
                         
                         
                         VStack(alignment: .leading) {
