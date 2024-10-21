@@ -59,7 +59,6 @@
 		BD306E752CBF0122008BDBEB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E742CBF0122008BDBEB /* LoginView.swift */; };
 		BD306E7B2CBF0158008BDBEB /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E7A2CBF0158008BDBEB /* UserProfileViewModel.swift */; };
 		BD306E7D2CBF0180008BDBEB /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E7C2CBF0180008BDBEB /* HomeTabView.swift */; };
-		BD49D3F12CC566FC00136816 /* PetMateProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD49D3F02CC566FC00136816 /* PetMateProgressView.swift */; };
 		BD49D3F32CC56A2E00136816 /* AddPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD49D3F22CC56A2E00136816 /* AddPlaceView.swift */; };
 		BD49D3F52CC571EF00136816 /* SubmitPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD49D3F42CC571EF00136816 /* SubmitPlaceView.swift */; };
 		BD691BD42CBF8A82003A300B /* StoreSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BD32CBF8A81003A300B /* StoreSearchView.swift */; };
@@ -153,7 +152,6 @@
 		BD306E742CBF0122008BDBEB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BD306E7A2CBF0158008BDBEB /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		BD306E7C2CBF0180008BDBEB /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
-		BD49D3F02CC566FC00136816 /* PetMateProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetMateProgressView.swift; sourceTree = "<group>"; };
 		BD49D3F22CC56A2E00136816 /* AddPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceView.swift; sourceTree = "<group>"; };
 		BD49D3F42CC571EF00136816 /* SubmitPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitPlaceView.swift; sourceTree = "<group>"; };
 		BD63D8F72CBE09B100CDDC65 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -337,7 +335,6 @@
 			children = (
 				256A27302CBD05220031F766 /* CustomButton.swift */,
 				FB954E022CBFDC96007B7BCE /* ResizableTextField.swift */,
-				BD49D3F02CC566FC00136816 /* PetMateProgressView.swift */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -683,7 +680,6 @@
 				BD306E752CBF0122008BDBEB /* LoginView.swift in Sources */,
 				BD2C0EF62CC234E0005D34CB /* PetPlaceView.swift in Sources */,
 				FBD6BCF22CBFD457008BEA30 /* TextFieldModifier.swift in Sources */,
-				BD49D3F12CC566FC00136816 /* PetMateProgressView.swift in Sources */,
 				4B6FF8812CBE888C009F4206 /* MyPageTabView.swift in Sources */,
 				FBF28B732CC23E7E00040122 /* SignUpAddressView.swift in Sources */,
 				256A27442CBE81350031F766 /* HomeView.swift in Sources */,

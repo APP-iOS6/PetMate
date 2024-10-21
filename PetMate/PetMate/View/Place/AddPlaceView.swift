@@ -8,16 +8,38 @@
 import SwiftUI
 
 struct AddPlaceView: View {
-    @Environment(PetPlacesStore.self) private var petPlace
+    @Environment(PetPlacesStore.self) private var placeStore
     @Environment(\.dismiss) private var dismiss
     var body: some View {
         VStack {
-            switch petPlace.searchState {
+            VStack {
+                HStack {
+                    Text("\(placeStore.searchState.title)")
+                        .font(.title3)
+                        .bold()
+                }
+                .frame(maxWidth: .infinity)
+                .overlay(alignment: .leading) {
+                    Button {
+                        goBack()
+                    } label: {
+                        placeStore.searchState.buttonImage
+                            .font(.title3)
+                    }
+                    .padding()
+                }
+                .padding(.horizontal)
+                ProgressView(value: placeStore.searchState.progressValue , total: 1.0)
+                    .progressViewStyle(.linear)
+                    .padding()
+                    .animation(.easeInOut(duration: 0.1), value: placeStore.searchState.progressValue)
+            }
+            switch placeStore.searchState {
             case .searchPlace:
                 StoreSearchView()
                     .transition(.opacity)
             case .confirmInfo:
-                if let selectedPlace = petPlace.selectedPlace {
+                if let selectedPlace = placeStore.selectedPlace {
                     PlaceConfirmationView(store: selectedPlace)
                         .transition(.opacity)
                 } else {
@@ -29,7 +51,18 @@ struct AddPlaceView: View {
                     .transition(.opacity)
             }
         }
-        .animation(.smooth, value: petPlace.searchState)
+        .animation(.smooth, value: placeStore.searchState)
+    }
+    
+    private func goBack() {
+        switch placeStore.searchState {
+        case .searchPlace:
+            dismiss()
+        case .confirmInfo:
+            placeStore.searchState = .searchPlace
+        case .addPlace:
+            placeStore.searchState = .confirmInfo
+        }
     }
 }
 #Preview {

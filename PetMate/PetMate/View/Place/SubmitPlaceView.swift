@@ -11,11 +11,9 @@ struct SubmitPlaceView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(PetPlacesStore.self) private var placeStore
     var body: some View {
-        Button(action: {
-            placeStore.searchState = .searchPlace
-            dismiss()
-        }) {
-            Text("저장하기")
+        VStack {
+            Text("저장")
+            Spacer()
         }
     }
 }

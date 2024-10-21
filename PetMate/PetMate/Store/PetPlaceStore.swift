@@ -33,9 +33,6 @@ final class PetPlacesStore {
     private let querySubject = PassthroughSubject<String, Never>()
     private let apiClient: KakaoAPIClient = KakaoAPIClient()
     
-//    init() {
-//        setupQueryListener()
-//    }
     // MARK: 주위 검색 기반 메서드
     func setupQueryListener() {
         querySubject

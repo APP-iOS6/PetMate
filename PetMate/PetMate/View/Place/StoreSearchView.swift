@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreLocation
+import UIKit
 
 struct StoreSearchView: View {
     @Environment(PetPlacesStore.self) private var placeStore
@@ -70,11 +71,16 @@ struct StoreSearchView: View {
         .navigationTitle("주소 검색")
         .onAppear {
             placeStore.setupQueryListener()
+            UITextField.appearance().clearButtonMode = .whileEditing
+
             if locationManager.authorizationStatus == .authorizedWhenInUse || locationManager.authorizationStatus == .authorizedAlways {
                 if let location = locationManager.location {
                     placeStore.updateLocation(longitude: location.coordinate.longitude, latitude: location.coordinate.latitude)
                 }
             }
+        }
+        .onDisappear {
+            placeStore.query = ""
         }
         .onReceive(locationManager.$location) { location in
             if let location = location {

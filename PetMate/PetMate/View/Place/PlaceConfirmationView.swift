@@ -13,7 +13,7 @@ struct PlaceConfirmationView: View {
     @Environment(\.dismiss) private var dismiss
     var body: some View {
         VStack(spacing: 16) {
-            Text("찾으시는 장소가 맞나요?")
+            Text("반려동물 동반 가능한 곳이 맞나요 ?")
                 .font(.headline)
                 .padding(.top, 16)
             
@@ -46,26 +46,17 @@ struct PlaceConfirmationView: View {
             
             // 맞아요 버튼
             Button(action: {
-                placeStore.addPlace(
-                    writeUser: UUID().uuidString,
-                    title: store.place_name,
-                    content: "",
-                    address: store.road_address_name,
-                    placeName: store.place_name,
-                    isParking: true,
-                    latitude: Double(store.y)!,
-                    longitude: Double(store.x)!,
-                    geoHash: ""
-                ) { success in
-                    if success {
-                        placeStore.fetchPlaces()
-                        placeStore.searchState = .addPlace
-                        print("장소가 성공적으로 추가되었습니다.")
-                        
-                    } else {
-                        print("장소 추가에 실패했습니다.")
-                    }
-                }
+                //                placeStore.addPlace(
+                //                    writeUser: UUID().uuidString,
+                //                    title: store.place_name,
+                //                    content: "",
+                //                    address: store.road_address_name,
+                //                    placeName: store.place_name,
+                //                    isParking: true,
+                //                    latitude: Double(store.y)!,
+                //                    longitude: Double(store.x)!,
+                //                    geoHash: ""
+                placeStore.searchState = .addPlace
             }){
                 Text("맞아요")
                     .font(.headline)
@@ -79,7 +70,7 @@ struct PlaceConfirmationView: View {
             
             // 아니요 버튼
             Button(action: {
-                dismiss()
+                placeStore.searchState = .searchPlace
             }) {
                 Text("아니요. 다시 선택할래요")
                     .font(.headline)

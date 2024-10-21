@@ -11,7 +11,7 @@ struct PetPlaceView: View {
     @Environment(PetPlacesStore.self) private var placeStore 
     @State private var isShowingMap: Bool = false
     @State private var showSearchPlaceView = false
-    
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -26,17 +26,22 @@ struct PetPlaceView: View {
                         Image(systemName: "map.fill")
                             .font(.title2)
                     }
-                    NavigationLink(destination:
-                        AddPlaceView()
-                    ) {
+                    
+                    Button(action: {
+                        showSearchPlaceView.toggle()
+                    }) {
                         Image(systemName: "plus")
                             .font(.title2)
                     }
                 }
-                .padding()
+                .padding(.horizontal, 10)
                 PlaceListView()
                 .fullScreenCover(isPresented: $isShowingMap) {
                     PetMapView()
+                }
+                .fullScreenCover(isPresented: $showSearchPlaceView) {
+                    AddPlaceView()
+                        .padding(.top)
                 }
             }
         }
