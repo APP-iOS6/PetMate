@@ -14,10 +14,17 @@ struct MatePostDetailPetView: View {
         VStack(alignment: .leading, spacing: 20){
             HStack(alignment: .center) {
                 AsyncImage(url: URL(string: pet.images.first ?? "")){image in
-                    image.image?.resizable()
-                        .frame(height: 180)
-                        .scaledToFit()
-                        .clipShape(.circle)
+                    if let image = image.image{
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 150, height: 150)
+                            .clipShape(.circle)
+                    }else if (image.error != nil){
+                        Image(systemName: "xmark")
+                    }else{
+                        ProgressView().progressViewStyle(.circular)
+                    }
                 }
                 VStack(alignment: .leading){
                     HStack{
