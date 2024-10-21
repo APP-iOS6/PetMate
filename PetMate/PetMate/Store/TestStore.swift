@@ -22,7 +22,7 @@ class TestStore {
         self.testPost = MatePost(
             writeUser: db.collection("User").document("희철"),
             pet: [db.collection("User/희철/pets").document("1")],
-            title: "제목", startDate: .now, endDate: Date(timeIntervalSinceNow: 60000),
+            title: "제목", category: "care", startDate: .now, endDate: Date(timeIntervalSinceNow: 60000),
             cost: 15000,
             content: "testDescription",
             location: "강동구",

@@ -22,11 +22,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct PetMateApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @State var matePostStore = MatePostStore()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(AuthManager())
+                .environment(matePostStore)
                 .onOpenURL { url in
                     GIDSignIn.sharedInstance.handle(url)
                 }

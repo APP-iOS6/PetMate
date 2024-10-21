@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct HomeFindMateView: View {
-    var testStore = TestStore()
     @State var isPresented: Bool = false
     var body: some View {
         GeometryReader{ proxy in
@@ -26,8 +25,8 @@ struct HomeFindMateView: View {
                 MatePostListView()
             }
             .task {
-                await testStore.getUser()
-                await testStore.getPet()
+                //await testStore.getUser()
+                //await testStore.getPet()
             }
         }
     }
