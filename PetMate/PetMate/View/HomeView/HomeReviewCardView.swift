@@ -14,7 +14,7 @@ struct HomeReviewCardView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 12)
                 .fill(Color.white)
-                .shadow(radius: 2)
+                .shadow(radius: 1)
 
             HStack(alignment: .top, spacing: 12) {
                 // 메이트 프로필

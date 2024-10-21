@@ -14,7 +14,6 @@ struct HomeView: View {
             HomeMainBannerView()
             HomeFindMateView()
             HomeReviewScrollView()
-            HomeFindFriendsScrollView()
         }.padding()
     }
 }
