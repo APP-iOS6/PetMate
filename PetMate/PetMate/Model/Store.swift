@@ -6,7 +6,43 @@
 //
 
 import Foundation
+import SwiftUI
 
+enum SearchState {
+    case searchPlace
+    case confirmInfo
+    case addPlace
+    
+    var title: String {
+        switch self {
+        case .searchPlace:
+            "🐾 펫 플레이스 등록하기"
+        case .confirmInfo, .addPlace:
+            "📍카카오프렌즈 코엑스점"
+        }
+    }
+    
+    var buttonImage: Image {
+        switch self {
+            
+        case .searchPlace:
+            Image(systemName: "xmark")
+        case .confirmInfo , .addPlace:
+            Image(systemName: "chevron.left")
+        }
+    }
+    
+    var progressValue: Double {
+        switch self {
+        case .searchPlace:
+            return 0.33
+        case .confirmInfo:
+            return 0.66
+        case .addPlace:
+            return 1
+        }
+    }
+}
 struct KakaoAPIResponse: Codable {
     let meta: Meta
     let documents: [Document]
