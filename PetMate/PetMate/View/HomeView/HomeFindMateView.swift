@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct HomeFindMateView: View {
-    //var testStore = TestStore()
-    @State var postMateStore = MatePostStore()
     @State var isPresented: Bool = false
     var body: some View {
         GeometryReader{ proxy in
@@ -25,7 +23,6 @@ struct HomeFindMateView: View {
                 
             }.navigationDestination(isPresented: $isPresented) {
                 MatePostListView()
-                    .environment(postMateStore)
             }
             .task {
                 //await testStore.getUser()

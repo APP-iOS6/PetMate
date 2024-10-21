@@ -30,7 +30,6 @@ struct MatePostAddPetsView: View {
                     LazyHStack(spacing: 20){
                         ForEach(postStore.pets) { pet in
                             MatePostAddPetCardView(pet: pet, proxy: proxy)
-                                
                         }
                     }
                 }

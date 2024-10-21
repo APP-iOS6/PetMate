@@ -11,41 +11,55 @@ struct MatePostAddView: View {
     @Environment(MatePostStore.self) var postStore: MatePostStore
     
     @Environment(\.dismiss) var dismiss
-    @State private var currentPage: Int = 1
-    @State private var progress: Double = 0.0
-    
+    @State private var progress: Double = 0.5
     
     var body: some View {
         @Bindable var postStore = postStore
-        
         NavigationStack{
-            MatePostAddFirstView()
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    NavigationLink {
-                        MatePostAddSecondView()
-                            .toolbar {
-                                ToolbarItem(placement: .confirmationAction) {
-                                    Button("저장"){
-                                        postStore.postMatePost()
-                                        dismiss()
-                                    }
-                                    .disabled(postStore.selectedPets.isEmpty ||
-                                             postStore.title.isEmpty ||
-                                             postStore.content.isEmpty)
+            VStack{
+                ProgressView(value: progress)
+                switch progress{
+                case 0.5:
+                    MatePostAddFirstView()
+                        .toolbar {
+                            ToolbarItem(placement: .confirmationAction) {
+                                Button{
+                                    progress = 1.0
+                                }label: {
+                                    Text("다음")
                                 }
                             }
-                    } label: {
-                        Text("다음")
-                    }.disabled(
-                        postStore.location.isEmpty || postStore.cost.isEmpty
-                    )
-                }
-                ToolbarItem(placement: .cancellationAction) {
-                    Button{
+                            ToolbarItem(placement: .cancellationAction) {
+                                Button{
+                                    dismiss()
+                                }label:{
+                                    Image(systemName: "xmark")
+                                }
+                            }
+                        }
+                case 1.0:
+                    MatePostAddSecondView()
+                        .toolbar {
+                            ToolbarItem(placement: .confirmationAction) {
+                                Button{
+                                    postStore.postMatePost()
+                                    dismiss()
+                                }label:{
+                                    Text("완료")
+                                }
+                            }
+                            ToolbarItem(placement: .cancellationAction) {
+                                Button{
+                                    progress = 0.5
+                                }label:{
+                                    Image(systemName: "chevron.left")
+                                }
+                            }
+                        }
+                default:
+                    Text("글작성 페이지에 문제가 있습니다.")
+                    Button("나가기"){
                         dismiss()
-                    }label: {
-                        Image(systemName: "xmark")
                     }
                 }
             }
@@ -55,6 +69,8 @@ struct MatePostAddView: View {
 
 
 #Preview {
+    
     MatePostAddView()
         .environment(MatePostStore())
+    
 }

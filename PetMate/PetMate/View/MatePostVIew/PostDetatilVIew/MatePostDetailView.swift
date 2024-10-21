@@ -23,12 +23,11 @@ struct MatePostDetailView: View {
                             .stroke(.black.opacity(0.3)).blur(radius: 2)
                             .padding()
                         VStack(alignment: .leading) {
-                            if let pet = postStore.pet{
-                                MatePostDetailPetView(pet: pet)
-                                    .padding()
-                            }else{
-                                Text("펫 정보가 없습니다!")
-                            }
+                            TabView{
+                                ForEach(postStore.pet){ pet in
+                                    MatePostDetailPetView(pet: pet)
+                                }
+                            }.tabViewStyle(.page)
                             
                             if let post = postStore.selectedPost{
                                 MatePostDetatilContentView(post: post)
@@ -54,7 +53,7 @@ struct MatePostDetailView: View {
         .task{
             if let post = postStore.selectedPost {
                 postStore.writer = await postStore.getUser(post.writeUser)
-                postStore.pet = post.firstPet
+                await postStore.getPets()
             }
         }
         .navigationTitle(postStore.selectedPost?.title ?? "산책 해줘") // 네비게이션 타이틀 설정
