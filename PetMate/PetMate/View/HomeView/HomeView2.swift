@@ -78,9 +78,9 @@ struct HomeView2: View {
                     }
                     
                     HStack(spacing: 15) {
-                        Button(action: {
-                            print("돌봄 버튼")
-                        }) {
+                        NavigationLink {
+                            MatePostListView()
+                        } label: {
                             Image("care_button")
                                 .resizable()
                                 .frame(width: 175, height: 127)
