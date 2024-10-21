@@ -34,12 +34,35 @@ struct RegisterPetView: View {
                 //펫 타입 선택 섹션
                 HStack {
                     Spacer()
-                    ForEach(PetType.allCases, id: \.self) { type in
-                        PetTypeButton(type: type, selected: viewModel.myPet.type == type.petType) {
-                            viewModel.myPet.type = type.petType
+                    ForEach(PetType.allCases, id: \.self) { category in
+                        PetTypeButton(type: category, selected: viewModel.myPet.category1 == category.rawValue) {
+                            viewModel.myPet.category1 = category.rawValue
                         }
                         Spacer()
                     }
+                }
+                .padding(.bottom, .screenHeight * 0.02)
+                .frame(maxWidth: .infinity)
+                
+                //카테고리2 섹션
+                HStack {
+                    
+                    ForEach(SizeType.allCases, id: \.self) { size in
+                        let selected = viewModel.myPet.category2 == size.rawValue
+                        Button {
+                            viewModel.myPet.category2 = size.rawValue
+                        } label: {
+                            Text(size.sizeString)
+                                .font(.callout)
+                                .foregroundStyle(selected ? .white : Color.accentColor)
+                                .padding(.horizontal)
+                                .padding(.vertical, 12)
+                                .background(selected ? Color.accentColor : Color(uiColor: .systemGray6))
+                                .clipShape(RoundedRectangle(cornerRadius: 30))
+
+                        }
+                    }
+                    
                 }
                 .padding(.bottom, .screenHeight * 0.02)
                 .frame(maxWidth: .infinity)
@@ -125,7 +148,7 @@ struct RegisterPetView: View {
         .overlay(alignment: .leading) {
             if !register {
                 Button {
-                   dismiss()
+                    dismiss()
                 } label: {
                     Image(systemName: "chevron.left")
                         .bold()

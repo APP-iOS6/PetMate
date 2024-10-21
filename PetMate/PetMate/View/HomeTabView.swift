@@ -14,18 +14,20 @@ struct HomeTabView: View {
                 //Text("test")
                 HomeView2()
             }
-                .tabItem {
-                    Text("Home")
-                    Image(systemName: "house")
-                }
+            .tabItem {
+                Text("Home")
+                Image(systemName: "house")
+            }
             NavigationStack {
                 PetPlaceView()
                     .environment(PetPlacesStore())
             }
+
                 .tabItem {
                     Text("Place")
                     Image(systemName: "pawprint")
                 }
+
             ChatRoomListView()
                 .tabItem {
                     Text("Chat")

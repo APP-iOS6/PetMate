@@ -11,6 +11,7 @@ struct ContentView: View {
     @Environment(AuthManager.self) var authManager
     @State private var isShowingSplash = true // 스플래시 화면을 제어하는 상태 변수
     @State private var isShowingUserProfileInput = false
+    private var location: String = ""
     
     var body: some View {
         VStack {
