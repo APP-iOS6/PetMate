@@ -15,18 +15,21 @@ struct MatePostListView: View {
     @State private var isPresentAddView: Bool = false
     
     @State private var selectedCategory: String = "all" // 기본 선택 카테고리
-    let categories = ["all", "산책", "돌봄"] // 더미 카테고리
     
     var body: some View {
         NavigationStack{
             VStack(alignment: .leading) {
                 // 피커 카테고리
                 Picker("카테고리", selection: $selectedCategory) {
-                    ForEach(categories, id: \.self) { category in
-                        Text(category).tag(category)
+                    Text("전체").tag("all")
+                    ForEach(MatePost.MatePostCategory.allCases, id: \.self) { category in
+                        Text(category.description()).tag(category.rawValue)
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
+                .onChange(of: selectedCategory, { oldValue, newValue in
+                    postStore.getPosts(category: newValue)
+                })
                 .padding()
                 ScrollView() {
                     LazyVGrid(

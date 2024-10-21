@@ -25,10 +25,17 @@ struct MatePost: Codable, Identifiable {
     var createdAt: Date   //생성일
     var updatedAt: Date   //업데이트 일
     
-//    enum MatePostCategory: String, Codable{
-//        case care = "care"
-//        case walk = "walk"
-//    }
+    enum MatePostCategory: String, Codable, CaseIterable{
+        case care = "care"
+        case walk = "walk"
+        
+        func description() -> String {
+            switch self {
+            case .care: return "돌봄"
+            case .walk: return "산책"
+            }
+        }
+    }
     
     // MARK: - 캘린더에 날짜와 시간을 넣기 위해 Date값을 단위별로 나눠서 튜플로 반환하는 연산프로퍼티
     var startDateElements: (year: Int, month: Int, day: Int, hour: Int, minute: Int)? {
