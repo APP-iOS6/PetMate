@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		040D5CEA2CBE631F00549B47 /* districts.json in Resources */ = {isa = PBXBuildFile; fileRef = 040D5CE92CBE631F00549B47 /* districts.json */; };
-		040D5CEC2CBE632700549B47 /* MatePostAddOldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D5CEB2CBE632700549B47 /* MatePostAddOldView.swift */; };
 		040D5CF02CBE66D600549B47 /* MatePostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D5CEF2CBE66CF00549B47 /* MatePostDetailView.swift */; };
 		040D5CF82CBE99E200549B47 /* MatePostListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D5CF72CBE99DD00549B47 /* MatePostListView.swift */; };
 		04ABC5112CC5E0D300DF4931 /* AddPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ABC5102CC5E0CA00DF4931 /* AddPostViewModel.swift */; };
@@ -47,6 +46,10 @@
 		259DC1072CBFE70800AB41C1 /* MatePostAddSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1062CBFE70800AB41C1 /* MatePostAddSecondView.swift */; };
 		259DC1092CBFF4A600AB41C1 /* MatePostAddPetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1082CBFF4A600AB41C1 /* MatePostAddPetsView.swift */; };
 		259DC10C2CC0119200AB41C1 /* MatePostAddPetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC10B2CC0119200AB41C1 /* MatePostAddPetCardView.swift */; };
+		259DC1112CC51AD000AB41C1 /* MatePostDetailPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1102CC51AD000AB41C1 /* MatePostDetailPetView.swift */; };
+		259DC1132CC51AE200AB41C1 /* MatePostDetailUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1122CC51AE200AB41C1 /* MatePostDetailUserView.swift */; };
+		259DC1152CC51AFD00AB41C1 /* MatePostDetatilContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1142CC51AFD00AB41C1 /* MatePostDetatilContentView.swift */; };
+		259DC1172CC61D1C00AB41C1 /* MatePostDetailImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1162CC61D1000AB41C1 /* MatePostDetailImageView.swift */; };
 		4B5D53072CBE2DB400FDC77A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */; };
 		4B5D53092CBE39FB00FDC77A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53082CBE39FB00FDC77A /* ImagePicker.swift */; };
 		4B5D530D2CBE3B8E00FDC77A /* PetProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */; };
@@ -109,7 +112,6 @@
 
 /* Begin PBXFileReference section */
 		040D5CE92CBE631F00549B47 /* districts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = districts.json; sourceTree = "<group>"; };
-		040D5CEB2CBE632700549B47 /* MatePostAddOldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostAddOldView.swift; sourceTree = "<group>"; };
 		040D5CEF2CBE66CF00549B47 /* MatePostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostDetailView.swift; sourceTree = "<group>"; };
 		040D5CF72CBE99DD00549B47 /* MatePostListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostListView.swift; sourceTree = "<group>"; };
 		04ABC5102CC5E0CA00DF4931 /* AddPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewModel.swift; sourceTree = "<group>"; };
@@ -141,6 +143,10 @@
 		259DC1062CBFE70800AB41C1 /* MatePostAddSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostAddSecondView.swift; sourceTree = "<group>"; };
 		259DC1082CBFF4A600AB41C1 /* MatePostAddPetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostAddPetsView.swift; sourceTree = "<group>"; };
 		259DC10B2CC0119200AB41C1 /* MatePostAddPetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostAddPetCardView.swift; sourceTree = "<group>"; };
+		259DC1102CC51AD000AB41C1 /* MatePostDetailPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostDetailPetView.swift; sourceTree = "<group>"; };
+		259DC1122CC51AE200AB41C1 /* MatePostDetailUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostDetailUserView.swift; sourceTree = "<group>"; };
+		259DC1142CC51AFD00AB41C1 /* MatePostDetatilContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostDetatilContentView.swift; sourceTree = "<group>"; };
+		259DC1162CC61D1000AB41C1 /* MatePostDetailImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostDetailImageView.swift; sourceTree = "<group>"; };
 		4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		4B5D53082CBE39FB00FDC77A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileView.swift; sourceTree = "<group>"; };
@@ -380,17 +386,44 @@
 		259DC0FB2CBF891800AB41C1 /* MatePostVIew */ = {
 			isa = PBXGroup;
 			children = (
-				040D5CF72CBE99DD00549B47 /* MatePostListView.swift */,
-				259DC0FE2CBF91AC00AB41C1 /* MatePostListCardView.swift */,
-				040D5CEF2CBE66CF00549B47 /* MatePostDetailView.swift */,
-				040D5CEB2CBE632700549B47 /* MatePostAddOldView.swift */,
+				259DC10D2CC51A4600AB41C1 /* AddView */,
+				259DC10E2CC51A6D00AB41C1 /* PostListView */,
+				259DC10F2CC51A8900AB41C1 /* PostDetatilVIew */,
+			);
+			path = MatePostVIew;
+			sourceTree = "<group>";
+		};
+		259DC10D2CC51A4600AB41C1 /* AddView */ = {
+			isa = PBXGroup;
+			children = (
 				259DC1002CBFAC7E00AB41C1 /* MatePostAddView.swift */,
 				259DC1042CBFE6FA00AB41C1 /* MatePostAddFirstView.swift */,
 				259DC1062CBFE70800AB41C1 /* MatePostAddSecondView.swift */,
 				259DC1082CBFF4A600AB41C1 /* MatePostAddPetsView.swift */,
 				259DC10B2CC0119200AB41C1 /* MatePostAddPetCardView.swift */,
 			);
-			path = MatePostVIew;
+			path = AddView;
+			sourceTree = "<group>";
+		};
+		259DC10E2CC51A6D00AB41C1 /* PostListView */ = {
+			isa = PBXGroup;
+			children = (
+				040D5CF72CBE99DD00549B47 /* MatePostListView.swift */,
+				259DC0FE2CBF91AC00AB41C1 /* MatePostListCardView.swift */,
+			);
+			path = PostListView;
+			sourceTree = "<group>";
+		};
+		259DC10F2CC51A8900AB41C1 /* PostDetatilVIew */ = {
+			isa = PBXGroup;
+			children = (
+				040D5CEF2CBE66CF00549B47 /* MatePostDetailView.swift */,
+				259DC1162CC61D1000AB41C1 /* MatePostDetailImageView.swift */,
+				259DC1102CC51AD000AB41C1 /* MatePostDetailPetView.swift */,
+				259DC1142CC51AFD00AB41C1 /* MatePostDetatilContentView.swift */,
+				259DC1122CC51AE200AB41C1 /* MatePostDetailUserView.swift */,
+			);
+			path = PostDetatilVIew;
 			sourceTree = "<group>";
 		};
 		4B5D53052CBE2D9600FDC77A /* MyPageView */ = {
@@ -606,6 +639,7 @@
 				FB9532262CC2D2CC00AEBD9C /* CGFloat+Extension.swift in Sources */,
 				4B5D53812CBE627500FDC77A /* TagUI.swift in Sources */,
 				BD306E5B2CBEF7C0008BDBEB /* PetPlaceStore.swift in Sources */,
+				259DC1172CC61D1C00AB41C1 /* MatePostDetailImageView.swift in Sources */,
 				040D5CF82CBE99E200549B47 /* MatePostListView.swift in Sources */,
 				FB9532282CC2D8DA00AEBD9C /* SearchAddressModal.swift in Sources */,
 				256A27312CBD052E0031F766 /* CustomButton.swift in Sources */,
@@ -631,6 +665,8 @@
 				252A12972CBED8AD00EDD297 /* CalandarTestView.swift in Sources */,
 				BD306E642CBEF852008BDBEB /* PetMapView.swift in Sources */,
 				BD306E622CBEF841008BDBEB /* AddPlaceView.swift in Sources */,
+				259DC1112CC51AD000AB41C1 /* MatePostDetailPetView.swift in Sources */,
+				259DC1132CC51AE200AB41C1 /* MatePostDetailUserView.swift in Sources */,
 				BD691BDD2CBFABA3003A300B /* Bundle+Extension.swift in Sources */,
 				FBF4E4822CC2282200CFA137 /* LoginViewModel.swift in Sources */,
 				FBF4E4802CC226A700CFA137 /* SignUpViewModel.swift in Sources */,
@@ -662,12 +698,12 @@
 				256A27482CBEA3A60031F766 /* HomeFindMateView.swift in Sources */,
 				FB954E032CBFDC96007B7BCE /* ResizableTextField.swift in Sources */,
 				BD691BEA2CC0324D003A300B /* AddPostView.swift in Sources */,
+				259DC1152CC51AFD00AB41C1 /* MatePostDetatilContentView.swift in Sources */,
 				FBD6BBAE2CBE3A28008BEA30 /* ChatRoom.swift in Sources */,
 				BD691BD42CBF8A82003A300B /* StoreSearchView.swift in Sources */,
 				256A274A2CBEA3B50031F766 /* HomeFindMateButton.swift in Sources */,
 				233E2C062CC04FAA004712E7 /* HomeView2.swift in Sources */,
 				259DC10C2CC0119200AB41C1 /* MatePostAddPetCardView.swift in Sources */,
-				040D5CEC2CBE632700549B47 /* MatePostAddOldView.swift in Sources */,
 				FBF4E47E2CC2269900CFA137 /* SignUpContainerView.swift in Sources */,
 				256A274C2CBEA5DA0031F766 /* HomeReviewScrollView.swift in Sources */,
 				FBF4E4842CC2294E00CFA137 /* LoadState.swift in Sources */,
