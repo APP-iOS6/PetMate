@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MatePostAddSecondView: View {
     @Environment(\.dismiss) var dismiss
-    @Binding var postStore: MatePostStore
+    @Environment(MatePostStore.self) var postStore: MatePostStore
     
     @State var isPresent: Bool = false
     
@@ -20,6 +20,8 @@ struct MatePostAddSecondView: View {
         내 아이의 행복한 시간을 위해서 메이트에게 전당하고 싶은 여러 사항들을 자세하게 적어주세요
         """
     var body: some View {
+        @Bindable var postStore = postStore
+        
         VStack(spacing: 50){
             if postStore.selectedPets.isEmpty{
                 ZStack{
@@ -40,7 +42,7 @@ struct MatePostAddSecondView: View {
                         ScrollView(.horizontal){
                             HStack{
                                 ForEach(Array(postStore.selectedPets)){ pet in
-                                    MatePostAddPetCardView(pet: pet, proxy: proxy, postStore: $postStore)
+                                    MatePostAddPetCardView(pet: pet, proxy: proxy)
                                 }
                             }
                         }.scrollIndicators(.hidden)
@@ -71,13 +73,14 @@ struct MatePostAddSecondView: View {
         }
         .padding()
         .sheet(isPresented: $isPresent, onDismiss: {postStore.reset()}) {
-            MatePostAddPetsView(postStore: $postStore)
+            MatePostAddPetsView()
                 .presentationDetents([.medium])
         }
     }
 }
 
 #Preview {
-    @Previewable @State var postStore = MatePostStore()
-    MatePostAddSecondView(postStore: $postStore)
+    //@Previewable @State var postStore = MatePostStore()
+    MatePostAddSecondView()
+        .environment(MatePostStore())
 }

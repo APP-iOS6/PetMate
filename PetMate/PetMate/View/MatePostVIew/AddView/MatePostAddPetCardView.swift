@@ -10,7 +10,7 @@ import SwiftUI
 struct MatePostAddPetCardView: View {
     let pet: Pet
     var proxy: GeometryProxy
-    @Binding var postStore: MatePostStore
+    @Environment(MatePostStore.self) var postStore: MatePostStore
     
     var checkMark: String {
         postStore.selectedPets.contains(pet) ? "checkmark.square.fill" : "checkmark.square"
@@ -45,21 +45,18 @@ struct MatePostAddPetCardView: View {
                 Text(pet.description)
                     .font(.caption)
                 HStack{
-                    ForEach(pet.tag, id: \.self) { tag in
-                        ZStack{
-                            Capsule(style: .circular)
-                                .frame(height: 30)
-                                .frame(maxWidth: 100)
-                                .foregroundStyle(.secondary)
-                            Text(tag)
-                                .font(.caption)
+                    FlowLayout {
+                        ForEach(pet.tag, id: \.self) { tag in
+                            TagToggle(tag: tag, isSelected: true){}
                         }
                     }
+
                 }
             }
             .padding()
         }
         .frame(width: proxy.size.width * 0.7)
+        .frame(minHeight: 200)
         .border(.black)
         .onTapGesture {
             if !postStore.selectedPets.contains(pet){
