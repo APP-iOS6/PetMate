@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct PetPlaceView: View {
+    @Environment(PetPlacesStore.self) private var placeStore 
     @State private var isShowingMap: Bool = false
     @State private var showSearchPlaceView = false
-    
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -22,26 +23,26 @@ struct PetPlaceView: View {
                     Button(action: {
                         isShowingMap.toggle()
                     }) {
-                        Image(systemName: isShowingMap ? "list.star" : "map")
+                        Image(systemName: "map.fill")
                             .font(.title2)
                     }
+                    
                     Button(action: {
-                        showSearchPlaceView = true
+                        showSearchPlaceView.toggle()
                     }) {
-                        Image(systemName: "plus")
+                        Image(systemName: "pencil.and.list.clipboard")
                             .font(.title2)
                     }
                 }
-                .padding()
-                
-                if isShowingMap {
+                .padding(.horizontal, 10)
+                PlaceListView()
+                .fullScreenCover(isPresented: $isShowingMap) {
                     PetMapView()
-                } else {
-                    PlaceListView()
                 }
-            }
-            .sheet(isPresented: $showSearchPlaceView) {
-                StoreSearchView()
+                .fullScreenCover(isPresented: $showSearchPlaceView) {
+                    AddPlaceView()
+                        .padding(.top)
+                }
             }
         }
     }

@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct PlaceListView: View {
-    private var placeStore: PetPlacesStore = .init()
-    @Environment(\.dismiss) private var dismiss
-    @State private var showSearchPlaceView = false
+    @Environment(PetPlacesStore.self) private var placeStore
     var body: some View {
         ScrollView {
             ForEach(placeStore.places) { place in
@@ -18,7 +16,9 @@ struct PlaceListView: View {
                     .padding(.vertical, -5)
             }
         }
-        
+        .onAppear {
+            placeStore.fetchPlaces()
+        }
     }
 }
 
