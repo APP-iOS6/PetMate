@@ -17,8 +17,8 @@ class RegisterPetViewModel {
     
     private let db = Firestore.firestore()
     
-    var myPet: Pet = Pet(id: UUID().uuidString, name: "", description: "", age: 0, type: "강아지", tag: [], breed: "", images: [], ownerUid: "", createdAt: Date(), updatedAt: Date())
-    var images: [UIImage] = []     //이미지 배열
+    var myPet: Pet = Pet(id: UUID().uuidString, name: "", description: "", age: 0, category1: "dog", tag: [], breed: "", images: [], ownerUid: "", createdAt: Date(), updatedAt: Date())
+    var images: [UIImage] = []     //이미지배열
     var selectedPhotos: [PhotosPickerItem] = [] //선택된 포토아이템 배열
     var loadState: LoadState = .none
     var errorMessage: String?
@@ -41,6 +41,7 @@ class RegisterPetViewModel {
         do {
             let imageDatas = convertImageToData()
             myPet.images = try await uploadImages(imageDatas, documentId: myPet.id ?? UUID().uuidString)
+            myPet.location = try await getUserData(userUid)
             let petEncode = try Firestore.Encoder().encode(myPet)
             _ = try await self.db.collection("Pet").document(myPet.id ?? UUID().uuidString).setData(petEncode, merge: true)
             self.loadState = .complete
@@ -65,6 +66,14 @@ class RegisterPetViewModel {
             return imageUrls
         } catch {
             throw UploadError.upLoadImageFailed
+        }
+    }
+    
+    func getUserData(_ userUid: String) async throws -> String {
+        do {
+            return try await self.db.collection("User").document(userUid).getDocument(as: MateUser.self).location
+        } catch {
+            throw UploadError.upLoadFailed
         }
     }
     
