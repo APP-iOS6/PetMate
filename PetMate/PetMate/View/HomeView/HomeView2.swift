@@ -9,8 +9,6 @@
 import SwiftUI
 
 struct HomeView2: View {
-    // 홈뷰2가 불릴 때 홈뷰뷰모델도 같이 생성이 됨
-    //    private var viewModel: HomeViewViewModel = HomeViewViewModel()
     
     @State private var viewModel: HomeViewViewModel
     
@@ -32,27 +30,10 @@ struct HomeView2: View {
             ProgressView()
         case .success:
             VStack {
-                HStack(alignment: .top) {
-                    VStack(alignment: .leading) {
-                        Image("home_logo_image")
-                            .resizable()
-                            .frame(width: 124, height: 25)
-                            .padding(.bottom, 20)
-                        
-                        HStack {
-                            Text("📍\(viewModel.myInfo?.location ?? "")")
-                                .font(.subheadline)
-                            
-                            Text("지금 근처에 3명의 친구가 있어요")
-                                .font(.caption)
-                                .foregroundColor(Color.location)
-                        }
-                    }
-                    Spacer()
-                }
-                .padding(.horizontal, 20)
-                .padding(.top, 5)
-                
+                HomeMyLocationView(
+                    myInfo: viewModel.myInfo,
+                    nearbyFriendsCount: viewModel.nearPets.count
+                )
                 
                 ScrollView {
                     VStack(spacing: 20) {
