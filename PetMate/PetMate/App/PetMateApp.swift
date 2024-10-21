@@ -28,11 +28,8 @@ struct PetMateApp: App {
         WindowGroup {
             ContentView()
                 .environment(AuthManager())
-<<<<<<< HEAD
                 .environment(PetPlacesStore())
-=======
                 .environment(matePostStore)
->>>>>>> develop
                 .onOpenURL { url in
                     GIDSignIn.sharedInstance.handle(url)
                 }
