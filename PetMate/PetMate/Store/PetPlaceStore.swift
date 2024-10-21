@@ -19,6 +19,9 @@ final class PetPlacesStore {
     var userLongitude: String?
     var userLatitude: String?
     var searchRadius: Int? = 20000 //20Km
+    var searchState: SearchState = .searchPlace
+    var selectedPlace: Document?
+    
     var query: String = "" {
         didSet {
             querySubject.send(query)
@@ -30,11 +33,11 @@ final class PetPlacesStore {
     private let querySubject = PassthroughSubject<String, Never>()
     private let apiClient: KakaoAPIClient = KakaoAPIClient()
     
-    init() {
-        setupQueryListener()
-    }
+//    init() {
+//        setupQueryListener()
+//    }
     // MARK: 주위 검색 기반 메서드
-    private func setupQueryListener() {
+    func setupQueryListener() {
         querySubject
             .debounce(for: .seconds(1), scheduler: RunLoop.main) // 1초 디바운스
             .removeDuplicates()

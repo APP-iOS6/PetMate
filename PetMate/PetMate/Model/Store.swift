@@ -7,6 +7,22 @@
 
 import Foundation
 
+enum SearchState {
+    case searchPlace
+    case confirmInfo
+    case addPlace
+    
+    var progressValue: Double {
+        switch self {
+        case .searchPlace:
+            return 0.33
+        case .confirmInfo:
+            return 0.66
+        case .addPlace:
+            return 1
+        }
+    }
+}
 struct KakaoAPIResponse: Codable {
     let meta: Meta
     let documents: [Document]

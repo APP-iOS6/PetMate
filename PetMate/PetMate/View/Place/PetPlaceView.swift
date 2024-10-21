@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PetPlaceView: View {
+    @Environment(PetPlacesStore.self) private var placeStore 
     @State private var isShowingMap: Bool = false
     @State private var showSearchPlaceView = false
     
@@ -25,9 +26,9 @@ struct PetPlaceView: View {
                         Image(systemName: "map.fill")
                             .font(.title2)
                     }
-                    Button(action: {
-                        showSearchPlaceView = true
-                    }) {
+                    NavigationLink(destination:
+                        AddPlaceView()
+                    ) {
                         Image(systemName: "plus")
                             .font(.title2)
                     }
@@ -37,9 +38,6 @@ struct PetPlaceView: View {
                 .fullScreenCover(isPresented: $isShowingMap) {
                     PetMapView()
                 }
-            }
-            .sheet(isPresented: $showSearchPlaceView) {
-                StoreSearchView()
             }
         }
     }

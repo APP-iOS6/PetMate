@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct PlaceConfirmationView: View {
-    let document: Document
-    @State private var placeStore: PetPlacesStore = .init()
+    let store: Document
+    @Environment(PetPlacesStore.self) private var placeStore
     @Environment(\.dismiss) private var dismiss
     var body: some View {
         VStack(spacing: 16) {
@@ -19,22 +19,22 @@ struct PlaceConfirmationView: View {
             
             VStack(alignment: .center, spacing: 8) {
                 HStack {
-                    Text("📍 \(document.place_name)")
+                    Text("📍 \(store.place_name)")
                         .font(.headline)
                         .fontWeight(.bold)
                     Spacer()
                 }
                 
                 VStack(alignment: .leading, spacing: 4) {
-                    Label("\(document.address_name)", systemImage: "mappin.and.ellipse")
+                    Label("\(store.address_name)", systemImage: "mappin.and.ellipse")
                         .font(.subheadline)
                         .foregroundColor(.gray)
-                    if let phone = document.phone {
+                    if let phone = store.phone {
                         Label(phone, systemImage: "phone.fill")
                             .font(.subheadline)
                             .foregroundColor(.gray)
                     }
-                    Label(document.category_name, systemImage: "tag.fill")
+                    Label(store.category_name, systemImage: "tag.fill")
                         .font(.subheadline)
                         .foregroundColor(.gray)
                 }
@@ -48,18 +48,20 @@ struct PlaceConfirmationView: View {
             Button(action: {
                 placeStore.addPlace(
                     writeUser: UUID().uuidString,
-                    title: document.place_name,
+                    title: store.place_name,
                     content: "",
-                    address: document.road_address_name,
-                    placeName: document.place_name,
+                    address: store.road_address_name,
+                    placeName: store.place_name,
                     isParking: true,
-                    latitude: Double(document.y)!,
-                    longitude: Double(document.x)!,
+                    latitude: Double(store.y)!,
+                    longitude: Double(store.x)!,
                     geoHash: ""
                 ) { success in
                     if success {
-                        dismiss()
+                        placeStore.fetchPlaces()
+                        placeStore.searchState = .addPlace
                         print("장소가 성공적으로 추가되었습니다.")
+                        
                     } else {
                         print("장소 추가에 실패했습니다.")
                     }
