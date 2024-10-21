@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct PlaceDetailView: View {
-    let document: Document
+    @Environment(PetPlacesStore.self) private var placeStore
+    let store: Document
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                // 이미지 섹션 (실제 이미지 URL을 사용하려면 추가 작업 필요)
                 Image("cafe1") // 실제 이미지 이름으로 교체
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -24,7 +24,7 @@ struct PlaceDetailView: View {
                 // 장소 정보 섹션
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
-                        Text("📍 \(document.place_name)")
+                        Text("📍 \(store.place_name)")
                             .font(.title3)
                             .fontWeight(.bold)
                         Spacer()
@@ -33,18 +33,18 @@ struct PlaceDetailView: View {
                     }
 
                     VStack(alignment: .leading, spacing: 4) {
-                        Label(document.address_name, systemImage: "mappin.and.ellipse")
+                        Label(store.address_name, systemImage: "mappin.and.ellipse")
                             .font(.subheadline)
                             .foregroundColor(.gray)
-                        Label(document.road_address_name.isEmpty ? document.address_name : document.road_address_name, systemImage: "road.lanes")
+                        Label(store.road_address_name.isEmpty ? store.address_name : store.road_address_name, systemImage: "road.lanes")
                             .font(.subheadline)
                             .foregroundColor(.gray)
-                        if let phone = document.phone {
+                        if let phone = store.phone {
                             Label(phone, systemImage: "phone.fill")
                                 .font(.subheadline)
                                 .foregroundColor(.gray)
                         }
-                        Label(document.category_name, systemImage: "tag.fill")
+                        Label(store.category_name, systemImage: "tag.fill")
                             .font(.subheadline)
                             .foregroundColor(.gray)
                     }
@@ -90,22 +90,8 @@ struct PlaceDetailView: View {
             .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
             .padding()
         }
-        .navigationTitle("장소 추가")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
-#Preview {
-    PlaceDetailView(document: Document(
-        place_name: "카카오프렌즈 코엑스점",
-        distance: "418",
-        place_url: "http://place.map.kakao.com/26338954",
-        category_name: "가정,생활 > 문구,사무용품 > 디자인문구 > 카카오프렌즈",
-        address_name: "서울 강남구 삼성동 159",
-        road_address_name: "서울 강남구 영동대로 513",
-        x: "127.05902969025047",
-        y: "37.51207412593136",
-        phone: "02-6002-1880",
-        category_group_code: "",
-        category_group_name: ""
-    ))
-}
+//#Preview {
+//    PlaceDetailView()
+//}
