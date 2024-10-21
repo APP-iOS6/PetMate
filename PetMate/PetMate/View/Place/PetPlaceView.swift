@@ -30,7 +30,7 @@ struct PetPlaceView: View {
                     Button(action: {
                         showSearchPlaceView.toggle()
                     }) {
-                        Image(systemName: "plus")
+                        Image(systemName: "pencil.and.list.clipboard")
                             .font(.title2)
                     }
                 }
