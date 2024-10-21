@@ -160,14 +160,3 @@ struct HomeView2: View {
         
     }
 }
-
-#Preview {
-    let viewModel = HomeViewViewModel(initialPhase: .success)
-    viewModel.nearPets = [
-        Pet(id: "1", name: "멍멍이", description: "귀여운 강아지", age: 3, tag: [], breed: "골든 리트리버", images: ["dog1"], ownerUid: "owner1", createdAt: Date(), updatedAt: Date(), location: "강남구 개포1동"),
-        Pet(id: "2", name: "야옹이", description: "사랑스러운 강아지", age: 2, tag: [], breed: "불독", images: ["dog2"], ownerUid: "owner2", createdAt: Date(), updatedAt: Date(), location: "강남구 개포1동"),
-        Pet(id: "3", name: "토토", description: "장난꾸러기 강아지", age: 1, tag: [], breed: "진돗개", images: ["dog3"], ownerUid: "owner3", createdAt: Date(), updatedAt: Date(), location: "강남구 개포1동"),
-        Pet(id: "4", name: "얌얌", description: "말썽쟁이 강아지", age: 1, tag: [], breed: "비숑", images: ["dog4"], ownerUid: "owner3", createdAt: Date(), updatedAt: Date(), location: "강남구 개포1동")
-    ]
-    return HomeView2(viewModel: viewModel)
-}

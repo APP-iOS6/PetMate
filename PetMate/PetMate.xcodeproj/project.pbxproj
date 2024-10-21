@@ -20,6 +20,7 @@
 		238A2EEC2CBD0E200058D7CC /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EEB2CBD0E200058D7CC /* FirebaseCore */; };
 		238A2EEE2CBD0E200058D7CC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EED2CBD0E200058D7CC /* FirebaseFirestore */; };
 		238A2EF02CBD0E200058D7CC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EEF2CBD0E200058D7CC /* FirebaseStorage */; };
+		239E511D2CC6510A008DD278 /* MatePostDetailImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1162CC61D1000AB41C1 /* MatePostDetailImageView.swift */; };
 		23DE250D2CC5EA650011CE47 /* HomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DE250C2CC5EA650011CE47 /* HomeViewViewModel.swift */; };
 		252A12972CBED8AD00EDD297 /* CalandarTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A12942CBED8AC00EDD297 /* CalandarTestView.swift */; };
 		252A12982CBED8AD00EDD297 /* CalandarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A12952CBED8AC00EDD297 /* CalandarView.swift */; };
@@ -51,7 +52,6 @@
 		259DC1112CC51AD000AB41C1 /* MatePostDetailPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1102CC51AD000AB41C1 /* MatePostDetailPetView.swift */; };
 		259DC1132CC51AE200AB41C1 /* MatePostDetailUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1122CC51AE200AB41C1 /* MatePostDetailUserView.swift */; };
 		259DC1152CC51AFD00AB41C1 /* MatePostDetatilContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1142CC51AFD00AB41C1 /* MatePostDetatilContentView.swift */; };
-		259DC1172CC61D1C00AB41C1 /* MatePostDetailImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1162CC61D1000AB41C1 /* MatePostDetailImageView.swift */; };
 		4B5D53072CBE2DB400FDC77A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */; };
 		4B5D53092CBE39FB00FDC77A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53082CBE39FB00FDC77A /* ImagePicker.swift */; };
 		4B5D530D2CBE3B8E00FDC77A /* PetProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */; };
@@ -705,6 +705,7 @@
 				256A27482CBEA3A60031F766 /* HomeFindMateView.swift in Sources */,
 				FB954E032CBFDC96007B7BCE /* ResizableTextField.swift in Sources */,
 				BD691BEA2CC0324D003A300B /* AddPostView.swift in Sources */,
+				239E511D2CC6510A008DD278 /* MatePostDetailImageView.swift in Sources */,
 				259DC1152CC51AFD00AB41C1 /* MatePostDetatilContentView.swift in Sources */,
 				FBD6BBAE2CBE3A28008BEA30 /* ChatRoom.swift in Sources */,
 				BD691BD42CBF8A82003A300B /* StoreSearchView.swift in Sources */,
