@@ -18,7 +18,7 @@ struct MatePostDetailPetView: View {
                         image
                             .resizable()
                             .scaledToFill()
-                            .frame(width: 150, height: 150)
+                            .frame(width: 120, height: 120)
                             .clipShape(.circle)
                     }else if (image.error != nil){
                         Image(systemName: "xmark")
@@ -51,14 +51,20 @@ struct MatePostDetailPetView: View {
                 Text("나의 성격")
                 ZStack(alignment: .topLeading){
                     RoundedRectangle(cornerRadius: 12)
-                        .stroke(lineWidth: 0.8)
+                        .stroke(lineWidth: 0.9)
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity, maxHeight: 150)
                     Text(pet.description)
                         .padding()
-                    
                 }
             }
+        }
+        .padding()
+        .overlay {
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(style: StrokeStyle(lineWidth: 0.8))
+                .foregroundStyle(.secondary)
+                .blur(radius: 1)
         }
     }
 }

@@ -18,59 +18,54 @@ struct MatePostListView: View {
     let categories = ["all", "산책", "돌봄"] // 더미 카테고리
     
     var body: some View {
-        VStack(alignment: .leading) {
-            // 피커 카테고리
-            Picker("카테고리", selection: $selectedCategory) {
-                ForEach(categories, id: \.self) { category in
-                    Text(category).tag(category)
+        NavigationStack{
+            VStack(alignment: .leading) {
+                // 피커 카테고리
+                Picker("카테고리", selection: $selectedCategory) {
+                    ForEach(categories, id: \.self) { category in
+                        Text(category).tag(category)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding()
+                ScrollView() {
+                    LazyVGrid(
+                        columns: [GridItem(), GridItem()]) {
+                            ForEach(postStore.posts) {post in
+                                MatePostListCardView(pet: post.firstPet)
+                                    .onTapGesture {
+                                        postStore.selectedPost = post
+                                        isPresentDetailView.toggle()
+                                    }
+                            }
+                        }
                 }
             }
-            .pickerStyle(SegmentedPickerStyle())
-            .padding()
-            ScrollView {
-                LazyVGrid(
-                    columns: [GridItem(), GridItem()]) {
-                        ForEach(postStore.posts) {post in
-                            MatePostListCardView(pet: post.firstPet)
-                                .onTapGesture {
-                                    postStore.selectedPost = post
-                                    isPresentDetailView.toggle()
-                                }
-                        }
-                    }
+            .onAppear{
+                postStore.getPosts(category: "all")
             }
-        }
-        .onAppear{
-            postStore.getPosts(category: "all")
-        }
-        .navigationTitle("돌봄")
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationDestination(isPresented: $isPresentDetailView) {
-            //클래스이기 떄문에 $ 바인딩이 아니라 그냥 주입시키면 됨
-            MatePostDetailView()
-        }
-        .toolbar {
-            Button{
-                isPresentAddView.toggle()
-            }label: {
-                Image(systemName: "pencil")
+            .navigationTitle("돌봄")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationDestination(isPresented: $isPresentDetailView) {
+                //클래스이기 떄문에 $ 바인딩이 아니라 그냥 주입시키면 됨
+                MatePostDetailView()
             }
-//            NavigationLink {
-//                MatePostAddView()
-//            } label: {
-//                Image(systemName: "pencil")
-//            }
-        }
-        .fullScreenCover(isPresented: $isPresentAddView) {
-            MatePostAddView()
-        }
+            .toolbar {
+                Button{
+                    isPresentAddView.toggle()
+                }label: {
+                    Image(systemName: "pencil")
+                }
+            }
+            .fullScreenCover(isPresented: $isPresentAddView) {
+                MatePostAddView()
+            }
+        }.environment(postStore)
     }
 
 }
 
 #Preview{
-    NavigationStack{
         MatePostListView()
             .environment(MatePostStore())
-    }
 }

@@ -23,11 +23,29 @@ struct MatePostDetailView: View {
                             .stroke(.black.opacity(0.3)).blur(radius: 2)
                             .padding()
                         VStack(alignment: .leading) {
-                            TabView{
-                                ForEach(postStore.pet){ pet in
-                                    MatePostDetailPetView(pet: pet)
+                            ScrollView(.horizontal){
+                                HStack(spacing: 10) {
+                                    ForEach(postStore.pet){pet in
+                                        ForEach(pet.images, id: \.self){image in
+                                            MatePostDetailImageView(imageUrl: image)
+                                                .frame(width: 300)
+                                        }
+                                    }
+                                    
                                 }
-                            }.tabViewStyle(.page)
+                            }
+                            .padding()
+                            .scrollIndicators(.hidden)
+                            
+                            ScrollView(.horizontal){
+                                HStack(spacing: 10){
+                                    ForEach(postStore.pet){ pet in
+                                        MatePostDetailPetView(pet: pet)
+                                    }
+                                }
+                            }
+                            .padding()
+                            .scrollIndicators(.hidden)
                             
                             if let post = postStore.selectedPost{
                                 MatePostDetatilContentView(post: post)
@@ -35,7 +53,6 @@ struct MatePostDetailView: View {
                             }else{
                                 Text("내용이 없습니다!")
                             }
-                            
                             MatePostDetailUserView(writer: writer)
                                 .padding()
                             

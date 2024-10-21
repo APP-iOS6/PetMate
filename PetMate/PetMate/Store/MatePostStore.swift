@@ -52,7 +52,7 @@ class MatePostStore{
                 snapshots = try? await db.collection("MatePost").whereField("category", isEqualTo: category).getDocuments()
             }
             snapshots?.documents.forEach{ snapshot in
-                print(try? snapshot.data(as: MatePost.self))
+                //print(try? snapshot.data(as: MatePost.self))
                 if let post = try? snapshot.data(as: MatePost.self){
                     newPosts.append(post)
                 }
@@ -68,6 +68,7 @@ class MatePostStore{
     
     //인자로 받은 유저 문서레퍼런스를 통해 User 옵셔널 데이터를 반환하는 함수
     func getUser(_ user: DocumentReference) async -> MateUser?{
+        print(user)
         do{
             return try await user.getDocument().data(as: MateUser.self)
         }catch{
