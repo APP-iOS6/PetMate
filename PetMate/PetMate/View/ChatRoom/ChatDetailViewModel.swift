@@ -235,13 +235,21 @@ class ChatDetailViewModel: ObservableObject {
     
     //메시지 전송 버튼을 눌렀을 때
     func sendMessage(_ postId: String?, otherUser: MateUser, message: String) async {
+        guard let userUid = Auth.auth().currentUser?.uid else {
+            print("로그인 하고 와")
+            return
+        }
+        
         //채팅방 데이터도 없어서 우선 채팅방부터 만들어야 하는가?
         if isCreateChatRoom {
+            let chatRoomId = generateChatRoomId(userId1: userUid, userId2: otherUser.id ?? "")
             do {
                 try await createChatRoom(postId, otherUser: otherUser)
                 self.isCreateChatRoom = false
+                uploadMessage(otherUser: otherUser, message: message)
+                observeChatList(chatRoomId, myUid: userUid)
             } catch {
-                
+                print("채팅방생성 실패함")
             }
         } else {
             //그게 아니라면 바로 데이터 업로드 하기

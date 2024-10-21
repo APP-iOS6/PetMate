@@ -106,6 +106,17 @@ struct HomeView2: View {
                         }
                         .padding(.horizontal, 30)
                         .padding(.bottom, 5)
+
+                    }
+                    
+                    HStack(spacing: 15) {
+                        NavigationLink {
+                            MatePostListView()
+                        } label: {
+                            Image("care_button")
+                                .resizable()
+                                .frame(width: 175, height: 127)
+                        }
                         
                         
                         VStack(alignment: .leading) {

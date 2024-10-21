@@ -78,19 +78,15 @@ struct MatePostDetailView: View {
     
     // 채팅하기 버튼
     private var chatButton: some View {
-        Button(action: {
-            showChatView.toggle() // 채팅 뷰 표시 여부 토글
-        }) {
-            Text("채팅하기")
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color.brown)
-                .foregroundColor(.white)
-                .cornerRadius(8)
-        }
-        .padding()
-        .sheet(isPresented: $showChatView) {
-            EmptyView() // 채팅 뷰 추가
+        NavigationLink {
+            if let user = postStore.writer {
+                ChatDetailView(otherUser: user, postId: postStore.selectedPost?.id ?? "")
+            } else {
+                Text("채팅 네비게이션 오류")
+            }
+        } label: {
+            Text("신청하기")
+                .modifier(ButtonModifier())
         }
     }
     
