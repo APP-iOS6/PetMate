@@ -11,10 +11,10 @@ struct ContentView: View {
     @Environment(AuthManager.self) var authManager
     @State private var isShowingSplash = true // 스플래시 화면을 제어하는 상태 변수
     @State private var isShowingUserProfileInput = false
+    private var location: String = ""
     
     var body: some View {
         VStack {
-            
             switch authManager.authState {
             case .splash:
                 Image("splash_image")
@@ -29,17 +29,25 @@ struct ContentView: View {
                     .transition(.opacity)
             case .unAuth:
                 LoginView()
-            case .auth:
+                    .transition(.opacity)
+            case .auth, .guest:
                 HomeTabView()
+                    .transition(.opacity)
             case .signUp:
                 SignUpContainerView()
+                    .transition(.opacity)
+            case .welcome:
+                WelcomeView()
+                    .transition(.opacity)
+            case .registerPet:
+                RegisterPetView(register: true) {
+                    authManager.authState = .auth
+                }
             }
         }
+        .animation(.smooth, value: authManager.authState)
         .onAppear {
-            print("AuthManager initialized")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                authManager.checkAuthState()
-            }
+            authManager.checkAuthState()
         }
     }
 }

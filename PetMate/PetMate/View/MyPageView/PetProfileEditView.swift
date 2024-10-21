@@ -24,13 +24,11 @@ struct PetProfileEditView: View {
         id: "1",
         name: "가디",
         description: "활발하고 사람을 좋아해요. 예방 접종 완료!",
-        age: 3,
+        age: 3, category1: "강아지",
         tag: ["활발함", "얌전함", "사람 싫어요", "사람 친화적", "예방 접종 완료"],
         breed: "포메",
         images: ["gadiProfile"],
         ownerUid: "희철",
-        category1: "cat",
-        category2: "large",
         createdAt: Date(),
         updatedAt: Date()
     )

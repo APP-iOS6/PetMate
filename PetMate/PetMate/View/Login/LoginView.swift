@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
-import GoogleSignInSwift
+import AuthenticationServices
 
 struct LoginView: View {
     @Environment(AuthManager.self) var authManager
-    var loginViewModel: LoginViewModel = LoginViewModel()
+    var viewModel: LoginViewModel = LoginViewModel()
     
     @State private var currentPage = 0
     private let images = ["login_image1", "login_image2", "login_image3", "login_image4"]
@@ -88,16 +88,16 @@ struct LoginView: View {
                     .frame(width: 300, height: 60)
             }
             
-            Button(action: {
-                print("애플 로그인 버튼 눌림")
-            }) {
-                Image("apple_login_button")
-                    .resizable()
-                    .frame(width: 300, height: 60)
+            SignInWithAppleButton(.continue) { request in
+                viewModel.action(.appleLogin(request))
+            } onCompletion: { result in
+                viewModel.action(.appleLoginCompletion(result))
             }
+            .frame(width: 300, height: 55)
+
             
             Button(action: {
-                print("구글 로그인 버튼 눌림")
+                viewModel.action(.google)
             }) {
                 Image("google_login_button")
                     .resizable()
@@ -107,7 +107,7 @@ struct LoginView: View {
             
             Button(action: {
                 print("둘러보기 버튼 눌림")
-                authManager.authState = .auth
+                authManager.authState = .guest
             }) {
                 Text("로그인 전 둘러보기")
                     .frame(maxWidth: .infinity)
@@ -115,6 +115,17 @@ struct LoginView: View {
                     .underline(true, color: .gray)
                     .font(.system(size: 14))
                     .foregroundColor(.gray)
+            }
+        }
+        .onChange(of: viewModel.loadState, { oldValue, newValue in
+            if newValue == .complete {
+                authManager.login()
+            }
+        })
+        .overlay {
+            if viewModel.loadState == .loading {
+                ProgressView()
+                    .scaleEffect(1.5)
             }
         }
         .padding(.top, 25)

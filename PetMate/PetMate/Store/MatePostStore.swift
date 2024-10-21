@@ -39,7 +39,6 @@ class MatePostStore{
     
     // MARK: - 파이어베이스에서 값을 가져오는 함수들
     //포스트 정보를 전부 불러오는 함수
-    //무한으로 호출되는 버그가 있어 주석 처리 합니다. MateStore을 Binding 하는 곳이 있어 일어나는 문제일가 짐작해 봅니다.
     func getPosts(category: String) {
         let db = Firestore.firestore()
         var newPosts: [MatePost] = []
@@ -52,7 +51,8 @@ class MatePostStore{
                 snapshots = try? await db.collection("MatePost").whereField("category", isEqualTo: category).getDocuments()
             }
             snapshots?.documents.forEach{ snapshot in
-                //print(try? snapshot.data(as: MatePost.self))
+                print("데이터")
+                print("파싱함")
                 if let post = try? snapshot.data(as: MatePost.self){
                     newPosts.append(post)
                 }

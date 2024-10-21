@@ -12,22 +12,22 @@ struct HomeTabView: View {
         TabView {
             NavigationStack {
                 //Text("test")
-                //HomeView2()
-                HomeView()
-                
+                HomeView2()
             }
             .tabItem {
                 Text("Home")
                 Image(systemName: "house")
             }
             NavigationStack {
-                PetMapView()
+                PetPlaceView()
                     .environment(PetPlacesStore())
             }
-            .tabItem {
-                Text("Place")
-                Image(systemName: "map")
-            }
+
+                .tabItem {
+                    Text("Place")
+                    Image(systemName: "pawprint")
+                }
+
             ChatRoomListView()
                 .tabItem {
                     Text("Chat")

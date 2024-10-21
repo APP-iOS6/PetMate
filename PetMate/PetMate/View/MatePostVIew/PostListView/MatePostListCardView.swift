@@ -44,5 +44,5 @@ struct MatePostListCardView: View {
 }
 
 #Preview {
-    MatePostListCardView(pet: Pet(name: "애옹", description: "설명", age: 3, tag: ["활발해요", "예방 접종 완료", "중성화 완료"], breed: "포메", images: ["https://i.namu.wiki/i/u6RY6Cwfgl5LU3zbiqxbOzmRfe2IEeICXexXNykfzxwnhMwIvV8KddLNkUxyNyDQzBwtvD9swGszVOXM_A0UFw.webp"], ownerUid: "희철", category1: "dog", category2: "small", createdAt: .now, updatedAt: .now))
+    MatePostListCardView(pet: Pet(name: "애옹", description: "설명", age: 3, category1: "dog", category2: "small", tag: ["활발해요", "예방 접종 완료", "중성화 완료"], breed: "포메", images: ["https://i.namu.wiki/i/u6RY6Cwfgl5LU3zbiqxbOzmRfe2IEeICXexXNykfzxwnhMwIvV8KddLNkUxyNyDQzBwtvD9swGszVOXM_A0UFw.webp"], ownerUid: "희철", createdAt: .now, updatedAt: .now))
 }

@@ -16,13 +16,11 @@ struct PetProfileView: View {
         id: "1",
         name: "가디",
         description: "눈웃음이 매력입니다",
-        age: 3,
+        age: 3, category1: "강아지",
         tag: ["활발함", "사람 좋아요", "예방 접종 완료"],
         breed: "포메",
         images: ["gadiProfile"],
         ownerUid: "정원",
-        category1: "cat",
-        category2: "small",
         createdAt: Date(),
         updatedAt: Date()
     )
