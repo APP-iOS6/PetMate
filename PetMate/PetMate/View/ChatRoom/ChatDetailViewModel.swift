@@ -10,7 +10,7 @@ import FirebaseFirestore
 import Observation
 import FirebaseAuth
 
-@MainActor
+//@MainActor
 class ChatDetailViewModel: ObservableObject {
     
     var listener: ListenerRegistration?
@@ -245,7 +245,10 @@ class ChatDetailViewModel: ObservableObject {
             let chatRoomId = generateChatRoomId(userId1: userUid, userId2: otherUser.id ?? "")
             do {
                 try await createChatRoom(postId, otherUser: otherUser)
-                self.isCreateChatRoom = false
+                DispatchQueue.main.async {
+                    self.isCreateChatRoom = false
+                }
+                getPostData(postId)
                 uploadMessage(otherUser: otherUser, message: message)
                 observeChatList(chatRoomId, myUid: userUid)
             } catch {
@@ -320,12 +323,17 @@ class ChatDetailViewModel: ObservableObject {
         }
     }
     
-    func getPostData(_ postId: String) {
+    func getPostData(_ postId: String?) {
+        
+        guard let postId = postId else {
+            return
+        }
+        
         self.db.collection("MatePost").document(postId).getDocument(as: MatePost.self) { result in
             switch result {
             case let .success(post):
                 self.post = post
-            case let .failure(error):
+            case .failure(_):
                 print("포스트 가져오기 실패함")
             }
         }
