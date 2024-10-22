@@ -18,9 +18,11 @@ struct MatePostAddView: View {
         NavigationStack{
             VStack{
                 ProgressView(value: progress)
+                    .animation(.easeIn, value: progress)
                 switch progress{
                 case 0.5:
                     MatePostAddFirstView()
+                        .transition(.move(edge: .leading))
                         .toolbar {
                             ToolbarItem(placement: .confirmationAction) {
                                 Button{
@@ -39,6 +41,8 @@ struct MatePostAddView: View {
                         }
                 case 1.0:
                     MatePostAddSecondView()
+                        .transition(.move(edge: .trailing))
+                        .animation(.easeIn, value: progress)
                         .toolbar {
                             ToolbarItem(placement: .confirmationAction) {
                                 Button{
@@ -56,13 +60,14 @@ struct MatePostAddView: View {
                                 }
                             }
                         }
+                    
                 default:
                     Text("글작성 페이지에 문제가 있습니다.")
                     Button("나가기"){
                         dismiss()
                     }
                 }
-            }
+            }.animation(.easeIn, value: progress)
         }
     }
 }
