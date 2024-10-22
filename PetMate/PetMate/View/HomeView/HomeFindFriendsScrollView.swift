@@ -2,26 +2,25 @@
 //  HomeFindFriendsScrollView.swift
 //  PetMate
 //
-//  Created by 권희철 on 10/15/24.
+//  Created by Hyeonjeong Sim on 10/15/24.
 //
 
 import SwiftUI
 
 struct HomeFindFriendsScrollView: View {
+    @Bindable var viewModel: HomeViewViewModel
+
     var body: some View {
-        VStack(alignment: .leading){
-            Text("주댕찾")
-            ScrollView(.horizontal) {
-                LazyHStack{
-                    ForEach(1...10, id: \.self){ _ in
-                        HomeFindFriendCardView()
+        VStack(alignment: .leading) {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 18) {
+                    ForEach(viewModel.nearPets, id: \.self) { pet in
+                        HomeFindFriendCardView(pet: pet)
                     }
                 }
+                .padding(.horizontal, 30)
             }
         }
+        .padding(.bottom, 5)
     }
-}
-
-#Preview {
-    HomeFindFriendsScrollView()
 }
