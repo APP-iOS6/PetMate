@@ -18,16 +18,21 @@ struct MatePostAddView: View {
         NavigationStack{
             VStack{
                 ProgressView(value: progress)
+                    .animation(.easeIn, value: progress)
                 switch progress{
                 case 0.5:
                     MatePostAddFirstView()
+                        .transition(.move(edge: .leading))
                         .toolbar {
                             ToolbarItem(placement: .confirmationAction) {
                                 Button{
                                     progress = 1.0
                                 }label: {
                                     Text("다음")
-                                }
+                                }.disabled(postStore.location.isEmpty ||
+                                           postStore.startDate > postStore.endDate ||
+                                           postStore.cost.isEmpty
+                                )
                             }
                             ToolbarItem(placement: .cancellationAction) {
                                 Button{
@@ -39,6 +44,8 @@ struct MatePostAddView: View {
                         }
                 case 1.0:
                     MatePostAddSecondView()
+                        .transition(.move(edge: .trailing))
+                        .animation(.easeIn, value: progress)
                         .toolbar {
                             ToolbarItem(placement: .confirmationAction) {
                                 Button{
@@ -53,16 +60,20 @@ struct MatePostAddView: View {
                                     progress = 0.5
                                 }label:{
                                     Image(systemName: "chevron.left")
-                                }
+                                }.disabled(postStore.selectedPets.isEmpty ||
+                                           postStore.title.isEmpty ||
+                                           postStore.content.isEmpty
+                                )
                             }
                         }
+                    
                 default:
                     Text("글작성 페이지에 문제가 있습니다.")
                     Button("나가기"){
                         dismiss()
                     }
                 }
-            }
+            }.animation(.easeIn, value: progress)
         }
     }
 }

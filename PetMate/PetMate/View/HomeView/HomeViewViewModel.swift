@@ -17,6 +17,10 @@ class HomeViewViewModel {
     var myInfo: MateUser?
     var phase: Phase = .loading
     var nearPets: [Pet] = []
+    var isChatRoomExists = false
+    var petOwner: MateUser? = nil
+    var selectedChatUser: MateUser? = nil
+    var shouldNavigateToChat = false
     
     
     // 유저 정보를 땡겨와야 함 내 UID 정보
@@ -72,7 +76,24 @@ class HomeViewViewModel {
             print(error.localizedDescription)
         }
     }
-}
+    
+    // 펫 주인 정보
+    func fetchPetOwner(_ ownerUid: String) async {
+        do {
+            let document = try await db.collection("User").document(ownerUid).getDocument()
+            if let owner = try? document.data(as: MateUser.self) {
+                DispatchQueue.main.async {
+                    self.petOwner = owner
+                }
+            }
+        } catch {
+            print("펫 주인 정보를 가져오는데 실패했습니다: \(error.localizedDescription)")
+        }
+    }
+ }
+
+
+
 
 enum Phase {
     case loading
