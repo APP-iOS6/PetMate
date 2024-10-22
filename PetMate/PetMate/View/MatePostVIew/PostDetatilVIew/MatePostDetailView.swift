@@ -106,7 +106,7 @@ let dateFormatter: DateFormatter = {
     return formatter
 }()
 
-//#Preview{
-//    MatePostDetailView()
-//        .environment(MatePostStore())
-//}
+#Preview{
+    MatePostDetailView()
+        .environment(MatePostStore())
+}

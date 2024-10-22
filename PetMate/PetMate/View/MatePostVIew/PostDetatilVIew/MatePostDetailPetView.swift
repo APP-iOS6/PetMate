@@ -29,26 +29,34 @@ struct MatePostDetailPetView: View {
                 VStack(alignment: .leading){
                     HStack{
                         Text(pet.name)
-                            .font(.title)
+                            .font(.title2)
                             .fontWeight(.bold)
                         Text("\(pet.age)살")
-                            .font(.title3)
+                            .font(.headline)
                             .foregroundStyle(.secondary)
                         Spacer()
                     }
                     
-                    Text(pet.breed)
-                        .font(.caption)
+                    Text("📍\(pet.breed)")
+                        .font(.headline)
+                        .padding(.top,1)
+                        .foregroundColor(.secondary)
                 }
             }
             FlowLayout {
                 ForEach(pet.tag, id: \.self) { tag in
-                    TagToggle(tag: tag, isSelected: true){}
+                    Text(tag)
+                        .padding(8)
+                        .background(Color(red: 234/255, green: 199/255, blue: 199/255))
+                        .cornerRadius(30)
+                        .foregroundColor(.white)
+                        .font(.headline)
                 }
+                .bold()
             }
             
             VStack(alignment: .leading){
-                Text("나의 성격")
+                Text("펫의 성격")
                 ZStack(alignment: .topLeading){
                     RoundedRectangle(cornerRadius: 12)
                         .stroke(lineWidth: 0.9)
@@ -56,10 +64,12 @@ struct MatePostDetailPetView: View {
                         .frame(maxWidth: .infinity, maxHeight: 150)
                     Text(pet.description)
                         .padding()
+                        .font(.headline)
                 }
             }
         }
         .padding()
+        .frame(width: UIScreen.main.bounds.width - 50)
         .overlay {
             RoundedRectangle(cornerRadius: 12)
                 .stroke(style: StrokeStyle(lineWidth: 0.8))

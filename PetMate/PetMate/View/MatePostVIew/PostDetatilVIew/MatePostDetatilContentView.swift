@@ -21,30 +21,31 @@ struct MatePostDetatilContentView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 20){
             Text(post.title)
-                .font(.title2)
+                .font(.title3)
                 .fontWeight(.bold)
             Text(post.content)
+                .font(.headline)
             HStack(alignment: .bottom){
                 VStack(alignment: .leading, spacing: 20){
                     VStack(alignment: .leading){
                         Text("기간")
-                            .font(.title3)
+                            .font(.headline)
                             .fontWeight(.bold)
                             .foregroundStyle(.secondary)
                         Text("\(post.startDate, formatter: dateFormatter) ~")
-                            .font(.title2)
+                            .font(.headline)
                             .fontWeight(.bold)
                         Text("\(post.endDate, formatter: dateFormatter)")
-                            .font(.title2)
+                            .font(.headline)
                             .fontWeight(.bold)
                     }
                     VStack(alignment: .leading){
                         Text("메이트 비용")
-                            .font(.title3)
+                            .font(.headline)
                             .fontWeight(.bold)
                             .foregroundStyle(.secondary)
                         Text("\(post.cost)~")
-                            .font(.title2)
+                            .font(.headline)
                             .fontWeight(.bold)
                     }
                 }
