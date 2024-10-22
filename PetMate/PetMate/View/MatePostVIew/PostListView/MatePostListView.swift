@@ -31,7 +31,7 @@ struct MatePostListView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .onChange(of: selectedPetCategory1, { oldValue, newValue in
-                    postStore.getPosts(postCategory: selectedPostCategory, petCategory1: newValue, petCategory2: "")
+                    postStore.getPosts(postCategory: selectedPostCategory, petCategory1: newValue, petCategory2: selectedPetCategory2)
                 })
                 
                 Picker("동물 크기 카테고리", selection: $selectedPetCategory2) {
@@ -48,7 +48,7 @@ struct MatePostListView: View {
                 GeometryReader{ proxy in
                     ScrollView() {
                         LazyVGrid(
-                            columns: [GridItem(), GridItem()]) {
+                            columns: [GridItem(.flexible()), GridItem(.flexible())]) {
                                 ForEach(postStore.posts) {post in
                                     MatePostListCardView(post: post, proxy: proxy)
                                         .onTapGesture {
@@ -58,7 +58,7 @@ struct MatePostListView: View {
                                 }
                             }.padding(.horizontal)
                     }
-                }.padding(.horizontal, 10)
+                }.padding(.horizontal, 5)
             }
             .onAppear{
                 postStore.getPosts(postCategory: selectedPostCategory, petCategory1: selectedPetCategory1, petCategory2: selectedPetCategory2)
@@ -86,7 +86,7 @@ struct MatePostListView: View {
                         .pickerStyle(.menu)
                         .labelsHidden()
                         .onChange(of: selectedPostCategory, { oldValue, newValue in
-                            postStore.getPosts(postCategory: newValue, petCategory1: selectedPetCategory1, petCategory2: "")
+                            postStore.getPosts(postCategory: newValue, petCategory1: selectedPetCategory1, petCategory2: selectedPetCategory2)
                         })
                         Image(systemName: "chevron.down")
                             .font(.caption)

@@ -40,7 +40,7 @@ class MatePostStore{
     // MARK: - 파이어베이스에서 값을 가져오는 함수들
     //포스트 정보를 전부 불러오는 함수
     func getPosts(postCategory: String, petCategory1: String, petCategory2: String) {
-        print(postCategory, petCategory1, petCategory2)
+        //print(postCategory, petCategory1, petCategory2)
         let db = Firestore.firestore()
         var newPosts: [MatePost] = []
         //print("getPosts")
@@ -52,16 +52,15 @@ class MatePostStore{
                 .whereField("firstPet.category2", isEqualTo: petCategory2)
                 .getDocuments()
             snapshots?.documents.forEach{ snapshot in
+                print(snapshot.data())
+                print("------------dsad")
+                print(try? snapshot.data(as: MatePost.self))
                 if let post = try? snapshot.data(as: MatePost.self){
                     newPosts.append(post)
                 }
             }
-            if newPosts.isEmpty{
-                self.posts = newPosts
-            }else{
-                self.posts.removeAll()
-                self.posts = newPosts
-            }
+            self.posts = newPosts
+            
         }
     }
     

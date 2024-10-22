@@ -22,9 +22,9 @@ struct MatePostListCardView: View {
             AsyncImage(url: URL(string: post.firstPet.images.first ?? "")){ image in
                 image
                     .resizable()
-                    .frame(height: proxy.size.height * 0.5)
+                    .frame(height: proxy.size.height * 0.45)
                     .aspectRatio(1, contentMode: .fill)
-                    .frame(width: proxy.size.width * 0.5)
+                    .frame(width: proxy.size.width * 0.4)
             }placeholder:{
                 ProgressView()
             }
@@ -34,9 +34,10 @@ struct MatePostListCardView: View {
                 VStack(alignment: .leading){
                     HStack(alignment: .bottom){
                         Text("\(post.firstPet.category1 == "dog" ? "🐶" : post.firstPet.category1 == "cat" ?"🐱" : "🦄") \(post.firstPet.name)")
+                            .font(.none)
                         Text(post.firstPet.breed)
+                            .font(.caption)
                     }
-                    .font(.none)
                     .fontWeight(.bold)
                     Text("\(dateFormatter1.string(from: post.startDate)) ~ \(dateFormatter1.string(from: post.endDate))")
                     Text("\(post.category == "care" ? "돌봄" : "산책") 비용 : \(post.cost)")
@@ -51,7 +52,7 @@ struct MatePostListCardView: View {
             
         }
         .clipShape(.rect(cornerRadius: 12))
-        .frame(width: proxy.size.width * 0.5, height: proxy.size.height * 0.5)
+        .frame(width: proxy.size.width * 0.45, height: proxy.size.height * 0.4)
         .padding()
         
     }
