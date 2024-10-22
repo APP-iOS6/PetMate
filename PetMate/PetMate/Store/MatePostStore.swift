@@ -33,36 +33,34 @@ class MatePostStore{
     var selectedPets: Set<Pet> = []
     
     init() {
-//        getPosts()
+        //        getPosts()
         print("posts = \(posts)")
     }
     
     // MARK: - 파이어베이스에서 값을 가져오는 함수들
     //포스트 정보를 전부 불러오는 함수
-    func getPosts(category: String) {
+    func getPosts(postCategory: String, petCategory1: String, petCategory2: String) {
+        //print(postCategory, petCategory1, petCategory2)
         let db = Firestore.firestore()
         var newPosts: [MatePost] = []
-        print("getPosts")
+        //print("getPosts")
         Task{
             let snapshots: QuerySnapshot?
-            if category == "all"{
-                snapshots = try? await db.collection("MatePost").getDocuments()
-            }else{
-                snapshots = try? await db.collection("MatePost").whereField("category", isEqualTo: category).getDocuments()
-            }
+            snapshots = try? await db.collection("MatePost")
+                .whereField("category", isEqualTo: postCategory)
+                .whereField("firstPet.category1", isEqualTo: petCategory1)
+                .whereField("firstPet.category2", isEqualTo: petCategory2)
+                .getDocuments()
             snapshots?.documents.forEach{ snapshot in
-                print("데이터")
-                print("파싱함")
+                print(snapshot.data())
+                print("------------dsad")
+                print(try? snapshot.data(as: MatePost.self))
                 if let post = try? snapshot.data(as: MatePost.self){
                     newPosts.append(post)
                 }
             }
-            if newPosts.isEmpty{
-                self.posts = newPosts
-            }else{
-                self.posts.removeAll()
-                self.posts = newPosts
-            }
+            self.posts = newPosts
+            
         }
     }
     
@@ -125,7 +123,7 @@ class MatePostStore{
     func postMatePost() -> (){
         let db = Firestore.firestore()
         //let currentUser = Auth.auth().currentUser?.uid ?? ""
-        let currentUser: String = "9C5y1gDa39fsgeyCL4hnLDunAP82"
+        let currentUser: String = "희철"
         var petRefs: [DocumentReference] = []
         Array(selectedPets).forEach{
             guard let id = $0.id else { return }

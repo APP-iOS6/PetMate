@@ -15,7 +15,7 @@ struct MyPageTabView: View {
     var body: some View {
         NavigationStack {
             VStack(alignment: .center) {
-                UserProfileView(user: user)
+                UserProfileView()
                     .padding(.bottom, 30)
                 
                 // TODO: 옆으로 스와이프 해서 반려동물 추가 하는 기능
@@ -24,7 +24,7 @@ struct MyPageTabView: View {
                     Text("함께하는 반려동물")
                         .padding(.horizontal, 16)
                         .fontWeight(.bold)
-                    PetProfileView(mateUser: user)
+                    PetProfileView()
                 }
                 .padding()
                 .background(Color.gray.opacity(0.1))
