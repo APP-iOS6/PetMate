@@ -11,26 +11,25 @@ import MapKit
 struct PetMapView: View {
     
     @Environment(PetPlacesStore.self) private var placeStore
+    @ObservedObject private var locationManager = LocationManager.shared
     @Environment(\.dismiss) private var dismiss
     @State private var showPlaceCardView = false
-    @State private var selectedPlace: PlacePost? = nil // 선택된 장소를 저장하는 상태
+    @State private var selectedPlace: PlacePost? = nil
     
     var body: some View {
         ZStack(alignment: .topLeading) {
             GeometryReader { proxy in
-                Map {
+                Map(initialPosition: .region(MKCoordinateRegion(center: .convertUserLocationToCoordinate(x: placeStore.userLatitude , y: placeStore.userLongitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))) {
                     ForEach(placeStore.places) { place in
-                        Annotation("\(place.placeName)", coordinate: placeStore.convertGeoPointToCoordinate(geoPoint: place.location)) {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 5)
-                                    .fill(Color.yellow)
-                                Text("☕️")
-                                    .padding(5)
-                            }
-                            .onTapGesture(perform: {
-                                selectedPlace = place
-                                showPlaceCardView.toggle()
-                            })
+                        Annotation("\(place.placeName)", coordinate: .convertGeoPointToCoordinate(place.location)) {
+                            Image("etc2")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 25, height: 25)
+                                .onTapGesture(perform: {
+                                    selectedPlace = place
+                                    showPlaceCardView.toggle()
+                                })
                         }
                     }
                 }
@@ -44,8 +43,10 @@ struct PetMapView: View {
                         .clipShape(Circle())
                         .padding()
                 }
-                .onAppear {
-                    placeStore.fetchPlaces()
+                .onReceive(locationManager.$location) { location in
+                    if let location = location {
+                        placeStore.updateLocation(longitude: location.coordinate.longitude, latitude: location.coordinate.latitude)
+                    }
                 }
                 .overlay(
                     Group {
