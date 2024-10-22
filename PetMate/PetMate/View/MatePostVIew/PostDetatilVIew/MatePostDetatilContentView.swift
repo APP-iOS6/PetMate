@@ -19,32 +19,33 @@ struct MatePostDetatilContentView: View {
     }()
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 20){
+        VStack(alignment: .leading, spacing: 10){
             Text(post.title)
-                .font(.title2)
+                .font(.title3)
                 .fontWeight(.bold)
             Text(post.content)
+                .font(.headline)
             HStack(alignment: .bottom){
                 VStack(alignment: .leading, spacing: 20){
                     VStack(alignment: .leading){
                         Text("기간")
-                            .font(.title3)
-                            .fontWeight(.bold)
+                            .font(.headline)
                             .foregroundStyle(.secondary)
-                        Text("\(post.startDate, formatter: dateFormatter) ~")
-                            .font(.title2)
+                        Text("\(post.startDate, formatter: dateFormatter)")
+                            .font(.headline)
                             .fontWeight(.bold)
+                        Text("~")
+                            .font(.headline)
                         Text("\(post.endDate, formatter: dateFormatter)")
-                            .font(.title2)
+                            .font(.headline)
                             .fontWeight(.bold)
                     }
                     VStack(alignment: .leading){
                         Text("메이트 비용")
-                            .font(.title3)
-                            .fontWeight(.bold)
+                            .font(.headline)
                             .foregroundStyle(.secondary)
                         Text("\(post.cost)~")
-                            .font(.title2)
+                            .font(.headline)
                             .fontWeight(.bold)
                     }
                 }
@@ -54,9 +55,9 @@ struct MatePostDetatilContentView: View {
                     ZStack{
                         Circle()
                             .stroke(lineWidth: 0.3)
-                            .frame(width: 100)
+                            .frame(width: 70)
                         Text(post.category == "care" ? "돌봄" : "산책")
-                            .font(.title)
+                            .font(.title2)
                             .fontWeight(.bold)
                             .foregroundStyle(.brown)
                     }

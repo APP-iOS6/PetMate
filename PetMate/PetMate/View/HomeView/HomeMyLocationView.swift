@@ -14,13 +14,8 @@ struct HomeMyLocationView: View {
     var body: some View {
         HStack(alignment: .top) {
             VStack(alignment: .leading) {
-                Image("home_logo_image")
-                    .resizable()
-                    .frame(width: 124, height: 25)
-                    .padding(.bottom, 20)
-                
                 HStack {
-                    Text("📍\(myInfo?.location ?? "")")
+                    Text("📍\(myInfo?.location ?? "알 수 없음")")
                         .font(.subheadline)
                     
                     Text("지금 근처에 \(nearbyFriendsCount)명의 친구가 있어요")

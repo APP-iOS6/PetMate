@@ -27,8 +27,10 @@ struct ChatDetailView: View {
     
     var body: some View {
         VStack {
-            if viewModel.post != nil {
-                
+            if let post = viewModel.post {
+                Divider()
+                ChatPostView(post: post, otherUser: otherUser)
+                Divider()
             }
             ScrollView {
                 LazyVStack {
@@ -41,57 +43,7 @@ struct ChatDetailView: View {
                             .background(Color(UIColor.systemBackground))
                         
                         ForEach(section.chats, id: \.id) { chat in
-                            if chat.sender == otherUser.id {
-                                // 다른 사용자의 메시지 (왼쪽 정렬)
-                                HStack {
-                                    Text(chat.message)
-                                        .foregroundColor(.black)
-                                        .padding(.horizontal)
-                                        .padding(.vertical, 8)
-                                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                                        .overlay {
-                                            RoundedRectangle(cornerRadius: 12)
-                                                .stroke(Color.accentColor, lineWidth: 1)
-                                        }
-                                    Spacer()
-                                    
-                                }
-                                .padding(.horizontal)
-                            } else {
-                                // 내 메시지 (오른쪽 정렬)
-                                HStack {
-                                    Spacer()
-                                    
-                                    VStack {
-                                        if !chat.readBy.contains(where: { $0 == otherUser.id }) {
-                                            Text("1")
-                                                .transition(.opacity)
-                                                .font(.caption)
-                                                .foregroundStyle(Color.accentColor)
-                                                .padding(.top, 12)
-                                                .frame(maxWidth: .infinity,alignment: .trailing)
-                                        }
-                                        
-                                        Text(chat.createAt.formattedTime)
-                                            .font(.caption)
-                                            .foregroundStyle(.basic)
-                                            .frame(maxWidth: .infinity,alignment: .bottomTrailing)
-
-                                    }
-                                    .frame(maxHeight: .infinity, alignment: .bottom)
-                                    .animation(.smooth, value: chat.readBy)
-                                    
-                                    
-                                    Text(chat.message)
-                                        .bold()
-                                        .foregroundColor(.white)
-                                        .padding(.horizontal)
-                                        .padding(.vertical, 8)
-                                        .background(Color.accentColor)
-                                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                                }
-                                .padding(.horizontal)
-                            }
+                            ChatItemView(chat: chat, otherUser: otherUser)
                         }
                     }
                 }
@@ -144,7 +96,7 @@ struct ChatDetailView: View {
             UIApplication.shared.endEditing()
         }
         .onAppear {
-            viewModel.checkChatRoom(otherUser.id ?? "")
+            viewModel.checkChatRoom(otherUser.id ?? "", postId: postId)
             // 키보드가 내려갈 때 높이를 0으로 설정
             NotificationCenter.default.addObserver(forName: UIResponder.keyboardDidHideNotification, object: nil, queue: .main) { _ in
                 self.keyboardHeight = 0
@@ -156,6 +108,71 @@ struct ChatDetailView: View {
     }
 }
 
+
+struct ChatItemView: View {
+    
+    let chat: Chat
+    let otherUser: MateUser
+    
+    var body: some View {
+        if chat.sender == otherUser.id {
+            // 다른 사용자의 메시지 (왼쪽 정렬)
+            HStack {
+                Text(chat.message)
+                    .foregroundColor(.black)
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color.accentColor, lineWidth: 1)
+                    }
+                VStack(alignment: .leading) {
+                    Spacer()
+                    Text(chat.createAt.formattedTime)
+                        .font(.caption)
+                }
+                Spacer()
+                
+            }
+            .padding(.horizontal)
+        } else {
+            // 내 메시지 (오른쪽 정렬)
+            HStack {
+                Spacer()
+                
+                VStack {
+                    if !chat.readBy.contains(where: { $0 == otherUser.id }) {
+                        Text("1")
+                            .transition(.opacity)
+                            .font(.caption)
+                            .foregroundStyle(Color.accentColor)
+                            .padding(.top, 12)
+                            .frame(maxWidth: .infinity,alignment: .trailing)
+                    }
+                    
+                    Text(chat.createAt.formattedTime)
+                        .font(.caption)
+                        .foregroundStyle(.basic)
+                        .frame(maxWidth: .infinity,alignment: .bottomTrailing)
+                    
+                }
+                .frame(maxHeight: .infinity, alignment: .bottom)
+                .animation(.smooth, value: chat.readBy)
+                
+                
+                Text(chat.message)
+                    .bold()
+                    .foregroundColor(.white)
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+                    .background(Color.accentColor)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+            }
+            .padding(.horizontal)
+        }
+    }
+}
 
 extension UIApplication {
     func endEditing() {

@@ -10,7 +10,7 @@ import FirebaseFirestore
 import Observation
 import FirebaseAuth
 
-@MainActor
+//@MainActor
 class ChatDetailViewModel: ObservableObject {
     
     var listener: ListenerRegistration?
@@ -62,7 +62,7 @@ class ChatDetailViewModel: ObservableObject {
     }
     
     //채팅 디테일 뷰에 입장할 때 채팅방 데이터가 있는지 확인하고 그에 따라 리스너와 업데이트를 실행시키는 함수
-    func checkChatRoom(_ otherUserUid: String) {
+    func checkChatRoom(_ otherUserUid: String, postId: String?) {
         
         guard let userUid = Auth.auth().currentUser?.uid else {
             print("로그인 하고 와")
@@ -75,7 +75,8 @@ class ChatDetailViewModel: ObservableObject {
             if await checkExistChatRoom(chatRoomId) {
                 //TODO: 채팅방이 존재 하면 해당 채팅방의 서브 컬렉션 Message 리스너 그냥 달아주기
                 print("채팅방이 존재해요 ㅋ")
-                self.chatRoomInfo = await getChatRoomData(chatRoomId) //현재 채팅룸에 대한 정보를 가져옴
+                self.chatRoomInfo = await getChatRoomData(chatRoomId, postId: postId) //현재 채팅룸에 대한 정보를 가져옴
+                self.getPostData(chatRoomInfo?.postId)
                 self.observeChatList(chatRoomId, myUid: userUid) //채팅 오는거 옵저하기 위한 함수
                 self.updateAllMessagesAsRead(chatRoomId) //채팅 방에 입장했으면 안읽은 메시지 읽음 처리 해야 함
             } else {
@@ -125,9 +126,18 @@ class ChatDetailViewModel: ObservableObject {
     }
     
     //채팅방의 데이터를 가져오는 함수
-    func getChatRoomData(_ chatRoomId: String) async -> ChatRoom? {
+    func getChatRoomData(_ chatRoomId: String, postId: String? = nil) async -> ChatRoom? {
         do {
-            return try await self.db.collection("Chat").document(chatRoomId).getDocument(as: ChatRoom.self)
+            
+            var chatRoom =  try await self.db.collection("Chat").document(chatRoomId).getDocument(as: ChatRoom.self)
+            if let postId = postId {
+                if chatRoom.postId != postId {
+                    print("챗룸 포스트 아이디 업데이트해야함")
+                    try await self.db.collection("Chat").document(chatRoomId).updateData(["postId": postId])
+                }
+            }
+            chatRoom.id = postId
+            return chatRoom
         } catch {
             return nil
         }
@@ -245,7 +255,10 @@ class ChatDetailViewModel: ObservableObject {
             let chatRoomId = generateChatRoomId(userId1: userUid, userId2: otherUser.id ?? "")
             do {
                 try await createChatRoom(postId, otherUser: otherUser)
-                self.isCreateChatRoom = false
+                DispatchQueue.main.async {
+                    self.isCreateChatRoom = false
+                }
+                getPostData(postId)
                 uploadMessage(otherUser: otherUser, message: message)
                 observeChatList(chatRoomId, myUid: userUid)
             } catch {
@@ -318,6 +331,23 @@ class ChatDetailViewModel: ObservableObject {
         } catch {
             throw error
         }
+    }
+    
+    func getPostData(_ postId: String?) {
+        
+        guard let postId = postId else {
+            print("포스트 없음")
+            return
+        }
+        self.db.collection("MatePost").document(postId).getDocument(as: MatePost.self) { result in
+            switch result {
+            case let .success(post):
+                self.post = post
+            case .failure(_):
+                print("포스트 가져오기 실패함")
+            }
+        }
+        
     }
     
 }
