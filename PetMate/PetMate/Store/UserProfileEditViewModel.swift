@@ -4,67 +4,135 @@
 //
 //  Created by Mac on 10/21/24.
 //
-
 import SwiftUI
 import FirebaseFirestore
 import FirebaseAuth
-import Combine
+import FirebaseStorage
+import PhotosUI
 
-final class UserProfileEditViewModel: ObservableObject {
-    @Published var nickname: String = ""
-    @Published var address: String = ""
-    @Published var profileImage: Image? = nil  // 이미지 선택 상태
-    @Published var isImagePickerPresented = false
-    @Published var isSearchModal: Bool = false  // 주소 선택 모달 표시 여부
-    
-    private var cancellables = Set<AnyCancellable>()
+@Observable
+final class UserProfileEditViewModel {
+    var nickname: String = ""
+    var address: String = ""
+    var profileImage: UIImage? = nil
+    var isImagePickerPresented = false
+    var isSearchModal: Bool = false
     var mateUser: MateUser
+    private let storageRef = Storage.storage().reference()
+    private let db = Firestore.firestore()
     
     init(mateUser: MateUser) {
         self.mateUser = mateUser
         self.nickname = mateUser.name
         self.address = mateUser.location
+        self.loadProfileImage()
     }
-    
-    // Firestore에 사용자 프로필 업데이트
-    func updateUserProfile(completion: @escaping (Bool) -> Void) {
+
+    private func loadProfileImage() {
         guard let userUID = Auth.auth().currentUser?.uid else {
             print("User is not logged in.")
-            completion(false)
             return
         }
 
-        let userRef = Firestore.firestore().collection("User").document(userUID)
+        let storageRef = storageRef.child("User/\(userUID)/profile_image.jpg")
 
-        let updatedData: [String: Any] = [
-            "name": nickname,
-            "location": address,
-            "image": profileImage?.toBase64() ?? "",  // 이미지 데이터를 Base64로 저장
-            "updatedAt": Date()
-        ]
-
-        userRef.updateData(updatedData) { error in
+        storageRef.downloadURL { [weak self] url, error in
+            guard let self = self else { return }
+            
             if let error = error {
-                print("Error updating user profile: \(error.localizedDescription)")
-                completion(false)
+                print("Error downloading image URL: \(error.localizedDescription)")
+                return
+            }
+            
+            if let url = url {
+                URLSession.shared.dataTask(with: url) { data, response, error in
+                    if let error = error {
+                        print("Error downloading image data: \(error.localizedDescription)")
+                        return
+                    }
+                    
+                    if let data = data, let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self.profileImage = image
+                        }
+                    }
+                }.resume()
+            }
+        }
+    }
+    // 필수 항목 알람
+    func validateNickname() -> String? {
+        let trimmedNickname = nickname.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if trimmedNickname.isEmpty {
+            return "닉네임은 필수 항목입니다."
+        } else if trimmedNickname.count < 4 || trimmedNickname.count > 10 {
+            return "닉네임은 4~10자 이내여야 합니다."
+        } else if !isValidNickname(trimmedNickname) {
+            return "닉네임은 공백,특수문자,단일모음을 포함할 수 없습니다."
+        } else if address.isEmpty {
+            return "주소는 필수 항목입니다."
+    }
+    
+    return nil
+}
+
+    private func isValidNickname(_ nickname: String) -> Bool {
+        let validCharacterSet = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789가나다라마바사아자차카타파하")
+        return nickname.rangeOfCharacter(from: validCharacterSet.inverted) == nil
+    }
+
+    func uploadImage(_ image: UIImage) async throws -> String {
+        guard let imageData = image.jpegData(compressionQuality: 0.2) else {
+            throw UploadImageError.invalidImageData
+        }
+
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpeg"
+        
+        do {
+            let userUID = Auth.auth().currentUser?.uid ?? "unknown_user"
+            let ref = storageRef.child("User/\(userUID)/profile_image.jpg")
+            _ = try await ref.putDataAsync(imageData, metadata: metaData)
+            return try await ref.downloadURL().absoluteString
+        } catch {
+            throw UploadImageError.uploadError
+        }
+    }
+    
+    @MainActor
+    func saveProfile() {
+        let userUID = Auth.auth().currentUser?.uid ?? "unknown_user"
+        let userProfileData: [String: Any] = [
+            "nickname": self.nickname,
+            "address": self.address,
+            "profileImage": self.profileImage?.jpegData(compressionQuality: 0.2)?.base64EncodedString() ?? ""
+        ]
+        
+        db.collection("users").document(userUID).setData(userProfileData) { error in
+            if let error = error {
+                print("Error saving profile: \(error.localizedDescription)")
             } else {
-                print("User profile successfully updated.")
-                completion(true)
+                print("Profile saved successfully!")
             }
         }
     }
     
-    // 주소 선택 시 호출되는 메서드
-    func updateAddress(with address: String) {
-        self.address = address
-        self.isSearchModal = false  // 주소 선택 후 모달 닫기
-    }
-}
-
-// 이미지 데이터를 Base64로 변환하는 확장
-extension Image {
-    func toBase64() -> String {
-        // 이미지를 Base64로 변환하는 로직 추가 (예: UIImage 변환 후 Base64 인코딩)
-        return ""
+    @MainActor
+    func convertPickerItemToImage(_ item: PhotosPickerItem?) {
+        guard let item = item else { return }
+        
+        Task {
+            do {
+                if let imageData = try await item.loadTransferable(type: Data.self),
+                   let image = UIImage(data: imageData) {
+                    self.profileImage = image
+                } else {
+                    print("Failed to load image.")
+                }
+            } catch {
+                print("Error loading image: \(error.localizedDescription)")
+            }
+        }
     }
 }

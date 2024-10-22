@@ -4,45 +4,58 @@
 //
 //  Created by Mac on 10/21/24.
 //
+
 import SwiftUI
+import PhotosUI
 
 struct UserProfileEditView: View {
-    @ObservedObject var viewModel: UserProfileEditViewModel
-    @Environment(\.presentationMode) var presentationMode  // 이전 페이지로 돌아가기
+    @State var viewModel: UserProfileEditViewModel
+    @Environment(\.presentationMode) var presentationMode
+    @State private var selectedItem: PhotosPickerItem?
+    @State private var isPickerPresented = false
+    @State private var showAlert = false
+    @State private var alertMessage = ""
+
 
     var body: some View {
         NavigationView {
             VStack {
                 // 프로필 이미지 섹션
                 ZStack(alignment: .bottomTrailing) {
-                    // 프로필 이미지가 있으면 해당 이미지를 보여주고, 없으면 기본 아이콘을 표시
-                    (viewModel.profileImage ?? Image(systemName: "person.circle.fill"))
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
-                        .clipShape(Circle())
-                        .foregroundColor(.gray.opacity(0.3))
-                        .onTapGesture {
-                            viewModel.isImagePickerPresented = true
-                        }
-                        .sheet(isPresented: $viewModel.isImagePickerPresented) {
-                            ImagePicker(image: $viewModel.profileImage)
-                        }
-
-                    // 카메라 아이콘 (이미지가 없을 때만 표시)
-                    if viewModel.profileImage == nil {
+                    if let profileImage = viewModel.profileImage {
+                        Image(uiImage: profileImage)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
+                            .clipShape(Circle())
+                            .foregroundColor(.gray.opacity(0.3))
+                            .onTapGesture {
+                                selectedItem = nil
+                            }
+                    } else {
+                        // 프로필 이미지가 없을 경우 사람 아이콘과 카메라 아이콘 표시
+                        Image(systemName: "person.circle.fill")
+                            .resizable()
+                            .scaledToFill()
+                            .foregroundColor(.gray.opacity(0.3))
+                            .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
+                            .clipShape(Circle())
+                            .onTapGesture {
+                                isPickerPresented = true
+                            }
+                        
                         Image(systemName: "camera.circle")
                             .font(.system(size: UIScreen.main.bounds.width * 0.08))
-                            .foregroundColor(.gray)
+                            .foregroundColor(.gray.opacity(0.4))
                             .padding(.trailing, -UIScreen.main.bounds.width * 0.03)
                             .padding(.bottom, -UIScreen.main.bounds.width * 0.02)
-                            .opacity(0.30)
+                            .foregroundColor(.gray.opacity(0.3))
                             .onTapGesture {
-                                viewModel.isImagePickerPresented = true
+                                isPickerPresented = true
                             }
                     }
-
-                    // 이미지가 있는 경우에만 X 아이콘 표시
+                    
+                    // 프로필 이미지가 있을 때 삭제 버튼 표시
                     if viewModel.profileImage != nil {
                         Image(systemName: "xmark.circle.fill")
                             .font(.system(size: UIScreen.main.bounds.width * 0.06))
@@ -50,7 +63,7 @@ struct UserProfileEditView: View {
                             .padding(.trailing, -UIScreen.main.bounds.width * 0.02)
                             .padding(.bottom, UIScreen.main.bounds.width * 0.18)
                             .onTapGesture {
-                                viewModel.profileImage = nil  // 이미지 삭제
+                                viewModel.profileImage = nil // 이미지 삭제
                             }
                     }
                 }
@@ -80,7 +93,7 @@ struct UserProfileEditView: View {
                             .font(.headline)
                     }
                     .padding(.top, UIScreen.main.bounds.height * 0.01)
-                    
+
                     TextField("닉네임을 입력하세요 (4-10자)", text: $viewModel.nickname)
                         .padding(.vertical, UIScreen.main.bounds.height * 0.01)
                         .overlay(
@@ -91,7 +104,7 @@ struct UserProfileEditView: View {
                                     .foregroundColor(.gray)
                             }
                         )
-                    
+
                     if viewModel.nickname.isEmpty {
                         Text("펫메이트 닉네임 설정은 필수입니다.")
                             .font(.caption)
@@ -111,7 +124,7 @@ struct UserProfileEditView: View {
                             .font(.headline)
                             .foregroundColor(.red)
                     }
-                    
+
                     // 주소 선택 버튼
                     Button(action: {
                         viewModel.isSearchModal.toggle()  // 주소 선택 모달 토글
@@ -129,14 +142,14 @@ struct UserProfileEditView: View {
                                             .foregroundColor(.gray)
                                     }
                                 )
-                            
+
                             // 아래 화살표
                             Image(systemName: "chevron.down")
                                 .foregroundColor(.gray)
                                 .padding(.leading, 8)
                         }
                     }
-                    
+
                     if viewModel.address.isEmpty {
                         Text("주소 입력은 필수입니다.")
                             .font(.caption)
@@ -148,7 +161,15 @@ struct UserProfileEditView: View {
 
                 // 저장 버튼
                 Button(action: {
-                    saveProfile()
+                    if let nicknameError = viewModel.validateNickname() {
+                        alertMessage = nicknameError
+                        showAlert = true
+                    } else if viewModel.address.isEmpty {
+                        alertMessage = "주소는 필수 항목입니다."
+                        showAlert = true
+                    } else {
+                        viewModel.saveProfile()
+                    }
                 }) {
                     Text("저장")
                         .foregroundColor(.white)
@@ -158,6 +179,13 @@ struct UserProfileEditView: View {
                         .cornerRadius(8)
                         .padding(.horizontal, UIScreen.main.bounds.width * 0.06)
                 }
+                .padding(.bottom, UIScreen.main.bounds.height * 0.05)
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("필수 항목 누락"),
+                          message: Text(alertMessage),
+                          dismissButton: .default(Text("확인")))
+                }
+
                 .padding(.bottom, UIScreen.main.bounds.height * 0.05)
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -176,21 +204,19 @@ struct UserProfileEditView: View {
                         .bold()
                 }
             }
+            .photosPicker(
+                isPresented: $isPickerPresented,
+                selection: $selectedItem,
+                matching: .images,
+                photoLibrary: .shared()
+            )
+            .onChange(of: selectedItem) { newItem in
+                viewModel.convertPickerItemToImage(newItem)
+            }
             .sheet(isPresented: $viewModel.isSearchModal) {
                 SearchAddressModal { selectedAddress in
                     viewModel.address = selectedAddress
                 }
-            }
-        }
-    }
-
-    private func saveProfile() {
-        viewModel.updateUserProfile { success in
-            if success {
-                print("프로필 업데이트 성공")
-                presentationMode.wrappedValue.dismiss()
-            } else {
-                print("프로필 업데이트 실패")
             }
         }
     }
