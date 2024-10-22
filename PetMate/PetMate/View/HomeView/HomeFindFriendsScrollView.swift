@@ -20,7 +20,7 @@ struct HomeFindFriendsScrollView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 20) {
                     ForEach(viewModel.nearPets, id: \.self) { pet in
-                        HomeFindFriendCardView(pet: pet)
+                        HomeFindFriendCardView(pet: pet, viewModel: viewModel)
                     }
                 }
                 .padding(.horizontal, 33)
