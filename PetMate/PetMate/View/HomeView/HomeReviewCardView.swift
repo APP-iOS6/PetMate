@@ -63,7 +63,7 @@ struct HomeReviewCardView: View {
             }
             .padding(13)
         }
-        .frame(width: 340, height: 110)
+        .frame(width: 340, height: 116)
     }
 }
 
