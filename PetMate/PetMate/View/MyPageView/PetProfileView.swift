@@ -30,7 +30,7 @@ struct PetProfileView: View {
                                             .stroke(Color.gray, lineWidth: 1)
                                     )
                             } placeholder: {
-                                Image("placeholder")
+                                Image("")
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 70, height: 70)
@@ -40,16 +40,6 @@ struct PetProfileView: View {
                                             .stroke(Color.gray, lineWidth: 1)
                                     )
                             }
-                            .onTapGesture {
-                                isShowingEditPetProfile = true
-                            }
-                            Text("편집")
-                                .font(.caption)
-                                .padding(4)
-                                .background(Color.black.opacity(0.7))
-                                .foregroundColor(.white)
-                                .clipShape(Capsule())
-                                .padding(.bottom, 4)
                         }
                         .sheet(isPresented: $isShowingEditPetProfile) {
                             PetProfileEditView()

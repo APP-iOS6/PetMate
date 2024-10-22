@@ -26,7 +26,7 @@ struct UserProfileView: View {
                                         .stroke(Color(.systemGray2), lineWidth: 1)
                                 )
                         } placeholder: {
-                            Image("placeholder")
+                            Image("")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 80, height: 80)
