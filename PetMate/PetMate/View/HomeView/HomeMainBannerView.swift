@@ -2,7 +2,7 @@
 //  HomeMainBannerView.swift
 //  PetMate
 //
-//  Created by 권희철 on 10/15/24.
+//  Created by Hyeonjeong Sim on 10/15/24.
 //
 
 import SwiftUI
