@@ -39,4 +39,11 @@ extension Date {
         formatter.dateFormat = "a h:mm" // 예: 오후 3시 45분
         return formatter.string(from: self)
     }
+    
+    var formattedDate: String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR") // 한국어 로케일 설정
+        formatter.dateFormat = "MM/dd" // 예: 10/16
+        return formatter.string(from: self)
+    }
 }
