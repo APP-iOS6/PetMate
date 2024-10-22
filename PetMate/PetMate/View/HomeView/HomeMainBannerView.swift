@@ -9,17 +9,41 @@ import SwiftUI
 
 struct HomeMainBannerView: View {
     
-    var imageUrl: URL = URL(string:"https://www.dutch.com/cdn/shop/articles/shutterstock_1898629669.jpg?v=1697090094")!
+    @State private var currentPage = 0
+    // 광고배너
+    private let images = ["Advertising_banner", "homebanner"]
+    
+    let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
     
     var body: some View {
-        VStack{
-            AsyncImage(url: imageUrl){ image in
-                image.image?.resizable()
-                    .scaledToFit()
+        ZStack(alignment: .bottom) {
+            TabView(selection: $currentPage) {
+                ForEach(images.indices, id: \.self) { index in
+                    Image(images[index])
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 360, height: 140)
+                        .tag(index)
+                }
             }
+            .frame(width: 360, height: 140)
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .onReceive(timer) { _ in
+                withAnimation {
+                    currentPage = (currentPage + 1) % images.count
+                }
+            }
+            
+            // 커스텀 페이지 컨트롤러
+            HStack(spacing: 5) {
+                ForEach(images.indices, id: \.self) { index in
+                    Circle()
+                        .fill(index == currentPage ? Color.brown : Color.gray.opacity(0.3))
+                        .frame(width: 8, height: 8)
+                }
+            }
+            .padding(.bottom, 5)
         }
-        .frame(maxWidth: .infinity, maxHeight: 200)
-        .border(.gray)
     }
 }
 

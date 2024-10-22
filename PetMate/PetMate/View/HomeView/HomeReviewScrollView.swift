@@ -10,17 +10,20 @@ import SwiftUI
 struct HomeReviewScrollView: View {
     var body: some View {
         VStack(alignment: .leading) {
-            Text("[매탄동] 메이트 후기가 궁금해요!")
+            Text("메이트 후기가 궁금해요!")
                 .font(.headline)
-                .padding(.horizontal, 30)
+                .padding(.horizontal, 33)
+                .padding(.bottom, 5)
             
             ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 16) {
-                    ForEach(1...10, id: \.self) { _ in
+                HStack(spacing: 20) {
+                    ForEach(0..<3, id: \.self) { _ in
                         HomeReviewCardView()
+                            .padding(.vertical, 5)
                     }
                 }
-                .padding(.horizontal, 28)
+                .padding(.leading,1)
+                .padding(.horizontal, 33)
             }
         }
         .padding(.bottom, 5)
