@@ -12,7 +12,7 @@ import FirebaseAuth
 
 @Observable
 @MainActor
-class ChatRoomListViewModel: ObservableObject {
+class ChatRoomListViewModel {
     
     
     let db = Firestore.firestore()
