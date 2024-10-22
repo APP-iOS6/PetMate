@@ -83,11 +83,19 @@ struct PetProfileView: View {
             }
             
             VStack(alignment: .leading, spacing: 6) {
+                // 태그(파베: tag: [String]) 띄우기
+                HStack {
+                    ForEach(dummyPet.tag, id: \.self) { tag in
+                        TagView(text: tag)
+                    }
+                }
+                .padding(.bottom, 10)
+                
+                // 설명글
                 Text("나의 성격")
                     .font(.system(size: 12))
                     .foregroundColor(.gray)
-                
-                // 설명글
+            
                 ZStack(alignment: .topLeading) {
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(Color.gray.opacity(0.4), lineWidth: 1)
@@ -100,14 +108,6 @@ struct PetProfileView: View {
                         .font(.system(size: 14))
                         .padding(8)
                 }
-                
-                // 태그(파베: tag: [String]) 띄우기
-                HStack {
-                    ForEach(dummyPet.tag, id: \.self) { tag in
-                        TagView(text: tag)
-                    }
-                }
-                .padding(.top, 8)
             }
             .padding(.top, 4)
             Spacer()

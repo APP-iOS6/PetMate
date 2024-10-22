@@ -62,33 +62,15 @@ struct UserProfileView: View {
                         .foregroundColor(.black)
                     
                     // 소개글 편집
-                    if isEditingIntroduction {
-                        TextField("소개", text: $introduction, onCommit: {
-                            isEditingIntroduction = false
-                        })
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal)
-                    } else {
-                        Text(introduction)
-                            .foregroundColor(.gray)
-                            .onTapGesture {
-                                isEditingIntroduction = true
-                            }
-                    }
+                    
                 }
             }
             
             HStack {
-                Text("뼈다구 점수 ")
+                Text("쩰리 점수 ")
                     .font(.system(size: 14))
                     .foregroundStyle(.gray)
-                Text("🦴🦴🦴🦴🦴")
-            }
-            
-            HStack {
-                Text("친구목록 ")
-                    .font(.system(size: 14))
-                    .foregroundStyle(.gray)
+                Text("")
             }
         }
         .padding()
