@@ -23,12 +23,12 @@ struct UserProfileView: View {
                                 .clipShape(Circle())
                                 .overlay(
                                     Circle()
-                                        .stroke(Color.gray, lineWidth: 1)
+                                        .stroke(Color(.systemGray2), lineWidth: 1)
                                 )
                         } placeholder: {
                             Image("placeholder")
                                 .resizable()
-                                .scaledToFill()
+                                .scaledToFit()
                                 .frame(width: 80, height: 80)
                                 .clipShape(Circle())
                                 .overlay(
