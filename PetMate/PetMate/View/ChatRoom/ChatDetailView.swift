@@ -127,6 +127,11 @@ struct ChatItemView: View {
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(Color.accentColor, lineWidth: 1)
                     }
+                VStack(alignment: .leading) {
+                    Spacer()
+                    Text(chat.createAt.formattedTime)
+                        .font(.caption)
+                }
                 Spacer()
                 
             }
