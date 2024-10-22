@@ -10,6 +10,12 @@ import CoreLocation
 import Combine
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+   
+    static let shared = LocationManager()
+    
+    var userLongtitude: Double?
+    var userLatitude: Double?
+    
     @Published var location: CLLocation?
     @Published var authorizationStatus: CLAuthorizationStatus
     
@@ -29,7 +35,11 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        location = locations.first
+        DispatchQueue.main.async {
+            self.location = locations.first
+            self.userLongtitude = self.location?.coordinate.longitude
+            self.userLatitude = self.location?.coordinate.latitude
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -37,9 +47,11 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        self.authorizationStatus = manager.authorizationStatus
-        if authorizationStatus == .authorizedWhenInUse || authorizationStatus == .authorizedAlways {
-            locationManager.requestLocation()
+        DispatchQueue.main.async {
+            self.authorizationStatus = manager.authorizationStatus
+            if self.authorizationStatus == .authorizedWhenInUse || self.authorizationStatus == .authorizedAlways {
+                self.locationManager.requestLocation()
+            }
         }
     }
 }

@@ -71,6 +71,36 @@ struct SubmitPlaceView: View {
                     .foregroundColor(.gray)
             }
             .padding(.horizontal)
+            
+            Button(action: {
+                placeStore.addPlace(
+                    writeUser: UUID().uuidString,
+                    title: title,
+                    content: content,
+                    address: placeStore.selectedPlace?.address_name ?? "",
+                    placeName: placeStore.selectedPlace?.place_name ?? "",
+                    isParking: true,
+                    latitude: Double(placeStore.selectedPlace?.y ?? "0")! ,
+                    longitude: Double(placeStore.selectedPlace?.x ?? "0")! ,
+                    geoHash: ""
+                ) { success in
+                    if success {
+                        placeStore.fetchPlaces()
+                        dismiss()
+                    } else {
+                        print("Failed to add place")
+                    }
+                }
+            }){
+                Text("저장")
+                    .font(.headline)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.brown)
+                    .foregroundColor(.white)
+                    .clipShape(.rect(cornerRadius: 20))
+            }
+            .padding()
             Spacer()
         }
     }
