@@ -48,10 +48,10 @@ struct PetPlaceView: View {
                 }
             }
             .onAppear {
+                placeStore.fetchPlaces()
                 if locationManager.authorizationStatus == .authorizedWhenInUse || locationManager.authorizationStatus == .authorizedAlways {
                     if let location = locationManager.location {
                         placeStore.updateLocation(longitude: location.coordinate.longitude, latitude: location.coordinate.latitude)
-                        print("&*\(placeStore.userLongitude ?? 20.0) \(placeStore.userLatitude ?? 20.0)")
                     }
                 }
             }
