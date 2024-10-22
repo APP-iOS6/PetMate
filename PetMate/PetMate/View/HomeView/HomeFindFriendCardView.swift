@@ -9,10 +9,10 @@ import SwiftUI
 
 struct HomeFindFriendCardView: View {
     let pet: Pet
+    @State private var showingDetail = false
     
     var body: some View {
         VStack {
-            // 주댕찾 펫 이미지
             AsyncImage(url: URL(string: pet.images.first ?? "")) { phase in
                 switch phase {
                 case .empty, .failure:
@@ -36,7 +36,6 @@ struct HomeFindFriendCardView: View {
                 .frame(width: 80)
                 .background(Color.gray)
             
-            // 주댕찾 펫 이름
             Text(pet.name)
                 .font(.system(size: 14, weight: .bold))
                 .lineLimit(1)
@@ -47,5 +46,13 @@ struct HomeFindFriendCardView: View {
         .clipShape(RoundedRectangle(cornerRadius: 12))
         .shadow(color: Color.gray.opacity(1), radius: 0.5, x: 0, y: 0)
         .padding(.vertical, 5)
+        
+        .onTapGesture {
+            showingDetail = true
+        }
+        .sheet(isPresented: $showingDetail) {
+            HomeFindFriendCardDetailView(pet: pet)
+                .presentationDetents([.fraction(0.5)])
+        }
     }
 }

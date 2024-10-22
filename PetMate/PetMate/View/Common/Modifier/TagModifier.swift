@@ -13,13 +13,21 @@ struct TagModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .bold()
-            .font(.caption)
-            .padding(.horizontal, 8)
-            .padding(.vertical)
-            .background(selected ? .petTag : Color(uiColor: .systemGray6))
-            .foregroundStyle(selected ? .white : .petTag)
-            .clipShape(.rect(cornerRadius: 32))
+            .font(.system(size: 12, weight: .bold))
+            .frame(width: 70, height: 30)
+            .background(selected ? Color.petTag : Color(uiColor: .systemGray6))
+            .foregroundColor(selected ? .white : .petTag)
+            .cornerRadius(15)
+            .overlay(
+                RoundedRectangle(cornerRadius: 15)
+                    .stroke(Color(uiColor: .systemGray4), lineWidth: selected ? 0 : 1)
+            )
+    }
+}
+
+extension View {
+    func tagStyle(selected: Bool) -> some View {
+        self.modifier(TagModifier(selected: selected))
     }
 }
 
