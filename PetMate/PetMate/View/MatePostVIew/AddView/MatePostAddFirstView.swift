@@ -9,7 +9,10 @@ import SwiftUI
 
 struct MatePostAddFirstView: View {
     @Environment(MatePostStore.self) var postStore
+    
+    @State var isPresent: Bool = false
     var category = ["산책, 돌봄"]
+    
     var body: some View {
         @Bindable var postStore = postStore
         
@@ -26,11 +29,33 @@ struct MatePostAddFirstView: View {
             VStack(alignment: .leading){
                 Text("동네 선택")
                     .font(.title2)
-                TextField("동", text: $postStore.location)
-                    .padding()
-                    .overlay(Capsule(style: .circular)
-                        .stroke(lineWidth: 1)
-                        .foregroundStyle(.secondary))
+                HStack {
+                    Text(postStore.location.isEmpty ? "서울시 마포구" : postStore.location)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundStyle(postStore.location.isEmpty ? .secondary : .primary)
+                    
+                    Button {
+                        isPresent.toggle()
+                    } label: {
+                        Text("검색")
+                            .padding(.horizontal)
+                            .padding(.vertical, 6)
+                            .foregroundStyle(Color.accentColor)
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 3)
+                                    .stroke(Color.accentColor, lineWidth: 1)
+                            }
+                    }
+                    
+                }
+                Divider()
+                    .frame(maxWidth: .infinity)
+                    .padding(.bottom, 1)
+            }
+            .sheet(isPresented: $isPresent) {
+                SearchAddressModal { district in
+                    self.postStore.location = district
+                }
             }
             
             VStack(alignment: .leading){
