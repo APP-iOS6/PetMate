@@ -130,6 +130,6 @@ struct PetProfileView: View {
     }
 }
 
-#Preview {
-    PetProfileView()
-}
+//#Preview {
+//    PetProfileView()
+//}

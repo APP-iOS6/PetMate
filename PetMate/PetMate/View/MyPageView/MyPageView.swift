@@ -7,15 +7,14 @@
 
 import SwiftUI
 
-struct MyPageTabView: View {
+struct MyPageView: View {
     
     @Environment(AuthManager.self) var authManager
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 20) {
                 UserProfileView()
-                
                 Text("함께하는 반려동물")
                     .fontWeight(.bold)
                     .padding(.leading, 15)
@@ -36,6 +35,6 @@ struct MyPageTabView: View {
 }
 
 #Preview {
-    MyPageTabView()
+    MyPageView()
         .environment(AuthManager())
 }
