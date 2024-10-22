@@ -16,6 +16,7 @@ class MyPageViewViewModel {
     var myInfo: MateUser?
     var phase: Phase = .loading
     var nearPets: [Pet] = []
+    var petInfo: Pet?
     
     init() {
         Task {
@@ -71,10 +72,6 @@ class MyPageViewViewModel {
             print(error.localizedDescription)
         }
     }
-}
-
-enum Phase {
-    case loading
-    case success
-    case failure
+    
+    
 }
