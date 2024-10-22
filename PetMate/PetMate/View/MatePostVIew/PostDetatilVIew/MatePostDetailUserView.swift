@@ -21,11 +21,11 @@ struct MatePostDetailUserView: View {
                     .fill(Color.gray)
                     .frame(width: 100, height: 100) // 로딩 중 회색 원
             }
-            Spacer()
-            VStack(alignment: .leading){
+            VStack(alignment: .leading, spacing: 10){
                 HStack{
                     Text(writer.name)
-                        .font(.title)
+                        .font(.title3)
+                        .bold()
                     Text("📍\(writer.location)")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
@@ -34,17 +34,20 @@ struct MatePostDetailUserView: View {
                 Text("메이트 횟수: \(writer.matchCount)번")
                     .foregroundStyle(.pink)
                     .fontWeight(.light)
+                    .font(.subheadline)
                 Text("소개를 기다리고 있어요")
                     .foregroundStyle(.secondary)
                     .fontWeight(.bold)
+                    .font(.headline)
             }
+            .padding()
             Spacer()
         }
         .frame(maxWidth: .infinity)
         .padding()
         .overlay {
             RoundedRectangle(cornerRadius: 12)
-                .stroke(style: StrokeStyle(lineWidth: 0.8))
+                .stroke(style: StrokeStyle(lineWidth: 1))
                 .foregroundStyle(.secondary)
         }
 
