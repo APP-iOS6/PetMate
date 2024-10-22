@@ -21,6 +21,20 @@ struct HomeView2: View {
             ProgressView()
         case .success:
             VStack {
+                HStack {
+                    Image("home_logo_image")
+                        .resizable()
+                        .frame(width: 124, height: 25)
+                        .padding(.bottom, 5)
+
+                    Spacer()
+                    
+                    CalendarButton()
+                        .padding(.trailing, -5)
+                        .padding(.bottom, -25)
+                }
+                .padding(.horizontal, 20)
+                
                 HomeMyLocationView(myInfo: viewModel.myInfo, nearbyFriendsCount: viewModel.nearPets.count) // 로고, 내 지역
                 ScrollView {
                     VStack(spacing: 30) {
@@ -49,4 +63,10 @@ struct HomeView2: View {
         }
         
     }
+}
+
+#Preview {
+    let viewModel = HomeViewViewModel()
+    viewModel.phase = .success
+    return HomeView2(viewModel: viewModel)
 }

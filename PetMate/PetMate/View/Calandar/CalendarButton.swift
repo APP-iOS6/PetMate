@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct CalendarButton: View {
+    @State private var isPresent: Bool = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: {
+            isPresent.toggle()
+        }) {
+            Image("CalendarButton")
+                .resizable()
+                .frame(width: 60, height: 76)
+        }
+        .sheet(isPresented: $isPresent) {
+            CalandarView(post: nil, title: "일정 추가")
+        }
     }
 }
 
