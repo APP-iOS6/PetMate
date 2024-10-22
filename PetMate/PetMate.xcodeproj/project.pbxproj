@@ -91,6 +91,8 @@
 		FB95323D2CC4CAFE00AEBD9C /* RegisterPetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95323C2CC4CAFE00AEBD9C /* RegisterPetViewModel.swift */; };
 		FB954E032CBFDC96007B7BCE /* ResizableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB954E022CBFDC96007B7BCE /* ResizableTextField.swift */; };
 		FBB18FAC2CC78A9B00F92BBE /* ChatPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB18FAB2CC78A9B00F92BBE /* ChatPostView.swift */; };
+		FBB18FB82CC8181200F92BBE /* ApplyingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB18FB72CC8181200F92BBE /* ApplyingModifier.swift */; };
+		FBB18FBA2CC81A7700F92BBE /* ComfirmMateModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB18FB92CC81A7700F92BBE /* ComfirmMateModifier.swift */; };
 		FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */; };
 		FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB502CBDF94400E20E11 /* Pet.swift */; };
 		FBB7BB532CBDF99D00E20E11 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB522CBDF99D00E20E11 /* Review.swift */; };
@@ -198,6 +200,8 @@
 		FB95323C2CC4CAFE00AEBD9C /* RegisterPetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPetViewModel.swift; sourceTree = "<group>"; };
 		FB954E022CBFDC96007B7BCE /* ResizableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableTextField.swift; sourceTree = "<group>"; };
 		FBB18FAB2CC78A9B00F92BBE /* ChatPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPostView.swift; sourceTree = "<group>"; };
+		FBB18FB72CC8181200F92BBE /* ApplyingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyingModifier.swift; sourceTree = "<group>"; };
+		FBB18FB92CC81A7700F92BBE /* ComfirmMateModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComfirmMateModifier.swift; sourceTree = "<group>"; };
 		FBB7BB4E2CBDF81C00E20E11 /* MatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePost.swift; sourceTree = "<group>"; };
 		FBB7BB502CBDF94400E20E11 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		FBB7BB522CBDF99D00E20E11 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
@@ -349,6 +353,8 @@
 				256A271F2CBD047A0031F766 /* ButtonModifier.swift */,
 				FBD6BCF12CBFD457008BEA30 /* TextFieldModifier.swift */,
 				FBDF13DB2CC520370050F7A9 /* TagModifier.swift */,
+				FBB18FB72CC8181200F92BBE /* ApplyingModifier.swift */,
+				FBB18FB92CC81A7700F92BBE /* ComfirmMateModifier.swift */,
 			);
 			path = Modifier;
 			sourceTree = "<group>";
@@ -662,6 +668,7 @@
 				FB9532282CC2D8DA00AEBD9C /* SearchAddressModal.swift in Sources */,
 				256A27312CBD052E0031F766 /* CustomButton.swift in Sources */,
 				256A27522CBEA8970031F766 /* HomeFindFriendCardView.swift in Sources */,
+				FBB18FB82CC8181200F92BBE /* ApplyingModifier.swift in Sources */,
 				256A27232CBD047A0031F766 /* ButtonModifier.swift in Sources */,
 				FBD6BBBB2CBE764A008BEA30 /* Chat.swift in Sources */,
 				FB95323A2CC4430800AEBD9C /* RegisterPetView.swift in Sources */,
@@ -709,6 +716,7 @@
 				FB9532362CC4268400AEBD9C /* randomNonceString.swift in Sources */,
 				256A27462CBEA3280031F766 /* HomeMainBannerView.swift in Sources */,
 				256A27502CBEA8670031F766 /* HomeFindFriendsScrollView.swift in Sources */,
+				FBB18FBA2CC81A7700F92BBE /* ComfirmMateModifier.swift in Sources */,
 				FB95323D2CC4CAFE00AEBD9C /* RegisterPetViewModel.swift in Sources */,
 				256A274E2CBEA5EF0031F766 /* HomeReviewCardView.swift in Sources */,
 				FBD6BBB02CBE3A5C008BEA30 /* ChatRoomListView.swift in Sources */,

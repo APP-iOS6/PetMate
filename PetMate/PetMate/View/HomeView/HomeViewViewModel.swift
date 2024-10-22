@@ -62,6 +62,10 @@ class HomeViewViewModel {
     // > 정석은 디스패치큐??
     
     func getNearPets(_ location: String) async { // async 메인에서 집나온친구 메인이 혼자하면 버거우니
+        guard let userUid = Auth.auth().currentUser?.uid else {
+            print("getNearPets오류: 로그인 상태 아님")
+            return
+        }
         print(location)
         do { // 이 배열도 우리가 아는 형태로 바꿔줘야 함
             let documents = try await self.db.collection("Pet").whereField("location", isEqualTo: location).getDocuments().documents
@@ -69,7 +73,7 @@ class HomeViewViewModel {
                 try $0.data(as: Pet.self) // map은 변환 하다가 오류가 생겼네? 그럼 nil을 집어넣음. // compactmap은 nil을 다 뺌!
             }
             DispatchQueue.main.async { // 이걸 쓰는 이유는 난 메인이 아니기 때문에 얘한테 시킴
-                self.nearPets = petData
+                self.nearPets = petData.filter { $0.id != userUid }
             }
         } catch {
             print("내주댕찾 찾는거 실패함")
