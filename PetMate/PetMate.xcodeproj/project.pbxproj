@@ -21,6 +21,7 @@
 		238A2EEE2CBD0E200058D7CC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EED2CBD0E200058D7CC /* FirebaseFirestore */; };
 		238A2EF02CBD0E200058D7CC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EEF2CBD0E200058D7CC /* FirebaseStorage */; };
 		239E511D2CC6510A008DD278 /* MatePostDetailImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1162CC61D1000AB41C1 /* MatePostDetailImageView.swift */; };
+		239E51252CC74BCF008DD278 /* CalendarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239E51242CC74BCF008DD278 /* CalendarButton.swift */; };
 		23DE250D2CC5EA650011CE47 /* HomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DE250C2CC5EA650011CE47 /* HomeViewViewModel.swift */; };
 		252A12972CBED8AD00EDD297 /* CalandarTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A12942CBED8AC00EDD297 /* CalandarTestView.swift */; };
 		252A12982CBED8AD00EDD297 /* CalandarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A12952CBED8AC00EDD297 /* CalandarView.swift */; };
@@ -119,6 +120,7 @@
 		04ABC5102CC5E0CA00DF4931 /* AddPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewModel.swift; sourceTree = "<group>"; };
 		233E2C052CC04FAA004712E7 /* HomeView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView2.swift; sourceTree = "<group>"; };
 		2349F6762CC64A86008AC707 /* HomeFindFriendCardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFindFriendCardDetailView.swift; sourceTree = "<group>"; };
+		239E51242CC74BCF008DD278 /* CalendarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarButton.swift; sourceTree = "<group>"; };
 		23DE250C2CC5EA650011CE47 /* HomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewViewModel.swift; sourceTree = "<group>"; };
 		252A12942CBED8AC00EDD297 /* CalandarTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalandarTestView.swift; sourceTree = "<group>"; };
 		252A12952CBED8AC00EDD297 /* CalandarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalandarView.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			children = (
 				252A12942CBED8AC00EDD297 /* CalandarTestView.swift */,
 				252A12952CBED8AC00EDD297 /* CalandarView.swift */,
+				239E51242CC74BCF008DD278 /* CalendarButton.swift */,
 			);
 			path = Calandar;
 			sourceTree = "<group>";
@@ -671,7 +674,6 @@
 				FB9532332CC3A09100AEBD9C /* WelcomeView.swift in Sources */,
 				252A12972CBED8AD00EDD297 /* CalandarTestView.swift in Sources */,
 				BD306E642CBEF852008BDBEB /* PetMapView.swift in Sources */,
-				BD306E622CBEF841008BDBEB /* AddPlaceView.swift in Sources */,
 				259DC1112CC51AD000AB41C1 /* MatePostDetailPetView.swift in Sources */,
 				259DC1132CC51AE200AB41C1 /* MatePostDetailUserView.swift in Sources */,
 				BD691BDD2CBFABA3003A300B /* Bundle+Extension.swift in Sources */,
@@ -700,13 +702,13 @@
 				FB95323D2CC4CAFE00AEBD9C /* RegisterPetViewModel.swift in Sources */,
 				256A274E2CBEA5EF0031F766 /* HomeReviewCardView.swift in Sources */,
 				FBD6BBB02CBE3A5C008BEA30 /* ChatRoomListView.swift in Sources */,
+				239E51252CC74BCF008DD278 /* CalendarButton.swift in Sources */,
 				256A27252CBD047A0031F766 /* PetMateApp.swift in Sources */,
 				256A27542CBEA9280031F766 /* HomeMyLocationView.swift in Sources */,
 				FBDF13DC2CC520370050F7A9 /* TagModifier.swift in Sources */,
 				23DE250D2CC5EA650011CE47 /* HomeViewViewModel.swift in Sources */,
 				256A27482CBEA3A60031F766 /* HomeFindMateView.swift in Sources */,
 				FB954E032CBFDC96007B7BCE /* ResizableTextField.swift in Sources */,
-				BD691BEA2CC0324D003A300B /* AddPostView.swift in Sources */,
 				239E511D2CC6510A008DD278 /* MatePostDetailImageView.swift in Sources */,
 				259DC1152CC51AFD00AB41C1 /* MatePostDetatilContentView.swift in Sources */,
 				FBD6BBAE2CBE3A28008BEA30 /* ChatRoom.swift in Sources */,
