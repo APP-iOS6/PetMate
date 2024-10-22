@@ -18,7 +18,7 @@ struct MatePostDetailPetView: View {
                         image
                             .resizable()
                             .scaledToFill()
-                            .frame(width: 120, height: 120)
+                            .frame(width: 100, height: 100)
                             .clipShape(.circle)
                     }else if (image.error != nil){
                         Image(systemName: "xmark")
@@ -36,12 +36,12 @@ struct MatePostDetailPetView: View {
                             .foregroundStyle(.secondary)
                         Spacer()
                     }
-                    
                     Text("📍\(pet.breed)")
                         .font(.headline)
                         .padding(.top,1)
                         .foregroundColor(.secondary)
                 }
+                .padding()
             }
             FlowLayout {
                 ForEach(pet.tag, id: \.self) { tag in
@@ -69,12 +69,11 @@ struct MatePostDetailPetView: View {
             }
         }
         .padding()
-        .frame(width: UIScreen.main.bounds.width - 50)
+        .padding(.trailing, pet.images.count > 1 ? 20 : 55)
         .overlay {
             RoundedRectangle(cornerRadius: 12)
-                .stroke(style: StrokeStyle(lineWidth: 0.8))
+                .stroke(style: StrokeStyle(lineWidth: 1))
                 .foregroundStyle(.secondary)
-                .blur(radius: 1)
         }
     }
 }
