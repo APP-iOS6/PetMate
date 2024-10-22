@@ -14,47 +14,84 @@ struct MatePostListView: View {
     @State private var isPresentDetailView: Bool = false
     @State private var isPresentAddView: Bool = false
     
-    @State private var selectedCategory: String = "all" // 기본 선택 카테고리
-    let categories = ["all", "산책", "돌봄"] // 더미 카테고리
+    @State private var selectedPostCategory: String = "walk" // 기본 선택 카테고리
+    @State private var selectedPetCategory1: String = "dog"
+    @State private var selectedPetCategory2: String = "small"
     
     var body: some View {
         NavigationStack{
             VStack(alignment: .leading) {
                 // 피커 카테고리
-                Picker("카테고리", selection: $selectedCategory) {
-                    ForEach(categories, id: \.self) { category in
-                        Text(category).tag(category)
+                
+                
+                Picker("동물 종류 카테고리", selection: $selectedPetCategory1) {
+                    ForEach(PetType.allCases, id: \.self) { category in
+                        Text(category.petType).tag(category.rawValue)
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
-                .padding()
-                ScrollView() {
-                    LazyVGrid(
-                        columns: [GridItem(), GridItem()]) {
-                            ForEach(postStore.posts) {post in
-                                MatePostListCardView(pet: post.firstPet)
-                                    .onTapGesture {
-                                        postStore.selectedPost = post
-                                        isPresentDetailView.toggle()
-                                    }
-                            }
-                        }
+                .onChange(of: selectedPetCategory1, { oldValue, newValue in
+                    postStore.getPosts(postCategory: selectedPostCategory, petCategory1: newValue, petCategory2: selectedPetCategory2)
+                })
+                
+                Picker("동물 크기 카테고리", selection: $selectedPetCategory2) {
+                    ForEach(SizeType.allCases, id: \.self){ category in
+                        Text(category.sizeString).tag(category.rawValue)
+                    }
                 }
+                .pickerStyle(SegmentedPickerStyle())
+                .onChange(of: selectedPetCategory2, { oldValue, newValue in
+                    postStore.getPosts(postCategory: selectedPostCategory, petCategory1: selectedPetCategory1, petCategory2: newValue)
+                })
+                
+                .padding()
+                GeometryReader{ proxy in
+                    ScrollView() {
+                        LazyVGrid(
+                            columns: [GridItem(.flexible()), GridItem(.flexible())]) {
+                                ForEach(postStore.posts) {post in
+                                    MatePostListCardView(post: post, proxy: proxy)
+                                        .onTapGesture {
+                                            postStore.selectedPost = post
+                                            isPresentDetailView.toggle()
+                                        }
+                                }
+                            }.padding(.horizontal)
+                    }
+                }.padding(.horizontal, 5)
             }
             .onAppear{
-                postStore.getPosts(category: "all")
+                postStore.getPosts(postCategory: selectedPostCategory, petCategory1: selectedPetCategory1, petCategory2: selectedPetCategory2)
             }
-            .navigationTitle("돌봄")
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(isPresented: $isPresentDetailView) {
-                //클래스이기 떄문에 $ 바인딩이 아니라 그냥 주입시키면 됨
                 MatePostDetailView()
             }
             .toolbar {
-                Button{
-                    isPresentAddView.toggle()
-                }label: {
-                    Image(systemName: "pencil")
+                ToolbarItem(placement: .confirmationAction) {
+                    Button{
+                        isPresentAddView.toggle()
+                    }label: {
+                        Image(systemName: "square.and.pencil")
+                    }
+                }
+                ToolbarItem(placement: .principal) {
+                    HStack{
+                        Picker("게시글 타입 카테고리", selection: $selectedPostCategory) {
+                            ForEach(MatePostCategory.allCases, id: \.self) { category in
+                                Text(category.description())
+                                    .tag(category.rawValue)
+                            }
+                        }
+                        .pickerStyle(.menu)
+                        .labelsHidden()
+                        .onChange(of: selectedPostCategory, { oldValue, newValue in
+                            postStore.getPosts(postCategory: newValue, petCategory1: selectedPetCategory1, petCategory2: selectedPetCategory2)
+                        })
+                        Image(systemName: "chevron.down")
+                            .font(.caption)
+                            .padding(.leading, -10)
+                    }
                 }
             }
             .fullScreenCover(isPresented: $isPresentAddView) {
@@ -62,10 +99,10 @@ struct MatePostListView: View {
             }
         }.environment(postStore)
     }
-
+    
 }
 
 #Preview{
-        MatePostListView()
-            .environment(MatePostStore())
+    MatePostListView()
+        .environment(MatePostStore())
 }
