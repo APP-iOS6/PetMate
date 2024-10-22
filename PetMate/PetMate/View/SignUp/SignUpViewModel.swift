@@ -25,7 +25,7 @@ class SignUpViewModel {
     var mateUser: MateUser = MateUser(
         id: nil,
         name: "",
-        image: "https://firebasestorage.googleapis.com/v0/b/petmate-f8cbb.appspot.com/o/gadi.png?alt=media&token=b31e4214-5e94-4eff-b345-21781b7ac696",
+        image: "https://firebasestorage.googleapis.com/v0/b/petmate-f8cbb.appspot.com/o/gadi.png?alt=media&token=4a2b43f6-f1d6-4a38-a87f-585a0aea7a57",
         matchCount: 0,
         location: "",
         createdAt: Date()
