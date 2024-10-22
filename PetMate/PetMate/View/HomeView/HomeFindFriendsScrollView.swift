@@ -12,13 +12,18 @@ struct HomeFindFriendsScrollView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
+            Text("내 주변 댕댕이 친구 찾아주기")
+                .font(.headline)
+                .padding(.horizontal, 33)
+                .padding(.bottom, 5)
+            
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 18) {
+                HStack(spacing: 20) {
                     ForEach(viewModel.nearPets, id: \.self) { pet in
                         HomeFindFriendCardView(pet: pet)
                     }
                 }
-                .padding(.horizontal, 30)
+                .padding(.horizontal, 33)
             }
         }
         .padding(.bottom, 5)

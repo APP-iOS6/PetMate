@@ -10,7 +10,6 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         VStack(alignment: .leading){
-            HomeMainBannerView()
             HomeFindMateView()
             HomeReviewScrollView()
         }.padding()
