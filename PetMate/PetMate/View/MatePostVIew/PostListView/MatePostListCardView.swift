@@ -22,9 +22,9 @@ struct MatePostListCardView: View {
             AsyncImage(url: URL(string: post.firstPet.images.first ?? "")){ image in
                 image
                     .resizable()
-                    .frame(height: proxy.size.height * 0.45)
+                    .frame(height: proxy.size.height * 0.4)
                     .aspectRatio(1, contentMode: .fill)
-                    .frame(width: proxy.size.width * 0.4)
+                    .frame(width: proxy.size.width * 0.45)
             }placeholder:{
                 ProgressView()
             }
@@ -53,7 +53,7 @@ struct MatePostListCardView: View {
         }
         .clipShape(.rect(cornerRadius: 12))
         .frame(width: proxy.size.width * 0.45, height: proxy.size.height * 0.4)
-        .padding()
+        //.padding()
         
     }
 }
