@@ -87,7 +87,6 @@ struct UserProfileView: View {
                     Text("오류 다시시도하기")
                 }
             }
-            
         }
         .onAppear {
             Task {
