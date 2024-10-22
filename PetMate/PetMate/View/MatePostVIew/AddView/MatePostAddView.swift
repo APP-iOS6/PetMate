@@ -29,7 +29,10 @@ struct MatePostAddView: View {
                                     progress = 1.0
                                 }label: {
                                     Text("다음")
-                                }
+                                }.disabled(postStore.location.isEmpty ||
+                                           postStore.startDate > postStore.endDate ||
+                                           postStore.cost.isEmpty
+                                )
                             }
                             ToolbarItem(placement: .cancellationAction) {
                                 Button{
@@ -57,7 +60,10 @@ struct MatePostAddView: View {
                                     progress = 0.5
                                 }label:{
                                     Image(systemName: "chevron.left")
-                                }
+                                }.disabled(postStore.selectedPets.isEmpty ||
+                                           postStore.title.isEmpty ||
+                                           postStore.content.isEmpty
+                                )
                             }
                         }
                     
