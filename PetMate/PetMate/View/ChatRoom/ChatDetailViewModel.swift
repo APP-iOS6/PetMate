@@ -320,6 +320,18 @@ class ChatDetailViewModel: ObservableObject {
         }
     }
     
+    func getPostData(_ postId: String) {
+        self.db.collection("MatePost").document(postId).getDocument(as: MatePost.self) { result in
+            switch result {
+            case let .success(post):
+                self.post = post
+            case let .failure(error):
+                print("포스트 가져오기 실패함")
+            }
+        }
+        
+    }
+    
 }
 
 
