@@ -17,7 +17,6 @@ struct PlacePost: Codable, Identifiable {
     var address: String
     var placeName: String
     var isParking: Bool
-    var geoHash: String
     var createdAt: Date
     var updatedAt: Date
 }
