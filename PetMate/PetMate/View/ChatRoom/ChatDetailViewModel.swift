@@ -339,7 +339,6 @@ class ChatDetailViewModel: ObservableObject {
             print("포스트 없음")
             return
         }
-        
         self.db.collection("MatePost").document(postId).getDocument(as: MatePost.self) { result in
             switch result {
             case let .success(post):

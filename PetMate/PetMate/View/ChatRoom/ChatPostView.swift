@@ -68,9 +68,16 @@ struct ChatPostView: View {
         .padding(.vertical, 6)
         .overlay(alignment: .bottomTrailing) {
             if post.writeUser.documentID == otherUser.id {
-                Text("확정하기")
-            } else {
                 Text("신청중")
+                    .bold()
+                    .foregroundStyle(.petTag)
+                    .padding([.bottom, .trailing])
+                
+            } else {
+                Text("메이트 확정하기 ✅")
+                    .bold()
+                    .foregroundStyle(.petTag)
+                    .padding([.bottom, .trailing])
             }
         }
     }
