@@ -14,8 +14,6 @@ struct HomeView2: View {
     init(viewModel: HomeViewViewModel = HomeViewViewModel()) {
         self.viewModel = viewModel
     }
-    // 후기
-    private let reviewImages = ["review_image", "review_image1"]
     
     var body: some View {
         switch viewModel.phase {
@@ -27,29 +25,9 @@ struct HomeView2: View {
                 ScrollView {
                     VStack(spacing: 30) {
                         HomeMainBannerView()
-                        
-                        HStack(spacing: 15) {
-                            NavigationLink {
-                                MatePostListView()
-                            } label: {
-                                Image("care_button")
-                                    .resizable()
-                                    .frame(width: 175, height: 127)
-                            }
-                            Button(action: {
-                                print("산책 버튼")
-                            }) {
-                                Image("walk_button")
-                                    .resizable()
-                                    .frame(width: 175, height: 127)
-                            }
-                        }
-                        .padding(.horizontal, 30)
-                        .padding(.bottom, 5)
-                        
-                        HomeReviewScrollView() // 후기
-                        
-                        HomeFindFriendsScrollView(viewModel: viewModel) // 주댕찾
+                        HomeFindMateView()
+                        HomeReviewScrollView()
+                        HomeFindFriendsScrollView(viewModel: viewModel)
                         
                         Image("report_banner")
                             .resizable()
