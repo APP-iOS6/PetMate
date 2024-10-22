@@ -124,7 +124,7 @@ class MatePostStore{
     func postMatePost() -> (){
         let db = Firestore.firestore()
         //let currentUser = Auth.auth().currentUser?.uid ?? ""
-        let currentUser: String = "9C5y1gDa39fsgeyCL4hnLDunAP82"
+        let currentUser: String = "희철"
         var petRefs: [DocumentReference] = []
         Array(selectedPets).forEach{
             guard let id = $0.id else { return }

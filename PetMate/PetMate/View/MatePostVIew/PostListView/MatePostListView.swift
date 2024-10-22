@@ -45,26 +45,26 @@ struct MatePostListView: View {
                 })
                 
                 .padding()
-                ScrollView() {
-                    LazyVGrid(
-                        columns: [GridItem(), GridItem()]) {
-                            ForEach(postStore.posts) {post in
-                                MatePostListCardView(pet: post.firstPet)
-                                    .onTapGesture {
-                                        postStore.selectedPost = post
-                                        isPresentDetailView.toggle()
-                                    }
-                            }
-                        }
-                }
+                GeometryReader{ proxy in
+                    ScrollView() {
+                        LazyVGrid(
+                            columns: [GridItem(), GridItem()]) {
+                                ForEach(postStore.posts) {post in
+                                    MatePostListCardView(post: post, proxy: proxy)
+                                        .onTapGesture {
+                                            postStore.selectedPost = post
+                                            isPresentDetailView.toggle()
+                                        }
+                                }
+                            }.padding(.horizontal)
+                    }
+                }.padding(.horizontal, 10)
             }
             .onAppear{
-                //postStore.getPosts(postCategory: selectedPostCategory, petCategory1: selectedPetCategory1, petCategory2: selectedPetCategory2)
+                postStore.getPosts(postCategory: selectedPostCategory, petCategory1: selectedPetCategory1, petCategory2: selectedPetCategory2)
             }
-            //.navigationTitle(<#T##Text#>)
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(isPresented: $isPresentDetailView) {
-                //클래스이기 떄문에 $ 바인딩이 아니라 그냥 주입시키면 됨
                 MatePostDetailView()
             }
             .toolbar {
