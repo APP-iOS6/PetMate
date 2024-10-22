@@ -15,7 +15,6 @@ struct TextFieldModifier: ViewModifier {
                 RoundedRectangle(cornerRadius: 12)
                     .stroke(.loginText, lineWidth: 1)
                     .foregroundStyle(.clear)
-                
             }
     }
 }
