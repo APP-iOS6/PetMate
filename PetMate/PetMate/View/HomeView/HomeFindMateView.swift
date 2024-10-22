@@ -2,33 +2,32 @@
 //  HomeFindButtonsView.swift
 //  PetMate
 //
-//  Created by 권희철 on 10/15/24.
+//  Created by Hyeonjeong Sim on 10/15/24.
 //
 
 import SwiftUI
 
 struct HomeFindMateView: View {
-    @State var isPresented: Bool = false
+    
     var body: some View {
-        GeometryReader{ proxy in
-            HStack{
-                HomeFindMateButton(text: "돌봐주세요", color: .brown, proxy: proxy){
-                    isPresented.toggle()
-                }
-                Spacer()
-                HomeFindMateButton(text: "돌봐주세요", color: .brown, proxy: proxy){
-                    isPresented.toggle()
-                }
-                Spacer()
-                
-            }.navigationDestination(isPresented: $isPresented) {
+        HStack(spacing: 15) {
+            NavigationLink {
                 MatePostListView()
+            } label: {
+                Image("care_button")
+                    .resizable()
+                    .frame(width: 175, height: 127)
             }
-            .task {
-                //await testStore.getUser()
-                //await testStore.getPet()
+            Button(action: {
+                print("산책 버튼")
+            }) {
+                Image("walk_button")
+                    .resizable()
+                    .frame(width: 175, height: 127)
             }
         }
+        .padding(.horizontal, 30)
+        .padding(.bottom, 5)
     }
 }
 
