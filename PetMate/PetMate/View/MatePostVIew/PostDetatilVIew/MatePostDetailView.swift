@@ -88,6 +88,8 @@ struct MatePostDetailView: View {
             Text("신청하기")
                 .modifier(ButtonModifier())
         }
+        .padding(.bottom, 20)
+        .padding(.horizontal)
     }
     
     // 상대 시간 계산 함수
@@ -106,7 +108,7 @@ let dateFormatter: DateFormatter = {
     return formatter
 }()
 
-//#Preview{
-//    MatePostDetailView()
-//        .environment(MatePostStore())
-//}
+#Preview{
+    MatePostDetailView()
+        .environment(MatePostStore())
+}
