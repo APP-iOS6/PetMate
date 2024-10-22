@@ -23,7 +23,6 @@ struct Pet: Codable, Identifiable, Hashable {
     var createdAt: Date //생성일
     var updatedAt: Date //업데이트 일
     var location: String = ""
-
 }
 
 
