@@ -1,10 +1,3 @@
-//
-//  UserProfileView.swift
-//  PetMate
-//
-//  Created by 이다영 on 10/14/24.
-//
-
 import SwiftUI
 import FirebaseFirestore
 
@@ -21,29 +14,40 @@ struct UserProfileView: View {
             VStack(alignment: .leading, spacing: 10) {
                 HStack(alignment: .center, spacing: 16) {
                     ZStack(alignment: .bottom) {
-                        (profileImage ?? Image(viewModel.myInfo?.image ?? "default_image"))
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 100, height: 100)
-                            .clipShape(Circle())
-                            .overlay(
-                                Circle()
-                                    .stroke(Color.gray, lineWidth: 1)
-                            )
-                            .onTapGesture {
-                                isImagePickerPresented = true
-                            }
+                        // 유저 프로필 이미지
+                        AsyncImage(url: URL(string: viewModel.myInfo?.image ?? "")) { image in
+                            image
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 80, height: 80)
+                                .clipShape(Circle())
+                                .overlay(
+                                    Circle()
+                                        .stroke(Color(.systemGray2), lineWidth: 1)
+                                )
+                        } placeholder: {
+                            Image("")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 80, height: 80)
+                                .clipShape(Circle())
+                                .overlay(
+                                    Circle()
+                                        .stroke(Color.gray, lineWidth: 1)
+                                )
+                        }
                         
-                        Text("편집")
-                            .font(.caption)
-                            .padding(4)
-                            .background(Color.black.opacity(0.7))
-                            .foregroundColor(.white)
-                            .clipShape(Capsule())
-                            .padding(.bottom, 4)
-                    }
-                    .sheet(isPresented: $isImagePickerPresented) {
-                        ImagePicker(image: $profileImage)
+                        // 유저 프로필 편집 버튼
+                        Button(action: {
+                            isEditingIntroduction = true
+                        }) {
+                            Image(systemName: "gearshape")
+                                .foregroundColor(.white)
+                                .padding(3)
+                                .background(Color(.systemGray2))
+                                .clipShape(Circle())
+                        }
+                        .offset(x: 30, y: 0)
                     }
                     
                     VStack(alignment: .leading, spacing: 8) {
@@ -55,7 +59,7 @@ struct UserProfileView: View {
                                 .font(.system(size: 14))
                                 .foregroundColor(.gray)
                         }
-                        Text("메이트 횟수: \(viewModel.myInfo?.matchCount ?? 0)번")
+                        Text("메이트 횟수: \(viewModel.myInfo?.matchCount ?? 0) 번")
                             .font(.subheadline)
                             .foregroundColor(.black)
                     }
@@ -76,7 +80,7 @@ struct UserProfileView: View {
                 await viewModel.getMyInfodata()
             }
         }
-        .padding()
+//        .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 }

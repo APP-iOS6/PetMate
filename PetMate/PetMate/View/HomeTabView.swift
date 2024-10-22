@@ -33,7 +33,7 @@ struct HomeTabView: View {
                     Text("Chat")
                     Image(systemName: "message.badge.rtl")
                 }
-            MyPageTabView()
+            MyPageView()
                 .tabItem {
                     Text("My")
                     Image(systemName: "person")
