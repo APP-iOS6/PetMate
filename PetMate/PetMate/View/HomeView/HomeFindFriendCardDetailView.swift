@@ -196,9 +196,9 @@ private struct AsyncImageView: View {
                 .resizable()
                 .scaledToFill()
         } placeholder: {
-            Image("placeholder")
-                .resizable()
-                .scaledToFill()
+            Circle()
+                .frame(width: 70, height: 70)
+                .foregroundStyle(Color(uiColor: .systemGray3))
         }
     }
 }

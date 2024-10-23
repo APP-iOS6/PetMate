@@ -43,16 +43,12 @@ struct HomeReviewCardView: View {
                                     .fill(Color(uiColor: .systemGray3))
                                     .frame(width: 90, height: 90)
                             case .failure(_):
-                                Image(.welcome)
-                                    .resizable()
-                                    .aspectRatio(1, contentMode: .fill)
-                                    .clipShape(.rect(cornerRadius: 18))
+                                RoundedRectangle(cornerRadius: 18)
+                                    .fill(Color(uiColor: .systemGray3))
                                     .frame(width: 90, height: 90)
                             @unknown default:
-                                Image(.welcome)
-                                    .resizable()
-                                    .aspectRatio(1, contentMode: .fill)
-                                    .clipShape(.rect(cornerRadius: 18))
+                                RoundedRectangle(cornerRadius: 18)
+                                    .fill(Color(uiColor: .systemGray3))
                                     .frame(width: 90, height: 90)
                             }
                         }
