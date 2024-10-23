@@ -12,6 +12,8 @@
 		040D5CF82CBE99E200549B47 /* MatePostListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D5CF72CBE99DD00549B47 /* MatePostListView.swift */; };
 		042044492CC8B64F00F53A2D /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042044482CC8B63F00F53A2D /* ReviewView.swift */; };
 		04ABC5112CC5E0D300DF4931 /* AddPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ABC5102CC5E0CA00DF4931 /* AddPostViewModel.swift */; };
+		04ABC5152CC6181800DF4931 /* UserProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ABC5142CC6181500DF4931 /* UserProfileEditView.swift */; };
+		04ABC5192CC62A2000DF4931 /* UserProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ABC5182CC62A1E00DF4931 /* UserProfileEditViewModel.swift */; };
 		233E2C062CC04FAA004712E7 /* HomeView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233E2C052CC04FAA004712E7 /* HomeView2.swift */; };
 		23499B172CBD120F009FD900 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B162CBD120F009FD900 /* GoogleSignIn */; };
 		23499B192CBD120F009FD900 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B182CBD120F009FD900 /* GoogleSignInSwift */; };
@@ -125,6 +127,8 @@
 		040D5CF72CBE99DD00549B47 /* MatePostListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostListView.swift; sourceTree = "<group>"; };
 		042044482CC8B63F00F53A2D /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		04ABC5102CC5E0CA00DF4931 /* AddPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewModel.swift; sourceTree = "<group>"; };
+		04ABC5142CC6181500DF4931 /* UserProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileEditView.swift; sourceTree = "<group>"; };
+		04ABC5182CC62A1E00DF4931 /* UserProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileEditViewModel.swift; sourceTree = "<group>"; };
 		233E2C052CC04FAA004712E7 /* HomeView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView2.swift; sourceTree = "<group>"; };
 		2349F6762CC64A86008AC707 /* HomeFindFriendCardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFindFriendCardDetailView.swift; sourceTree = "<group>"; };
 		239E51242CC74BCF008DD278 /* CalendarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarButton.swift; sourceTree = "<group>"; };
@@ -296,6 +300,7 @@
 				BD306E7A2CBF0158008BDBEB /* UserProfileViewModel.swift */,
 				BD306E5A2CBEF7C0008BDBEB /* PetPlaceStore.swift */,
 				04ABC5102CC5E0CA00DF4931 /* AddPostViewModel.swift */,
+				04ABC5182CC62A1E00DF4931 /* UserProfileEditViewModel.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -460,6 +465,7 @@
 				4B5C17442CC51EBA00C6EF88 /* MyPageViewViewModel.swift */,
 				4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */,
 				4B5D530E2CBE3BAC00FDC77A /* PetProfileEditView.swift */,
+				04ABC5142CC6181500DF4931 /* UserProfileEditView.swift */,
 			);
 			path = MyPageView;
 			sourceTree = "<group>";
@@ -665,6 +671,7 @@
 			files = (
 				FB9532262CC2D2CC00AEBD9C /* CGFloat+Extension.swift in Sources */,
 				4B5D53812CBE627500FDC77A /* TagUI.swift in Sources */,
+				04ABC5152CC6181800DF4931 /* UserProfileEditView.swift in Sources */,
 				BD306E5B2CBEF7C0008BDBEB /* PetPlaceStore.swift in Sources */,
 				2349F6772CC64A86008AC707 /* HomeFindFriendCardDetailView.swift in Sources */,
 				040D5CF82CBE99E200549B47 /* MatePostListView.swift in Sources */,
@@ -740,6 +747,7 @@
 				233E2C062CC04FAA004712E7 /* HomeView2.swift in Sources */,
 				259DC10C2CC0119200AB41C1 /* MatePostAddPetCardView.swift in Sources */,
 				FBF4E47E2CC2269900CFA137 /* SignUpContainerView.swift in Sources */,
+				04ABC5192CC62A2000DF4931 /* UserProfileEditViewModel.swift in Sources */,
 				256A274C2CBEA5DA0031F766 /* HomeReviewScrollView.swift in Sources */,
 				FBF4E4842CC2294E00CFA137 /* LoadState.swift in Sources */,
 				FBB7BB4F2CBDF81C00E20E11 /* MatePost.swift in Sources */,
