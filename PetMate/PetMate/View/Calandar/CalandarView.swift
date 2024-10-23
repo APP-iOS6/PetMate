@@ -48,7 +48,7 @@ struct CalandarView: UIViewControllerRepresentable {
     private var event: EKEvent {
         let event = EKEvent(eventStore: store)
         if let post{
-            event.title = title
+            event.title = "[펫메이트]\(title)"
             if let startDate = post.startDateElements, let endDate = post.endDateElements {
                 let startDateComponents = DateComponents(year: startDate.year,
                                                          month: startDate.month,
