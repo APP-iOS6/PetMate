@@ -11,8 +11,6 @@ struct HomeReviewScrollView: View {
     
    
     @Bindable var viewModel: HomeViewViewModel
-    @Binding var goReview: ReviewUI?
-    @Binding var isNavigateToChat: Bool
     @State private var selectedReview: ReviewUI?
 
     var body: some View {
@@ -39,8 +37,8 @@ struct HomeReviewScrollView: View {
             print("")
         }, content: { review in
             HomeReviewSheet(review: review) {
-                goReview = review
-                isNavigateToChat = true
+                viewModel.selectedReview = review
+                viewModel.reviewNavigateToChat = true
                 selectedReview = nil
             }
                 .presentationDetents([.fraction(0.5)]) //

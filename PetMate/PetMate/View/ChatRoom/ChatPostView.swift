@@ -75,10 +75,10 @@ struct ChatPostView: View {
             if post.writeUser.documentID == otherUser.id {
                 if post.reservationUser != nil {
                     if post.reservationUser?.documentID != otherUser.id {
-                        Text("매칭 성사")
+                        Text("완료된 매칭")
                             .modifier(ApplyingModifier())
                     } else {
-                        Text("완료된 매칭")
+                        Text("매칭 성사")
                             .modifier(ApplyingModifier())
                     }
                 } else {

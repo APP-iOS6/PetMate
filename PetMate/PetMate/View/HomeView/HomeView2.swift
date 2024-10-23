@@ -10,8 +10,6 @@ import SwiftUI
 
 struct HomeView2: View {
     @Bindable var viewModel: HomeViewViewModel
-    @State private var navigateToChat: Bool = false
-    @State private var selectedReview: ReviewUI?
     @State var isPresent: Bool = false
 
     
@@ -56,7 +54,7 @@ struct HomeView2: View {
                         VStack(spacing: 30) {
                             HomeMainBannerView()
                             HomeFindMateView()
-                            HomeReviewScrollView(viewModel: viewModel, goReview: $selectedReview, isNavigateToChat: $navigateToChat)
+                            HomeReviewScrollView(viewModel: viewModel)
                             HomeFindFriendsScrollView(viewModel: viewModel)
                             
                             Image("report_banner")
@@ -74,9 +72,11 @@ struct HomeView2: View {
                         ChatDetailView(otherUser: chatUser)
                     }
                 }
-                .navigationDestination(isPresented: $navigateToChat) {
-                    if let review = selectedReview {
+                .navigationDestination(isPresented: $viewModel.reviewNavigateToChat) {
+                    if let review = viewModel.selectedReview {
                         ChatDetailView(otherUser: review.reviewUser)
+                    } else {
+                        Text("tet")
                     }
                 }
             case .failure:
