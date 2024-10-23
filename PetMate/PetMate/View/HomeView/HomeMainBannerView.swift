@@ -22,11 +22,11 @@ struct HomeMainBannerView: View {
                     Image(images[index])
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 360, height: 140)
+                        .frame(width: 370, height: 140)
                         .tag(index)
                 }
             }
-            .frame(width: 360, height: 140)
+            .frame(width: 370, height: 140)
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .onReceive(timer) { _ in
                 withAnimation {

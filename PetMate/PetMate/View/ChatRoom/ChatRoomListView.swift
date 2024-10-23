@@ -20,19 +20,15 @@ struct ChatRoomListView: View {
                     Text("채팅")
                         .font(.title2)
                         .bold()
+                        .padding(.top, 10)
                     
                     Spacer()
                     
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "calendar.circle")
-                        
-                    }
+                    CalendarButton()
+                        .padding(.trailing, -5)
+                        .padding(.bottom, -25)
                 }
-                .padding()
-                
-                Divider()
+                .padding(.horizontal, 20)
                 
                 ScrollView {
                     LazyVStack(spacing: 22) {

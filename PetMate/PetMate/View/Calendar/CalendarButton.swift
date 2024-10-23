@@ -16,7 +16,7 @@ struct CalendarButton: View {
         }) {
             Image("CalendarButton")
                 .resizable()
-                .frame(width: 60, height: 76)
+                .frame(width: 42, height: 53)
         }
         .fullScreenCover(isPresented: $isPresent) {
             CalendarListView()
