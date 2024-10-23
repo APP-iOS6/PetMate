@@ -6,26 +6,28 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct SubmitPlaceView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(PetPlacesStore.self) private var placeStore
     @State private var isImagePickerPresented: Bool = false
-    @State private var selectedImage: Image? = nil // Image를 저장할 상태 변수
+    @State private var selectedImage: UIImage? = nil // UIImage로 변경
+    @State private var selectedItem: PhotosPickerItem? = nil
     @State var title: String = ""
     @State var content: String = ""
+    @State private var uploadState: UploadState = .none
+    
     var body: some View {
-        VStack {
-            Button(action: {
-                isImagePickerPresented = true
-            }) {
+        ScrollView {
+            PhotosPicker(selection: $selectedItem, matching: .images) {
                 if let selectedImage = selectedImage {
-                    selectedImage
+                    Image(uiImage: selectedImage)
                         .resizable()
                         .scaledToFit()
-                        .frame(maxHeight: 200)
+                        .frame(width: .infinity)
+                        .scaledToFit()
                         .cornerRadius(10)
-                        .offset(y:-30)
                 } else {
                     VStack {
                         Image(systemName: "photo.on.rectangle.angled")
@@ -33,18 +35,19 @@ struct SubmitPlaceView: View {
                             .scaledToFit()
                             .frame(width: 100, height: 100)
                             .foregroundColor(.primary.opacity(0.25))
-                            .offset(y:-30)
                         Text("내가 방문한 플레이스의\n이미지를 보여주세요.")
                             .foregroundColor(.primary.opacity(0.25))
                             .multilineTextAlignment(.center)
                             .fontWeight(.medium)
-                            .offset(y:-30)
                     }
                     .frame(maxWidth: .infinity, maxHeight: 200)
                 }
             }
-            .sheet(isPresented: $isImagePickerPresented) {
-                ImagePicker(image: $selectedImage)
+            .padding()
+            .onChange(of: selectedItem) {
+                Task {
+                    await loadSelectedImage()
+                }
             }
             
             VStack(alignment: .leading) {
@@ -62,50 +65,111 @@ struct SubmitPlaceView: View {
                 Text("내용")
                     .font(.headline)
                     .padding(.top, 30)
-                TextEditor(text: $content)
-                    .frame(height: 300)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.gray, lineWidth: 1)
-                    )
-                    .foregroundColor(.gray)
+                ScrollView {
+                    TextEditor(text: $content)
+                        .frame(height: 300)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.gray, lineWidth: 1)
+                        )
+                        .foregroundColor(.primary)
+                        .onTapGesture {
+                            hideKeyboard()
+                        }
+                }
+                .background(Color.white) // ScrollView의 배경을 설정하여 터치 영역 확대
+                .onTapGesture {
+                    hideKeyboard() // ScrollView 외부 터치 시 키보드 내리기
+                }
             }
             .padding(.horizontal)
             
             Button(action: {
-                placeStore.addPlace(
-                    writeUser: UUID().uuidString,
-                    title: title,
-                    content: content,
-                    address: placeStore.selectedPlace?.address_name ?? "",
-                    placeName: placeStore.selectedPlace?.place_name ?? "",
-                    isParking: true,
-                    latitude: Double(placeStore.selectedPlace?.y ?? "0")! ,
-                    longitude: Double(placeStore.selectedPlace?.x ?? "0")! ,
-                    geoHash: ""
-                ) { success in
-                    if success {
-                        placeStore.fetchPlaces()
-                        dismiss()
-                    } else {
-                        print("Failed to add place")
-                    }
+                Task {
+                    await savePlace()
                 }
-            }){
+            }) {
                 Text("저장")
                     .font(.headline)
                     .frame(maxWidth: .infinity)
                     .padding()
                     .background(Color.brown)
                     .foregroundColor(.white)
-                    .clipShape(.rect(cornerRadius: 20))
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
             }
             .padding()
+            
             Spacer()
+        }
+        .alert("업로드 실패", isPresented: .constant(uploadState == .failed), actions: {
+            Button("확인", role: .cancel) {
+                uploadState = .none
+            }
+        }, message: {
+            Text("이미지 업로드에 실패했습니다.")
+        })
+    }
+    
+    private func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    
+    @MainActor
+    private func loadSelectedImage() async {
+        if let selectedItem = selectedItem {
+            if let data = try? await selectedItem.loadTransferable(type: Data.self),
+               let uiImage = UIImage(data: data) {
+                self.selectedImage = uiImage
+            }
+        }
+    }
+    
+    @MainActor
+    private func savePlace() async {
+        uploadState = .loading
+        
+        var imageURL: String?
+        
+        do {
+            // 사용자가 선택한 이미지가 있으면 해당 이미지를 업로드
+            if let image = selectedImage {
+                imageURL = try await placeStore.uploadImage(image)
+            } else {
+                // 기본 이미지를 사용
+                if let defaultImage = UIImage(named: "cafe2") {
+                    imageURL = try await placeStore.uploadImage(defaultImage)
+                }
+            }
+            
+            placeStore.addPlace(
+                writeUser: UUID().uuidString,
+                title: title,
+                content: content,
+                address: placeStore.selectedPlace?.address_name ?? "",
+                image: imageURL,
+                placeName: placeStore.selectedPlace?.place_name ?? "",
+                isParking: true,
+                latitude: Double(placeStore.selectedPlace?.y ?? "0")!,
+                longitude: Double(placeStore.selectedPlace?.x ?? "0")!,
+                geoHash: ""
+            ) { success in
+                if success {
+                    placeStore.fetchPlaces()
+                    dismiss()
+                } else {
+                    print("Failed to add place")
+                }
+            }
+        } catch {
+            uploadState = .failed
+            print("Image upload failed: \(error.localizedDescription)")
         }
     }
 }
 
+enum UploadState {
+    case none, loading, complete, failed
+}
 
 #Preview {
     SubmitPlaceView()

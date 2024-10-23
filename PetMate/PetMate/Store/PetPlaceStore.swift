@@ -9,6 +9,7 @@ import SwiftUI
 import FirebaseFirestore
 import MapKit
 import Combine
+import FirebaseStorage
 
 @Observable
 final class PetPlacesStore {
@@ -113,12 +114,13 @@ final class PetPlacesStore {
         }
     }
     
-    func addPlace(writeUser: String, title: String, content: String, address: String, placeName: String, isParking: Bool, latitude: Double, longitude: Double, geoHash: String, completion: @escaping (Bool) -> Void) {
+    func addPlace(writeUser: String, title: String, content: String, address: String, image: String? ,placeName: String, isParking: Bool, latitude: Double, longitude: Double, geoHash: String, completion: @escaping (Bool) -> Void) {
         let newPlace = PlacePost(
             writeUser: writeUser,
             title: title,
             content: content,
             location: GeoPoint(latitude: latitude, longitude: longitude),
+            image: image ?? "",
             address: address,
             placeName: placeName,
             isParking: isParking,
@@ -140,6 +142,25 @@ final class PetPlacesStore {
         } catch {
             print("Error saving place: \(error)")
             completion(false)
+        }
+    }
+    
+    func uploadImage(_ image: UIImage) async throws -> String {
+        guard let imageData = image.jpegData(compressionQuality: 0.2) else {
+            throw UploadImageError.invalidImageData
+        }
+        
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpeg"
+        
+        let storageRef = Storage.storage().reference()
+        let ref = storageRef.child("PlaceImages").child("\(UUID().uuidString).jpeg")
+        
+        do {
+            _ = try await ref.putDataAsync(imageData, metadata: metaData)
+            return try await ref.downloadURL().absoluteString
+        } catch {
+            throw UploadImageError.uploadError
         }
     }
     

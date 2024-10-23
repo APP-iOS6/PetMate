@@ -14,6 +14,7 @@ struct PlacePost: Codable, Identifiable {
     var title: String
     var content: String
     var location: GeoPoint
+    var image: String
     var address: String
     var placeName: String
     var isParking: Bool

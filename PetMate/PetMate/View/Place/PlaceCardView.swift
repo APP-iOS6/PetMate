@@ -23,16 +23,16 @@ struct PlaceCardView: View {
                 .clipped()
             
             VStack(alignment: .leading, spacing: 4) {
-                Text("📍\(place.placeName)")
-                    .font(.headline)
-                    .lineLimit(1)
-                    .fontWeight(.bold)
-                    .padding(.vertical,3)
-                
-                Text(place.address)
-                    .font(.subheadline)
-                    .lineLimit(1)
-                    .foregroundColor(.gray)
+//                Text("📍\(place.placeName)")
+//                    .font(.headline)
+//                    .lineLimit(1)
+//                    .fontWeight(.bold)
+//                    .padding(.vertical,3)
+//                
+//                Text(place.address)
+//                    .font(.subheadline)
+//                    .lineLimit(1)
+//                    .foregroundColor(.gray)
             }
             
             Spacer()

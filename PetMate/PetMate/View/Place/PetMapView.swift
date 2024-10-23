@@ -53,16 +53,21 @@ struct PetMapView: View {
         .sheet(isPresented: $showPlaceCardView) {
             HStack {
                 if let place = selectedPlace {
-                    Image("cafe1")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 100, height: 100)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 16)
-                                .stroke(Color.gray.opacity(0.2), lineWidth: 1)
-                        )
-                        .clipped()
+                    AsyncImage(url: URL(string: place.image)) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 100, height: 100)
+                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 16)
+                                    .stroke(Color.gray.opacity(0.2), lineWidth: 1)
+                            )
+                            .clipped()
+                    } placeholder: {
+                        ProgressView()
+                            .frame(width: 100, height: 100)
+                    }
                     
                     VStack(alignment: .leading, spacing: 4) {
                         Text("📍\(place.placeName)")

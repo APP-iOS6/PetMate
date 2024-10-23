@@ -91,11 +91,11 @@ struct StoreDetailView: View {
     }
 }
 
-// 프리뷰에 더미 데이터 적용
-struct StoreDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        let dummyPlacePost = PlacePost(id: "1", writeUser: "김정원", title: "카페 후기", content: "맛집이에요", location: GeoPoint(latitude: 37.5665, longitude: 126.9780), address: "경기도 수원시 매탄동 393", placeName: "카카오프렌즈 코엑스점", isParking: true, createdAt: Date(), updatedAt: Date())
-        
-        StoreDetailView(placePost: dummyPlacePost)
-    }
-}
+//// 프리뷰에 더미 데이터 적용
+//struct StoreDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let dummyPlacePost = PlacePost(id: "1", writeUser: "김정원", title: "카페 후기", content: "맛집이에요", location: GeoPoint(latitude: 37.5665, longitude: 126.9780), address: "경기도 수원시 매탄동 393", placeName: "카카오프렌즈 코엑스점", isParking: true, createdAt: Date(), updatedAt: Date())
+//        
+//        StoreDetailView(placePost: dummyPlacePost)
+//    }
+//}
