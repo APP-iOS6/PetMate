@@ -10,6 +10,7 @@ import SwiftUI
 
 struct HomeView2: View {
     @Bindable var viewModel: HomeViewViewModel
+    @State var isPresent: Bool = false
     
     init(viewModel: HomeViewViewModel = HomeViewViewModel()) {
         self.viewModel = viewModel
@@ -37,6 +38,17 @@ struct HomeView2: View {
                     .padding(.horizontal, 20)
                     
                     HomeMyLocationView(myInfo: viewModel.myInfo, nearbyFriendsCount: viewModel.nearPets.count) // 로고, 내 지역
+                        .onTapGesture {
+                            isPresent.toggle()
+                        }
+                        .sheet(isPresented: $isPresent) {
+                            SearchAddressModal { district in
+                                Task{
+                                    await viewModel.updateLocationData(location: district)
+                                }
+                            }
+                        }
+
                     ScrollView {
                         VStack(spacing: 30) {
                             HomeMainBannerView()

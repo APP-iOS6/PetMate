@@ -58,15 +58,15 @@ class HomeViewViewModel {
         }
     }
     
+    //장소 정보 수정 하는 함수 - 희철
     func updateLocationData(location: String) async{
         guard let currentUser = Auth.auth().currentUser?.uid else{
             print("로그인 상태가 아님")
             return
         }
         do{
-            try await db.collection("User").document(currentUser).setData([
-                "location": location
-            ])
+            try await db.collection("User").document(currentUser).updateData(["location" : location])
+            
             myInfo?.location = location
             await getNearPets(location)
         }catch{
