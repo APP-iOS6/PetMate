@@ -29,7 +29,6 @@ struct RegisterPetView: View {
             VStack {
                 //헤더 섹션
                 headerSection()
-                    .padding(.bottom, .screenHeight * 0.05)
                 
                 //펫 타입 선택 섹션
                 HStack {
@@ -41,12 +40,10 @@ struct RegisterPetView: View {
                         Spacer()
                     }
                 }
-                .padding(.bottom, .screenHeight * 0.02)
                 .frame(maxWidth: .infinity)
                 
                 //카테고리2 섹션
                 HStack {
-                    
                     ForEach(SizeType.allCases, id: \.self) { size in
                         let selected = viewModel.myPet.category2 == size.rawValue
                         Button {
@@ -59,7 +56,6 @@ struct RegisterPetView: View {
                                 .padding(.vertical, 12)
                                 .background(selected ? Color.accentColor : Color(uiColor: .systemGray6))
                                 .clipShape(RoundedRectangle(cornerRadius: 30))
-
                         }
                     }
                     
@@ -74,42 +70,44 @@ struct RegisterPetView: View {
                     selectionBehavior: .ordered,
                     matching: .images
                 ) {
-                    if !viewModel.selectedPhotos.isEmpty {
-                        TabView {
-                            ForEach(viewModel.images, id: \.self) { image in
-                                Image(uiImage: image)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 18) // 이미지가 보여질 곳에 동일한 RoundedRectangle 추가
+                            .stroke(Color(.systemGray2), lineWidth: 1)
+                            .frame(width: .infinity, height: 200)
+                        
+                        if !viewModel.selectedPhotos.isEmpty {
+                            TabView {
+                                ForEach(viewModel.images, id: \.self) { image in
+                                    Image(uiImage: image)
+                                        .resizable()
+                                        .aspectRatio(1, contentMode: .fill)
+                                        .frame(height: 200)
+                                        .clipShape(RoundedRectangle(cornerRadius: 18))
+                                }
+                            }
+                            .clipShape(RoundedRectangle(cornerRadius: 18))
+                            .tabViewStyle(PageTabViewStyle())
+                        } else {
+                            VStack {
+                                Image(systemName: "photo.badge.plus.fill")
                                     .resizable()
                                     .aspectRatio(1, contentMode: .fill)
-                                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                                    .frame(width: 50, height: 50)
+                                
+                                Text("이미지 추가")
+                                    .foregroundStyle(.secondary)
+//                                    .padding(.top, 10)
                             }
+                            .frame(width: .infinity)
                         }
-                        .frame(height: 200)
-                        .clipShape(RoundedRectangle(cornerRadius: 18))
-                        .tabViewStyle(PageTabViewStyle())
-                    } else {
-                        Image(.sysmbol)
-                            .resizable()
-                            .aspectRatio(1, contentMode: .fill)
-                            .frame(width: 100, height: 100)
                     }
+                    .padding([.leading, .trailing], 16)
                 }
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 250)
+                .frame(maxWidth: .infinity, maxHeight: 250)
                 .onChange(of: viewModel.selectedPhotos) { oldValue, newValue in
                     //뷰모델의 selectedPhotos값이 바뀔 때마다 convertDataToImage함수 호출
                     viewModel.convertPickerItemToImage()
                 }
-                
-                if viewModel.selectedPhotos.isEmpty {
-                    Text("나의 반려동물 이미지를 추가해 보세요.")
-                        .foregroundStyle(.secondary)
-                        .padding(.vertical)
-                        .animation(.smooth, value: viewModel.selectedPhotos)
-                }
-                
-                Divider()
-                    .padding(.horizontal)
-                    .padding(.bottom, 8)
-                
                 PetInfoSection(viewModel: viewModel)
                 
                 if register {
@@ -121,9 +119,9 @@ struct RegisterPetView: View {
                             .underline()
                     }
                 }
-                
             }
         }
+        .navigationTitle("나의 펫 등록하기")
         .overlay {
             if viewModel.loadState == .loading {
                 ProgressView()
@@ -140,12 +138,6 @@ struct RegisterPetView: View {
     
     private func headerSection() -> some View {
         HStack {
-            Text("나의 펫 등록하기")
-                .bold()
-                .font(.title2)
-        }
-        .frame(maxWidth: .infinity)
-        .overlay(alignment: .leading) {
             if !register {
                 Button {
                     dismiss()
@@ -155,6 +147,7 @@ struct RegisterPetView: View {
                 }
             }
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
@@ -175,7 +168,7 @@ struct PetTypeButton: View {
             Image(type.rawValue)
                 .resizable()
                 .aspectRatio(1, contentMode: .fill)
-                .frame(width: 24, height: 24)
+                .frame(width: 24, height: 18)
         }
         .padding(.horizontal)
         .padding(.vertical, 12)

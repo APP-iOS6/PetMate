@@ -29,7 +29,9 @@ struct ChatDetailView: View {
         VStack {
             if let post = viewModel.post {
                 Divider()
-                ChatPostView(post: post, otherUser: otherUser)
+                ChatPostView(post: post, otherUser: otherUser) {
+                    viewModel.updatePostReservation(post.id, reservationUid: otherUser.id ?? "")
+                }
                 Divider()
             }
             ScrollView {
@@ -104,6 +106,11 @@ struct ChatDetailView: View {
         }
         .onDisappear {
             viewModel.listener?.remove()
+        }
+        .overlay {
+            if viewModel.isLoading {
+                ProgressView()
+            }
         }
     }
 }
