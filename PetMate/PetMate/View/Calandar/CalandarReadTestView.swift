@@ -9,85 +9,58 @@ import SwiftUI
 import EventKit
 
 struct CalandarReadTestView:View {
+    @Environment(\.dismiss) var dismiss
     let store = EKEventStore()
-
-    @State var events : [EKEvent]?
-    let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        return formatter
-    }()
+    let calendarStore = CalendarStore()
+    @State private var isPresent: Bool = false
     
     var body: some View {
-        VStack{
-            Text("뷰는 있음..")
-            if let events{
-                List{
-                    ForEach(events, id: \.self){ event in
-                        VStack{
-                            Text("제목: \(event.title)")
-                            Text("시간: \(dateFormatter.string(from : event.startDate)) ~ \(dateFormatter.string(from: event.endDate))")
-                            Text("내용: \(String(describing: event.notes))")
+        NavigationStack{
+            VStack{
+                if let events = calendarStore.events{
+                    List{
+                        ForEach(events, id: \.self){ event in
+                            VStack{
+                                Text("제목: \(event.title)")
+                                Text("시간: \(dateFormatter.string(from : event.startDate)) ~ \(dateFormatter.string(from: event.endDate))")
+                                if let note = event.notes{
+                                    Text("내용: \(note)")
+                                }
+                            }
                         }
                     }
+                }else{
+                    Text("이벤트를 못불러옴 ㅅㄱ")
                 }
-            }else{
-                Text("이벤트를 못불러옴 ㅅㄱ")
+            }.task {
+                await calendarStore.reqeustAccess()
             }
-        }.task {
-            await requestAccess()
-            //print(events)
-        }
-    }
-    
-    func testCalandar() -> [EKEvent]?{
-        
-        let calendar = Calendar.current
-        
-        // Create the start date components
-        var oneDayAgoComponents = DateComponents()
-        oneDayAgoComponents.day = -1
-        let oneDayAgo = calendar.date(byAdding: oneDayAgoComponents, to: Date(), wrappingComponents: false)
-        
-        
-        // Create the end date components.
-        var oneYearFromNowComponents = DateComponents()
-        oneYearFromNowComponents.year = 1
-        let oneYearFromNow = calendar.date(byAdding: oneYearFromNowComponents, to: Date(), wrappingComponents: false)
-        
-        
-        // Create the predicate from the event store's instance method.
-        var predicate: NSPredicate? = nil
-        if let anAgo = oneDayAgo, let aNow = oneYearFromNow {
-            predicate = store.predicateForEvents(withStart: anAgo, end: aNow, calendars: nil)
-        }
-        
-        
-        // Fetch all events that match the predicate.
-        var events: [EKEvent]? = nil
-        if let aPredicate = predicate {
-            events = store.events(matching: aPredicate).filter{$0.title.contains("펫메이트")}
-        }
-        
-        return events
-    }
-    
-    func requestAccess() async{
-        do{
-            let access = try await store.requestFullAccessToEvents()
-            if access{
-                events = testCalandar()
+            .sheet(isPresented: $isPresent) {
+                CalandarView(post: nil, title: "")
             }
-            print("access: \(access)")
-        }catch{
-            print(error)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("뒤로"){
+                        dismiss()
+                    }
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button{
+                        isPresent.toggle()
+                    }label: {
+                        Image(systemName: "square.and.pencil")
+                    }
+                }
+            }
+            
         }
-        
     }
 }
 
 
 
 #Preview{
-    CalandarReadTestView()
+    NavigationStack{
+        CalandarReadTestView()
+    }
 }

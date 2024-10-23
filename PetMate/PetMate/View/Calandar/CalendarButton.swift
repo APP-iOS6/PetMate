@@ -18,8 +18,7 @@ struct CalendarButton: View {
                 .resizable()
                 .frame(width: 60, height: 76)
         }
-        .sheet(isPresented: $isPresent) {
-            //CalandarView(post: nil, title: "일정 추가")
+        .fullScreenCover(isPresented: $isPresent) {
             CalandarReadTestView()
         }
     }
