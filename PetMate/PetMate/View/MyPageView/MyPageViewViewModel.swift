@@ -38,7 +38,7 @@ class MyPageViewViewModel {
                     self.myInfo = myuser
                     self.phase = .success
                 }
-                await getPetInfo(userUid: myuser.id ?? "")
+                await getPetInfo()
             } catch {
                 DispatchQueue.main.async {
                     self.phase = .failure
@@ -73,9 +73,13 @@ class MyPageViewViewModel {
 //        }
 //    }
     
-    func getPetInfo(userUid: String) async {
+    func getPetInfo() async {
+        guard let myUid = Auth.auth().currentUser?.uid else {
+            print("로그인 상태가 아님")
+            return
+        }
         do {
-            let documents = try await db.collection("Pet").whereField("ownerUid", isEqualTo: userUid).getDocuments().documents
+            let documents = try await db.collection("Pet").whereField("ownerUid", isEqualTo: myUid).getDocuments().documents
             let petDatas = try documents.compactMap {
                 try $0.data(as: Pet.self)
             }

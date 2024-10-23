@@ -61,8 +61,6 @@
 		4B5D530D2CBE3B8E00FDC77A /* PetProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */; };
 		4B5D53812CBE627500FDC77A /* TagUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53802CBE627500FDC77A /* TagUI.swift */; };
 		4B6FF8812CBE888C009F4206 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FF8802CBE888C009F4206 /* MyPageView.swift */; };
-		4BFD983F2CC8C1DA00B2C009 /* EditPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD983E2CC8C1DA00B2C009 /* EditPetView.swift */; };
-		4BFD98412CC8C88000B2C009 /* PetProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD98402CC8C88000B2C009 /* PetProfileEditView.swift */; };
 		BD2C0EF62CC234E0005D34CB /* PetPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C0EF52CC234E0005D34CB /* PetPlaceView.swift */; };
 		BD306E5B2CBEF7C0008BDBEB /* PetPlaceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E5A2CBEF7C0008BDBEB /* PetPlaceStore.swift */; };
 		BD306E642CBEF852008BDBEB /* PetMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD306E632CBEF852008BDBEB /* PetMapView.swift */; };
@@ -169,8 +167,6 @@
 		4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileView.swift; sourceTree = "<group>"; };
 		4B5D53802CBE627500FDC77A /* TagUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagUI.swift; sourceTree = "<group>"; };
 		4B6FF8802CBE888C009F4206 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
-		4BFD983E2CC8C1DA00B2C009 /* EditPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPetView.swift; sourceTree = "<group>"; };
-		4BFD98402CC8C88000B2C009 /* PetProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileEditView.swift; sourceTree = "<group>"; };
 		BD2C0EF52CC234E0005D34CB /* PetPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPlaceView.swift; sourceTree = "<group>"; };
 		BD306E5A2CBEF7C0008BDBEB /* PetPlaceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPlaceStore.swift; sourceTree = "<group>"; };
 		BD306E632CBEF852008BDBEB /* PetMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetMapView.swift; sourceTree = "<group>"; };
@@ -297,7 +293,6 @@
 			children = (
 				259DC0FC2CBF8A2F00AB41C1 /* MatePostStore.swift */,
 				259DC0F92CBF832000AB41C1 /* TestStore.swift */,
-				BD306E7A2CBF0158008BDBEB /* UserProfileViewModel.swift */,
 				BD306E5A2CBEF7C0008BDBEB /* PetPlaceStore.swift */,
 				04ABC5102CC5E0CA00DF4931 /* AddPostViewModel.swift */,
 				04ABC5182CC62A1E00DF4931 /* UserProfileEditViewModel.swift */,
@@ -458,14 +453,13 @@
 		4B5D53052CBE2D9600FDC77A /* MyPageView */ = {
 			isa = PBXGroup;
 			children = (
-				4BFD983D2CC8C05500B2C009 /* EditPet */,
 				FB95323B2CC4C6BE00AEBD9C /* RegisterPet */,
 				4B5D53842CBE63F700FDC77A /* CommonStruct */,
+				4B5C17442CC51EBA00C6EF88 /* MyPageViewViewModel.swift */,
 				4B6FF8802CBE888C009F4206 /* MyPageView.swift */,
 				4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */,
-				4B5C17442CC51EBA00C6EF88 /* MyPageViewViewModel.swift */,
 				4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */,
-				04ABC5142CC6181500DF4931 /* UserProfileEditView.swift */,
+				4BFD98422CC8CA8200B2C009 /* EditUser */,
 			);
 			path = MyPageView;
 			sourceTree = "<group>";
@@ -479,13 +473,13 @@
 			path = CommonStruct;
 			sourceTree = "<group>";
 		};
-		4BFD983D2CC8C05500B2C009 /* EditPet */ = {
+		4BFD98422CC8CA8200B2C009 /* EditUser */ = {
 			isa = PBXGroup;
 			children = (
-				4BFD983E2CC8C1DA00B2C009 /* EditPetView.swift */,
-				4BFD98402CC8C88000B2C009 /* PetProfileEditView.swift */,
+				BD306E7A2CBF0158008BDBEB /* UserProfileViewModel.swift */,
+				04ABC5142CC6181500DF4931 /* UserProfileEditView.swift */,
 			);
-			path = EditPet;
+			path = EditUser;
 			sourceTree = "<group>";
 		};
 		BD306E5C2CBEF7CC008BDBEB /* Place */ = {
@@ -716,7 +710,6 @@
 				FBF4E4802CC226A700CFA137 /* SignUpViewModel.swift in Sources */,
 				BD691BD82CBF96EB003A300B /* StoreDetailView.swift in Sources */,
 				252A12982CBED8AD00EDD297 /* CalandarView.swift in Sources */,
-				4BFD983F2CC8C1DA00B2C009 /* EditPetView.swift in Sources */,
 				BD306E7D2CBF0180008BDBEB /* HomeTabView.swift in Sources */,
 				FBD6BBB72CBE49EA008BEA30 /* Date+Extension.swift in Sources */,
 				BD691BD62CBF8B4B003A300B /* Store.swift in Sources */,
@@ -775,7 +768,6 @@
 				04ABC5112CC5E0D300DF4931 /* AddPostViewModel.swift in Sources */,
 				256A27442CBE81350031F766 /* HomeView.swift in Sources */,
 				FBD6BC8F2CBF8603008BEA30 /* GenerateChatRoomId.swift in Sources */,
-				4BFD98412CC8C88000B2C009 /* PetProfileEditView.swift in Sources */,
 				BD691BDB2CBFAAE2003A300B /* KakaoAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
