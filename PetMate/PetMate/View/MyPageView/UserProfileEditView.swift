@@ -210,7 +210,7 @@ struct UserProfileEditView: View {
                 matching: .images,
                 photoLibrary: .shared()
             )
-            .onChange(of: selectedItem) { newItem in
+            .onChange(of: selectedItem) { old, newItem in
                 viewModel.convertPickerItemToImage(newItem)
             }
             .sheet(isPresented: $viewModel.isSearchModal) {

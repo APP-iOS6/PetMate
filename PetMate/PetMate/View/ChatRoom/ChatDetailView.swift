@@ -49,7 +49,6 @@ struct ChatDetailView: View {
                             .padding(.vertical, 8)
                             .frame(maxWidth: .infinity)
                             .background(Color(UIColor.systemBackground))
-                        
                         ForEach(section.chats, id: \.id) { chat in
                             ChatItemView(chat: chat, otherUser: otherUser)
                         }
