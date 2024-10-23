@@ -58,6 +58,22 @@ class HomeViewViewModel {
         }
     }
     
+    func updateLocationData(location: String) async{
+        guard let currentUser = Auth.auth().currentUser?.uid else{
+            print("로그인 상태가 아님")
+            return
+        }
+        do{
+            try await db.collection("User").document(currentUser).setData([
+                "location": location
+            ])
+            myInfo?.location = location
+            await getNearPets(location)
+        }catch{
+            print("레퍼런스 오류: \(error)")
+        }
+    }
+    
     // @MainActor 화면에 보이는 데이터를 직접적으로 간섭 안정적으로 운영하는 데 있어선 괜찮은데 화면이 버벅거림에 원인이 될 수 있음
     // > 정석은 디스패치큐??
     
