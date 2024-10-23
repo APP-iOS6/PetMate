@@ -62,7 +62,6 @@
 		4B5D53072CBE2DB400FDC77A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */; };
 		4B5D53092CBE39FB00FDC77A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53082CBE39FB00FDC77A /* ImagePicker.swift */; };
 		4B5D530D2CBE3B8E00FDC77A /* PetProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */; };
-		4B5D530F2CBE3BAC00FDC77A /* PetProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D530E2CBE3BAC00FDC77A /* PetProfileEditView.swift */; };
 		4B5D53812CBE627500FDC77A /* TagUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53802CBE627500FDC77A /* TagUI.swift */; };
 		4B6FF8812CBE888C009F4206 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FF8802CBE888C009F4206 /* MyPageView.swift */; };
 		BD2C0EF62CC234E0005D34CB /* PetPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C0EF52CC234E0005D34CB /* PetPlaceView.swift */; };
@@ -172,7 +171,6 @@
 		4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		4B5D53082CBE39FB00FDC77A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileView.swift; sourceTree = "<group>"; };
-		4B5D530E2CBE3BAC00FDC77A /* PetProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileEditView.swift; sourceTree = "<group>"; };
 		4B5D53802CBE627500FDC77A /* TagUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagUI.swift; sourceTree = "<group>"; };
 		4B6FF8802CBE888C009F4206 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		BD2C0EF52CC234E0005D34CB /* PetPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPlaceView.swift; sourceTree = "<group>"; };
@@ -303,7 +301,6 @@
 				251B14EE2CC8B4F900700F93 /* CalendarStore.swift */,
 				259DC0FC2CBF8A2F00AB41C1 /* MatePostStore.swift */,
 				259DC0F92CBF832000AB41C1 /* TestStore.swift */,
-				BD306E7A2CBF0158008BDBEB /* UserProfileViewModel.swift */,
 				BD306E5A2CBEF7C0008BDBEB /* PetPlaceStore.swift */,
 				04ABC5102CC5E0CA00DF4931 /* AddPostViewModel.swift */,
 				04ABC5182CC62A1E00DF4931 /* UserProfileEditViewModel.swift */,
@@ -466,12 +463,11 @@
 			children = (
 				FB95323B2CC4C6BE00AEBD9C /* RegisterPet */,
 				4B5D53842CBE63F700FDC77A /* CommonStruct */,
+				4B5C17442CC51EBA00C6EF88 /* MyPageViewViewModel.swift */,
 				4B6FF8802CBE888C009F4206 /* MyPageView.swift */,
 				4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */,
-				4B5C17442CC51EBA00C6EF88 /* MyPageViewViewModel.swift */,
 				4B5D530C2CBE3B8E00FDC77A /* PetProfileView.swift */,
-				4B5D530E2CBE3BAC00FDC77A /* PetProfileEditView.swift */,
-				04ABC5142CC6181500DF4931 /* UserProfileEditView.swift */,
+				4BFD98422CC8CA8200B2C009 /* EditUser */,
 			);
 			path = MyPageView;
 			sourceTree = "<group>";
@@ -483,6 +479,15 @@
 				4B5D53802CBE627500FDC77A /* TagUI.swift */,
 			);
 			path = CommonStruct;
+			sourceTree = "<group>";
+		};
+		4BFD98422CC8CA8200B2C009 /* EditUser */ = {
+			isa = PBXGroup;
+			children = (
+				BD306E7A2CBF0158008BDBEB /* UserProfileViewModel.swift */,
+				04ABC5142CC6181500DF4931 /* UserProfileEditView.swift */,
+			);
+			path = EditUser;
 			sourceTree = "<group>";
 		};
 		BD306E5C2CBEF7CC008BDBEB /* Place */ = {
@@ -765,7 +770,6 @@
 				BD306E722CBF010B008BDBEB /* AuthManager.swift in Sources */,
 				259DC1012CBFAC7E00AB41C1 /* MatePostAddView.swift in Sources */,
 				259DC0FD2CBF8A3600AB41C1 /* MatePostStore.swift in Sources */,
-				4B5D530F2CBE3BAC00FDC77A /* PetProfileEditView.swift in Sources */,
 				4B5D530D2CBE3B8E00FDC77A /* PetProfileView.swift in Sources */,
 				FBB18FAC2CC78A9B00F92BBE /* ChatPostView.swift in Sources */,
 				BD306E752CBF0122008BDBEB /* LoginView.swift in Sources */,

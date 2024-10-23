@@ -7,7 +7,11 @@ struct UserProfileView: View {
     @State private var isEditingIntroduction = false // 편집모드인지 여부
     @State private var introduction = "소개를 기다리고 있어요"
     
-    @State private var viewModel: MyPageViewViewModel = MyPageViewViewModel()
+    private var viewModel: MyPageViewViewModel
+    
+    init(viewModel: MyPageViewViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         VStack {
@@ -86,5 +90,5 @@ struct UserProfileView: View {
 }
 
 #Preview {
-    UserProfileView()
+    UserProfileView(viewModel: MyPageViewViewModel())
 }

@@ -10,13 +10,14 @@ import SwiftUI
 struct MyPageView: View {
     @Environment(AuthManager.self) var authManager
     @State private var isRegisterPetViewPresented = false
+    private var viewModel = MyPageViewViewModel()
     
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     // 프로필 섹션
-                    UserProfileView()
+                    UserProfileView(viewModel: viewModel)
                     
                     // 반려동물 섹션
                     VStack(alignment: .leading, spacing: 15) {
@@ -25,7 +26,7 @@ struct MyPageView: View {
                             .fontWeight(.bold)
                             .padding(.leading)
                         
-                        PetProfileView()
+                        PetProfileView(viewModel: viewModel)
                     }
                     
                     // 반려동물 추가하기 버튼
@@ -56,8 +57,11 @@ struct MyPageView: View {
                 }
             }
             .navigationDestination(isPresented: $isRegisterPetViewPresented) {
-                RegisterPetView(register: true) {
+                RegisterPetView(register: false) {
                     isRegisterPetViewPresented = false
+                    Task {
+                        await viewModel.getPetInfo()
+                    }
                 }
             }
         }

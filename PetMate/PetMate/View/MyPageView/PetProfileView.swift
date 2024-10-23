@@ -11,7 +11,11 @@ struct PetProfileView: View {
     @State private var profileImage: Image?
     @State private var isShowingEditPetProfile = false // 편집 시트
     @State private var isShowingDeleteConfirmation = false // 삭제 확인
-    @State private var viewModel: MyPageViewViewModel = MyPageViewViewModel()
+    private var viewModel: MyPageViewViewModel
+    
+    init(viewModel: MyPageViewViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
@@ -42,7 +46,7 @@ struct PetProfileView: View {
                             }
                         }
                         .sheet(isPresented: $isShowingEditPetProfile) {
-                            PetProfileEditView()
+//                            PetProfileEditView()
                         }
                         
                         VStack(alignment: .leading, spacing: 6) {
