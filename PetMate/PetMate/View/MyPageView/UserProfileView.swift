@@ -52,6 +52,10 @@ struct UserProfileView: View {
                                 .clipShape(Circle())
                         }
                         .offset(x: 30, y: 0)
+                        .sheet(isPresented: $isEditingIntroduction) {
+                            let editViewModel = UserProfileEditViewModel(mateUser: viewModel.myInfo ?? MateUser(id: nil, name: "", image: "", matchCount: 0, location: "", createdAt: Date()))
+                            UserProfileEditView(viewModel: editViewModel)
+                        }
                     }
                     
                     VStack(alignment: .leading, spacing: 6) {
@@ -79,7 +83,7 @@ struct UserProfileView: View {
                     }
                 }
             }
-            .padding()
+//            .padding()
             .frame(maxWidth: .infinity, alignment: .leading)
         }
         .onAppear {

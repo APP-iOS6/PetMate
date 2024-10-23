@@ -15,18 +15,20 @@ struct MyPageView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading, spacing: 30) {
                     // 프로필 섹션
                     UserProfileView(viewModel: viewModel)
+                        .padding(.horizontal, 16)
                     
                     // 반려동물 섹션
-                    VStack(alignment: .leading, spacing: 15) {
+                    VStack(alignment: .leading, spacing: 10) {
                         Text("함께하는 반려동물")
                             .font(.system(size: 16))
                             .fontWeight(.bold)
-                            .padding(.leading)
+                            .padding(.leading, 16)
                         
                         PetProfileView(viewModel: viewModel)
+                            .padding(.horizontal, 16)
                     }
                     
                     // 반려동물 추가하기 버튼
