@@ -79,7 +79,7 @@ struct UserProfileView: View {
                     }
                 }
             }
-            .padding()
+//            .padding()
             .frame(maxWidth: .infinity, alignment: .leading)
         }
         .onAppear {
