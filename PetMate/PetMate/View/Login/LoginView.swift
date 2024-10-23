@@ -88,13 +88,20 @@ struct LoginView: View {
                     .frame(width: 300, height: 60)
             }
             
-            SignInWithAppleButton(.continue) { request in
-                viewModel.action(.appleLogin(request))
-            } onCompletion: { result in
-                viewModel.action(.appleLoginCompletion(result))
-            }
-            .frame(width: 300, height: 55)
-
+            Image(.appleLoginButton)
+                .resizable()
+                .frame(width: 300, height: 60)
+                .overlay {
+                    SignInWithAppleButton(.continue) { request in
+                        viewModel.action(.appleLogin(request))
+                    } onCompletion: { result in
+                        viewModel.action(.appleLoginCompletion(result))
+                    }
+                    .blendMode(.overlay)
+                }
+            
+            
+            
             
             Button(action: {
                 viewModel.action(.google)

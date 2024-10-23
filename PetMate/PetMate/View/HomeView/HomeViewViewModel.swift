@@ -22,7 +22,8 @@ class HomeViewViewModel {
     var petOwner: MateUser? = nil
     var selectedChatUser: MateUser? = nil
     var shouldNavigateToChat = false
-    
+    var reviewNavigateToChat = false
+    var selectedReview: ReviewUI? = nil
     
     // 유저 정보를 땡겨와야 함 내 UID 정보
     
