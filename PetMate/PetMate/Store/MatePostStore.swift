@@ -87,8 +87,8 @@ class MatePostStore{
     //로그인한 계정이 가지고 있는 펫 정보들 모아서 반환
     func getMyPets() async -> [Pet] {
         let db = Firestore.firestore()
-        //let currentUser: String = Auth.auth().currentUser?.uid ?? ""
-        let currentUser: String = "희철"
+        let currentUser: String = Auth.auth().currentUser?.uid ?? ""
+        //let currentUser: String = "희철"
         var pets: [Pet] = []
         let snapshots = try? await db.collection("Pet").whereField("ownerUid", isEqualTo: currentUser).getDocuments()
         snapshots?.documents.forEach{ snapshot in
@@ -122,8 +122,8 @@ class MatePostStore{
     // MARK: - 파이어베이스에 값을 넣는 함수
     func postMatePost() -> (){
         let db = Firestore.firestore()
-        //let currentUser = Auth.auth().currentUser?.uid ?? ""
-        let currentUser: String = "희철"
+        let currentUser = Auth.auth().currentUser?.uid ?? ""
+        //let currentUser: String = "희철"
         var petRefs: [DocumentReference] = []
         Array(selectedPets).forEach{
             guard let id = $0.id else { return }
@@ -150,6 +150,19 @@ class MatePostStore{
         }catch let error{
             print("Error posting mate post: \(error.localizedDescription)")
         }
+    }
+    
+    func addPostReset(){
+        category = "walk"
+        startDate = Date()
+        endDate = Date()
+        cost = ""
+        title = ""
+        content = ""
+        location = ""
+        postState = ""
+        
+        var selectedPets: Set<Pet> = []
     }
     
 }
