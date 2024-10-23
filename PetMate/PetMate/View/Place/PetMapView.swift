@@ -22,10 +22,10 @@ struct PetMapView: View {
                 Map(initialPosition: .region(MKCoordinateRegion(center: .convertUserLocationToCoordinate(x: placeStore.userLatitude , y: placeStore.userLongitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))) {
                     ForEach(placeStore.places) { place in
                         Annotation("\(place.placeName)", coordinate: .convertGeoPointToCoordinate(place.location)) {
-                            Image("etc2")
+                            Image("etc3")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 25, height: 25)
+                                .frame(width: 30, height: 30)
                                 .onTapGesture(perform: {
                                     selectedPlace = place
                                     showPlaceCardView.toggle()
