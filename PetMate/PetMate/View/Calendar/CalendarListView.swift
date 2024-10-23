@@ -8,7 +8,7 @@
 import SwiftUI
 import EventKit
 
-struct CalandarReadTestView:View {
+struct CalendarListView:View {
     @Environment(\.dismiss) var dismiss
     let store = EKEventStore()
     let calendarStore = CalendarStore()
@@ -36,7 +36,7 @@ struct CalandarReadTestView:View {
                 await calendarStore.reqeustAccess()
             }
             .sheet(isPresented: $isPresent) {
-                CalandarView(post: nil, title: "")
+                CalendarEditView(post: nil, title: "")
             }
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -61,6 +61,6 @@ struct CalandarReadTestView:View {
 
 #Preview{
     NavigationStack{
-        CalandarReadTestView()
+        CalendarListView()
     }
 }

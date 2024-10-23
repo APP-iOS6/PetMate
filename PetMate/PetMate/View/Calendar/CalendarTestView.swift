@@ -7,7 +7,7 @@
 import SwiftUI
 import FirebaseFirestore
 
-struct CalandarTestView: View {
+struct CalendarTestView: View {
     
     let testStore = TestStore()
     
@@ -17,7 +17,7 @@ struct CalandarTestView: View {
         Button("캘린더 테스트"){
             isPresent.toggle()
         }.sheet(isPresented: $isPresent) {
-            CalandarView(post: testStore.testPost, title: testStore.title)
+            CalendarEditView(post: testStore.testPost, title: testStore.title)
         }.task {
             testStore.title = await testStore.getTitle()
         }
@@ -25,5 +25,5 @@ struct CalandarTestView: View {
 }
 
 #Preview{
-    CalandarTestView()
+    CalendarTestView()
 }

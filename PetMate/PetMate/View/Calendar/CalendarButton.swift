@@ -19,7 +19,7 @@ struct CalendarButton: View {
                 .frame(width: 60, height: 76)
         }
         .fullScreenCover(isPresented: $isPresent) {
-            CalandarReadTestView()
+            CalendarListView()
         }
     }
 }
