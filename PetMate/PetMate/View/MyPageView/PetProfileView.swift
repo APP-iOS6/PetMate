@@ -51,7 +51,9 @@ struct PetProfileView: View {
                                 }
                             }
                             .sheet(isPresented: $isShowingEditPetProfile) {
-                                // PetProfileEditView()
+                                RegisterPetView(pet: pet){
+                                    isShowingEditPetProfile.toggle()
+                                }
                             }
                             
                             VStack(alignment: .leading, spacing: 6) {
