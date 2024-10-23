@@ -9,8 +9,8 @@ import SwiftUI
 
 struct PetProfileView: View {
     @State private var profileImage: Image?
-    @State private var isShowingEditPetProfile = false // 편집 시트
     @State private var isShowingDeleteConfirmation = false // 삭제 확인
+    @State private var selectedPet: Pet? = nil // 선택한 펫 정보 저장
     private var viewModel: MyPageViewViewModel
     
     init(viewModel: MyPageViewViewModel) {
@@ -24,23 +24,29 @@ struct PetProfileView: View {
         
         let isSingle = sortedPets.count == 1 // 한 마리인지 확인하는 플래그
         
-        if sortedPets.count > 1 {
-            // 여러 마리일 때 스크롤 가능
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(alignment: .center, spacing: 16) {
-                    petProfileCards(sortedPets: sortedPets)
+        VStack {
+            if sortedPets.count > 1 {
+                // 여러 마리일 때 스크롤 가능
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(alignment: .center, spacing: 16) {
+                        petProfileCards(sortedPets: sortedPets)
+                    }
+                    .frame(maxWidth: .infinity)
                 }
-                .frame(maxWidth: .infinity)
+            } else {
+                // 한 마리일 때 스크롤 없이 전체 화면 너비 사용
+                HStack(alignment: .center, spacing: 0) {
+                    petProfileCards(sortedPets: sortedPets, isSingle: isSingle)
+                }
+                .frame(maxWidth: .infinity) // 카드가 화면을 가득 채우도록 설정
             }
-        } else {
-            // 한 마리일 때 스크롤 없이 전체 화면 너비 사용
-            HStack(alignment: .center, spacing: 0) {
-                petProfileCards(sortedPets: sortedPets, isSingle: isSingle)
+        }
+        .sheet(item: $selectedPet) { pet in
+            RegisterPetView(register: false, pet: pet) {
+                // 수정 완료 후 처리
             }
-            .frame(maxWidth: .infinity) // 카드가 화면을 가득 채우도록 설정
         }
     }
-
     
     @ViewBuilder
     private func petProfileCards(sortedPets: [Pet], isSingle: Bool = false) -> some View {
@@ -70,9 +76,6 @@ struct PetProfileView: View {
                                 )
                         }
                     }
-                    .sheet(isPresented: $isShowingEditPetProfile) {
-                        // PetProfileEditView()
-                    }
                     
                     VStack(alignment: .leading, spacing: 6) {
                         HStack {
@@ -85,7 +88,7 @@ struct PetProfileView: View {
                             
                             Menu {
                                 Button("수정하기") {
-                                    isShowingEditPetProfile = true
+                                    selectedPet = pet // 선택한 펫 설정
                                 }
                                 Button("삭제하기", role: .destructive) {
                                     isShowingDeleteConfirmation = true
@@ -93,8 +96,10 @@ struct PetProfileView: View {
                             } label: {
                                 Image(systemName: "ellipsis")
                                     .foregroundColor(.gray)
-                                    .padding(8)
-                                    .offset(x: 2,y: -15)
+                                    .padding(16)
+                                    .background(Color.clear)
+                                    .contentShape(Rectangle())
+                                    .offset(x: 8, y: -15)
                             }
                         }
                         Text("📍\(pet.location)에 사는 \(pet.breed)")
@@ -165,6 +170,8 @@ struct PetProfileView: View {
         }
     }
 }
+
+
 
 //#Preview {
 //    PetProfileView()
