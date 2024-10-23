@@ -21,6 +21,14 @@ enum SearchState {
             "📍카카오프렌즈 코엑스점"
         }
     }
+    func setTitle(title: String) -> String {
+        switch self {
+        case .searchPlace:
+            return "🐾 펫 플레이스 등록하기"
+        case .confirmInfo, .addPlace:
+            return title
+        }
+    }
     
     var buttonImage: Image {
         switch self {

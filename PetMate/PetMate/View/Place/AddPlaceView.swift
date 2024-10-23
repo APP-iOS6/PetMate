@@ -14,7 +14,7 @@ struct AddPlaceView: View {
         VStack {
             VStack {
                 HStack {
-                    Text("\(placeStore.searchState.title)")
+                    Text("\(placeStore.searchState.setTitle(title: placeStore.selectedPlace?.place_name ?? ""))")
                         .font(.title3)
                         .bold()
                 }

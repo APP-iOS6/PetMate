@@ -25,7 +25,7 @@ struct SubmitPlaceView: View {
                     Image(uiImage: selectedImage)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: .infinity)
+                        .frame(maxWidth: .infinity)
                         .scaledToFit()
                         .cornerRadius(10)
                 } else {
@@ -101,6 +101,11 @@ struct SubmitPlaceView: View {
             
             Spacer()
         }
+        .overlay {
+            if uploadState == .loading {
+                ProgressView()
+            }
+        }
         .alert("업로드 실패", isPresented: .constant(uploadState == .failed), actions: {
             Button("확인", role: .cancel) {
                 uploadState = .none
@@ -156,8 +161,11 @@ struct SubmitPlaceView: View {
                 geoHash: ""
             ) { success in
                 if success {
+                    
                     placeStore.fetchPlaces()
                     dismiss()
+                    placeStore.searchState = .searchPlace
+
                 } else {
                     print("Failed to add place")
                 }
