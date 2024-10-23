@@ -15,6 +15,8 @@ struct CalendarEditView: UIViewControllerRepresentable {
     private let store = EKEventStore()
     let post: MatePost?
     let title: String
+    var calendarStore: CalendarStore
+    
     typealias UIViewControllerType = EKEventEditViewController
     
     func makeCoordinator() -> Coordinator {
@@ -29,6 +31,11 @@ struct CalendarEditView: UIViewControllerRepresentable {
         }
         
         func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
+            if action == .saved {
+                Task {
+                    await parent.calendarStore.reqeustAccess() // 이벤트 추가 후 데이터를 다시 불러옵니다.
+                }
+            }
             parent.presentationMode.wrappedValue.dismiss()
         }
     }

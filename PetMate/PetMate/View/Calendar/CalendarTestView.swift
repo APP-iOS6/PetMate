@@ -4,26 +4,26 @@
 //
 //  Created by 권희철 on 10/15/24.
 //
-import SwiftUI
-import FirebaseFirestore
-
-struct CalendarTestView: View {
-    
-    let testStore = TestStore()
-    
-    @State private var isPresent: Bool = false
-    
-    var body: some View {
-        Button("캘린더 테스트"){
-            isPresent.toggle()
-        }.sheet(isPresented: $isPresent) {
-            CalendarEditView(post: testStore.testPost, title: testStore.title)
-        }.task {
-            testStore.title = await testStore.getTitle()
-        }
-    }
-}
-
-#Preview{
-    CalendarTestView()
-}
+//import SwiftUI
+//import FirebaseFirestore
+//
+//struct CalendarTestView: View {
+//    
+//    let testStore = TestStore()
+//    
+//    @State private var isPresent: Bool = false
+//    
+//    var body: some View {
+//        Button("캘린더 테스트"){
+//            isPresent.toggle()
+//        }.sheet(isPresented: $isPresent) {
+//            CalendarEditView(post: testStore.testPost, title: testStore.title)
+//        }.task {
+//            testStore.title = await testStore.getTitle()
+//        }
+//    }
+//}
+//
+//#Preview{
+//    CalendarTestView()
+//}
