@@ -46,7 +46,7 @@ struct HomeView2: View {
                             
                             Image("report_banner")
                                 .resizable()
-                                .frame(width: 360, height: 98)
+                                .frame(width: 370, height: 84)
                                 .padding(.top, -10)
                                 .padding(.bottom, 30)
                         }

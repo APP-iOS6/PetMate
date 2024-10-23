@@ -53,17 +53,17 @@ struct MatePostAddView: View {
                                     dismiss()
                                 }label:{
                                     Text("완료")
-                                }
+                                }.disabled(postStore.selectedPets.isEmpty ||
+                                           postStore.title.isEmpty ||
+                                           postStore.content.isEmpty
+                                )
                             }
                             ToolbarItem(placement: .cancellationAction) {
                                 Button{
                                     progress = 0.5
                                 }label:{
                                     Image(systemName: "chevron.left")
-                                }.disabled(postStore.selectedPets.isEmpty ||
-                                           postStore.title.isEmpty ||
-                                           postStore.content.isEmpty
-                                )
+                                }
                             }
                         }
                     
@@ -73,7 +73,11 @@ struct MatePostAddView: View {
                         dismiss()
                     }
                 }
-            }.animation(.easeIn, value: progress)
+            }
+            .animation(.easeIn, value: progress)
+            .onAppear{
+                postStore.addPostReset()
+            }
         }
     }
 }

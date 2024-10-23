@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct HomeTabView: View {
+    @State private var showChatDetail = false
+    
     var body: some View {
+        
         TabView {
             NavigationStack {
                 //Text("test")
@@ -22,12 +25,12 @@ struct HomeTabView: View {
                 PetPlaceView()
                     .environment(PetPlacesStore())
             }
-
-                .tabItem {
-                    Text("Place")
-                    Image(systemName: "pawprint")
-                }
-
+            
+            .tabItem {
+                Text("Place")
+                Image(systemName: "pawprint")
+            }
+            
             ChatRoomListView()
                 .tabItem {
                     Text("Chat")

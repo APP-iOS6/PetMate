@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "walk_button1.png",
+      "filename" : "empty1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "walk_button2.png",
+      "filename" : "empty2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "walk_button3.png",
+      "filename" : "empty3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

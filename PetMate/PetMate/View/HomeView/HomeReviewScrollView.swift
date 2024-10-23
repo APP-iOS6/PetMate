@@ -13,7 +13,7 @@ struct HomeReviewScrollView: View {
             Text("메이트 후기가 궁금해요!")
                 .font(.headline)
                 .padding(.horizontal, 33)
-                .padding(.bottom, 5)
+                .padding(.bottom, -1)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 20) {

@@ -23,7 +23,7 @@ struct UserProfileView: View {
                             image
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: 80, height: 80)
+                                .frame(width: 90, height: 90)
                                 .clipShape(Circle())
                                 .overlay(
                                     Circle()
@@ -33,7 +33,7 @@ struct UserProfileView: View {
                             Image("")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 80, height: 80)
+                                .frame(width: 90, height: 90)
                                 .clipShape(Circle())
                                 .overlay(
                                     Circle()
@@ -54,7 +54,7 @@ struct UserProfileView: View {
                         .offset(x: 30, y: 0)
                     }
                     
-                    VStack(alignment: .leading, spacing: 8) {
+                    VStack(alignment: .leading, spacing: 6) {
                         HStack {
                             Text(viewModel.myInfo?.name ?? "사용자 이름")
                                 .font(.system(size: 24))
@@ -65,15 +65,18 @@ struct UserProfileView: View {
                         }
                         Text("메이트 횟수: \(viewModel.myInfo?.matchCount ?? 0) 번")
                             .font(.subheadline)
-                            .foregroundColor(.black)
+                            .foregroundColor(Color("location_Color"))
+                        
+                        HStack(spacing: 20) {
+                            Text("쩰리 평점")
+                                .font(.system(size: 14))
+                                .foregroundStyle(.gray)
+                            Image("jellyScore")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 100, height: 30)
+                        }
                     }
-                }
-                
-                HStack {
-                    Text("쩰리 점수 ")
-                        .font(.system(size: 14))
-                        .foregroundStyle(.gray)
-                    Text("")
                 }
             }
             .padding()
@@ -84,7 +87,6 @@ struct UserProfileView: View {
                 await viewModel.getMyInfodata()
             }
         }
-//        .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 }

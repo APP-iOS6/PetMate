@@ -101,7 +101,7 @@ class ChatDetailViewModel: ObservableObject {
     //해당 유저와의 채팅 메시지 정보를 계속 받기 위해 스냅샷 리스너를 호출
     func observeChatList(_ chatRoomId: String, myUid: String) {
         
-        self.listener = self.db.collection("Chat").document(chatRoomId).collection("Message").addSnapshotListener { querySnapshot, error in
+        self.listener = self.db.collection("Chat").document(chatRoomId).collection("Message").addSnapshotListener { [weak self] querySnapshot, error in
             guard let snapshot = querySnapshot else {
                 print("리스너 실패")
                 return
@@ -113,8 +113,10 @@ class ChatDetailViewModel: ObservableObject {
                     let chat = try diff.document.data(as: Chat.self)
                     switch diff.type {
                     case .added: //새로운 채팅 데이터가 추가 되었을 때
+                        print("새로 들어옴")
                         self?.handleAdded(chat,chatRoomId: chatRoomId ,myUid: myUid)
                     case .modified: //기존의 채팅 데이터가 업데이트 되었을 때
+                        print("업데이트 됨")
                         self?.handleUpdate(chat)
                     case .removed:  //기존의 채팅 데이터가 아예 삭제되었을 때
                         self?.handleRemove(chat)
@@ -236,14 +238,6 @@ class ChatDetailViewModel: ObservableObject {
         }
     }
     
-    //TODO: 포스트 가져오는 함수 희철님이랑 같이 작업 되어야 할 수 있을 듯
-    //    func getPostData(_ postId: String?) {
-    //        guard let postId = postId else {
-    //            print("포스트 없음")
-    //            return
-    //        }
-    //    }
-    
     //메시지 전송 버튼을 눌렀을 때
     func sendMessage(_ postId: String?, otherUser: MateUser, message: String) async {
         guard let userUid = Auth.auth().currentUser?.uid else {
@@ -360,7 +354,8 @@ class ChatDetailViewModel: ObservableObject {
         self.isLoading = true
         Task {
             do {
-                try await self.db.collection("MatePost").document(postId).updateData(["reservationUser": db.collection("User").document(reservationUid)])
+                try await self.db.collection("MatePost").document(postId).updateData(["reservationUser": db.collection("User").document(reservationUid), "postState": "reservated"])
+                try await self.db.collection("User").document(reservationUid).updateData(["matchCount": FieldValue.increment(Int64(1))])
                 getPostData(postId)
                 DispatchQueue.main.async {
                     self.isLoading = false

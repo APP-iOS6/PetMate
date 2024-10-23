@@ -10,8 +10,9 @@ import FirebaseFirestore
 
 struct ChatRoomListView: View {
     
-    private var viewModel: ChatRoomListViewModel = .init()
-    
+    var viewModel: ChatRoomListViewModel = .init()
+    @State private var isChatDetail: Bool = false
+    @State private var selectedUser: MateUser?
     var body: some View {
         NavigationStack {
             VStack {
@@ -26,7 +27,7 @@ struct ChatRoomListView: View {
                         
                     } label: {
                         Image(systemName: "calendar.circle")
-
+                        
                     }
                 }
                 .padding()
@@ -35,15 +36,12 @@ struct ChatRoomListView: View {
                 
                 ScrollView {
                     LazyVStack(spacing: 22) {
-                        ForEach(viewModel.chatListRoom, id: \.chatRoom.id) { room in
-                            ChatRoomCellView(chatRoom: room)
+                        ForEach(viewModel.sortedChatListRoom, id: \.chatRoom.id) { room in
+                            ChatRoomCellView(chatRoom: room) {
+                                selectedUser = room.chatUser
+                                isChatDetail = true
+                            }
                             Divider()
-                        }
-                        
-                        Button {
-                            viewModel.createChatRoom()
-                        } label: {
-                            Text("채팅 추가하기")
                         }
                     }
                     .padding()
@@ -57,6 +55,15 @@ struct ChatRoomListView: View {
 struct ChatRoomCellView: View {
     
     let chatRoom: ChatRoomWithUser
+    let action: () -> Void
+    
+    init(
+        chatRoom: ChatRoomWithUser,
+        action: @escaping () -> Void = {}
+    ) {
+        self.chatRoom = chatRoom
+        self.action = action
+    }
     
     var body: some View {
         NavigationLink {
@@ -116,6 +123,4 @@ struct ChatRoomCellView: View {
     }
 }
 
-#Preview {
-    ChatRoomListView()
-}
+

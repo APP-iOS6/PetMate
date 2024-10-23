@@ -15,7 +15,7 @@ struct HomeFindFriendsScrollView: View {
             Text("내 주변 댕댕이 친구 찾아주기")
                 .font(.headline)
                 .padding(.horizontal, 33)
-                .padding(.bottom, 5)
+                .padding(.bottom, -1)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 20) {
