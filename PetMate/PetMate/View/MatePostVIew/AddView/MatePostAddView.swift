@@ -87,6 +87,10 @@ struct MatePostAddView: View {
                 .onAppear{
                     postStore.addPostReset()
                 }
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    focus = nil
+                }
             }
         }
     }

@@ -50,7 +50,7 @@ struct MatePostAddSecondView: View {
                             Text("추가")
                         }
                     }
-                }
+                }.frame(minHeight: 200)
             }
             
             VStack(alignment: .leading){
@@ -58,21 +58,29 @@ struct MatePostAddSecondView: View {
                     .font(.title2)
                 TextField("30자 이내로 작성해주세요", text: $postStore.title)
                     .focused($focus, equals: .title)
+                    .onSubmit {
+                        focus = .content
+                    }
                 Rectangle()
                     .frame(height: 1)
             }
             VStack(alignment: .leading){
                 Text("내용")
                     .font(.title2)
-                ScrollView(.vertical) {
-                    TextField(contentFieldText, text: $postStore.content)
-                        .focused($focus, equals: .content)
-                        .padding()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                }.border(.black)
+                    ScrollView(.vertical) {
+                        TextField(contentFieldText, text: $postStore.content, axis: .vertical)
+                            .focused($focus, equals: .content)
+                            .padding()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    }.border(.black)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        focus = .content
+                    }
             }
             Spacer()
         }
+        .frame(maxHeight: .infinity)
         .padding()
         .sheet(isPresented: $isPresent, onDismiss: {postStore.reset()}) {
             MatePostAddPetsView()
@@ -81,8 +89,9 @@ struct MatePostAddSecondView: View {
     }
 }
 
-//#Preview {
-//    //@Previewable @State var postStore = MatePostStore()
-//    MatePostAddSecondView()
-//        .environment(MatePostStore())
-//}
+#Preview {
+    //@Previewable @State var postStore = MatePostStore()
+    @Previewable @FocusState var focus: MatePostAddFocus?
+    MatePostAddSecondView(focus: $focus)
+        .environment(MatePostStore())
+}
