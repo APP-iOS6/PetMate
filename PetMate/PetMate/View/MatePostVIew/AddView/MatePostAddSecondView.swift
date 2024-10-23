@@ -12,7 +12,7 @@ struct MatePostAddSecondView: View {
     @Environment(MatePostStore.self) var postStore: MatePostStore
     
     @State var isPresent: Bool = false
-    
+    @FocusState.Binding var focus: MatePostAddFocus?
     
     let contentFieldText =
         """
@@ -57,6 +57,7 @@ struct MatePostAddSecondView: View {
                 Text("제목")
                     .font(.title2)
                 TextField("30자 이내로 작성해주세요", text: $postStore.title)
+                    .focused($focus, equals: .title)
                 Rectangle()
                     .frame(height: 1)
             }
@@ -65,6 +66,7 @@ struct MatePostAddSecondView: View {
                     .font(.title2)
                 ScrollView(.vertical) {
                     TextField(contentFieldText, text: $postStore.content)
+                        .focused($focus, equals: .content)
                         .padding()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }.border(.black)
@@ -79,8 +81,8 @@ struct MatePostAddSecondView: View {
     }
 }
 
-#Preview {
-    //@Previewable @State var postStore = MatePostStore()
-    MatePostAddSecondView()
-        .environment(MatePostStore())
-}
+//#Preview {
+//    //@Previewable @State var postStore = MatePostStore()
+//    MatePostAddSecondView()
+//        .environment(MatePostStore())
+//}

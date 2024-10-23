@@ -90,7 +90,9 @@ struct MatePostListView: View {
                 }
             }
         }
-        .fullScreenCover(isPresented: $isPresentAddView) {
+        .fullScreenCover(isPresented: $isPresentAddView, onDismiss: {
+            postStore.getPosts(postCategory: selectedPostCategory, petCategory1: selectedPetCategory1, petCategory2: selectedPetCategory2)
+        }) {
             MatePostAddView()
         }
     }
