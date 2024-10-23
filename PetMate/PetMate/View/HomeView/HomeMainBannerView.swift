@@ -42,7 +42,7 @@ struct HomeMainBannerView: View {
                         .frame(width: 8, height: 8)
                 }
             }
-            .padding(.bottom, 5)
+            .padding(.bottom, 9)
         }
     }
 }

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "walk_button.png",
+      "filename" : "산책버튼.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "walk_button@2x.png",
+      "filename" : "산책버튼@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "walk_button@3x.png",
+      "filename" : "산책버튼@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

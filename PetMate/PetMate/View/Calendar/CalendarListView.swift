@@ -116,10 +116,8 @@ struct CalendarListView: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button {
                         isPresent.toggle()
-                    } label: {
-                        Image(systemName: "square.and.pencil")
-                            .font(.system(size: 16, weight: .bold))
-                            .foregroundColor(.accentColor)
+                    }label: {
+                        Image(systemName: "plus.circle")
                     }
                 }
             }
