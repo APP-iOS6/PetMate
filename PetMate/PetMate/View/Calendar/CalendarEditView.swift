@@ -9,7 +9,7 @@ import SwiftUI
 import EventKitUI
 
 //캘린더 뷰컨트롤러 뷰
-struct CalandarView: UIViewControllerRepresentable {
+struct CalendarEditView: UIViewControllerRepresentable {
     //캘린더 뷰는 외부에서 호출하기 때문에 presentationMode의 dismiss를 통해 시트를 내려야 함
     @Environment(\.presentationMode) var presentationMode
     private let store = EKEventStore()
@@ -22,9 +22,9 @@ struct CalandarView: UIViewControllerRepresentable {
     }
     //Delegate같은 VC의 대리자의 역할을 하기 위해 필요함
     class Coordinator: NSObject, EKEventEditViewDelegate {
-        var parent: CalandarView
+        var parent: CalendarEditView
         
-        init(_ controller: CalandarView) {
+        init(_ controller: CalendarEditView) {
             self.parent = controller
         }
         
@@ -37,6 +37,7 @@ struct CalandarView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> EKEventEditViewController {
         let eventEditViewController =  EKEventEditViewController ()
         eventEditViewController.event = event
+        eventEditViewController.event?.title = "[펫메이트]\(title)"
         eventEditViewController.eventStore = store
         eventEditViewController.editViewDelegate = context.coordinator
         
@@ -48,7 +49,6 @@ struct CalandarView: UIViewControllerRepresentable {
     private var event: EKEvent {
         let event = EKEvent(eventStore: store)
         if let post{
-            event.title = title
             if let startDate = post.startDateElements, let endDate = post.endDateElements {
                 let startDateComponents = DateComponents(year: startDate.year,
                                                          month: startDate.month,
