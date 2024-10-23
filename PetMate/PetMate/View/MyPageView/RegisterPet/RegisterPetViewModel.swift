@@ -30,6 +30,52 @@ class RegisterPetViewModel {
         }
     }
     
+    //펫을 수정하려고 하는 경우 펫이 있기 때문에 myPet을 수정하려는 펫으로 바꿔야 함
+    func getUpdatePet(pet: Pet) async {
+        let updatingPet = Pet(
+            id: pet.id,
+            name: pet.name,
+            description: pet.description,
+            age: pet.age,
+            category1: pet.category1,
+            category2: pet.category2,
+            tag: pet.tag,
+            breed: pet.breed,
+            images: pet.images,
+            ownerUid: pet.ownerUid,
+            createdAt: pet.createdAt,
+            updatedAt: pet.updatedAt)
+        
+        myPet = updatingPet
+        do{
+            for url in pet.images{
+                if let image = try await getUrlImage(urlString: url){
+                    images.append(image)
+                }
+            }
+        }catch{
+            print(error)
+        }
+    }
+    
+    //편집할 때 url주소를 UIImage로 변환하는 함수 - 희철
+    func getUrlImage(urlString: String) async throws -> UIImage? {
+        guard let url = URL(string: urlString) else { return nil }
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            errorMessage = "Failed to load image"
+            return nil
+        }
+        
+        guard let image = UIImage(data: data) else {
+            errorMessage = "Image cannot be created"
+            return nil
+        }
+        
+        return image
+    }
+    
     @MainActor
     func uploadMyPet() async {
         guard let userUid = Auth.auth().currentUser?.uid else {
@@ -40,6 +86,12 @@ class RegisterPetViewModel {
         myPet.ownerUid = userUid
         do {
             let imageDatas = convertImageToData()
+            guard myPet.id != nil else {
+                print("id가 이상해")
+                return
+            }
+            
+            try await removeImages(myPet.images)
             myPet.images = try await uploadImages(imageDatas, documentId: myPet.id ?? UUID().uuidString)
             myPet.location = try await getUserData(userUid)
             let petEncode = try Firestore.Encoder().encode(myPet)
@@ -69,6 +121,18 @@ class RegisterPetViewModel {
         }
     }
     
+    func removeImages(_  images: [String]) async throws {
+        let storage = Storage.storage()
+        do{
+            for url in images {
+                let ref = storage.reference(forURL: url)
+                try await ref.delete()
+            }
+        }catch{
+            print("removeError: \(error)")
+        }
+    }
+    
     func getUserData(_ userUid: String) async throws -> String {
         do {
             return try await self.db.collection("User").document(userUid).getDocument(as: MateUser.self).location
@@ -81,8 +145,6 @@ class RegisterPetViewModel {
     //PhotosPickerItem을 UIImage로 변환하여 images 배열에 값을 추가하는 함수
     @MainActor
     func convertPickerItemToImage() {
-        images.removeAll()
-        
         if !selectedPhotos.isEmpty {
             for photo in selectedPhotos {
                 Task {
@@ -92,6 +154,14 @@ class RegisterPetViewModel {
                         }
                     }
                 }
+            }
+        }
+    }
+    // 배열에서 이미지를 제거하는 함수 - 희철
+    func removeImageInArray(image: UIImage){
+        images.enumerated().forEach { index, value in
+            if value == image {
+                images.remove(at: index)
             }
         }
     }
