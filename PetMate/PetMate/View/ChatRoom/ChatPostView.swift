@@ -28,11 +28,9 @@ struct ChatPostView: View {
             AsyncImage(url: URL(string: post.firstPet.images.first ?? "")) { phase in
                 switch phase {
                 case .empty:
-                    Image(.dog)
-                        .resizable()
-                        .aspectRatio(1, contentMode: .fill)
+                    RoundedRectangle(cornerRadius: 18)
+                        .fill(Color(uiColor: .systemGray3))
                         .frame(width: 80, height: 80)
-                        .clipShape(RoundedRectangle(cornerRadius: 18))
                 case .success(let image):
                     image
                         .resizable()
@@ -40,17 +38,13 @@ struct ChatPostView: View {
                         .frame(width:80, height: 80)
                         .clipShape(RoundedRectangle(cornerRadius: 18))
                 case .failure(_):
-                    Image(.dog)
-                        .resizable()
-                        .aspectRatio(1, contentMode: .fill)
+                    RoundedRectangle(cornerRadius: 18)
+                        .fill(Color(uiColor: .systemGray3))
                         .frame(width: 80, height: 80)
-                        .clipShape(RoundedRectangle(cornerRadius: 18))
                 @unknown default:
-                    Image(.dog)
-                        .resizable()
-                        .aspectRatio(1, contentMode: .fill)
+                    RoundedRectangle(cornerRadius: 18)
+                        .fill(Color(uiColor: .systemGray3))
                         .frame(width: 80, height: 80)
-                        .clipShape(RoundedRectangle(cornerRadius: 18))
                 }
             }
             .padding(.trailing)
@@ -80,7 +74,7 @@ struct ChatPostView: View {
         .overlay(alignment: .bottomTrailing) {
             if post.writeUser.documentID == otherUser.id {
                 if post.reservationUser != nil {
-                    if post.reservationUser?.documentID == otherUser.id {
+                    if post.reservationUser?.documentID != otherUser.id {
                         Text("매칭 성사")
                             .modifier(ApplyingModifier())
                     } else {
@@ -108,7 +102,7 @@ struct ChatPostView: View {
                     Button {
                         acion(.comfirm)
                     } label: {
-                        Text("메이트 확정하기✅")
+                        Text("메이트 확정하기 ✅")
                             .modifier(ComfirmMateModifier())
                     }
                 }

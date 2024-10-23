@@ -11,7 +11,7 @@ struct HomeView: View {
     var body: some View {
         VStack(alignment: .leading){
             HomeFindMateView()
-            HomeReviewScrollView()
+            //HomeReviewScrollView()
         }.padding()
     }
 }

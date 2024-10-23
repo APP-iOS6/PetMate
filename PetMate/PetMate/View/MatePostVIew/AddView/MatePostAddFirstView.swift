@@ -11,6 +11,7 @@ struct MatePostAddFirstView: View {
     @Environment(MatePostStore.self) var postStore
     
     @State var isPresent: Bool = false
+    @FocusState.Binding var focus: MatePostAddFocus?
     var category = ["산책, 돌봄"]
     
     var body: some View {
@@ -70,6 +71,8 @@ struct MatePostAddFirstView: View {
                     .font(.title2)
                 TextField("₩", text: $postStore.cost)
                     .padding()
+                    .keyboardType(.numberPad)
+                    .focused($focus, equals: .cost)
                     .overlay(Capsule(style: .circular)
                         .stroke(lineWidth: 1)
                         .foregroundStyle(.secondary))
@@ -81,7 +84,7 @@ struct MatePostAddFirstView: View {
     }
 }
 
-#Preview {
-    MatePostAddFirstView()
-        .environment(MatePostStore())
-}
+//#Preview {
+//    MatePostAddFirstView()
+//        .environment(MatePostStore())
+//}
