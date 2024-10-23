@@ -105,7 +105,7 @@ struct RegisterPetView: View {
                                                 viewModel.removeImageInArray(image:image)
                                             }
                                             .font(.title)
-                                            .padding()
+                                            .padding(5)
                                         
                                     }
                                 }

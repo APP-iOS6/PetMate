@@ -30,6 +30,7 @@ class RegisterPetViewModel {
         }
     }
     
+    //펫을 수정하려고 하는 경우 펫이 있기 때문에 myPet을 수정하려는 펫으로 바꿔야 함
     func getUpdatePet(pet: Pet) async {
         let updatingPet = Pet(
             id: pet.id,
@@ -55,7 +56,6 @@ class RegisterPetViewModel {
         }catch{
             print(error)
         }
-        print(images)
     }
     
     //편집할 때 url주소를 UIImage로 변환하는 함수 - 희철
@@ -86,6 +86,12 @@ class RegisterPetViewModel {
         myPet.ownerUid = userUid
         do {
             let imageDatas = convertImageToData()
+            guard myPet.id != nil else {
+                print("id가 이상해")
+                return
+            }
+            
+            try await removeImages(myPet.images)
             myPet.images = try await uploadImages(imageDatas, documentId: myPet.id ?? UUID().uuidString)
             myPet.location = try await getUserData(userUid)
             let petEncode = try Firestore.Encoder().encode(myPet)
@@ -115,6 +121,18 @@ class RegisterPetViewModel {
         }
     }
     
+    func removeImages(_  images: [String]) async throws {
+        let storage = Storage.storage()
+        do{
+            for url in images {
+                let ref = storage.reference(forURL: url)
+                try await ref.delete()
+            }
+        }catch{
+            print("removeError: \(error)")
+        }
+    }
+    
     func getUserData(_ userUid: String) async throws -> String {
         do {
             return try await self.db.collection("User").document(userUid).getDocument(as: MateUser.self).location
@@ -139,7 +157,7 @@ class RegisterPetViewModel {
             }
         }
     }
-    
+    // 배열에서 이미지를 제거하는 함수 - 희철
     func removeImageInArray(image: UIImage){
         images.enumerated().forEach { index, value in
             if value == image {
