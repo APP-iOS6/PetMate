@@ -13,6 +13,7 @@ struct ChatDetailView: View {
     @State private var text: String = ""
     @State private var height: CGFloat = 0
     @State private var keyboardHeight: CGFloat = 0
+    @State private var isReviewSheet: Bool = false
     
     let otherUser: MateUser
     let postId: String?
@@ -29,8 +30,13 @@ struct ChatDetailView: View {
         VStack {
             if let post = viewModel.post {
                 Divider()
-                ChatPostView(post: post, otherUser: otherUser) {
-                    viewModel.updatePostReservation(post.id, reservationUid: otherUser.id ?? "")
+                ChatPostView(post: post, otherUser: otherUser) { type in
+                    switch type {
+                    case .comfirm:
+                        viewModel.updatePostReservation(post.id, reservationUid: otherUser.id ?? "")
+                    case .review:
+                        isReviewSheet = true
+                    }
                 }
                 Divider()
             }
@@ -112,6 +118,13 @@ struct ChatDetailView: View {
                 ProgressView()
             }
         }
+        .sheet(isPresented: $isReviewSheet) {
+            if let post = viewModel.post {
+                SendReviewView(otherUser: otherUser, post: post)
+                    .presentationDetents([.fraction(0.5)]) //
+            }
+        }
+        
     }
 }
 

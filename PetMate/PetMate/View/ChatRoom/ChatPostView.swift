@@ -11,12 +11,12 @@ struct ChatPostView: View {
     
     let post: MatePost
     let otherUser: MateUser
-    let acion: () -> Void
+    let acion: (comfirmType) -> Void
     
     init(
         post: MatePost,
         otherUser: MateUser,
-        acion: @escaping () -> Void = {}
+        acion: @escaping (comfirmType) -> Void = {_ in }
     ) {
         self.post = post
         self.otherUser = otherUser
@@ -94,16 +94,19 @@ struct ChatPostView: View {
             } else {
                 if post.reservationUser != nil {
                     if post.reservationUser?.documentID == otherUser.id {
-                        Text("후기 보내기")
-                            .modifier(ComfirmMateModifier())
-                        
+                        Button {
+                            acion(.review)
+                        } label: {
+                            Text("후기 보내기")
+                                .modifier(ComfirmMateModifier())
+                        }
                     } else {
                         Text("완료된 매칭")
                             .modifier(ComfirmMateModifier())
                     }
                 } else {
                     Button {
-                        acion()
+                        acion(.comfirm)
                     } label: {
                         Text("메이트 확정하기✅")
                             .modifier(ComfirmMateModifier())
@@ -112,6 +115,11 @@ struct ChatPostView: View {
             }
         }
     }
+}
+
+enum comfirmType {
+    case comfirm
+    case review
 }
 
 

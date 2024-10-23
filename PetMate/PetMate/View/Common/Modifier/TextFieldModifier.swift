@@ -18,3 +18,17 @@ struct TextFieldModifier: ViewModifier {
             }
     }
 }
+
+struct ReviewTextModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .bold()
+            .font(.system(size: 14))
+            .padding(.horizontal, 10)
+            .padding(.vertical, 6)
+            .foregroundStyle(.white)
+            .background(.tag)
+            .clipShape(RoundedRectangle(cornerRadius: 24))
+
+    }
+}
