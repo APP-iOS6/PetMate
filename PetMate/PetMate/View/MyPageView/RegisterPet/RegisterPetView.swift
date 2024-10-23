@@ -8,6 +8,7 @@
 import SwiftUI
 import PhotosUI
 
+// 펫 추가 View
 struct RegisterPetView: View {
     
     @Environment(\.dismiss) private var dismiss
@@ -73,7 +74,8 @@ struct RegisterPetView: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: 18) // 이미지가 보여질 곳에 동일한 RoundedRectangle 추가
                             .stroke(Color(.systemGray2), lineWidth: 1)
-                            .frame(width: .infinity, height: 200)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 200)
                         
                         if !viewModel.selectedPhotos.isEmpty {
                             TabView {
@@ -98,7 +100,7 @@ struct RegisterPetView: View {
                                     .foregroundStyle(.secondary)
 //                                    .padding(.top, 10)
                             }
-                            .frame(width: .infinity)
+                            .frame(maxWidth: .infinity)
                         }
                     }
                     .padding([.leading, .trailing], 16)
@@ -182,7 +184,6 @@ struct PetInfoSection: View {
     private var viewModel: RegisterPetViewModel
     @State private var ageString: String = ""
     @FocusState private var focusedField: Field?
-    
     
     init(viewModel: RegisterPetViewModel) {
         self.viewModel = viewModel

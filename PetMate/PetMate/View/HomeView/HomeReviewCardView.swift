@@ -49,17 +49,7 @@ struct HomeReviewCardView: View {
                         .lineSpacing(2)
                         .fixedSize(horizontal: false, vertical: true)
                 }
-
                 Spacer()
-
-                // 사용자 프로필
-                VStack {
-                    Spacer()
-                    Image(systemName: "person.circle.fill")
-                        .resizable()
-                        .frame(width: 37, height: 37)
-                        .foregroundColor(Color(UIColor.systemGray5))
-                }
             }
             .padding(13)
         }
