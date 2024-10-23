@@ -15,9 +15,9 @@ final class PetPlacesStore {
     var places: [PlacePost] = []
     var stores: [Document] = []
     var isLoading: Bool = false
-    var errorMessage: String? = nil
-    var userLongitude: String?
-    var userLatitude: String?
+    var errorMessage: String?
+    var userLongitude: Double?
+    var userLatitude: Double?
     var searchRadius: Int? = 20000 //20Km
     var searchState: SearchState = .searchPlace
     var selectedPlace: Document?
@@ -28,6 +28,7 @@ final class PetPlacesStore {
         }
     }
     
+    private var locationManager: LocationManager = .shared
     private var db = Firestore.firestore()
     private var cancellables = Set<AnyCancellable>()
     private let querySubject = PassthroughSubject<String, Never>()
@@ -55,7 +56,7 @@ final class PetPlacesStore {
         self.isLoading = true
         self.errorMessage = nil
         
-        apiClient.searchPlaces(query: query, x: userLongitude, y: userLatitude, radius: searchRadius)
+        apiClient.searchPlaces(query: query, x: "\(userLongitude ?? 37.49423332217179)", y: "\(userLongitude ?? 127.03710989023048)", radius: searchRadius)
             .sink(receiveCompletion: { [weak self] completion in
                 guard let self = self else { return }
                 self.isLoading = false
@@ -92,8 +93,8 @@ final class PetPlacesStore {
     }
     
     func updateLocation(longitude: Double, latitude: Double) {
-        self.userLongitude = String(longitude)
-        self.userLatitude = String(latitude)
+        self.userLongitude = longitude
+        self.userLatitude = latitude
     }
     
     // MARK: 사용자가 등록한 장소 관련 메서드
@@ -121,7 +122,6 @@ final class PetPlacesStore {
             address: address,
             placeName: placeName,
             isParking: isParking,
-            geoHash: geoHash,
             createdAt: Date(),
             updatedAt: Date()
         )

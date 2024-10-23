@@ -11,6 +11,17 @@ struct ChatPostView: View {
     
     let post: MatePost
     let otherUser: MateUser
+    let acion: () -> Void
+    
+    init(
+        post: MatePost,
+        otherUser: MateUser,
+        acion: @escaping () -> Void = {}
+    ) {
+        self.post = post
+        self.otherUser = otherUser
+        self.acion = acion
+    }
     
     var body: some View {
         HStack {
@@ -54,7 +65,7 @@ struct ChatPostView: View {
                         .foregroundStyle(.secondary)
                 }
                 .font(.caption)
-               
+                
                 Text(post.startDate.formattedDate + "~" + post.endDate.formattedDate)
                     .font(.caption)
                 
@@ -68,16 +79,36 @@ struct ChatPostView: View {
         .padding(.vertical, 6)
         .overlay(alignment: .bottomTrailing) {
             if post.writeUser.documentID == otherUser.id {
-                Text("신청중")
-                    .bold()
-                    .foregroundStyle(.petTag)
-                    .padding([.bottom, .trailing])
-                
+                if post.reservationUser != nil {
+                    if post.reservationUser?.documentID == otherUser.id {
+                        Text("매칭 성사")
+                            .modifier(ApplyingModifier())
+                    } else {
+                        Text("완료된 매칭")
+                            .modifier(ApplyingModifier())
+                    }
+                } else {
+                    Text("신청중")
+                        .modifier(ApplyingModifier())
+                }
             } else {
-                Text("메이트 확정하기 ✅")
-                    .bold()
-                    .foregroundStyle(.petTag)
-                    .padding([.bottom, .trailing])
+                if post.reservationUser != nil {
+                    if post.reservationUser?.documentID == otherUser.id {
+                        Text("후기 보내기")
+                            .modifier(ComfirmMateModifier())
+                        
+                    } else {
+                        Text("완료된 매칭")
+                            .modifier(ComfirmMateModifier())
+                    }
+                } else {
+                    Button {
+                        acion()
+                    } label: {
+                        Text("메이트 확정하기✅")
+                            .modifier(ComfirmMateModifier())
+                    }
+                }
             }
         }
     }

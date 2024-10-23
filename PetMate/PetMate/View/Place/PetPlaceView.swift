@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct PetPlaceView: View {
-    @Environment(PetPlacesStore.self) private var placeStore 
+    @Environment(PetPlacesStore.self) private var placeStore
+    private var locationManager: LocationManager = .shared
     @State private var isShowingMap: Bool = false
     @State private var showSearchPlaceView = false
 
     var body: some View {
         NavigationStack {
-            VStack {
+            VStack(alignment: .leading) {
                 HStack {
-                    Text("가디와 함께 어디를 가볼까 ?")
+                    Text("🐾 펫 플레이스")
                         .font(.title2)
                         .bold()
                     Spacer()
@@ -26,7 +27,6 @@ struct PetPlaceView: View {
                         Image(systemName: "map.fill")
                             .font(.title2)
                     }
-                    
                     Button(action: {
                         showSearchPlaceView.toggle()
                     }) {
@@ -34,7 +34,10 @@ struct PetPlaceView: View {
                             .font(.title2)
                     }
                 }
-                .padding(.horizontal, 10)
+                .padding()
+                Text("가디와 함께 어디를 가볼까?")
+                    .font(.headline)
+                    .padding(.horizontal)
                 PlaceListView()
                 .fullScreenCover(isPresented: $isShowingMap) {
                     PetMapView()
@@ -42,6 +45,19 @@ struct PetPlaceView: View {
                 .fullScreenCover(isPresented: $showSearchPlaceView) {
                     AddPlaceView()
                         .padding(.top)
+                }
+            }
+            .onAppear {
+                placeStore.fetchPlaces()
+                if locationManager.authorizationStatus == .authorizedWhenInUse || locationManager.authorizationStatus == .authorizedAlways {
+                    if let location = locationManager.location {
+                        placeStore.updateLocation(longitude: location.coordinate.longitude, latitude: location.coordinate.latitude)
+                    }
+                }
+            }
+            .onReceive(locationManager.$location) { location in
+                if let location = location {
+                    placeStore.updateLocation(longitude: location.coordinate.longitude, latitude: location.coordinate.latitude)
                 }
             }
         }

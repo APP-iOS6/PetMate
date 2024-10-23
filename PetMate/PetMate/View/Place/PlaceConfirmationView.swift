@@ -48,7 +48,7 @@ struct PlaceConfirmationView: View {
                                     Text("\(store.category_name)")
                                 }
                                 
-                                if let phone = store.phone {
+                                if let phone = store.phone, !phone.isEmpty {
                                     HStack {
                                         Image(systemName: "phone.fill")
                                             .font(.headline)

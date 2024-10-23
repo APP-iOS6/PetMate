@@ -10,7 +10,7 @@ import FirebaseFirestore
 
 struct ChatRoomListView: View {
     
-    @State private var viewModel: ChatRoomListViewModel = .init()
+    private var viewModel: ChatRoomListViewModel = .init()
     
     var body: some View {
         NavigationStack {

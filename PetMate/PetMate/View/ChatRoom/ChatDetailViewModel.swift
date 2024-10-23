@@ -19,6 +19,7 @@ class ChatDetailViewModel: ObservableObject {
     var isCreateChatRoom: Bool = false
     @Published var chatList: [Chat] = []
     @Published var post: MatePost?
+    @Published var isLoading: Bool = false
     
     var groupedChats: [ChatSection] {
         
@@ -347,7 +348,29 @@ class ChatDetailViewModel: ObservableObject {
                 print("포스트 가져오기 실패함")
             }
         }
+    }
+    
+    func updatePostReservation(_ postId: String?, reservationUid: String) {
         
+        guard let postId = postId else {
+            print("예약자 포스트 아이디 없음")
+            return
+        }
+        
+        self.isLoading = true
+        Task {
+            do {
+                try await self.db.collection("MatePost").document(postId).updateData(["reservationUser": db.collection("User").document(reservationUid)])
+                getPostData(postId)
+                DispatchQueue.main.async {
+                    self.isLoading = false
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.isLoading = false
+                }
+            }
+        }
     }
     
 }
