@@ -10,7 +10,7 @@ import FirebaseFirestore
 
 struct ChatRoomListView: View {
     
-    var viewModel: ChatRoomListViewModel = .init()
+    var viewModel: ChatRoomListViewModel
     @State private var isChatDetail: Bool = false
     @State private var selectedUser: MateUser?
     var body: some View {
@@ -20,19 +20,15 @@ struct ChatRoomListView: View {
                     Text("채팅")
                         .font(.title2)
                         .bold()
+                        .padding(.top, 10)
                     
                     Spacer()
                     
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "calendar.circle")
-                        
-                    }
+                    CalendarButton()
+                        .padding(.trailing, -5)
+                        .padding(.bottom, -25)
                 }
-                .padding()
-                
-                Divider()
+                .padding(.horizontal, 20)
                 
                 ScrollView {
                     LazyVStack(spacing: 22) {
@@ -70,14 +66,28 @@ struct ChatRoomCellView: View {
             ChatDetailView(otherUser: chatRoom.chatUser)
         } label: {
             HStack {
-                AsyncImage(url: URL(string: chatRoom.chatUser.image)) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(1, contentMode: .fill)
-                        .frame(width: 67, height: 67)
-                        .clipShape(Circle())
-                } placeholder: {
-                    ProgressView()
+                AsyncImage(url: URL(string: chatRoom.chatUser.image)) { phase in
+                    switch phase {
+                    case let .success(image):
+                        image
+                            .resizable()
+                            .aspectRatio(1, contentMode: .fill)
+                            .frame(width: 67, height: 67)
+                            .clipShape(Circle())
+                    case .empty:
+                        Circle()
+                            .fill(Color(uiColor: .systemGray3))
+                            .frame(width: 67, height: 67)
+                    case .failure(_):
+                        Circle()
+                            .fill(Color(uiColor: .systemGray3))
+                            .frame(width: 67, height: 67)
+                    @unknown default:
+                        Circle()
+                            .fill(Color(uiColor: .systemGray3))
+                            .frame(width: 67, height: 67)
+                    }
+                    
                 }
                 .frame(width: 60, height: 60)
                 VStack {
