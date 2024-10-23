@@ -19,12 +19,12 @@ struct PetProfileView: View {
     
     var body: some View {
         let sortedPets = viewModel.petInfo.sorted { pet1, pet2 in
-            return pet1.updatedAt > pet2.updatedAt
-        } // 업데이트 순으로 펫 프로필 나열
+            return pet1.createdAt < pet2.createdAt
+        } // 생성된 순으로 펫 프로필 나열
         
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(alignment: .center, spacing: 0) {
-                ForEach(viewModel.petInfo, id: \.self) { pet in
+                ForEach(sortedPets, id: \.self) { pet in // sortedPets 사용
                     VStack(alignment: .leading, spacing: 16) {
                         HStack(alignment: .center, spacing: 16) {
                             ZStack(alignment: .bottom) {
@@ -91,14 +91,11 @@ struct PetProfileView: View {
                                 secondaryButton: .cancel(Text("취소"))
                             )
                         }
+
+                        // 태그 섹션 추가
+                        tagSection(for: pet)
+
                         VStack(alignment: .leading, spacing: 6) {
-                            HStack {
-                                ForEach(pet.tag.isEmpty ? ["태그 없음"] : pet.tag, id: \.self) { tag in
-                                    TagView(text: tag)
-                                }
-                            }
-                            .padding(.bottom, 10)
-                            
                             Text("나의 성격")
                                 .font(.system(size: 12))
                                 .foregroundColor(.gray)
@@ -128,8 +125,25 @@ struct PetProfileView: View {
             }
         }
     }
-}
 
+    // 태그 섹션 컴포넌트
+    private func tagSection(for pet: Pet) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("태그")
+                .font(.system(size: 12))
+                .foregroundColor(.gray)
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(alignment: .center, spacing: 8) {
+                    ForEach(pet.tag.isEmpty ? ["태그 없음"] : pet.tag, id: \.self) { tag in
+                        TagView(text: tag)
+                    }
+                }
+            }
+            .padding(.bottom, 10)
+        }
+    }
+}
 
 //#Preview {
 //    PetProfileView()
