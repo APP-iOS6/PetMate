@@ -17,6 +17,7 @@ class HomeViewViewModel {
     var myInfo: MateUser?
     var phase: Phase = .loading
     var nearPets: [Pet] = []
+    var reviews: [ReviewUI] = []
     var isChatRoomExists = false
     var petOwner: MateUser? = nil
     var selectedChatUser: MateUser? = nil
@@ -43,11 +44,13 @@ class HomeViewViewModel {
         do { // decoder가 사기임
             
             let myuser = try await db.collection("User").document(myUid).getDocument(as: MateUser.self)
+          
+            await getNearPets(myuser.location)
+            await getReviewData()
             DispatchQueue.main.async {
                 self.myInfo = myuser
                 self.phase = .success
             }
-            await getNearPets(myuser.location)
             //            print("마이인포 잘 받아옴 (String(describing: myInfo))") // 2번 await 쓰는 게 코드 가독성에 좋다
         } catch {
             DispatchQueue.main.async {
@@ -110,6 +113,36 @@ class HomeViewViewModel {
             print("펫 주인 정보를 가져오는데 실패했습니다: \(error.localizedDescription)")
         }
     }
+    
+    func getReviewData() async {
+        guard let userUid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        do {
+            let reviewDocuments = try await db.collection("Review").limit(to: 5).getDocuments().documents
+            let reviewsData = try reviewDocuments.compactMap { try $0.data(as: Review.self) }
+            for review in reviewsData {
+                if review.reviewUserUid == userUid {
+                    continue
+                }
+                async let reviewerUserInfo = fetchReviewUsersData(review.reviewerUserUid)
+                async let reviewUserInfo = fetchReviewUsersData(review.reviewUserUid)
+                let reviewUi = ReviewUI(id: review.id, post: review.post, reviewUser: try await reviewUserInfo, reviewerUser: try await reviewerUserInfo, postType: review.postType, rating: review.rating, content: review.content, createdAt: review.createdAt)
+                self.reviews.append(reviewUi)
+            }
+        } catch {
+            print("리뷰 들고오기 실패")
+        }
+    }
+    
+    func fetchReviewUsersData(_ userUid: String) async throws -> MateUser {
+        do {
+            return try await db.collection("User").document(userUid).getDocument(as: MateUser.self)
+        } catch {
+            throw error
+        }
+    }
+    
  }
 
 

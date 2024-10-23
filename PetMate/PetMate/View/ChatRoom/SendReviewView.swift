@@ -26,13 +26,13 @@ struct SendReviewView: View {
                         image
                             .resizable()
                             .aspectRatio(1, contentMode: .fill)
-                            .frame(width: 120, height: 120)
+                            .frame(width: 100, height: 100)
                             .clipShape(Circle())
                     case .failure(_):
                         Image(.welcome)
                             .resizable()
                             .aspectRatio(1, contentMode: .fill)
-                            .frame(width: 120, height: 120)
+                            .frame(width: 100, height: 100)
                             .clipShape(Circle())
                     case .empty:
                         ProgressView()
@@ -64,8 +64,6 @@ struct SendReviewView: View {
                                 Image(index <= rating ? .etc : .emptyetc)
                                     .resizable()
                                     .frame(width: 25, height: 25)
-                                    .foregroundColor(index <= rating ? .yellow : .gray)
-                                    
                             }
                         }
                         Spacer()
@@ -99,7 +97,7 @@ struct SendReviewView: View {
             
             Button {
                 Task {
-                    await viewModel.uploadReview(otherUserId: otherUser.id ?? "", otherUserProfile: otherUser.image, postId: post.id ?? "", review: review, rating: rating)
+                    await viewModel.uploadReview(otherUserId: otherUser.id ?? "", otherUserProfile: otherUser.image, postId: post.id ?? "", review: review, rating: rating, postType: post.category)
                 }
             } label: {
                 Text("리뷰 남기기")

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct HomeTabView: View {
     @State private var showChatDetail = false
-    
+    var chatListViewModel: ChatRoomListViewModel = .init()
+
     var body: some View {
         
         TabView {
@@ -31,11 +32,12 @@ struct HomeTabView: View {
                 Image(systemName: "pawprint")
             }
             
-            ChatRoomListView()
+            ChatRoomListView(viewModel: chatListViewModel)
                 .tabItem {
                     Text("Chat")
                     Image(systemName: "message.badge.rtl")
                 }
+                .badge(chatListViewModel.totalUnreadCount)
             MyPageView()
                 .tabItem {
                     Text("My")
