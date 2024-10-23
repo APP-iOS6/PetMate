@@ -16,14 +16,14 @@ struct HomeFindMateView: View {
             } label: {
                 Image("care_button")
                     .resizable()
-                    .frame(width: 175, height: 127)
+                    .frame(width: 180, height: 127)
             }
             Button(action: {
                 print("산책 버튼")
             }) {
                 Image("walk_button")
                     .resizable()
-                    .frame(width: 175, height: 127)
+                    .frame(width: 180, height: 127)
             }
         }
         .padding(.horizontal, 30)
