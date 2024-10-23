@@ -37,6 +37,7 @@ struct CalendarEditView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> EKEventEditViewController {
         let eventEditViewController =  EKEventEditViewController ()
         eventEditViewController.event = event
+        eventEditViewController.event?.title = "[펫메이트]\(title)"
         eventEditViewController.eventStore = store
         eventEditViewController.editViewDelegate = context.coordinator
         
@@ -48,7 +49,6 @@ struct CalendarEditView: UIViewControllerRepresentable {
     private var event: EKEvent {
         let event = EKEvent(eventStore: store)
         if let post{
-            event.title = "[펫메이트]\(title)"
             if let startDate = post.startDateElements, let endDate = post.endDateElements {
                 let startDateComponents = DateComponents(year: startDate.year,
                                                          month: startDate.month,
