@@ -94,6 +94,7 @@ struct PetProfileView: View {
                                 Image(systemName: "ellipsis")
                                     .foregroundColor(.gray)
                                     .padding(8)
+                                    .offset(x: 2,y: -15)
                             }
                         }
                         Text("📍\(pet.location)에 사는 \(pet.breed)")
