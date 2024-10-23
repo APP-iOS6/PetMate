@@ -40,22 +40,49 @@ struct ChatDetailView: View {
                 }
                 Divider()
             }
-            ScrollView {
-                LazyVStack(spacing: 12) {
-                    ForEach(viewModel.groupedChats) { section in
-                        Text(section.dateString)
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                            .padding(.vertical, 8)
-                            .frame(maxWidth: .infinity)
-                            .background(Color(UIColor.systemBackground))
-                        ForEach(section.chats, id: \.id) { chat in
-                            ChatItemView(chat: chat, otherUser: otherUser)
+            ScrollViewReader { proxy in
+                ScrollView {
+                    LazyVStack(spacing: 12) {
+                        ForEach(viewModel.groupedChats) { section in
+                            Text(section.dateString)
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                                .padding(.vertical, 8)
+                                .frame(maxWidth: .infinity)
+                                .background(Color(UIColor.systemBackground))
+                            ForEach(section.chats, id: \.id) { chat in
+                                ChatItemView(chat: chat, otherUser: otherUser)
+                                    .id(chat.id) // 각 메시지에 고유한 ID 할당
+                                
+                            }
+                        }
+                        Rectangle()
+                            .foregroundStyle(Color.clear)
+                            .frame(height: 1)
+                            .id("Bottom")
+                    }
+                }
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        withAnimation {
+                            proxy.scrollTo("Bottom", anchor: .bottom)
                         }
                     }
                 }
+                .onChange(of: viewModel.chatList.count) { _, _ in
+                    withAnimation {
+                        proxy.scrollTo("Bottom", anchor: .bottom)
+                    }
+                    // 새로운 메시지가 추가될 때마다 스크롤
+//                    if let lastMessage = viewModel.chatList.last {
+//                        withAnimation {
+//                            proxy.scrollTo(lastMessage.id, anchor: .bottom)
+//                        }
+//                    }
+                }
+                
+                .frame(maxHeight: .infinity)
             }
-            .frame(maxHeight: .infinity)
             
             Spacer()
             

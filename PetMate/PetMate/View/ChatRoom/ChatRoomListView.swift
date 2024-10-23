@@ -10,7 +10,7 @@ import FirebaseFirestore
 
 struct ChatRoomListView: View {
     
-    var viewModel: ChatRoomListViewModel = .init()
+    var viewModel: ChatRoomListViewModel
     @State private var isChatDetail: Bool = false
     @State private var selectedUser: MateUser?
     var body: some View {
