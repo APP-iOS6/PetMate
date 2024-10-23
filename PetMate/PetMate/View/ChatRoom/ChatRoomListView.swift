@@ -36,18 +36,12 @@ struct ChatRoomListView: View {
                 
                 ScrollView {
                     LazyVStack(spacing: 22) {
-                        ForEach(viewModel.chatListRoom, id: \.chatRoom.id) { room in
+                        ForEach(viewModel.sortedChatListRoom, id: \.chatRoom.id) { room in
                             ChatRoomCellView(chatRoom: room) {
                                 selectedUser = room.chatUser
                                 isChatDetail = true
                             }
                             Divider()
-                        }
-                        
-                        Button {
-                            viewModel.createChatRoom()
-                        } label: {
-                            Text("채팅 추가하기")
                         }
                     }
                     .padding()

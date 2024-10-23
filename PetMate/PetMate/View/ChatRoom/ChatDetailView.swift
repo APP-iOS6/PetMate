@@ -41,7 +41,7 @@ struct ChatDetailView: View {
                 Divider()
             }
             ScrollView {
-                LazyVStack {
+                LazyVStack(spacing: 12) {
                     ForEach(viewModel.groupedChats) { section in
                         Text(section.dateString)
                             .font(.caption)

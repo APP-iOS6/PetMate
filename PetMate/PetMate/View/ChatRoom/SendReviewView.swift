@@ -103,6 +103,7 @@ struct SendReviewView: View {
                 }
             } label: {
                 Text("리뷰 남기기")
+                    .bold()
                     .modifier(ButtonModifier())
             }
             .padding(.vertical)
@@ -116,6 +117,17 @@ struct SendReviewView: View {
         .overlay {
             if viewModel.loadState == .loading {
                 ProgressView()
+            }
+        }
+        .overlay(alignment: .topTrailing) {
+            Button {
+                dismiss()
+            } label: {
+                Image(systemName: "xmark.circle.fill")
+                    .resizable()
+                    .frame(width: 30, height: 30)
+                    .tint(Color(uiColor: .systemGray4))
+                    .padding([.top, .trailing], 4)
             }
         }
         .frame(maxWidth: .infinity)

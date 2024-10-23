@@ -26,13 +26,14 @@ class SendReviewViewModel {
         }
         do {
             let documentId = String(postId.first ?? "0") + generateChatRoomId(userId1: otherUserId, userId2: userUid)
-            let Review = Review(id: documentId, post: db.collection("MatePost").document(postId), reviewUserUid: otherUserId, reviewUserProfileUrl: otherUserProfile, reviewerUserUid: userUid, rating: rating, content: review, createdAt: Date())
+            let Review = Review(id: documentId, post: db.collection("MatePost").document(postId), reviewUserUid: otherUserId, reviewerUserUid: userUid, rating: rating, content: review, createdAt: Date())
             let reviewEncode = try Firestore.Encoder().encode(Review)
             try await self.db.collection("Review").document(documentId).setData(reviewEncode, merge: true)
             DispatchQueue.main.async {
                 self.loadState = .complete
             }
         } catch {
+            print("리뷰 남기기 실패함")
             DispatchQueue.main.async {
                 self.loadState = .none
             }
