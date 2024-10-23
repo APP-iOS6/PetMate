@@ -22,6 +22,10 @@ class ChatRoomListViewModel {
         chatListRoom.sorted { $0.chatRoom.lastMessageAt > $1.chatRoom.lastMessageAt }
     }
     
+    var totalUnreadCount: Int {
+        sortedChatListRoom.reduce(0) { $0 + $1.unreadCount }
+    }
+    
     
     init() {
         print("채팅 방 뷰모델 출근")

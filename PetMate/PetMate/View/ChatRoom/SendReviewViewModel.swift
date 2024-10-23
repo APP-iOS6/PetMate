@@ -16,7 +16,7 @@ class SendReviewViewModel {
     var loadState: LoadState = .none
     private let db = Firestore.firestore()
 
-    func uploadReview(otherUserId: String,otherUserProfile: String, postId: String, review: String, rating: Int) async {
+    func uploadReview(otherUserId: String,otherUserProfile: String, postId: String, review: String, rating: Int, postType: String) async {
         
         guard let userUid = Auth.auth().currentUser?.uid else {
             return
@@ -26,7 +26,7 @@ class SendReviewViewModel {
         }
         do {
             let documentId = String(postId.first ?? "0") + generateChatRoomId(userId1: otherUserId, userId2: userUid)
-            let Review = Review(id: documentId, post: db.collection("MatePost").document(postId), reviewUserUid: otherUserId, reviewerUserUid: userUid, rating: rating, content: review, createdAt: Date())
+            let Review = Review(id: documentId, post: db.collection("MatePost").document(postId), reviewUserUid: otherUserId, reviewerUserUid: userUid, postType: postType, rating: rating, content: review, createdAt: Date())
             let reviewEncode = try Firestore.Encoder().encode(Review)
             try await self.db.collection("Review").document(documentId).setData(reviewEncode, merge: true)
             DispatchQueue.main.async {

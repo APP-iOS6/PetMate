@@ -86,6 +86,7 @@
 		BD691BE82CC02F7D003A300B /* PlaceConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BE72CC02F7D003A300B /* PlaceConfirmationView.swift */; };
 		BDD719162CC9642700AE0977 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD719152CC9642700AE0977 /* String+Extension.swift */; };
 		FB17E7A92CC8D87C008F27F9 /* SendReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB17E7A82CC8D87C008F27F9 /* SendReviewViewModel.swift */; };
+		FB17E7AB2CC935BB008F27F9 /* HomeReviewSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB17E7AA2CC935BB008F27F9 /* HomeReviewSheet.swift */; };
 		FB3773E72CC8C54A00A969CC /* SendReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3773E62CC8C54A00A969CC /* SendReviewView.swift */; };
 		FB9532262CC2D2CC00AEBD9C /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9532252CC2D2CC00AEBD9C /* CGFloat+Extension.swift */; };
 		FB9532282CC2D8DA00AEBD9C /* SearchAddressModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9532272CC2D8DA00AEBD9C /* SearchAddressModal.swift */; };
@@ -201,6 +202,7 @@
 		BDB029922CBCF46200A0EAF6 /* PetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD719152CC9642700AE0977 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		FB17E7A82CC8D87C008F27F9 /* SendReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendReviewViewModel.swift; sourceTree = "<group>"; };
+		FB17E7AA2CC935BB008F27F9 /* HomeReviewSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeReviewSheet.swift; sourceTree = "<group>"; };
 		FB3773E62CC8C54A00A969CC /* SendReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendReviewView.swift; sourceTree = "<group>"; };
 		FB9532252CC2D2CC00AEBD9C /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		FB9532272CC2D8DA00AEBD9C /* SearchAddressModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAddressModal.swift; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 				256A27532CBEA9280031F766 /* HomeMyLocationView.swift */,
 				233E2C052CC04FAA004712E7 /* HomeView2.swift */,
 				23DE250C2CC5EA650011CE47 /* HomeViewViewModel.swift */,
+				FB17E7AA2CC935BB008F27F9 /* HomeReviewSheet.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -701,6 +704,7 @@
 				FBB18FB82CC8181200F92BBE /* ApplyingModifier.swift in Sources */,
 				256A27232CBD047A0031F766 /* ButtonModifier.swift in Sources */,
 				FBD6BBBB2CBE764A008BEA30 /* Chat.swift in Sources */,
+				FB17E7AB2CC935BB008F27F9 /* HomeReviewSheet.swift in Sources */,
 				FB95323A2CC4430800AEBD9C /* RegisterPetView.swift in Sources */,
 				FB9532382CC4271700AEBD9C /* sha256.swift in Sources */,
 				259DC0FF2CBF91AC00AB41C1 /* MatePostListCardView.swift in Sources */,
