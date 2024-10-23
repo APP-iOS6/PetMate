@@ -19,7 +19,8 @@ struct CalendarButton: View {
                 .frame(width: 60, height: 76)
         }
         .sheet(isPresented: $isPresent) {
-            CalandarView(post: nil, title: "일정 추가")
+            //CalandarView(post: nil, title: "일정 추가")
+            CalandarReadTestView()
         }
     }
 }

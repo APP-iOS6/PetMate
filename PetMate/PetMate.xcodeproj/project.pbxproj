@@ -53,7 +53,7 @@
 		259DC1112CC51AD000AB41C1 /* MatePostDetailPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1102CC51AD000AB41C1 /* MatePostDetailPetView.swift */; };
 		259DC1132CC51AE200AB41C1 /* MatePostDetailUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1122CC51AE200AB41C1 /* MatePostDetailUserView.swift */; };
 		259DC1152CC51AFD00AB41C1 /* MatePostDetatilContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1142CC51AFD00AB41C1 /* MatePostDetatilContentView.swift */; };
-		4B5C17452CC51EC100C6EF88 /* PetProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C17442CC51EBA00C6EF88 /* PetProfileViewModel.swift */; };
+		25FAB9FD2CC7C2D100F3CA48 /* CalandarReadTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FAB9FC2CC7C2C000F3CA48 /* CalandarReadTestView.swift */; };
 		4B5C17452CC51EC100C6EF88 /* MyPageViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C17442CC51EBA00C6EF88 /* MyPageViewViewModel.swift */; };
 		4B5D53072CBE2DB400FDC77A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */; };
 		4B5D53092CBE39FB00FDC77A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D53082CBE39FB00FDC77A /* ImagePicker.swift */; };
@@ -156,7 +156,7 @@
 		259DC1122CC51AE200AB41C1 /* MatePostDetailUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostDetailUserView.swift; sourceTree = "<group>"; };
 		259DC1142CC51AFD00AB41C1 /* MatePostDetatilContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostDetatilContentView.swift; sourceTree = "<group>"; };
 		259DC1162CC61D1000AB41C1 /* MatePostDetailImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatePostDetailImageView.swift; sourceTree = "<group>"; };
-		4B5C17442CC51EBA00C6EF88 /* PetProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileViewModel.swift; sourceTree = "<group>"; };
+		25FAB9FC2CC7C2C000F3CA48 /* CalandarReadTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalandarReadTestView.swift; sourceTree = "<group>"; };
 		4B5C17442CC51EBA00C6EF88 /* MyPageViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewViewModel.swift; sourceTree = "<group>"; };
 		4B5D53062CBE2DB400FDC77A /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		4B5D53082CBE39FB00FDC77A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -244,6 +244,7 @@
 		252A12962CBED8AC00EDD297 /* Calandar */ = {
 			isa = PBXGroup;
 			children = (
+				25FAB9FC2CC7C2C000F3CA48 /* CalandarReadTestView.swift */,
 				252A12942CBED8AC00EDD297 /* CalandarTestView.swift */,
 				252A12952CBED8AC00EDD297 /* CalandarView.swift */,
 				239E51242CC74BCF008DD278 /* CalendarButton.swift */,
@@ -700,6 +701,7 @@
 				FBD6BC7F2CBEB516008BEA30 /* ChatDetailView.swift in Sources */,
 				BD691BE02CBFACD4003A300B /* LocationManager.swift in Sources */,
 				BD49D3F32CC56A2E00136816 /* AddPlaceView.swift in Sources */,
+				25FAB9FD2CC7C2D100F3CA48 /* CalandarReadTestView.swift in Sources */,
 				FB9532302CC390FB00AEBD9C /* SignUpProfileView.swift in Sources */,
 				BD306E7B2CBF0158008BDBEB /* UserProfileViewModel.swift in Sources */,
 				FBD6BBB22CBE3A68008BEA30 /* ChatRoomListViewModel.swift in Sources */,
@@ -887,11 +889,13 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PetMate/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "이 앱은 프로필 사진 촬영을 위해 카메라에 접근합니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "이 앱은 주변 서비스 검색을 위해 위치 정보에 접근합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -919,11 +923,13 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PetMate/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "이 앱은 프로필 사진 촬영을 위해 카메라에 접근합니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "이 앱은 주변 서비스 검색을 위해 위치 정보에 접근합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
