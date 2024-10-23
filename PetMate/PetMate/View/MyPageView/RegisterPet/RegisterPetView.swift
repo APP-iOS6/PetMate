@@ -14,13 +14,24 @@ struct RegisterPetView: View {
     @Environment(\.dismiss) private var dismiss
     private var viewModel: RegisterPetViewModel = RegisterPetViewModel()
     let register: Bool
+    var pet: Pet? = nil
     let action: () -> Void
     
+    init(
+        register: Bool = false,
+        pet: Pet?,
+        action: @escaping () -> Void
+    ) {
+        self.register = register
+        self.pet = pet
+        self.action = action
+    }
     init(
         register: Bool = false,
         action: @escaping () -> Void
     ) {
         self.register = register
+        self.pet = nil
         self.action = action
     }
     
@@ -77,14 +88,26 @@ struct RegisterPetView: View {
                             .frame(maxWidth: .infinity)
                             .frame(height: 200)
                         
-                        if !viewModel.selectedPhotos.isEmpty {
+                        if !viewModel.selectedPhotos.isEmpty ||
+                            !viewModel.myPet.images.isEmpty{
                             TabView {
                                 ForEach(viewModel.images, id: \.self) { image in
-                                    Image(uiImage: image)
-                                        .resizable()
-                                        .aspectRatio(1, contentMode: .fill)
-                                        .frame(height: 200)
-                                        .clipShape(RoundedRectangle(cornerRadius: 18))
+                                    ZStack(alignment: .topTrailing){
+                                        Image(uiImage: image)
+                                            .resizable()
+                                            .aspectRatio(1, contentMode: .fill)
+                                            .frame(height: 200)
+                                            .clipShape(RoundedRectangle(cornerRadius: 18))
+                                        
+                                        
+                                        Image(systemName: "xmark.circle.fill")
+                                            .onTapGesture{
+                                                viewModel.removeImageInArray(image:image)
+                                            }
+                                            .font(.title)
+                                            .padding()
+                                        
+                                    }
                                 }
                             }
                             .clipShape(RoundedRectangle(cornerRadius: 18))
@@ -98,7 +121,7 @@ struct RegisterPetView: View {
                                 
                                 Text("이미지 추가")
                                     .foregroundStyle(.secondary)
-//                                    .padding(.top, 10)
+                                //                                    .padding(.top, 10)
                             }
                             .frame(maxWidth: .infinity)
                         }
@@ -110,6 +133,7 @@ struct RegisterPetView: View {
                     //뷰모델의 selectedPhotos값이 바뀔 때마다 convertDataToImage함수 호출
                     viewModel.convertPickerItemToImage()
                 }
+                .contentShape(Circle())
                 PetInfoSection(viewModel: viewModel)
                 
                 if register {
@@ -135,7 +159,14 @@ struct RegisterPetView: View {
                 action()
             }
         })
+        .task{
+            if let pet{
+                await viewModel.getUpdatePet(pet: pet)
+                print(viewModel.myPet)
+            }
+        }
         .padding()
+        
     }
     
     private func headerSection() -> some View {
@@ -298,6 +329,9 @@ struct PetInfoSection: View {
             
         }
         .padding()
+        .onChange(of: vm.myPet) { oldValue, newValue in
+            ageString = String(newValue.age)
+        }
     }
 }
 

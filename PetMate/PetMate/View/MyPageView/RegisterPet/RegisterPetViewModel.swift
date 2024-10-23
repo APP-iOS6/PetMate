@@ -30,6 +30,52 @@ class RegisterPetViewModel {
         }
     }
     
+    func getUpdatePet(pet: Pet) async {
+        let updatingPet = Pet(
+            id: pet.id,
+            name: pet.name,
+            description: pet.description,
+            age: pet.age,
+            category1: pet.category1,
+            category2: pet.category2,
+            tag: pet.tag,
+            breed: pet.breed,
+            images: pet.images,
+            ownerUid: pet.ownerUid,
+            createdAt: pet.createdAt,
+            updatedAt: pet.updatedAt)
+        
+        myPet = updatingPet
+        do{
+            for url in pet.images{
+                if let image = try await getUrlImage(urlString: url){
+                    images.append(image)
+                }
+            }
+        }catch{
+            print(error)
+        }
+        print(images)
+    }
+    
+    //편집할 때 url주소를 UIImage로 변환하는 함수 - 희철
+    func getUrlImage(urlString: String) async throws -> UIImage? {
+        guard let url = URL(string: urlString) else { return nil }
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            errorMessage = "Failed to load image"
+            return nil
+        }
+        
+        guard let image = UIImage(data: data) else {
+            errorMessage = "Image cannot be created"
+            return nil
+        }
+        
+        return image
+    }
+    
     @MainActor
     func uploadMyPet() async {
         guard let userUid = Auth.auth().currentUser?.uid else {
@@ -81,8 +127,6 @@ class RegisterPetViewModel {
     //PhotosPickerItem을 UIImage로 변환하여 images 배열에 값을 추가하는 함수
     @MainActor
     func convertPickerItemToImage() {
-        images.removeAll()
-        
         if !selectedPhotos.isEmpty {
             for photo in selectedPhotos {
                 Task {
@@ -92,6 +136,14 @@ class RegisterPetViewModel {
                         }
                     }
                 }
+            }
+        }
+    }
+    
+    func removeImageInArray(image: UIImage){
+        images.enumerated().forEach { index, value in
+            if value == image {
+                images.remove(at: index)
             }
         }
     }
