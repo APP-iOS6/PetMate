@@ -48,7 +48,7 @@ struct CalendarListView:View {
                     Button{
                         isPresent.toggle()
                     }label: {
-                        Image(systemName: "square.and.pencil")
+                        Image(systemName: "plus.circle")
                     }
                 }
             }
