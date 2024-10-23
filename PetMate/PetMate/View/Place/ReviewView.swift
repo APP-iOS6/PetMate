@@ -40,7 +40,7 @@ struct ReviewView: View {
                 .padding(.bottom, 4)
             
             HStack {
-                Text("\(review.bome)개의 발점") //발점 넣어야함
+                Text("\(review.rating)개의 발점") //발점 넣어야함
                     .font(.footnote)
                     .foregroundColor(.gray)
                 
@@ -62,11 +62,4 @@ struct ReviewView: View {
     }
 }
 
-// 프리뷰에 더미 데이터 적용
-struct ReviewView_Previews: PreviewProvider {
-    static var previews: some View {
-        let dummyReview = Review(id: "1", post: Firestore.firestore().document("posts/1"), bome: 5, content: "사장님이 강아지를 무척이나 좋아하세요! 이쁜 한가득 받고 올 수 있는 곳입니다.", createdAt: Date())
-        
-        ReviewView(review: dummyReview)
-    }
-}
+

@@ -18,6 +18,10 @@ class ChatRoomListViewModel {
     let db = Firestore.firestore()
     var chatListRoom: [ChatRoomWithUser] = []
     
+    var sortedChatListRoom: [ChatRoomWithUser] {
+        chatListRoom.sorted { $0.chatRoom.lastMessageAt > $1.chatRoom.lastMessageAt }
+    }
+    
     
     init() {
         print("채팅 방 뷰모델 출근")
