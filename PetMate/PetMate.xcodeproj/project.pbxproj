@@ -84,6 +84,7 @@
 		BD691BE42CC00CE4003A300B /* PlaceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BE32CC00CE4003A300B /* PlaceCardView.swift */; };
 		BD691BE62CC02A1E003A300B /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BE52CC02A1E003A300B /* PlaceDetailView.swift */; };
 		BD691BE82CC02F7D003A300B /* PlaceConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD691BE72CC02F7D003A300B /* PlaceConfirmationView.swift */; };
+		BDD719162CC9642700AE0977 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD719152CC9642700AE0977 /* String+Extension.swift */; };
 		FB17E7A92CC8D87C008F27F9 /* SendReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB17E7A82CC8D87C008F27F9 /* SendReviewViewModel.swift */; };
 		FB3773E72CC8C54A00A969CC /* SendReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3773E62CC8C54A00A969CC /* SendReviewView.swift */; };
 		FB9532262CC2D2CC00AEBD9C /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9532252CC2D2CC00AEBD9C /* CGFloat+Extension.swift */; };
@@ -198,6 +199,7 @@
 		BD691BE52CC02A1E003A300B /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
 		BD691BE72CC02F7D003A300B /* PlaceConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceConfirmationView.swift; sourceTree = "<group>"; };
 		BDB029922CBCF46200A0EAF6 /* PetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDD719152CC9642700AE0977 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		FB17E7A82CC8D87C008F27F9 /* SendReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendReviewViewModel.swift; sourceTree = "<group>"; };
 		FB3773E62CC8C54A00A969CC /* SendReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendReviewView.swift; sourceTree = "<group>"; };
 		FB9532252CC2D2CC00AEBD9C /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				BD691BDC2CBFABA3003A300B /* Bundle+Extension.swift */,
 				FB9532252CC2D2CC00AEBD9C /* CGFloat+Extension.swift */,
 				BD49D3F82CC7849A00136816 /* Location+Extension.swift */,
+				BDD719152CC9642700AE0977 /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -787,6 +790,7 @@
 				FBF28B732CC23E7E00040122 /* SignUpAddressView.swift in Sources */,
 				04ABC5112CC5E0D300DF4931 /* AddPostViewModel.swift in Sources */,
 				256A27442CBE81350031F766 /* HomeView.swift in Sources */,
+				BDD719162CC9642700AE0977 /* String+Extension.swift in Sources */,
 				FBD6BC8F2CBF8603008BEA30 /* GenerateChatRoomId.swift in Sources */,
 				BD691BDB2CBFAAE2003A300B /* KakaoAPIClient.swift in Sources */,
 			);

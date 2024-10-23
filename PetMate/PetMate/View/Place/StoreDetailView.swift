@@ -14,24 +14,29 @@ struct StoreDetailView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            AsyncImage(url: URL(string: "https://fac.or.kr/wp-content/uploads/2024/05/tsa_icarus_A_cozy_and_modern_restaurant_with_a_warm_atmosphere__24474e76-904f-4762-9ba9-1c4086295079.png")) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 200)
-                    .clipped()
-                    .cornerRadius(12)
-            } placeholder: {
-                Color.gray
-                    .frame(height: 200)
+            HStack {
+                Spacer()
+                AsyncImage(url: URL(string: placePost.image)) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 200)
+                        .clipped()
+                        .cornerRadius(12)
+                } placeholder: {
+                    ProgressView()
+                        .frame(height: 200)
+                }
+                Spacer()
             }
             
             VStack(alignment: .leading, spacing: 10) {
                 HStack {
-                    Text("📍\(placePost.placeName)") // 줄 넘어가면 이상해질수 있음
-                        .font(.title2)
+                    Text("📍\(placePost.placeName)")
+                        .font(.title3)
                         .bold()
                         .padding(.vertical, 8)
+                        .lineLimit(1)
                     
                     Spacer()
                     
@@ -44,7 +49,7 @@ struct StoreDetailView: View {
                 }
                 
                 HStack(spacing: 6) {
-                    Image(systemName: "mappin.and.ellipse") // 똑같이 못하고 비슷한걸로 대체
+                    Image(systemName: "mappin.and.ellipse")
                         .resizable()
                         .frame(width: 15, height: 15)
                     Text("\(placePost.address)")
@@ -53,23 +58,23 @@ struct StoreDetailView: View {
                 .padding(.horizontal, 5)
                 
                 HStack(spacing: 6) {
-                    Image(systemName: "fork.knife") //똑같이 못하고 비슷한걸로 대체
+                    Image(systemName: "fork.knife")
                         .resizable()
                         .frame(width: 15, height: 15)
-                    Text("음식점 > 카페")
+                    Text(placePost.category)
                 }
                 .font(.footnote)
                 .padding(.horizontal, 5)
-                
-                HStack(spacing: 6) {
-                    Image(systemName: "phone.fill")
-                        .resizable()
-                        .frame(width: 15, height: 15)
-                    Text("전화번호: 010-1234-5678")
+                if let phone = placePost.phone {
+                    HStack(spacing: 6) {
+                        Image(systemName: "phone.fill")
+                            .resizable()
+                            .frame(width: 15, height: 15)
+                        Text(phone)
+                    }
+                    .font(.footnote)
+                    .padding(.horizontal, 5)
                 }
-                .font(.footnote)
-                .padding(.horizontal, 5)
-                
                 HStack(spacing: 6) {
                     Image(systemName: "car.fill")
                         .resizable()
@@ -81,20 +86,19 @@ struct StoreDetailView: View {
             }
         }
         .padding()
-        .background(Color.white)
-        .cornerRadius(12)
-        .overlay(
-            RoundedRectangle(cornerRadius: 12)
-                .stroke(Color.gray, lineWidth: 1)
+        .background(
+            RoundedRectangle(cornerRadius: 16)
+                .fill(Color.white)
+                .shadow(color: Color.black.opacity(0.1), radius: 4)
         )
         .padding()
     }
 }
-
+//
 //// 프리뷰에 더미 데이터 적용
 //struct StoreDetailView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        let dummyPlacePost = PlacePost(id: "1", writeUser: "김정원", title: "카페 후기", content: "맛집이에요", location: GeoPoint(latitude: 37.5665, longitude: 126.9780), address: "경기도 수원시 매탄동 393", placeName: "카카오프렌즈 코엑스점", isParking: true, createdAt: Date(), updatedAt: Date())
+//        let dummyPlacePost = PlacePost(id: "1", writeUser: "김정원", title: "카페 후기", content: "맛집이에요", location: GeoPoint(latitude: 37.5665, longitude: 126.9780), image: "", address: "경기도 수원시 매탄동 393", placeName: "카카오프렌즈 코엑스점", isParking: true, createdAt: Date(), updatedAt: Date())
 //        
 //        StoreDetailView(placePost: dummyPlacePost)
 //    }

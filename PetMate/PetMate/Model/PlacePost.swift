@@ -17,9 +17,12 @@ struct PlacePost: Codable, Identifiable {
     var image: String
     var address: String
     var placeName: String
+    var phone: String?
+    var category: String
     var isParking: Bool
     var createdAt: Date
     var updatedAt: Date
+    
 }
 
 

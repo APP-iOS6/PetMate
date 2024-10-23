@@ -114,7 +114,7 @@ final class PetPlacesStore {
         }
     }
     
-    func addPlace(writeUser: String, title: String, content: String, address: String, image: String? ,placeName: String, isParking: Bool, latitude: Double, longitude: Double, geoHash: String, completion: @escaping (Bool) -> Void) {
+    func addPlace(writeUser: String, title: String, content: String, category: String, phone: String? ,address: String, image: String? ,placeName: String, isParking: Bool, latitude: Double, longitude: Double, geoHash: String, completion: @escaping (Bool) -> Void) {
         let newPlace = PlacePost(
             writeUser: writeUser,
             title: title,
@@ -123,6 +123,8 @@ final class PetPlacesStore {
             image: image ?? "",
             address: address,
             placeName: placeName,
+            phone: phone,
+            category: category,
             isParking: isParking,
             createdAt: Date(),
             updatedAt: Date()

@@ -145,6 +145,8 @@ struct SubmitPlaceView: View {
                 writeUser: UUID().uuidString,
                 title: title,
                 content: content,
+                category: placeStore.selectedPlace?.category_name ?? "",
+                phone: placeStore.selectedPlace?.phone ?? "",
                 address: placeStore.selectedPlace?.address_name ?? "",
                 image: imageURL,
                 placeName: placeStore.selectedPlace?.place_name ?? "",
