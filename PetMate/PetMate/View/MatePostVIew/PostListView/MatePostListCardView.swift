@@ -22,7 +22,7 @@ struct MatePostListCardView: View {
             AsyncImage(url: URL(string: post.firstPet.images.first ?? "")){ image in
                 image
                     .resizable()
-                    .frame(height: proxy.size.height * 0.4)
+                    .frame(height: proxy.size.height * 0.32)
                     .aspectRatio(1, contentMode: .fill)
                     .frame(width: proxy.size.width * 0.45)
             }placeholder:{
@@ -31,7 +31,7 @@ struct MatePostListCardView: View {
             ZStack(alignment: .topLeading){
                 RoundedRectangle(cornerRadius: 12)
                     .opacity(0.4)
-                VStack(alignment: .leading){
+                VStack(alignment: .leading, spacing: 6){
                     HStack(alignment: .bottom){
                         Text("\(post.firstPet.category1 == "dog" ? "🐶" : post.firstPet.category1 == "cat" ?"🐱" : "🦄") \(post.firstPet.name)")
                             .font(.none)
@@ -40,19 +40,23 @@ struct MatePostListCardView: View {
                     }
                     .fontWeight(.bold)
                     Text("\(dateFormatter1.string(from: post.startDate)) ~ \(dateFormatter1.string(from: post.endDate))")
+                        .bold()
                     Text("\(post.category == "care" ? "돌봄" : "산책") 비용 : \(post.cost)")
+                        .bold()
+                        .padding(.bottom, 10)
                 }
                 .font(.caption)
-                .padding()
+                .padding(.horizontal, 10)
+                .padding(.top, 10)
                 .foregroundStyle(.white)
             }
-            .frame(height: proxy.size.height * 0.2)
+            .frame(height: proxy.size.height * 0.1)
             .padding(10)
             
             
         }
         .clipShape(.rect(cornerRadius: 12))
-        .frame(width: proxy.size.width * 0.45, height: proxy.size.height * 0.4)
+        .frame(width: proxy.size.width * 0.45, height: proxy.size.height * 0.32)
         //.padding()
         
     }
