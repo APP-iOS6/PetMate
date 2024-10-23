@@ -23,6 +23,7 @@
 		239E511D2CC6510A008DD278 /* MatePostDetailImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DC1162CC61D1000AB41C1 /* MatePostDetailImageView.swift */; };
 		239E51252CC74BCF008DD278 /* CalendarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239E51242CC74BCF008DD278 /* CalendarButton.swift */; };
 		23DE250D2CC5EA650011CE47 /* HomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DE250C2CC5EA650011CE47 /* HomeViewViewModel.swift */; };
+		251B14EF2CC8B50200700F93 /* CalendarStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251B14EE2CC8B4F900700F93 /* CalendarStore.swift */; };
 		252A12972CBED8AD00EDD297 /* CalandarTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A12942CBED8AC00EDD297 /* CalandarTestView.swift */; };
 		252A12982CBED8AD00EDD297 /* CalandarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A12952CBED8AC00EDD297 /* CalandarView.swift */; };
 		252A129A2CBED90700EDD297 /* Date+GetElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A12992CBED90700EDD297 /* Date+GetElement.swift */; };
@@ -125,6 +126,7 @@
 		2349F6762CC64A86008AC707 /* HomeFindFriendCardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFindFriendCardDetailView.swift; sourceTree = "<group>"; };
 		239E51242CC74BCF008DD278 /* CalendarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarButton.swift; sourceTree = "<group>"; };
 		23DE250C2CC5EA650011CE47 /* HomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewViewModel.swift; sourceTree = "<group>"; };
+		251B14EE2CC8B4F900700F93 /* CalendarStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStore.swift; sourceTree = "<group>"; };
 		252A12942CBED8AC00EDD297 /* CalandarTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalandarTestView.swift; sourceTree = "<group>"; };
 		252A12952CBED8AC00EDD297 /* CalandarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalandarView.swift; sourceTree = "<group>"; };
 		252A12992CBED90700EDD297 /* Date+GetElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+GetElement.swift"; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 		256A27282CBD04890031F766 /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				251B14EE2CC8B4F900700F93 /* CalendarStore.swift */,
 				259DC0FC2CBF8A2F00AB41C1 /* MatePostStore.swift */,
 				259DC0F92CBF832000AB41C1 /* TestStore.swift */,
 				BD306E7A2CBF0158008BDBEB /* UserProfileViewModel.swift */,
@@ -703,6 +706,7 @@
 				BD49D3F32CC56A2E00136816 /* AddPlaceView.swift in Sources */,
 				25FAB9FD2CC7C2D100F3CA48 /* CalandarReadTestView.swift in Sources */,
 				FB9532302CC390FB00AEBD9C /* SignUpProfileView.swift in Sources */,
+				251B14EF2CC8B50200700F93 /* CalendarStore.swift in Sources */,
 				BD306E7B2CBF0158008BDBEB /* UserProfileViewModel.swift in Sources */,
 				FBD6BBB22CBE3A68008BEA30 /* ChatRoomListViewModel.swift in Sources */,
 				FBB7BB532CBDF99D00E20E11 /* Review.swift in Sources */,
