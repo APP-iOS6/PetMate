@@ -129,6 +129,37 @@
 
 ---
 
+## 구동 화면
+### 1. 회원가입
+![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 34 42 중간](https://github.com/user-attachments/assets/97ac78e4-5afe-455b-9272-0f5fc9839d92)![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 34 57 중간](https://github.com/user-attachments/assets/e3646068-d332-4c5d-809f-344d8e0df9aa)![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 35 09 중간](https://github.com/user-attachments/assets/1dc2b170-d84b-4f9a-96dd-cc1374244503)![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 35 28 중간](https://github.com/user-attachments/assets/3929784f-abea-47a5-b15e-6a49065a47e2)![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 35 36 중간](https://github.com/user-attachments/assets/c26146bd-6d7e-4992-ab0c-3f95657ff17e)![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 35 42 중간](https://github.com/user-attachments/assets/cea6d87a-076c-4625-b8a3-71b5fe929cfb)
+
+
+### 2. 메인 페이지 및 돌봄, 산책 메이트 찾기
+![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 35 53 중간](https://github.com/user-attachments/assets/8d92b50f-7cfc-4516-ad0f-810b578cf55c)![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 36 02 중간](https://github.com/user-attachments/assets/4d5592be-f269-4fed-98d9-12a9fb801ca3)![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 36 19 중간](https://github.com/user-attachments/assets/f84700e2-1709-4682-8e0c-2206470c800e)![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 36 27 중간](https://github.com/user-attachments/assets/4002848c-1fa0-4410-aa81-b9bc5104c00f)![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 37 51 중간](https://github.com/user-attachments/assets/05fe799a-c653-4a9d-b7de-590e91eb4dd7)
+
+### 3. 동반 장소 찾기
+![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 38 04 중간](https://github.com/user-attachments/assets/8cd8b9ff-d909-4942-a308-8955ea7f6b50)![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 38 43 중간](https://github.com/user-attachments/assets/57db2328-72b7-484a-9322-2a2048f52dbc)![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 38 52 중간](https://github.com/user-attachments/assets/20e0db95-67a6-4e19-a6fa-b1a0f6781d01)![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 38 58 중간](https://github.com/user-attachments/assets/611e4859-851b-4fae-869b-edc897781795)![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 39 11 중간](https://github.com/user-attachments/assets/a656e933-a176-43cf-ad59-84dc11273be7)![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 39 17 중간](https://github.com/user-attachments/assets/828cbd1f-dd48-4dc1-9ce0-de1b0f236b4a)![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 39 24 중간](https://github.com/user-attachments/assets/79202132-d3d0-4c48-837e-09795964e9b6)
+
+### 4. 채팅 탭
+![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 39 34 중간](https://github.com/user-attachments/assets/4e930433-84d0-4aa5-8863-8bc337f69329)
+
+### 5. 마이페이지
+![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 39 42 중간](https://github.com/user-attachments/assets/667daef5-80b8-45a9-b495-164d7c0edb77)![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 39 50 중간](https://github.com/user-attachments/assets/98568faa-a2b9-4b09-a2f1-4884c4267193)![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 15 39 57 중간](https://github.com/user-attachments/assets/28118b59-5234-4ed9-8e57-1faaea8c1134)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
