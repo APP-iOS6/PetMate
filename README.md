@@ -168,6 +168,17 @@
 - iOS 17.0
 
 
+## 실행 방법
+1. 이 프로젝트에서는 Firebase가 사용되었습니다. 때문에 `GoogleService-Info.plist`파일이 필요합니다. 
+2. 먼저 파이어 베이스 콘솔에서 해당 앱에 연동하기 위해 프로젝트를 생성해야합니다. iOS프로젝트의 번들 id를 확인하고 파이어베이스 프로젝트에 추가해주세요
+https://console.firebase.google.com/
+3. 파이어베이스에 iOS를 추가하였다면 파이어베이스 프로젝트 설정에서 `GoogleService-Info.plist` 파일을 다운 받아서 프로젝트 최상위 폴더 안에 넣어주세요
+4. 카카오 개발자 콘솔에서 프로젝트 생성 -> 플랫폼 -> iOS 앱 등록(프로젝트 Identifier) -> REST_API 키를 프로젝트 Config 파일을 생성하여 KAKAO_APP_KEY = REST_API_KEY 를 입력하시면 됩니다.
+5. 빌드 하시면 됩니다
+6. 실행에 문제가 생기셨을 시 soo67011@gmail.com 많은 연락 부탁드립니다~
+
+
+
 ## Dependency
 - FirebaseAuth - Apache-2.0 license
 - FirebaseCore - Apache-2.0 license
