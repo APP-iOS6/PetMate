@@ -169,12 +169,12 @@
 
 
 ## Dependency
-- FirebaseAuth
-- FirebaseCore
-- FirebaseFirestore
-- FirebaseStorage
-- GoogleSignIn
-- GoogleSignInSwift
+- FirebaseAuth - Apache-2.0 license
+- FirebaseCore - Apache-2.0 license
+- FirebaseFirestore - Apache-2.0 license
+- FirebaseStorage - Apache-2.0 license
+- GoogleSignIn - Apache-2.0 license
+- GoogleSignInSwift - Apache-2.0 license
 
 
 # 라이선스
