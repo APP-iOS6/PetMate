@@ -84,7 +84,7 @@ struct RegisterPetView: View {
                 ) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 18) // 이미지가 보여질 곳에 동일한 RoundedRectangle 추가
-                            .stroke(Color(.systemGray2), lineWidth: 1)
+                            .stroke(Color(.systemGray4), lineWidth: 1)
                             .frame(maxWidth: .infinity)
                             .frame(height: 200)
                         
@@ -105,6 +105,7 @@ struct RegisterPetView: View {
                                                 viewModel.removeImageInArray(image:image)
                                             }
                                             .font(.title)
+                                            .scaledToFill()
                                             .padding(5)
                                         
                                     }
@@ -116,11 +117,12 @@ struct RegisterPetView: View {
                             VStack {
                                 Image(systemName: "photo.badge.plus.fill")
                                     .resizable()
-                                    .aspectRatio(1, contentMode: .fill)
-                                    .frame(width: 50, height: 50)
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 50, height: 40)
                                 
                                 Text("이미지 추가")
                                     .foregroundStyle(.secondary)
+                                    .offset(x: -2, y: -2)
                                 //                                    .padding(.top, 10)
                             }
                             .frame(maxWidth: .infinity)

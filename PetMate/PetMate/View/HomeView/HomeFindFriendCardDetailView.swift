@@ -120,7 +120,7 @@ struct HomeFindFriendCardDetailView: View {
                 .font(.system(size: 16, weight: .bold))
                 .foregroundColor(.accentColor)
                 .padding()
-                .frame(width: 100, height: 40)
+                .frame(width: 90, height: 35)
                 .background(Color.white)
                 .cornerRadius(20)
                 .overlay(

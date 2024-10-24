@@ -81,7 +81,7 @@ struct HomeReviewSheet: View {
                 Button {
                    action()
                 } label: {
-                    Text("채팅하기")
+                    Text("\(review.reviewUser.name)과 채팅하기")
                         .modifier(ButtonModifier())
                 }
                 .padding(.vertical)
@@ -104,4 +104,3 @@ struct HomeReviewSheet: View {
             .padding()
         }
 }
-

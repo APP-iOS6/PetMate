@@ -74,6 +74,9 @@ struct ChatRoomCellView: View {
                             .aspectRatio(1, contentMode: .fill)
                             .frame(width: 67, height: 67)
                             .clipShape(Circle())
+                            .overlay(
+                                Circle().stroke(Color(.systemGray4), lineWidth: 1)  // 테두리 추가
+                            )
                     case .empty:
                         Circle()
                             .fill(Color(uiColor: .systemGray3))
