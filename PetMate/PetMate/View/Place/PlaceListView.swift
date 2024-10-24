@@ -46,9 +46,10 @@ struct PlaceListView: View {
                             
                             Text("반려동물 동반")
                                 .font(.caption)
-                                .foregroundColor(.red)
+                                .bold()
+                                .foregroundColor(Color("petTag_Color"))
                                 .padding(6)
-                                .background(Color.gray.opacity(0.2))
+                                .background(Color.gray.opacity(0.1))
                                 .cornerRadius(12)
                         }
                         

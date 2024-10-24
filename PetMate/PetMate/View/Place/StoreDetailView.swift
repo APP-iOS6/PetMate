@@ -15,24 +15,22 @@ struct StoreDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                HStack {
-                    Spacer()
+                // place 이미지
+                VStack(alignment: .center) {
                     AsyncImage(url: URL(string: placePost.image)) { image in
                         image
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 200)
+                            .scaledToFill()
+                            .frame(width: UIScreen.main.bounds.width - 40, height: 200)
                             .clipped()
                             .cornerRadius(12)
                     } placeholder: {
                         ProgressView()
                             .frame(height: 200)
                     }
-                    Spacer()
-                }
-                .padding(.top)
+                }.padding()
                 
-                
+                // place Info & 반려동물동반 태그
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
                         Text("📍\(placePost.placeName)")
@@ -40,50 +38,47 @@ struct StoreDetailView: View {
                             .bold()
                             .padding(.vertical, 8)
                             .lineLimit(1)
+                            .padding(.leading, -3)
                         
                         Spacer()
                         
                         Text("반려동물 동반")
                             .font(.caption)
-                            .foregroundColor(.red)
+                            .bold()
+                            .foregroundColor(Color("petTag_Color"))
                             .padding(6)
-                            .background(Color.gray.opacity(0.2))
+                            .background(Color.gray.opacity(0.1))
                             .cornerRadius(12)
                     }
                     
-                    HStack(spacing: 6) {
-                        Image(systemName: "mappin.and.ellipse")
-                            .resizable()
-                            .frame(width: 15, height: 15)
-                        Text("\(placePost.address)")
-                    }
-                    .font(.subheadline)
-                    
-                    HStack(spacing: 6) {
-                        Image(systemName: "fork.knife")
-                            .resizable()
-                            .frame(width: 15, height: 15)
-                        Text(placePost.category)
-                    }
-                    .font(.footnote)
-                    
-                    if let phone = placePost.phone {
-                        HStack(spacing: 6) {
-                            Image(systemName: "phone.fill")
-                                .resizable()
-                                .frame(width: 15, height: 15)
-                            Text(phone)
+                    VStack(alignment: .leading, spacing: 6) {
+                        HStack(spacing: 12) {
+                            Image(systemName: "map.fill")
+                            Text("\(placePost.address)")
+                        }
+                        .font(.subheadline)
+                        
+                        HStack(spacing: 12) {
+                            Image(systemName: "tag.fill")
+                            Text(placePost.category)
                         }
                         .font(.footnote)
-                        .padding(.horizontal, 5)
+                        
+                        if let phone = placePost.phone {
+                            HStack(spacing: 12) {
+                                Image(systemName: "phone.fill")
+                                Text(phone)
+                            }
+                            .font(.footnote)
+//                            .padding(.horizontal, 5)
+                        }
+                        HStack(spacing: 12) {
+                            Image(systemName: "car.fill")
+                            Text(placePost.isParking ? "주차 가능" : "주차 불가")
+                        }
+                        .font(.footnote)
                     }
-                    HStack(spacing: 6) {
-                        Image(systemName: "car.fill")
-                            .resizable()
-                            .frame(width: 15, height: 15)
-                        Text(placePost.isParking ? "주차 가능" : "주차 불가")
-                    }
-                    .font(.footnote)
+                    .foregroundColor(.gray)
                 }
                 .padding()
             }
