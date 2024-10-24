@@ -17,7 +17,6 @@
 		233E2C062CC04FAA004712E7 /* HomeView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233E2C052CC04FAA004712E7 /* HomeView2.swift */; };
 		23499B172CBD120F009FD900 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B162CBD120F009FD900 /* GoogleSignIn */; };
 		23499B192CBD120F009FD900 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B182CBD120F009FD900 /* GoogleSignInSwift */; };
-		23499B1C2CBD1239009FD900 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 23499B1B2CBD1239009FD900 /* KakaoSDKAuth */; };
 		2349F6772CC64A86008AC707 /* HomeFindFriendCardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349F6762CC64A86008AC707 /* HomeFindFriendCardDetailView.swift */; };
 		238A2EEA2CBD0E200058D7CC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EE92CBD0E200058D7CC /* FirebaseAuth */; };
 		238A2EEC2CBD0E200058D7CC /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 238A2EEB2CBD0E200058D7CC /* FirebaseCore */; };
@@ -105,8 +104,6 @@
 		FBB7BB512CBDF94400E20E11 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB502CBDF94400E20E11 /* Pet.swift */; };
 		FBB7BB532CBDF99D00E20E11 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB522CBDF99D00E20E11 /* Review.swift */; };
 		FBB7BB552CBDF9E100E20E11 /* PlacePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB7BB542CBDF9E100E20E11 /* PlacePost.swift */; };
-		FBB7BB582CBDFAA200E20E11 /* GeoFire in Frameworks */ = {isa = PBXBuildFile; productRef = FBB7BB572CBDFAA200E20E11 /* GeoFire */; };
-		FBB7BB5A2CBDFAA200E20E11 /* GeoFireUtils in Frameworks */ = {isa = PBXBuildFile; productRef = FBB7BB592CBDFAA200E20E11 /* GeoFireUtils */; };
 		FBD6BBAE2CBE3A28008BEA30 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BBAD2CBE3A28008BEA30 /* ChatRoom.swift */; };
 		FBD6BBB02CBE3A5C008BEA30 /* ChatRoomListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BBAF2CBE3A5C008BEA30 /* ChatRoomListView.swift */; };
 		FBD6BBB22CBE3A68008BEA30 /* ChatRoomListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BBB12CBE3A68008BEA30 /* ChatRoomListViewModel.swift */; };
@@ -246,9 +243,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBB7BB582CBDFAA200E20E11 /* GeoFire in Frameworks */,
-				FBB7BB5A2CBDFAA200E20E11 /* GeoFireUtils in Frameworks */,
-				23499B1C2CBD1239009FD900 /* KakaoSDKAuth in Frameworks */,
 				23499B172CBD120F009FD900 /* GoogleSignIn in Frameworks */,
 				238A2EEC2CBD0E200058D7CC /* FirebaseCore in Frameworks */,
 				238A2EF02CBD0E200058D7CC /* FirebaseStorage in Frameworks */,
@@ -626,9 +620,6 @@
 				238A2EEF2CBD0E200058D7CC /* FirebaseStorage */,
 				23499B162CBD120F009FD900 /* GoogleSignIn */,
 				23499B182CBD120F009FD900 /* GoogleSignInSwift */,
-				23499B1B2CBD1239009FD900 /* KakaoSDKAuth */,
-				FBB7BB572CBDFAA200E20E11 /* GeoFire */,
-				FBB7BB592CBDFAA200E20E11 /* GeoFireUtils */,
 			);
 			productName = PetMate;
 			productReference = BDB029922CBCF46200A0EAF6 /* PetMate.app */;
@@ -661,8 +652,6 @@
 			packageReferences = (
 				238A2EE82CBD0E200058D7CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				23499B152CBD120F009FD900 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
-				23499B1A2CBD1239009FD900 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
-				FBB7BB562CBDFAA200E20E11 /* XCRemoteSwiftPackageReference "geofire-objc" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = BDB029932CBCF46200A0EAF6 /* Products */;
@@ -1024,28 +1013,12 @@
 				minimumVersion = 8.0.0;
 			};
 		};
-		23499B1A2CBD1239009FD900 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.22.7;
-			};
-		};
 		238A2EE82CBD0E200058D7CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 11.3.0;
-			};
-		};
-		FBB7BB562CBDFAA200E20E11 /* XCRemoteSwiftPackageReference "geofire-objc" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/geofire-objc";
-			requirement = {
-				branch = master;
-				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1060,11 +1033,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 23499B152CBD120F009FD900 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
-		};
-		23499B1B2CBD1239009FD900 /* KakaoSDKAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 23499B1A2CBD1239009FD900 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
-			productName = KakaoSDKAuth;
 		};
 		238A2EE92CBD0E200058D7CC /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1085,16 +1053,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 238A2EE82CBD0E200058D7CC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
-		};
-		FBB7BB572CBDFAA200E20E11 /* GeoFire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FBB7BB562CBDFAA200E20E11 /* XCRemoteSwiftPackageReference "geofire-objc" */;
-			productName = GeoFire;
-		};
-		FBB7BB592CBDFAA200E20E11 /* GeoFireUtils */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FBB7BB562CBDFAA200E20E11 /* XCRemoteSwiftPackageReference "geofire-objc" */;
-			productName = GeoFireUtils;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
