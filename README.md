@@ -168,5 +168,14 @@
 - iOS 17.0
 
 
+## Dependency
+- FirebaseAuth
+- FirebaseCore
+- FirebaseFirestore
+- FirebaseStorage
+- GoogleSignIn
+- GoogleSignInSwift
+
+
 # 라이선스
 Licensed under the [Apache License, version 2.0](LICENSE) license.
