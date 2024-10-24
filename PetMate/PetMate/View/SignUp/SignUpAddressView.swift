@@ -14,7 +14,7 @@ struct SignUpAddressView: View {
     var body: some View {
         
         VStack(alignment: .leading) {
-            Text("나의 동네를 입력해 주세요.")
+            Text("사는 지역을 입력해주세요.")
                 .bold()
                 .font(.title2)
                 .padding(.bottom, .screenHeight * 0.03)
@@ -23,7 +23,7 @@ struct SignUpAddressView: View {
             
             let locationEmpty: Bool = viewModel.mateUser.location.isEmpty
             HStack {
-                Text(locationEmpty ? "서울시 마포구" : viewModel.mateUser.location)
+                Text(locationEmpty ? "지역을 검색해주세요." : viewModel.mateUser.location)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundStyle(locationEmpty ? .secondary : .primary)
                 
