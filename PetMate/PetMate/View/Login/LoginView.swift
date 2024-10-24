@@ -112,17 +112,6 @@ struct LoginView: View {
                     .frame(width: 300, height: 60)
             }
             
-            Button(action: {
-                print("둘러보기 버튼 눌림")
-                authManager.authState = .guest
-            }) {
-                Text("로그인 전 둘러보기")
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .underline(true, color: .gray)
-                    .font(.system(size: 14))
-                    .foregroundColor(.gray)
-            }
         }
         .onChange(of: viewModel.loadState, { oldValue, newValue in
             if newValue == .complete {
