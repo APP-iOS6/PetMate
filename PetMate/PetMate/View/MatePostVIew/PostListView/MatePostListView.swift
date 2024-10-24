@@ -14,7 +14,7 @@ struct MatePostListView: View {
     @State private var isPresentDetailView: Bool = false
     @State private var isPresentAddView: Bool = false
     
-    @State private var selectedPostCategory: String = "walk" // 기본 선택 카테고리
+    @State var selectedPostCategory: String = "walk" // 기본 선택 카테고리
     @State private var selectedPetCategory1: String = "dog"
     @State private var selectedPetCategory2: String = "small"
     

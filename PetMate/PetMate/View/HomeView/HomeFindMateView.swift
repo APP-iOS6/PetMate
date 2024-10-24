@@ -12,15 +12,15 @@ struct HomeFindMateView: View {
     var body: some View {
         HStack(spacing: 15) {
             NavigationLink {
-                MatePostListView()
+                MatePostListView(selectedPostCategory: "care")
             } label: {
                 Image("care_button")
                     .resizable()
                     .frame(width: 180, height: 127)
             }
-            Button(action: {
-                print("산책 버튼")
-            }) {
+            NavigationLink{
+                MatePostListView(selectedPostCategory: "walk")
+            } label: {
                 Image("walk_button")
                     .resizable()
                     .frame(width: 180, height: 127)

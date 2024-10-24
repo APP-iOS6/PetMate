@@ -84,7 +84,7 @@ struct RegisterPetView: View {
                 ) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 18) // 이미지가 보여질 곳에 동일한 RoundedRectangle 추가
-                            .stroke(Color(.systemGray2), lineWidth: 1)
+                            .stroke(Color(.systemGray4), lineWidth: 1)
                             .frame(maxWidth: .infinity)
                             .frame(height: 200)
                         
@@ -105,6 +105,7 @@ struct RegisterPetView: View {
                                                 viewModel.removeImageInArray(image:image)
                                             }
                                             .font(.title)
+                                            .scaledToFill()
                                             .padding(5)
                                         
                                     }
@@ -116,11 +117,12 @@ struct RegisterPetView: View {
                             VStack {
                                 Image(systemName: "photo.badge.plus.fill")
                                     .resizable()
-                                    .aspectRatio(1, contentMode: .fill)
-                                    .frame(width: 50, height: 50)
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 50, height: 40)
                                 
                                 Text("이미지 추가")
                                     .foregroundStyle(.secondary)
+                                    .offset(x: -2, y: -2)
                                 //                                    .padding(.top, 10)
                             }
                             .frame(maxWidth: .infinity)
@@ -223,64 +225,74 @@ struct PetInfoSection: View {
     var body: some View {
         @Bindable var vm = viewModel
         
-        VStack(alignment: .leading) {
-            Text("나의 반려 동물 이름")
-                .bold()
-                .padding(.bottom, 2)
-            TextField("예) 가디", text: $vm.myPet.name)
-                .underline()
-                .focused($focusedField, equals: .name)
-                .padding(.bottom)
-                .onSubmit {
-                    focusedField = .age
-                }
+        VStack(alignment: .leading, spacing: 25) {
             
-            Text("나이")
-                .bold()
-                .padding(.bottom, 2)
-            TextField("예) 5살", text: $ageString)
-                .underline()
-                .keyboardType(.numberPad)
-                .focused($focusedField, equals: .age)
-                .onChange(of: ageString) { oldValue, newValue in
-                    viewModel.myPet.age = Int(newValue) ?? 0
-                }
-                .padding(.bottom)
-                .onSubmit {
-                    focusedField = .breed
-                }
-            
-            Text("품종")
-                .bold()
-                .padding(.bottom, 2)
-            TextField("예) 포메라니안", text: $vm.myPet.breed)
-                .underline()
-                .focused($focusedField, equals: .breed)
-                .padding(.bottom)
-                .onSubmit {
-                    focusedField = .description
-                }
-            
-            HStack {
-                Text("나의 반려 동물을 소개해 주세요.")
+            VStack(alignment: .leading, spacing: 5) {
+                Text("나의 펫 이름")
                     .bold()
-                Spacer()
-                Text("\(viewModel.myPet.description.count)/300")
-                    .foregroundStyle(.secondary)
-                    .font(.caption)
-            }
-            TextEditor(text: $vm.myPet.description)
-                .frame(height: 130)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-                .focused($focusedField, equals: .description)
-                .overlay {
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke(Color(uiColor: .systemGray4), lineWidth: 1)
-                }
-                .onChange(of: viewModel.myPet.description) { oldValue, newValue in
-                    if newValue.count > 300 {
-                        viewModel.myPet.description = String(newValue.prefix(300))
+                    .padding(.bottom, 2)
+                TextField("이름을 입력해주세요.", text: $vm.myPet.name)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .focused($focusedField, equals: .name)
+                    .onSubmit {
+                        focusedField = .age
                     }
+            }
+            
+            VStack(alignment: .leading, spacing: 5) {
+                Text("나이")
+                    .bold()
+                    .padding(.bottom, 2)
+                TextField("나이를 입력해주세요.(년)", text: $ageString)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.numberPad)
+                    .focused($focusedField, equals: .age)
+                    .onChange(of: ageString) { oldValue, newValue in
+                        viewModel.myPet.age = Int(newValue) ?? 0
+                    }
+                    .padding(.bottom)
+                    .onSubmit {
+                        focusedField = .breed
+                    }
+            }
+            
+            VStack(alignment: .leading, spacing: 5) {
+                Text("품종")
+                    .bold()
+                    .padding(.bottom, 2)
+                TextField("예) 포메라니안", text: $vm.myPet.breed)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .focused($focusedField, equals: .breed)
+                    .padding(.bottom)
+                    .onSubmit {
+                        focusedField = .description
+                    }
+            }
+            
+            VStack(alignment: .leading, spacing: 5) {
+                HStack {
+                    Text("나의 펫을 소개해 주세요.")
+                        .bold()
+                    Spacer()
+                    Text("\(viewModel.myPet.description.count)/300")
+                        .foregroundStyle(.secondary)
+                        .font(.caption)
+                }
+                ZStack {
+                    RoundedRectangle(cornerRadius: 6)
+                        .stroke(Color(uiColor: .systemGray4), lineWidth: 1)
+                        .background(Color(uiColor: .systemBackground))
+                        .clipShape(RoundedRectangle(cornerRadius: 6))
+                    
+                    TextEditor(text: $vm.myPet.description)
+                        .focused($focusedField, equals: .description)
+                        .padding(8)
+                        .frame(height: 180)
+                        .onChange(of: viewModel.myPet.description) { oldValue, newValue in
+                            if newValue.count > 300 {
+                                viewModel.myPet.description = String(newValue.prefix(300))
+                            }
+                        }
                 }
                 .toolbar {
                     ToolbarItemGroup(placement: .keyboard) {
@@ -294,28 +306,32 @@ struct PetInfoSection: View {
                     if viewModel.myPet.description.isEmpty {
                         Text("300자 이내로 나의 반려동물을 소개해 보세요.")
                             .foregroundStyle(.secondary)
-                            .font(.caption)
-                            .offset(x: 5, y: 12)
+                            .font(.system(size: 16))
+                            .foregroundStyle(Color(.systemGray2))
+                            .offset(x: 9, y: 12)
                     }
                 }
                 .padding(.bottom)
+            }
             
-            Text("태그 선택하기")
-                .bold()
-                .padding(.bottom, 3)
-            
-            FlowLayout {
-                ForEach(petTags, id: \.self) { tag in
-                    let selected = viewModel.myPet.tag.contains(where: { $0 == tag })
-                    Button {
-                        viewModel.tagTapped(tag)
-                    } label: {
-                        Text(tag)
-                            .modifier(TagModifier(selected: selected))
+            VStack(alignment: .leading, spacing: 5) {
+                Text("태그 선택하기")
+                    .bold()
+                    .padding(.bottom, 6)
+                
+                FlowLayout {
+                    ForEach(petTags, id: \.self) { tag in
+                        let selected = viewModel.myPet.tag.contains(where: { $0 == tag })
+                        Button {
+                            viewModel.tagTapped(tag)
+                        } label: {
+                            Text(tag)
+                                .modifier(TagModifier(selected: selected))
+                        }
                     }
                 }
+                .padding(.bottom, .screenHeight * 0.08)
             }
-            .padding(.bottom, .screenHeight * 0.08)
             
             Button {
                 Task {
